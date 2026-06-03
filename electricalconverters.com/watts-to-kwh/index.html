@@ -1,0 +1,506 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Primary Meta -->
+<title>Watts to kWh Calculator | ElectricalConverters</title>
+<meta content="Convert watts to kilowatt-hours (kWh). Enter watts and usage hours to calculate energy consumption instantly. Includes electricity cost estimator." name="description"/>
+<link href="https://electricalconverters.com/watts-to-kwh/" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="Watts to kWh Calculator | ElectricalConverters" property="og:title"/>
+<meta content="Convert watts to kilowatt-hours (kWh). Enter watts and usage hours to calculate energy consumption instantly. Includes electricity cost estimator." property="og:description"/>
+<meta content="https://electricalconverters.com/watts-to-kwh/" property="og:url"/>
+<!-- Tailwind CSS (CDN) -->
+<!-- Google Fonts -->
+<!-- Site Design System -->
+<link href="/assets/css/main.css" rel="stylesheet"/>
+<!-- FAQPage Structured Data -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I convert watts to kilowatt-hours?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "kWh = (W × hours) ÷ 1,000. Multiply the device's power rating in watts by the number of hours it runs, then divide by 1,000 to convert watts to kilowatts. Example: a 1,500 W heater running for 4 hours = (1,500 × 4) ÷ 1,000 = 6 kWh."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many kWh does a 1000-watt device use in 24 hours?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "(1,000 × 24) ÷ 1,000 = 24 kWh per day. At a typical US rate of $0.16/kWh, that is 24 × $0.16 = $3.84 per day, or approximately $115.20 per month."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does it cost to run a 1500-watt heater for 8 hours?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Energy = (1,500 × 8) ÷ 1,000 = 12 kWh. At $0.16/kWh: 12 × $0.16 = $1.92. Monthly (8 h/day): 12 × 30 = 360 kWh, costing $57.60."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between watts and kilowatt-hours?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Watts (W) measure the rate of power consumption — how fast energy is used. Kilowatt-hours (kWh) measure the total energy consumed over time. A 100 W bulb uses 100 W at any instant, but running it for 10 hours consumes (100 × 10) ÷ 1,000 = 1 kWh of energy. kWh is what your electricity bill charges."
+        }
+      }
+    ]
+  }
+  </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://electricalconverters.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Watts to kWh",
+        "item": "https://electricalconverters.com/watts-to-kwh/"
+      }
+    ]
+  }
+  </script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
+<body>
+<header class="site-header">
+<div class="header-inner">
+<a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<nav aria-label="Main navigation" class="site-nav">
+<ul class="nav-list">
+<li><a class="nav-link" href="/watts-to-amps/">W to A</a></li>
+<li><a class="nav-link" href="/kw-to-amps/">kW to A</a></li>
+<li><a class="nav-link" href="/amps-to-watts/">A to W</a></li>
+<li><a class="nav-link" href="/watts-to-volts/">W to V</a></li>
+<li><a class="nav-link" href="/amps-to-volts/">A to V</a></li>
+<li><a class="nav-link" href="/kva-to-kw/">kVA to kW</a></li>
+<li><a class="nav-link" href="/kva-to-amps/">kVA to A</a></li>
+<li><a class="nav-link" href="/va-to-watts/">VA to W</a></li>
+<li><a class="nav-link" href="/kwh-to-watts/">kWh to W</a></li>
+<li><a class="nav-link" href="/watts-to-kwh/">W to kWh</a></li>
+<li><a class="nav-link" href="/mah-to-wh/">mAh to Wh</a></li>
+<li><a class="nav-link" href="/wh-to-mah/">Wh to mAh</a></li>
+</ul>
+</nav>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle">
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+</button>
+</div>
+</header>
+<div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
+<div class="mobile-nav-inner">
+<div class="mobile-nav-header">
+<span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+<button aria-label="Close navigation" class="nav-close">×</button>
+</div>
+<ul class="mobile-nav-list">
+<li><a class="nav-link" href="/watts-to-amps/">W to A</a></li>
+<li><a class="nav-link" href="/kw-to-amps/">kW to A</a></li>
+<li><a class="nav-link" href="/amps-to-watts/">A to W</a></li>
+<li><a class="nav-link" href="/watts-to-volts/">W to V</a></li>
+<li><a class="nav-link" href="/amps-to-volts/">A to V</a></li>
+<li><a class="nav-link" href="/kva-to-kw/">kVA to kW</a></li>
+<li><a class="nav-link" href="/kva-to-amps/">kVA to A</a></li>
+<li><a class="nav-link" href="/va-to-watts/">VA to W</a></li>
+<li><a class="nav-link" href="/kwh-to-watts/">kWh to W</a></li>
+<li><a class="nav-link" href="/watts-to-kwh/">W to kWh</a></li>
+<li><a class="nav-link" href="/mah-to-wh/">mAh to Wh</a></li>
+<li><a class="nav-link" href="/wh-to-mah/">Wh to mAh</a></li>
+</ul>
+</div>
+</div>
+<!-- Hero -->
+<main id="main-content">
+<div class="page-wrap"><div class="calc-header">
+<h1 id="page-heading">Watts to kWh Calculator</h1>
+<p>Calculate energy consumption and electricity cost from watts and usage hours.</p>
+</div>
+<!-- ── Converter Tool ──────────────────────────── -->
+<section aria-label="Watts to kWh converter tool">
+<div aria-label="Watts to kWh calculator" class="converter-card" role="form">
+<!-- Inputs -->
+<div class="input-row">
+<div class="field-group" style="margin-bottom:0">
+<label for="input-watts">Power (W)</label>
+<input aria-label="Power in watts" autocomplete="off" class="input-field" id="input-watts" inputmode="decimal" min="0" step="any" type="number" value="1500"/>
+</div>
+<div class="field-group" style="margin-bottom:0">
+<label for="input-hours">Hours of Use</label>
+<input aria-label="Time in hours" autocomplete="off" class="input-field" id="input-hours" inputmode="decimal" min="0" step="any" type="number" value="8"/>
+</div>
+</div>
+<!-- Result -->
+<div class="result-wrap">
+<div aria-atomic="true" aria-live="polite" class="result-display" id="result-display">
+<div class="result-display__label">RESULT — ENERGY</div>
+<div class="result-display__value-row">
+<span class="result-display__value" id="result-value">—</span>
+<span class="result-display__unit" id="result-unit" style="display:none">kWh</span>
+</div>
+<div class="result-display__formula-note" id="formula-note">Formula: kWh = (W × hours) ÷ 1,000</div>
+</div>
+</div>
+<!-- Cost Estimator -->
+<div class="cost-estimator">
+<div class="cost-estimator__header"> Electricity Cost Estimate</div>
+<div class="field-group" style="margin-bottom: 0;">
+<label for="input-rate">Electricity Rate ($/kWh)</label>
+<input aria-label="Electricity rate in dollars per kilowatt-hour" autocomplete="off" class="input-field" id="input-rate" inputmode="decimal" min="0" step="0.001" type="number" value="0.16"/>
+<div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.375rem;">US average ≈ $0.16/kWh (2024)</div>
+</div>
+<div class="cost-rows">
+<div>Cost for <span id="cost-hours-label">8</span> hours: <strong>$<span id="cost-session">0.00</span></strong></div>
+<div>Daily cost (if run <span id="cost-daily-hours-label">8</span> h/day): <strong>$<span id="cost-daily">0.00</span></strong></div>
+<div>Monthly cost (30 days): <strong>$<span id="cost-monthly">0.00</span></strong></div>
+</div>
+</div>
+</div>
+</section>
+<!-- ── Formula ──────────────────────────────────── -->
+<section aria-labelledby="formula-heading" class="content-section">
+<h2 id="formula-heading">Watts to kWh Formula</h2>
+<div class="formula-block">
+<span class="var">kWh</span> = (<span class="var">W</span> × <span class="var">h</span>) ÷ 1,000
+      </div>
+<p class="formula-desc">
+        To calculate kilowatt-hours, multiply the power consumption in watts by the number of hours the device is used, then divide the result by 1,000 to convert from watt-hours to kilowatt-hours.
+      </p>
+<p class="formula-desc" style="margin-top: 1rem;">
+<strong>Reverse formula:</strong> W = (kWh × 1,000) ÷ h
+        <br/>
+<a href="/kwh-to-watts/" style="color:var(--accent); text-decoration:none; display:inline-block; margin-top:0.5rem;">to kWh to Watts Converter</a>
+</p>
+<div style="margin-top: 1.5rem;">
+<p style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.5rem;">Worked Example:</p>
+<p class="formula-desc">A 900 W air conditioner running 6 hours a day for 30 days:</p>
+<ul style="list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8; color: var(--text-secondary); font-size: 0.9375rem;">
+<li><strong>Daily kWh</strong> = (900 × 6) ÷ 1,000 = <span style="color:var(--accent); font-family:var(--font-mono);">5.4 kWh</span></li>
+<li><strong>Monthly kWh</strong> = 5.4 × 30 = <span style="color:var(--accent); font-family:var(--font-mono);">162 kWh</span></li>
+</ul>
+</div>
+</section>
+<!-- Breaker Box -->
+<div class="breaker-box">
+      Need to go the other way? Use our <a href="/kwh-to-watts/">Back to kWh to Watts Converter</a>
+</div>
+<!-- ── Examples Table ───────────────────────────── -->
+<section aria-labelledby="examples-heading" class="content-section">
+<h2 id="examples-heading">Common Appliance Energy Use</h2>
+<div aria-label="Common appliance energy usage table" class="examples-table-wrap" role="region" tabindex="0">
+<table class="examples-table">
+<thead>
+<tr>
+<th scope="col">Appliance</th>
+<th scope="col">Watts</th>
+<th scope="col">Daily Hours</th>
+<th scope="col">Daily kWh</th>
+<th scope="col">Monthly kWh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Refrigerator (modern)</td>
+<td class="col-num">150 W</td>
+<td class="col-num">24 h</td>
+<td class="col-result">3.60 kWh</td>
+<td class="col-result">108 kWh</td>
+</tr>
+<tr>
+<td>Air conditioner (small)</td>
+<td class="col-num">900 W</td>
+<td class="col-num">8 h</td>
+<td class="col-result">7.20 kWh</td>
+<td class="col-result">216 kWh</td>
+</tr>
+<tr>
+<td>Electric heater</td>
+<td class="col-num">1,500 W</td>
+<td class="col-num">6 h</td>
+<td class="col-result">9.00 kWh</td>
+<td class="col-result">270 kWh</td>
+</tr>
+<tr>
+<td>Washing machine</td>
+<td class="col-num">500 W</td>
+<td class="col-num">1 h</td>
+<td class="col-result">0.50 kWh</td>
+<td class="col-result">15 kWh</td>
+</tr>
+<tr>
+<td>Dishwasher</td>
+<td class="col-num">1,200 W</td>
+<td class="col-num">1 h</td>
+<td class="col-result">1.20 kWh</td>
+<td class="col-result">36 kWh</td>
+</tr>
+<tr>
+<td>LED TV (55")</td>
+<td class="col-num">80 W</td>
+<td class="col-num">5 h</td>
+<td class="col-result">0.40 kWh</td>
+<td class="col-result">12 kWh</td>
+</tr>
+<tr>
+<td>Desktop computer</td>
+<td class="col-num">200 W</td>
+<td class="col-num">8 h</td>
+<td class="col-result">1.60 kWh</td>
+<td class="col-result">48 kWh</td>
+</tr>
+<tr>
+<td>LED bulb</td>
+<td class="col-num">10 W</td>
+<td class="col-num">8 h</td>
+<td class="col-result">0.08 kWh</td>
+<td class="col-result">2.4 kWh</td>
+</tr>
+<tr>
+<td>Phone charger</td>
+<td class="col-num">5 W</td>
+<td class="col-num">2 h</td>
+<td class="col-result">0.01 kWh</td>
+<td class="col-result">0.3 kWh</td>
+</tr>
+<tr>
+<td>Electric oven</td>
+<td class="col-num">2,400 W</td>
+<td class="col-num">1 h</td>
+<td class="col-result">2.40 kWh</td>
+<td class="col-result">72 kWh</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- ── FAQ ──────────────────────────────────────── -->
+<section aria-labelledby="faq-heading" class="content-section">
+<h2 id="faq-heading">Frequently Asked Questions</h2>
+<div class="faq-list">
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            How do I convert watts to kilowatt-hours?
+            
+</div>
+<div class="faq-item__answer">
+<p>
+              kWh = (W × hours) ÷ 1,000. Multiply the device's power rating in watts by the number of hours it runs, then divide by 1,000 to convert watts to kilowatts. Example: a 1,500 W heater running for 4 hours = (1,500 × 4) ÷ 1,000 = 6 kWh.
+            </p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            How many kWh does a 1000-watt device use in 24 hours?
+            
+</div>
+<div class="faq-item__answer">
+<p>
+              (1,000 × 24) ÷ 1,000 = 24 kWh per day. At a typical US rate of $0.16/kWh, that is 24 × $0.16 = $3.84 per day, or approximately $115.20 per month.
+            </p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            How much does it cost to run a 1500-watt heater for 8 hours?
+            
+</div>
+<div class="faq-item__answer">
+<p>
+              Energy = (1,500 × 8) ÷ 1,000 = 12 kWh. At $0.16/kWh: 12 × $0.16 = $1.92. Monthly (8 h/day): 12 × 30 = 360 kWh, costing $57.60.
+            </p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            What is the difference between watts and kilowatt-hours?
+            
+</div>
+<div class="faq-item__answer">
+<p>
+              Watts (W) measure the rate of power consumption — how fast energy is used. Kilowatt-hours (kWh) measure the total energy consumed over time. A 100 W bulb uses 100 W at any instant, but running it for 10 hours consumes (100 × 10) ÷ 1,000 = 1 kWh of energy. kWh is what your electricity bill charges.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ── Related Calculators ──────────────────────── -->
+<section aria-labelledby="related-heading" class="content-section">
+<h2 id="related-heading">Related Calculators</h2>
+<div class="related-grid">
+<a class="related-link" href="/kwh-to-watts/">
+<span class="related-link__icon"></span> kWh to Watts
+        </a>
+<a class="related-link" href="/watts-to-amps/">
+<span class="related-link__icon"></span> Watts to Amps
+        </a>
+<a class="related-link" href="/kw-to-amps/">
+<span class="related-link__icon"></span> kW to Amps
+        </a>
+<a class="related-link" href="/kva-to-kw/">
+<span class="related-link__icon"></span> kVA to kW
+        </a>
+<a class="related-link" href="/mah-to-wh/">
+<span class="related-link__icon"></span> mAh to Wh
+        </a>
+<a class="related-link" href="/wh-to-mah/">
+<span class="related-link__icon"></span> Wh to mAh
+        </a>
+</div>
+</section>
+</div><!-- /page-wrap -->
+</main>
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner">
+    <div class="footer-brand">
+      <span class="footer-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+      <p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com</p>
+    </div>
+    <div class="footer-links">
+      <a href="/privacy/">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="footer-disclaimer">
+    <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
+  </div>
+</footer>
+<script src="/assets/js/converters.js"></script>
+<script src="/assets/js/ui.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  initPage(); // inits footer year, mobile nav, FAQ accordion
+
+  const inputWatts = document.getElementById('input-watts');
+  const inputHours = document.getElementById('input-hours');
+  const inputRate  = document.getElementById('input-rate');
+
+  const resultDisplay   = document.getElementById('result-display');
+  const resultValue     = document.getElementById('result-value');
+  const resultUnit      = document.getElementById('result-unit');
+  const formulaNote     = document.getElementById('formula-note');
+
+  const costHoursLabel      = document.getElementById('cost-hours-label');
+  const costDailyHoursLabel = document.getElementById('cost-daily-hours-label');
+  const costSession         = document.getElementById('cost-session');
+  const costDaily           = document.getElementById('cost-daily');
+  const costMonthly         = document.getElementById('cost-monthly');
+
+  function calculate() {
+    const w = parseFloat(inputWatts.value);
+    const h = parseFloat(inputHours.value);
+    const r = parseFloat(inputRate.value);
+
+    // Update hour labels
+    costHoursLabel.textContent      = !isNaN(h) ? h : '—';
+    costDailyHoursLabel.textContent = !isNaN(h) ? h : '—';
+
+    const kwh = Converters.wattsToKwh(w, h);
+
+    if (kwh === null) {
+      resultDisplay.classList.add('invalid');
+      resultDisplay.classList.remove('has-result');
+      resultValue.textContent    = '—';
+      resultUnit.style.display   = 'none';
+      formulaNote.classList.remove('live');
+      formulaNote.textContent    = 'Formula: kWh = (W × hours) ÷ 1,000';
+
+      costSession.textContent = '0.00';
+      costDaily.textContent   = '0.00';
+      costMonthly.textContent = '0.00';
+    } else {
+      resultDisplay.classList.remove('invalid');
+      resultDisplay.classList.add('has-result');
+      animateResultTick('result-value');
+      resultValue.textContent  = Converters.formatResult(kwh, 4);
+      resultUnit.style.display = '';
+
+      formulaNote.classList.add('live');
+      formulaNote.textContent = `kWh = (${w} × ${h}) ÷ 1,000 = ${Converters.formatResult(kwh, 4)} kWh`;
+
+      if (!isNaN(r) && r >= 0) {
+        const cost    = kwh * r;
+        const monthly = cost * 30;
+
+        costSession.textContent = Converters.formatResult(cost, 2);
+        costDaily.textContent   = Converters.formatResult(cost, 2);
+        costMonthly.textContent = Converters.formatResult(monthly, 2);
+      } else {
+        costSession.textContent = '—';
+        costDaily.textContent   = '—';
+        costMonthly.textContent = '—';
+      }
+    }
+  }
+
+  inputWatts.addEventListener('input', calculate);
+  inputHours.addEventListener('input', calculate);
+  inputRate.addEventListener('input', calculate);
+
+  calculate();
+})();
+</script>
+<script>
+const navToggle = document.querySelector('.nav-toggle');
+const mobileNav = document.getElementById('mobile-nav');
+const navClose = document.querySelector('.nav-close');
+
+function openNav() {
+  if (!mobileNav) return;
+  mobileNav.classList.add('is-open');
+  mobileNav.removeAttribute('aria-hidden');
+  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeNav() {
+  if (!mobileNav) return;
+  mobileNav.classList.remove('is-open');
+  mobileNav.setAttribute('aria-hidden', 'true');
+  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+if (navToggle) navToggle.addEventListener('click', openNav);
+if (navClose) navClose.addEventListener('click', closeNav);
+
+if (mobileNav) {
+  mobileNav.addEventListener('click', (e) => {
+    if (e.target === mobileNav) closeNav();
+  });
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeNav();
+});
+
+// Mark active nav link based on current URL
+document.querySelectorAll('.nav-link').forEach(link => {
+  if (link.getAttribute('href') === window.location.pathname) {
+    link.classList.add('active');
+  }
+});
+</script>
+</body>
+</html>

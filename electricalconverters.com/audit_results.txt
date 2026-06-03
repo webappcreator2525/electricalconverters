@@ -1,0 +1,57 @@
+﻿
+======================================================================
+AUDIT COMPLETE ÔÇö 52 issues found
+======================================================================
+
+[PAGE] / | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] / | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /watts-to-amps/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /watts-to-amps/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /kva-to-kw/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /kva-to-kw/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /kwh-to-watts/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /kwh-to-watts/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /kva-to-amps/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /kva-to-amps/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /amps-to-watts/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /amps-to-watts/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /mah-to-wh/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /mah-to-wh/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /kw-to-amps/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /kw-to-amps/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /watts-to-volts/ | [CAT] Emojis | Emoji chars found: {'­şôİ', 'Ô£ò', '­şôí'}
+[PAGE] /watts-to-volts/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /wh-to-mah/ | [CAT] Emojis | Emoji chars found: {'Ô£ò', '­şöå'}
+[PAGE] /wh-to-mah/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /amps-to-volts/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /amps-to-volts/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /watts-to-kwh/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /watts-to-kwh/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /va-to-watts/ | [CAT] Emojis | Emoji chars found: {'Ô£ò', '­şöÇ'}
+[PAGE] /va-to-watts/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /watts-to-amps/500-watts-to-amps/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /watts-to-amps/500-watts-to-amps/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /watts-to-amps/1000-watts-to-amps/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /watts-to-amps/1000-watts-to-amps/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /watts-to-amps/1500-watts-to-amps/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /watts-to-amps/1500-watts-to-amps/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /watts-to-amps/2000-watts-to-amps/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /watts-to-amps/2000-watts-to-amps/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /watts-to-amps/3000-watts-to-amps/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /watts-to-amps/3000-watts-to-amps/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /watts-to-amps/5000-watts-to-amps/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /watts-to-amps/5000-watts-to-amps/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /kw-to-amps/1-kw-to-amps/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /kw-to-amps/1-kw-to-amps/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /kw-to-amps/2-kw-to-amps/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /kw-to-amps/2-kw-to-amps/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /kw-to-amps/5-kw-to-amps/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /kw-to-amps/5-kw-to-amps/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /kw-to-amps/10-kw-to-amps/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /kw-to-amps/10-kw-to-amps/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /learn/watts-vs-amps/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /learn/watts-vs-amps/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /learn/ohms-law/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /learn/ohms-law/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
+[PAGE] /privacy/ | [CAT] Emojis | Emoji chars found: {'Ô£ò'}
+[PAGE] /privacy/ | [CAT] Assets | Tailwind CDN loaded ÔÇö may override custom styles
