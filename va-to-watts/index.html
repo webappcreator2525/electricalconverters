@@ -16,7 +16,8 @@
 <!-- Tailwind CSS (CDN) -->
 <!-- Google Fonts -->
 <!-- Site Design System -->
-<link href="/assets/css/main.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=5ab7cbd4" rel="stylesheet"/>
 <!-- FAQPage Structured Data -->
 <script type="application/ld+json">
   {
@@ -78,10 +79,8 @@
     ]
   }
   </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
-<body>
+</head>
+<body data-calc="va-to-watts">
 <!-- HEADER -->
 <header class="site-header">
 <div class="header-inner">
@@ -143,17 +142,17 @@
 <div aria-label="VA to watts calculator" class="converter-card" role="form">
 <!-- Inputs -->
 <div class="input-row">
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-va">Volt-Amperes (VA)</label>
 <input aria-label="Apparent power in volt-amperes" autocomplete="off" class="input-field" id="input-va" inputmode="decimal" min="0" step="any" type="number" value="1500"/>
 </div>
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-pf">Power Factor (PF)</label>
 <input aria-label="Power factor between 0 and 1" autocomplete="off" class="input-field" id="input-pf" inputmode="decimal" max="1" min="0.01" step="0.01" type="number" value="0.8"/>
 </div>
 </div>
 <!-- PF Presets -->
-<div style="margin-top:1.125rem;">
+<div class="u18e6cd">
 <div class="pf-preset-label">Common power factors — click to fill</div>
 <div aria-label="Power factor presets" class="pf-presets" role="group">
 <button aria-label="Set PF to 0.6 — older UPS" class="pf-btn" data-pf="0.6" type="button">
@@ -210,23 +209,23 @@
 <!-- Formula Section -->
 <section aria-labelledby="formula-heading" class="content-section">
 <h2 id="formula-heading">VA to Watts Formula</h2>
-<div class="formula-block" style="margin-bottom:0.75rem;">
+<div class="formula-block u58fdc5">
 <span class="var">W</span> = <span class="var">VA</span> × <span class="var">PF</span>
 </div>
-<p class="formula-desc" style="margin-top:0.5rem;">
+<p class="formula-desc u3db596">
 <strong>Example:</strong> 2,000 VA × 0.85 PF = 1,700 W
       </p>
-<div class="formula-block" style="margin-top:1rem;margin-bottom:0.75rem;">
+<div class="formula-block u642eb3">
 <span class="var">kW</span> = (<span class="var">VA</span> × <span class="var">PF</span>) ÷ 1,000
       </div>
-<p class="formula-desc" style="margin-top:0.5rem;">
+<p class="formula-desc u3db596">
 <strong>Example:</strong> 2,000 VA × 0.85 PF = 1.7 kW
       </p>
-<p class="formula-desc" style="margin-top:1.5rem;">
+<p class="formula-desc uc9d9eb">
         The <strong>power triangle</strong> shows three related quantities: apparent power (VA), real power (W), and reactive power (VAR). The power factor is the cosine of the angle between apparent and real power: <strong>PF = W ÷ VA</strong>. A PF of 1.0 means all apparent power is doing useful work; a lower PF means some power is being stored and returned by reactive components (inductors, capacitors) rather than consumed.
       </p>
-<p class="formula-desc" style="margin-top:0.75rem;">
-        Working with kilovolt-amperes instead? See our <a href="/kva-to-kw/" style="color:var(--accent);text-decoration:none;font-weight:600;">kVA to kW Calculator to</a>
+<p class="formula-desc u001c27">
+        Working with kilovolt-amperes instead? See our <a class="u5d2657" href="/kva-to-kw/">kVA to kW Calculator to</a>
 </p>
 </section>
 <!-- Reference Table -->
@@ -312,7 +311,7 @@
 </tbody>
 </table>
 </div>
-<p style="margin-top:0.75rem;font-size:0.8125rem;color:var(--text-muted);">PF 0.8 column highlighted — the most common default for general estimation.</p>
+<p class="u80632b">PF 0.8 column highlighted — the most common default for general estimation.</p>
 </section>
 <!-- VA vs Watts Explainer -->
 <section aria-labelledby="explainer-heading" class="content-section">
@@ -428,138 +427,8 @@
     <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
   </div>
 </footer>
-<script src="/assets/js/converters.js"></script>
-<script src="/assets/js/ui.js"></script>
-<script>
-(function () {
-  'use strict';
-
-  initPage(); // inits footer year, mobile nav, FAQ accordion
-
-  const inputVa  = document.getElementById('input-va');
-  const inputPf  = document.getElementById('input-pf');
-
-  const resultWEl  = document.getElementById('result-w');
-  const resultKwEl = document.getElementById('result-kw');
-
-  const resultValueW  = document.getElementById('result-value-w');
-  const resultValueKw = document.getElementById('result-value-kw');
-  const resultUnitW   = document.getElementById('result-unit-w');
-  const resultUnitKw  = document.getElementById('result-unit-kw');
-
-  const formulaNoteW  = document.getElementById('formula-note-w');
-  const formulaNoteKw = document.getElementById('formula-note-kw');
-
-  const pfBtns = document.querySelectorAll('.pf-btn');
-
-  /* ── PF preset buttons ──────────────────────────── */
-  pfBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      inputPf.value = btn.dataset.pf;
-      pfBtns.forEach(function (b) { b.classList.remove('selected'); });
-      btn.classList.add('selected');
-      calculate();
-    });
-  });
-
-  inputPf.addEventListener('input', function () {
-    const val = parseFloat(inputPf.value);
-    pfBtns.forEach(function (b) { b.classList.remove('selected'); });
-    pfBtns.forEach(function (b) {
-      if (parseFloat(b.dataset.pf) === val) b.classList.add('selected');
-    });
-    calculate();
-  });
-
-  /* ── Calculation ────────────────────────────────── */
-  function calculate() {
-    const va = parseFloat(inputVa.value);
-    const pf = parseFloat(inputPf.value);
-
-    const watts = Converters.vaToWatts(va, pf);
-    const kw    = Converters.vaToKw(va, pf);
-
-    if (watts === null) {
-      // Watts panel
-      resultWEl.classList.add('invalid');
-      resultWEl.classList.remove('has-result');
-      resultValueW.textContent = '—';
-      resultUnitW.style.display = 'none';
-      formulaNoteW.classList.remove('live');
-      formulaNoteW.textContent = 'W = VA × PF';
-
-      // kW panel
-      resultKwEl.classList.add('invalid');
-      resultKwEl.classList.remove('has-result');
-      resultValueKw.textContent = '—';
-      resultUnitKw.style.display = 'none';
-      formulaNoteKw.classList.remove('live');
-      formulaNoteKw.textContent = 'kW = (VA × PF) ÷ 1,000';
-    } else {
-      // Watts panel
-      resultWEl.classList.remove('invalid');
-      resultWEl.classList.add('has-result');
-      animateResultTick('result-value-w');
-      resultValueW.textContent  = Converters.formatResult(watts, 2);
-      resultUnitW.style.display = '';
-      formulaNoteW.classList.add('live');
-      formulaNoteW.textContent = `W = ${va} × ${pf} = ${Converters.formatResult(watts, 2)} W`;
-
-      // kW panel
-      resultKwEl.classList.remove('invalid');
-      resultKwEl.classList.add('has-result');
-      animateResultTick('result-value-kw');
-      resultValueKw.textContent  = Converters.formatResult(kw, 4);
-      resultUnitKw.style.display = '';
-      formulaNoteKw.classList.add('live');
-      formulaNoteKw.textContent = `kW = (${va} × ${pf}) ÷ 1,000 = ${Converters.formatResult(kw, 4)} kW`;
-    }
-  }
-
-  inputVa.addEventListener('input', calculate);
-  calculate();
-})();
-</script>
-<script>
-const navToggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-const navClose = document.querySelector('.nav-close');
-
-function openNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.add('is-open');
-  mobileNav.removeAttribute('aria-hidden');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove('is-open');
-  mobileNav.setAttribute('aria-hidden', 'true');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-if (navToggle) navToggle.addEventListener('click', openNav);
-if (navClose) navClose.addEventListener('click', closeNav);
-
-if (mobileNav) {
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) closeNav();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Mark active nav link based on current URL
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname) {
-    link.classList.add('active');
-  }
-});
-</script>
+<script src="/assets/js/converters.js?v=b37905a4" defer></script>
+<script src="/assets/js/calculators.js?v=857a6a51" defer></script>
+<script src="/assets/js/site.js?v=e872e18f" defer></script>
 </body>
 </html>

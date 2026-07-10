@@ -16,7 +16,8 @@
 <!-- Tailwind CSS (CDN) -->
 <!-- Google Fonts -->
 <!-- Site Design System -->
-<link href="/assets/css/main.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=5ab7cbd4" rel="stylesheet"/>
 <!-- FAQPage JSON-LD -->
 <script type="application/ld+json">
   {
@@ -78,10 +79,8 @@
     ]
   }
   </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
-<body>
+</head>
+<body data-calc="wh-to-mah">
 <!-- HEADER -->
 <header class="site-header">
 <div class="header-inner">
@@ -143,17 +142,17 @@
 <div aria-label="Wh to mAh calculator" class="converter-card" role="form">
 <!-- Inputs -->
 <div class="input-row">
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-wh">Watt-hours (Wh)</label>
 <input aria-label="Energy in watt-hours" autocomplete="off" class="input-field" id="input-wh" inputmode="decimal" min="0" step="any" type="number" value="10"/>
 </div>
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-volts">Voltage (V)</label>
 <input aria-label="Battery voltage" autocomplete="off" class="input-field" id="input-volts" inputmode="decimal" min="0" step="any" type="number" value="3.7"/>
 </div>
 </div>
 <!-- Voltage presets -->
-<div style="margin-top: 1.125rem;">
+<div class="ubd9810">
 <div class="preset-label">Common voltages — click to fill</div>
 <div aria-label="Common voltage presets" class="preset-group" role="group">
 <button aria-label="Set voltage to 3.2V — LiFePO₄" class="preset-btn" data-voltage="3.2" type="button">
@@ -206,18 +205,18 @@
 <!-- Formula -->
 <section aria-labelledby="formula-heading" class="content-section">
 <h2 id="formula-heading">Wh to mAh Formula</h2>
-<div class="formula-block" style="margin-bottom: 1rem;">
+<div class="formula-block u4986ec">
 <span class="var">mAh</span> = (<span class="var">Wh</span> × 1,000) ÷ <span class="var">V</span></div>
 <p class="formula-desc">
         Watt-hours measure energy. mAh measure electric charge. Since energy = charge × voltage
         (E = Q × V), we can isolate charge: Q = E ÷ V. Converting units: because 1 Ah = 1,000 mAh
         and 1 Wh = 1 W × 1 h, the formula becomes mAh = (Wh × 1,000) ÷ V.
       </p>
-<div class="example-list" style="margin-top:1rem; display:flex; flex-direction:column; gap:0.5rem;">
-<div style="font-size:0.9375rem; color:var(--text-secondary);">
+<div class="example-list u98303f">
+<div class="u567c0a">
 <strong>Example 1:</strong> MacBook battery 52.6 Wh at 11.1 V to (52.6 × 1,000) ÷ 11.1 = 4,738 mAh
         </div>
-<div style="font-size:0.9375rem; color:var(--text-secondary);">
+<div class="u567c0a">
 <strong>Example 2:</strong> iPhone 15 battery 13.6 Wh at 3.79 V to (13.6 × 1,000) ÷ 3.79 = 3,589 mAh
         </div>
 </div>
@@ -290,7 +289,7 @@
 </tbody>
 </table>
 </div>
-<p style="margin-top: 0.75rem; font-size: 0.8125rem; color: var(--text-muted);">
+<p class="uf83bae">
         Capacity figures are approximate; actual rated mAh may differ from cell voltage-based calculations due to manufacturer rounding and discharge curves.
       </p>
 </section>
@@ -380,115 +379,8 @@
     <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
   </div>
 </footer>
-<script src="/assets/js/converters.js"></script>
-<script src="/assets/js/ui.js"></script>
-<script>
-(function () {
-  'use strict';
-
-  initPage(); // inits footer year, mobile nav, FAQ accordion
-
-  const inputWh    = document.getElementById('input-wh');
-  const inputVolts = document.getElementById('input-volts');
-
-  const resultDisplay = document.getElementById('result-display');
-  const resultValue   = document.getElementById('result-value');
-  const resultUnit    = document.getElementById('result-unit');
-  const formulaNote   = document.getElementById('formula-note');
-
-  /* ── Preset buttons ──────────────────────────────── */
-  const presetBtns = document.querySelectorAll('.preset-btn');
-
-  presetBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      const v = btn.dataset.voltage;
-      inputVolts.value = v;
-      presetBtns.forEach(function (b) { b.classList.remove('selected'); });
-      btn.classList.add('selected');
-      calculate();
-    });
-  });
-
-  // Re-sync preset highlight when user manually edits voltage field
-  inputVolts.addEventListener('input', function () {
-    presetBtns.forEach(function (b) { b.classList.remove('selected'); });
-    const val = parseFloat(inputVolts.value);
-    presetBtns.forEach(function (b) {
-      if (parseFloat(b.dataset.voltage) === val) b.classList.add('selected');
-    });
-    calculate();
-  });
-
-  /* ── Core calculation ────────────────────────────── */
-  function calculate() {
-    const wh    = parseFloat(inputWh.value);
-    const volts = parseFloat(inputVolts.value);
-
-    const mah = Converters.whToMah(wh, volts);
-
-    if (mah === null) {
-      resultDisplay.classList.add('invalid');
-      resultDisplay.classList.remove('has-result');
-      resultValue.textContent    = '—';
-      resultUnit.style.display   = 'none';
-      formulaNote.classList.remove('live');
-      formulaNote.textContent    = 'Formula: mAh = (Wh × 1,000) ÷ V';
-    } else {
-      resultDisplay.classList.remove('invalid');
-      resultDisplay.classList.add('has-result');
-      animateResultTick('result-value');
-      resultValue.textContent  = Converters.formatResult(mah, 2);
-      resultUnit.style.display = '';
-      formulaNote.classList.add('live');
-      formulaNote.textContent  =
-        `mAh = (${wh} × 1,000) ÷ ${volts}  to  ${Converters.formatResult(mah, 2)} mAh`;
-    }
-  }
-
-  inputWh.addEventListener('input', calculate);
-  calculate();
-})();
-</script>
-<script>
-const navToggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-const navClose = document.querySelector('.nav-close');
-
-function openNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.add('is-open');
-  mobileNav.removeAttribute('aria-hidden');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove('is-open');
-  mobileNav.setAttribute('aria-hidden', 'true');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-if (navToggle) navToggle.addEventListener('click', openNav);
-if (navClose) navClose.addEventListener('click', closeNav);
-
-if (mobileNav) {
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) closeNav();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Mark active nav link based on current URL
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname) {
-    link.classList.add('active');
-  }
-});
-</script>
+<script src="/assets/js/converters.js?v=b37905a4" defer></script>
+<script src="/assets/js/calculators.js?v=857a6a51" defer></script>
+<script src="/assets/js/site.js?v=e872e18f" defer></script>
 </body>
 </html>

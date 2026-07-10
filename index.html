@@ -11,7 +11,8 @@
 <meta content="Electrical Unit Converters &amp; Calculators" property="og:title"/>
 <meta content="Free electrical calculators: watts to amps, kVA to kW, kWh to watts, and more. Instant results, no signup, works on all devices." property="og:description"/>
 <meta content="https://electricalconverters.com/" property="og:url"/>
-<link href="/assets/css/main.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=5ab7cbd4" rel="stylesheet"/>
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -21,9 +22,7 @@
     "description": "Free online electrical unit conversion calculators for engineers, electricians, students, and DIYers."
   }
   </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
+</head>
 <body>
 <header class="site-header">
 <div class="header-inner">
@@ -197,6 +196,8 @@
   <p class="tool-card__desc">Convert milliamp-hours to watt-hours for battery capacity calculations.</p>
   <span class="tool-card__cta">Calculate &rarr;</span>
 </a>
+</div>
+</section>
 <section aria-labelledby="popular-heading">
   <h2 class="section-heading" id="popular-heading">Popular Calculations</h2>
   <div class="popular-grid">
@@ -255,49 +256,6 @@
     <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
   </div>
 </footer>
-<script>
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-</script>
-<script>
-const navToggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-const navClose = document.querySelector('.nav-close');
-
-function openNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.add('is-open');
-  mobileNav.removeAttribute('aria-hidden');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove('is-open');
-  mobileNav.setAttribute('aria-hidden', 'true');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-if (navToggle) navToggle.addEventListener('click', openNav);
-if (navClose) navClose.addEventListener('click', closeNav);
-
-if (mobileNav) {
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) closeNav();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Mark active nav link based on current URL
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname) {
-    link.classList.add('active');
-  }
-});
-</script>
+<script src="/assets/js/site.js?v=e872e18f" defer></script>
 </body>
 </html>

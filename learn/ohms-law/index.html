@@ -11,7 +11,8 @@
 <meta content="Ohm's Law: V = IR Formula &amp; Calculator" property="og:title"/>
 <meta content="Understand Ohm's Law and the V=IR formula. Use our free, interactive Ohm's Law calculator to find voltage, current, resistance, or power instantly." property="og:description"/>
 <meta content="https://electricalconverters.com/learn/ohms-law/" property="og:url"/>
-<link href="/assets/css/main.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=5ab7cbd4" rel="stylesheet"/>
 <style>
     .content-body { font-family: var(--font-body); color: var(--color-text-muted); line-height: 1.7; }
     .content-body h2 { font-family: var(--font-body); font-size: 1.5rem; font-weight: 600; color: #ffffff; margin-top: 3rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-border); }
@@ -47,10 +48,8 @@
     .related-link { display: flex; align-items: center; gap: 0.6rem; padding: 0.875rem 1rem; background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; text-decoration: none; color: var(--color-text-muted); font-size: 0.875rem; font-weight: 500; transition: color var(--transition-fast), border-color var(--transition-fast); }
     .related-link:hover { color: #ffffff; border-color: var(--color-accent); }
   </style>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
-<body>
+</head>
+<body data-calc="ohms-law">
 <header class="site-header">
 <div class="header-inner">
 <a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
@@ -168,25 +167,25 @@
 <td>Finding Resistance of a Bulb</td>
 <td class="col-mono">120V, 0.5A</td>
 <td>R = V ÷ I</td>
-<td><strong style="color:var(--color-accent)">240 Ω</strong></td>
+<td><strong class="uc636fe">240 Ω</strong></td>
 </tr>
 <tr>
 <td>Current drawn by a Heater</td>
 <td class="col-mono">240V, 20Ω</td>
 <td>I = V ÷ R</td>
-<td><strong style="color:var(--color-accent)">12 A</strong></td>
+<td><strong class="uc636fe">12 A</strong></td>
 </tr>
 <tr>
 <td>Voltage drop across a wire</td>
 <td class="col-mono">15A, 0.2Ω</td>
 <td>V = I × R</td>
-<td><strong style="color:var(--color-accent)">3 V</strong></td>
+<td><strong class="uc636fe">3 V</strong></td>
 </tr>
 <tr>
 <td>Power of an LED strip</td>
 <td class="col-mono">12V, 2A</td>
 <td>P = V × I</td>
-<td><strong style="color:var(--color-accent)">24 W</strong></td>
+<td><strong class="uc636fe">24 W</strong></td>
 </tr>
 </tbody>
 </table>
@@ -236,131 +235,8 @@
     <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
   </div>
 </footer>
-<script>
-(function() {
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-  
-  const inputs = {
-    v: document.getElementById('input-v'),
-    i: document.getElementById('input-i'),
-    r: document.getElementById('input-r'),
-    p: document.getElementById('input-p')
-  };
-  const clearBtn = document.getElementById('btn-clear');
-  
-  let activeInputs = [];
-  
-  function getVals() {
-    return {
-      v: parseFloat(inputs.v.value),
-      i: parseFloat(inputs.i.value),
-      r: parseFloat(inputs.r.value),
-      p: parseFloat(inputs.p.value)
-    };
-  }
-  
-  function setVal(key, val) {
-    if (!activeInputs.includes(key)) {
-      inputs[key].value = parseFloat(val.toFixed(4));
-    }
-  }
-  
-  function calculate(e) {
-    const id = e.target.id.replace('input-', '');
-    if (!activeInputs.includes(id) && e.target.value !== "") {
-      activeInputs.push(id);
-      if (activeInputs.length > 2) {
-        // keep only the last two modified
-        const dropped = activeInputs.shift();
-        inputs[dropped].value = "";
-      }
-    }
-    
-    if (e.target.value === "") {
-      activeInputs = activeInputs.filter(x => × !== id);
-      // clear non-active fields
-      Object.keys(inputs).forEach(k => {
-        if (!activeInputs.includes(k)) inputs[k].value = "";
-      });
-      return;
-    }
-    
-    if (activeInputs.length === 2) {
-      const vals = getVals();
-      
-      // Calculate missing values based on combinations
-      if (!isNaN(vals.v) && !isNaN(vals.i)) {
-        setVal('r', vals.v / vals.i);
-        setVal('p', vals.v * vals.i);
-      } else if (!isNaN(vals.v) && !isNaN(vals.r)) {
-        setVal('i', vals.v / vals.r);
-        setVal('p', (vals.v * vals.v) / vals.r);
-      } else if (!isNaN(vals.v) && !isNaN(vals.p)) {
-        setVal('i', vals.p / vals.v);
-        setVal('r', (vals.v * vals.v) / vals.p);
-      } else if (!isNaN(vals.i) && !isNaN(vals.r)) {
-        setVal('v', vals.i * vals.r);
-        setVal('p', vals.i * vals.i * vals.r);
-      } else if (!isNaN(vals.i) && !isNaN(vals.p)) {
-        setVal('v', vals.p / vals.i);
-        setVal('r', vals.p / (vals.i * vals.i));
-      } else if (!isNaN(vals.r) && !isNaN(vals.p)) {
-        setVal('v', Math.sqrt(vals.p * vals.r));
-        setVal('i', Math.sqrt(vals.p / vals.r));
-      }
-    }
-  }
-  
-  Object.keys(inputs).forEach(key => {
-    inputs[key].addEventListener('input', calculate);
-  });
-  
-  clearBtn.addEventListener('click', () => {
-    activeInputs = [];
-    Object.keys(inputs).forEach(key => inputs[key].value = "");
-  });
-})();
-</script>
-<script>
-const navToggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-const navClose = document.querySelector('.nav-close');
-
-function openNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.add('is-open');
-  mobileNav.removeAttribute('aria-hidden');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove('is-open');
-  mobileNav.setAttribute('aria-hidden', 'true');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-if (navToggle) navToggle.addEventListener('click', openNav);
-if (navClose) navClose.addEventListener('click', closeNav);
-
-if (mobileNav) {
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) closeNav();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Mark active nav link based on current URL
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname) {
-    link.classList.add('active');
-  }
-});
-</script>
+<script src="/assets/js/converters.js?v=b37905a4" defer></script>
+<script src="/assets/js/calculators.js?v=857a6a51" defer></script>
+<script src="/assets/js/site.js?v=e872e18f" defer></script>
 </body>
 </html>

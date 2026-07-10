@@ -11,7 +11,8 @@
 <meta content="Watts to Amps Calculator | ElectricalConverters" property="og:title"/>
 <meta content="Convert watts to amps instantly. Enter watts and voltage — get amps for DC, AC single-phase, and AC three-phase circuits. Free, no signup." property="og:description"/>
 <meta content="https://electricalconverters.com/watts-to-amps/" property="og:url"/>
-<link href="/assets/css/main.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=5ab7cbd4" rel="stylesheet"/>
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -52,10 +53,8 @@
     ]
   }
   </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
-<body>
+</head>
+<body data-calc="watts-to-amps">
 <header class="site-header">
 <div class="header-inner">
 <a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
@@ -128,7 +127,7 @@
 <div class="input-row">
 <div class="field-group">
 <label for="input-phase">Circuit Type</label>
-<select aria-label="Circuit type" class="input-field" id="input-phase" style="appearance: auto;">
+<select aria-label="Circuit type" class="input-field u87f5fc" id="input-phase">
 <option value="dc">DC (Direct Current)</option>
 <option value="single">AC — Single-phase</option>
 <option value="three">AC — Three-phase</option>
@@ -148,10 +147,10 @@
 <!-- FORMULA SECTION -->
 <section aria-labelledby="formulas-heading">
 <h2 class="section-heading" id="formulas-heading">Watts to Amps Formula</h2>
-<div class="formula-block" style="margin-bottom: 2rem;">
+<div class="formula-block u257995">
         DC: A = W ÷ V
       </div>
-<div class="formula-block" style="margin-bottom: 2rem;">
+<div class="formula-block u257995">
         AC Single-phase: A = W ÷ (V × PF)
       </div>
 <div class="formula-block">
@@ -212,113 +211,8 @@
     <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
   </div>
 </footer>
-<script src="/assets/js/converters.js"></script>
-<script>
-(function () {
-  'use strict';
-
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-  const inputWatts = document.getElementById('input-watts');
-  const inputVolts = document.getElementById('input-volts');
-  const inputPhase = document.getElementById('input-phase');
-  const inputPF = document.getElementById('input-pf');
-  const pfWrapper = document.getElementById('pf-wrapper');
-  const resultValue = document.getElementById('result-value');
-
-  function updatePFVisibility() {
-    const isAC = inputPhase.value !== 'dc';
-    inputPF.disabled = !isAC;
-    if(!isAC) {
-        pfWrapper.style.opacity = '0.5';
-    } else {
-        pfWrapper.style.opacity = '1';
-    }
-  }
-
-  function calculate() {
-    const watts = parseFloat(inputWatts.value);
-    const volts = parseFloat(inputVolts.value);
-    const phase = inputPhase.value;
-    const pf = parseFloat(inputPF.value);
-    
-    resultValue.style.opacity = '0.5';
-    
-    setTimeout(() => {
-      let result = null;
-      if (!isNaN(watts) && !isNaN(volts) && volts > 0) {
-        if (phase === 'dc') {
-            result = watts / volts;
-        } else if (phase === 'single' && !isNaN(pf) && pf > 0) {
-            result = watts / (volts * pf);
-        } else if (phase === 'three' && !isNaN(pf) && pf > 0) {
-            result = watts / (volts * pf * Math.sqrt(3));
-        }
-      }
-
-      if (result === null) {
-        resultValue.textContent = '—';
-        resultValue.classList.add('empty');
-      } else {
-        resultValue.textContent = Number.isInteger(result) ? result : Number(result.toFixed(4));
-        resultValue.classList.remove('empty');
-      }
-      resultValue.style.opacity = '1';
-    }, 100);
-  }
-
-  inputPhase.addEventListener('change', () => {
-    updatePFVisibility();
-    calculate();
-  });
-  inputWatts.addEventListener('input', calculate);
-  inputVolts.addEventListener('input', calculate);
-  inputPF.addEventListener('input', calculate);
-  
-  updatePFVisibility();
-  calculate();
-})();
-</script>
-<script>
-const navToggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-const navClose = document.querySelector('.nav-close');
-
-function openNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.add('is-open');
-  mobileNav.removeAttribute('aria-hidden');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove('is-open');
-  mobileNav.setAttribute('aria-hidden', 'true');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-if (navToggle) navToggle.addEventListener('click', openNav);
-if (navClose) navClose.addEventListener('click', closeNav);
-
-if (mobileNav) {
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) closeNav();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Mark active nav link based on current URL
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname) {
-    link.classList.add('active');
-  }
-});
-</script>
+<script src="/assets/js/converters.js?v=b37905a4" defer></script>
+<script src="/assets/js/calculators.js?v=857a6a51" defer></script>
+<script src="/assets/js/site.js?v=e872e18f" defer></script>
 </body>
 </html>

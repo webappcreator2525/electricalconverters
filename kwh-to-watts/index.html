@@ -16,7 +16,8 @@
 <!-- Tailwind CSS (CDN) -->
 <!-- Google Fonts -->
 <!-- Site Design System -->
-<link href="/assets/css/main.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=5ab7cbd4" rel="stylesheet"/>
 <!-- FAQPage Structured Data -->
 <script type="application/ld+json">
   {
@@ -58,10 +59,8 @@
     ]
   }
   </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
-<body>
+</head>
+<body data-calc="kwh-to-watts">
 <!-- ═══════════════════════════════════════════════════════════
      HEADER
 ══════════════════════════════════════════════════════════════ -->
@@ -131,11 +130,11 @@
 <div aria-label="kWh to watts calculator" class="converter-card" role="form">
 <!-- Inputs -->
 <div class="input-row">
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-kwh">Energy (kWh)</label>
 <input aria-label="Energy in kilowatt-hours" autocomplete="off" class="input-field" id="input-kwh" inputmode="decimal" min="0" placeholder="e.g. 1.5" step="any" type="number"/>
 </div>
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-hours">Time (hours)</label>
 <input aria-label="Time in hours" autocomplete="off" class="input-field" id="input-hours" inputmode="decimal" min="0" step="any" type="number" value="1"/>
 </div>
@@ -194,10 +193,10 @@
 <div class="formula-var-card__note">The duration over which the energy was used</div>
 </div>
 </div>
-<p class="formula-desc" style="margin-top:0.25rem">
-<strong style="color:var(--text-primary)">Quick example:</strong> Your fridge logs
+<p class="formula-desc u6bb006">
+<strong class="u5ec72c">Quick example:</strong> Your fridge logs
           3 kWh on your electricity meter over 20 hours. Average power:
-          (3 × 1,000) ÷ 20 = <strong style="color:var(--accent)">150 W</strong>.
+          (3 × 1,000) ÷ 20 = <strong class="ubb2b0e">150 W</strong>.
         </p>
 </div>
 </section>
@@ -301,7 +300,7 @@
               Multiply the energy in kilowatt-hours by 1,000, then divide by the
               time in hours: <code>W = (kWh × 1,000) ÷ hours</code>. For example,
               a device consuming 2 kWh over 4 hours has an average power draw of
-              (2 × 1,000) ÷ 4 = <strong style="color:var(--accent)">500 W</strong>.
+              (2 × 1,000) ÷ 4 = <strong class="ubb2b0e">500 W</strong>.
             </p>
 </div>
 </div>
@@ -320,17 +319,17 @@
 <h3 class="faq-item__question">How many watts is 1 kWh?</h3>
 <div class="faq-item__answer">
 <p>1 kWh converts to different wattages depending on the time period:</p>
-<ul style="margin-top:0.5rem; margin-left:1.25rem; line-height:1.9; color:var(--text-secondary)">
-<li>Over <strong style="color:var(--text-primary)">1 hour:</strong>
-                (1 × 1,000) ÷ 1 = <strong style="color:var(--accent)">1,000 W</strong></li>
-<li>Over <strong style="color:var(--text-primary)">2 hours:</strong>
-                (1 × 1,000) ÷ 2 = <strong style="color:var(--accent)">500 W</strong></li>
-<li>Over <strong style="color:var(--text-primary)">30 minutes (0.5 h):</strong>
-                (1 × 1,000) ÷ 0.5 = <strong style="color:var(--accent)">2,000 W</strong></li>
-<li>Over <strong style="color:var(--text-primary)">24 hours:</strong>
-                (1 × 1,000) ÷ 24 ≈ <strong style="color:var(--accent)">41.67 W</strong></li>
+<ul class="ud712d4">
+<li>Over <strong class="u5ec72c">1 hour:</strong>
+                (1 × 1,000) ÷ 1 = <strong class="ubb2b0e">1,000 W</strong></li>
+<li>Over <strong class="u5ec72c">2 hours:</strong>
+                (1 × 1,000) ÷ 2 = <strong class="ubb2b0e">500 W</strong></li>
+<li>Over <strong class="u5ec72c">30 minutes (0.5 h):</strong>
+                (1 × 1,000) ÷ 0.5 = <strong class="ubb2b0e">2,000 W</strong></li>
+<li>Over <strong class="u5ec72c">24 hours:</strong>
+                (1 × 1,000) ÷ 24 ≈ <strong class="ubb2b0e">41.67 W</strong></li>
 </ul>
-<p style="margin-top:0.5rem">
+<p class="ub83168">
               kWh is a measure of energy, not power — so the watt equivalent always depends on time.
             </p>
 </div>
@@ -339,9 +338,9 @@
 <h3 class="faq-item__question">What is the difference between kWh and watts?</h3>
 <div class="faq-item__answer">
 <p>
-<strong style="color:var(--text-primary)">Watts (W)</strong> measure
+<strong class="u5ec72c">Watts (W)</strong> measure
               <em>power</em> — the rate at which energy is used at any instant.
-              <strong style="color:var(--text-primary)">Kilowatt-hours (kWh)</strong> measure
+              <strong class="u5ec72c">Kilowatt-hours (kWh)</strong> measure
               <em>energy</em> — the total power consumed over time. A 1,000 W (1 kW)
               device running for 1 hour consumes 1 kWh. Your electricity bill is
               measured in kWh because it tracks total energy consumed, not instantaneous power.
@@ -395,121 +394,8 @@
 <!-- ═══════════════════════════════════════════════════════════
      SCRIPTS
 ══════════════════════════════════════════════════════════════ -->
-<script src="/assets/js/converters.js"></script>
-<script>
-(function () {
-  'use strict';
-
-  /* ── Element refs ──────────────────────────────── */
-  const inputKwh     = document.getElementById('input-kwh');
-  const inputHours   = document.getElementById('input-hours');
-
-  const resultWattsEl  = document.getElementById('result-watts');
-  const resultValueW   = document.getElementById('result-value-w');
-  const resultUnitW    = document.getElementById('result-unit-w');
-
-  const resultKwEl     = document.getElementById('result-kw');
-  const resultValueKw  = document.getElementById('result-value-kw');
-  const resultUnitKw   = document.getElementById('result-unit-kw');
-
-  const formulaNote    = document.getElementById('formula-note');
-
-  /* ── Footer year ───────────────────────────────── */
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-  /* ── Core update function ──────────────────────── */
-  function calculate() {
-    const kwh   = parseFloat(inputKwh.value);
-    const hours = parseFloat(inputHours.value);
-
-    const watts = Converters.kwhToWatts(kwh, hours);
-
-    if (watts === null) {
-      /* ── Invalid state ── */
-      resultWattsEl.classList.add('invalid');
-      resultWattsEl.classList.remove('has-result');
-      resultValueW.textContent  = '—';
-      resultUnitW.style.display = 'none';
-
-      resultKwEl.classList.add('invalid');
-      resultKwEl.classList.remove('has-result');
-      resultValueKw.textContent  = '—';
-      resultUnitKw.style.display = 'none';
-
-      formulaNote.classList.remove('live');
-      formulaNote.textContent = 'Formula: W = (kWh × 1,000) ÷ hours';
-
-    } else {
-      /* ── Valid result ── */
-      const kw = watts / 1000;
-
-      resultWattsEl.classList.remove('invalid');
-      resultWattsEl.classList.add('has-result');
-      resultValueW.textContent  = Converters.formatResult(watts, 4);
-      resultUnitW.style.display = '';
-
-      resultKwEl.classList.remove('invalid');
-      resultKwEl.classList.add('has-result');
-      resultValueKw.textContent  = Converters.formatResult(kw, 4);
-      resultUnitKw.style.display = '';
-
-      /* Live substituted formula */
-      formulaNote.classList.add('live');
-      formulaNote.textContent =
-        `W = (${kwh} × 1,000) ÷ ${hours}  to  ${Converters.formatResult(watts, 4)} W` +
-        `  |  ${Converters.formatResult(kw, 4)} kW`;
-    }
-  }
-
-  /* ── Event listeners ───────────────────────────── */
-  inputKwh.addEventListener('input', calculate);
-  inputHours.addEventListener('input', calculate);
-
-  /* ── Init ──────────────────────────────────────── */
-  calculate();
-
-})();
-</script>
-<script>
-const navToggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-const navClose = document.querySelector('.nav-close');
-
-function openNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.add('is-open');
-  mobileNav.removeAttribute('aria-hidden');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove('is-open');
-  mobileNav.setAttribute('aria-hidden', 'true');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-if (navToggle) navToggle.addEventListener('click', openNav);
-if (navClose) navClose.addEventListener('click', closeNav);
-
-if (mobileNav) {
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) closeNav();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Mark active nav link based on current URL
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname) {
-    link.classList.add('active');
-  }
-});
-</script>
+<script src="/assets/js/converters.js?v=b37905a4" defer></script>
+<script src="/assets/js/calculators.js?v=857a6a51" defer></script>
+<script src="/assets/js/site.js?v=e872e18f" defer></script>
 </body>
 </html>

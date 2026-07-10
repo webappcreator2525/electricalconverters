@@ -11,7 +11,8 @@
 <meta content="kVA to kW Calculator | ElectricalConverters" property="og:title"/>
 <meta content="Convert kVA to kW instantly. Enter apparent power (kVA) and power factor to calculate real power (kW) using our free online tool." property="og:description"/>
 <meta content="https://electricalconverters.com/kva-to-kw/" property="og:url"/>
-<link href="/assets/css/main.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=5ab7cbd4" rel="stylesheet"/>
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -52,10 +53,8 @@
     ]
   }
   </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
-<body>
+</head>
+<body data-calc="kva-to-kw">
 <header class="site-header">
 <div class="header-inner">
 <a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
@@ -190,83 +189,8 @@
     <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
   </div>
 </footer>
-<script src="/assets/js/converters.js"></script>
-<script>
-(function () {
-  'use strict';
-
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-  const inputKva = document.getElementById('input-kva');
-  const inputPf  = document.getElementById('input-pf');
-  const resultValue = document.getElementById('result-value');
-
-  function calculate() {
-    const kva = parseFloat(inputKva.value);
-    const pf  = parseFloat(inputPf.value);
-    
-    // Simple 100ms fade transition
-    resultValue.style.opacity = '0.5';
-    
-    setTimeout(() => {
-      if (isNaN(kva) || isNaN(pf) || pf < 0 || pf > 1) {
-        resultValue.textContent = '—';
-        resultValue.classList.add('empty');
-      } else {
-        const kw = kva * pf;
-        // Format to max 4 decimal places
-        resultValue.textContent = Number.isInteger(kw) ? kw : Number(kw.toFixed(4));
-        resultValue.classList.remove('empty');
-      }
-      resultValue.style.opacity = '1';
-    }, 100);
-  }
-
-  inputKva.addEventListener('input', calculate);
-  inputPf.addEventListener('input', calculate);
-  calculate();
-})();
-</script>
-<script>
-const navToggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-const navClose = document.querySelector('.nav-close');
-
-function openNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.add('is-open');
-  mobileNav.removeAttribute('aria-hidden');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove('is-open');
-  mobileNav.setAttribute('aria-hidden', 'true');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-if (navToggle) navToggle.addEventListener('click', openNav);
-if (navClose) navClose.addEventListener('click', closeNav);
-
-if (mobileNav) {
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) closeNav();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Mark active nav link based on current URL
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname) {
-    link.classList.add('active');
-  }
-});
-</script>
+<script src="/assets/js/converters.js?v=b37905a4" defer></script>
+<script src="/assets/js/calculators.js?v=857a6a51" defer></script>
+<script src="/assets/js/site.js?v=e872e18f" defer></script>
 </body>
 </html>

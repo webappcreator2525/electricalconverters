@@ -11,7 +11,8 @@
 <meta content="5000 Watts to Amps Calculator &amp; Chart" property="og:title"/>
 <meta content="How many amps is 5000 watts? At 120V DC: 41.6667 A. At 240V DC: 20.8333 A. Free calculator for any voltage online." property="og:description"/>
 <meta content="https://electricalconverters.com/watts-to-amps/5000-watts-to-amps/" property="og:url"/>
-<link href="/assets/css/main.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=5ab7cbd4" rel="stylesheet"/>
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -34,10 +35,8 @@
     ]
   }
   </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
-<body>
+</head>
+<body data-calc="watts-to-amps">
 <header class="site-header">
 <div class="header-inner">
 <a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
@@ -111,16 +110,16 @@
 <section aria-label="Watts to amps calculator">
 <div class="converter-card">
 <div class="input-row">
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-watts">Watts (W)</label>
 <input aria-label="Power in watts" autocomplete="off" class="input-field" id="input-watts" inputmode="decimal" min="0" step="any" type="number" value="5000"/>
 </div>
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-volts">Voltage (V)</label>
 <input aria-label="Voltage in volts" autocomplete="off" class="input-field" id="input-volts" inputmode="decimal" min="0" step="any" type="number" value="240"/>
 </div>
 </div>
-<div class="field-group" style="margin-top:1.25rem;margin-bottom:0">
+<div class="field-group u0ca412">
 <label for="input-phase">Circuit Type</label>
 <select aria-label="Circuit type" class="input-field input-field--select" id="input-phase">
 <option value="dc">DC (Direct Current)</option>
@@ -129,7 +128,7 @@
 </select>
 </div>
 <div aria-hidden="true" class="pf-wrapper" id="pf-wrapper">
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-pf">Power Factor (PF)</label>
 <input aria-label="Power factor" autocomplete="off" class="input-field" id="input-pf" inputmode="decimal" max="1" min="0.01" step="0.01" type="number" value="0.8"/>
 </div>
@@ -173,23 +172,23 @@
 <div class="faq-item">
 <h3 class="faq-item__question">How many amps is 5000 watts at 120V?</h3>
 <div class="faq-item__answer">
-<p>5000 watts at 120V DC = 5000 ÷ 120 = <strong style="color:var(--accent)">41.6667 amps</strong> (unusual at this voltage).
-            For AC single-phase with PF 0.8: 5000 ÷ (120 × 0.8) = <strong style="color:var(--accent)">52.0833 amps</strong>.</p>
+<p>5000 watts at 120V DC = 5000 ÷ 120 = <strong class="ubb2b0e">41.6667 amps</strong> (unusual at this voltage).
+            For AC single-phase with PF 0.8: 5000 ÷ (120 × 0.8) = <strong class="ubb2b0e">52.0833 amps</strong>.</p>
 </div>
 </div>
 <div class="faq-item">
 <h3 class="faq-item__question">How many amps is 5000 watts at 240V?</h3>
 <div class="faq-item__answer">
-<p>5000 watts at 240V DC = 5000 ÷ 240 = <strong style="color:var(--accent)">20.8333 amps</strong>.
-            For AC single-phase with PF 0.8: 5000 ÷ (240 × 0.8) = <strong style="color:var(--accent)">26.0417 amps</strong>.</p>
+<p>5000 watts at 240V DC = 5000 ÷ 240 = <strong class="ubb2b0e">20.8333 amps</strong>.
+            For AC single-phase with PF 0.8: 5000 ÷ (240 × 0.8) = <strong class="ubb2b0e">26.0417 amps</strong>.</p>
 </div>
 </div>
 <div class="faq-item">
 <h3 class="faq-item__question">What size breaker do I need for 5000 watts?</h3>
 <div class="faq-item__answer">
 <p>At 120V, 5000W draws 41.67A. The NEC requires breakers sized at 125% for continuous loads:
-            41.67 × 1.25 = 52.08A. A <strong style="color:var(--accent)">60A breaker</strong> is required (unusual).
-            At 240V (20.83A), a <strong style="color:var(--accent)">30A breaker</strong> is required (typical for 5kW loads).</p>
+            41.67 × 1.25 = 52.08A. A <strong class="ubb2b0e">60A breaker</strong> is required (unusual).
+            At 240V (20.83A), a <strong class="ubb2b0e">30A breaker</strong> is required (typical for 5kW loads).</p>
 </div>
 </div>
 </div>
@@ -229,75 +228,8 @@
     <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
   </div>
 </footer>
-<script src="/assets/js/converters.js"></script>
-<script>
-(function(){
-  'use strict';
-  var FORMULAS={dc:'A = W ÷ V',single:'A = W ÷ (V × PF)',three:'A = W ÷ (V × PF × √3)'};
-  var inputWatts=document.getElementById('input-watts');
-  var inputVolts=document.getElementById('input-volts');
-  var inputPhase=document.getElementById('input-phase');
-  var inputPF=document.getElementById('input-pf');
-  var pfWrapper=document.getElementById('pf-wrapper');
-  var resultDisplay=document.getElementById('result-display');
-  var resultValue=document.getElementById('result-value');
-  var resultUnit=document.getElementById('result-unit');
-  var formulaNote=document.getElementById('formula-note');
-  document.getElementById('footer-year').textContent=new Date().getFullYear();
-  function updatePF(){var ac=inputPhase.value!=='dc';pfWrapper.classList.toggle('visible',ac);pfWrapper.setAttribute('aria-hidden',String(!ac));inputPF.disabled=!ac;}
-  function calculate(){
-    var w=parseFloat(inputWatts.value),v=parseFloat(inputVolts.value),ph=inputPhase.value,pf=parseFloat(inputPF.value);
-    var r=Converters.wattsToAmps(w,v,pf,ph);
-    if(r===null){resultDisplay.classList.add('invalid');resultDisplay.classList.remove('has-result');resultValue.textContent='—';resultUnit.style.display='none';formulaNote.classList.remove('live');formulaNote.textContent='Formula: '+FORMULAS[ph];}
-    else{resultDisplay.classList.remove('invalid');resultDisplay.classList.add('has-result');resultValue.textContent=Converters.formatResult(r,4);resultUnit.style.display='';formulaNote.classList.add('live');formulaNote.textContent=FORMULAS[ph]+' to '+Converters.formatResult(r,4)+' A';}
-  }
-  inputWatts.addEventListener('input',calculate);
-  inputVolts.addEventListener('input',calculate);
-  inputPF.addEventListener('input',calculate);
-  inputPhase.addEventListener('change',function(){updatePF();calculate();});
-  updatePF();calculate();
-})();
-</script>
-<script>
-const navToggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-const navClose = document.querySelector('.nav-close');
-
-function openNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.add('is-open');
-  mobileNav.removeAttribute('aria-hidden');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove('is-open');
-  mobileNav.setAttribute('aria-hidden', 'true');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-if (navToggle) navToggle.addEventListener('click', openNav);
-if (navClose) navClose.addEventListener('click', closeNav);
-
-if (mobileNav) {
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) closeNav();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Mark active nav link based on current URL
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname) {
-    link.classList.add('active');
-  }
-});
-</script>
+<script src="/assets/js/converters.js?v=b37905a4" defer></script>
+<script src="/assets/js/calculators.js?v=857a6a51" defer></script>
+<script src="/assets/js/site.js?v=e872e18f" defer></script>
 </body>
 </html>

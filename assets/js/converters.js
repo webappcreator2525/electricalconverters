@@ -211,6 +211,7 @@ function kvaToAmps(kva, volts, phase = 'single') {
  */
 function mahToWh(mah, volts) {
   if (!_allPositive(mah, volts)) return null;
+  return (mah * volts) / 1000;
 }
 
 

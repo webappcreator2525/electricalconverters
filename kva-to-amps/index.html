@@ -16,7 +16,8 @@
 <!-- Tailwind CSS (CDN) -->
 <!-- Google Fonts -->
 <!-- Site Design System -->
-<link href="/assets/css/main.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=5ab7cbd4" rel="stylesheet"/>
 <!-- FAQPage JSON-LD -->
 <script type="application/ld+json">
   {
@@ -58,10 +59,8 @@
     ]
   }
   </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
-<body>
+</head>
+<body data-calc="kva-to-amps">
 <!-- HEADER -->
 <header class="site-header">
 <div class="header-inner">
@@ -122,16 +121,16 @@
 <section aria-label="kVA to amps converter tool">
 <div aria-label="kVA to amps calculator" class="converter-card" role="form">
 <div class="input-row">
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-kva">Apparent Power (kVA)</label>
 <input aria-label="Power in kVA" autocomplete="off" class="input-field" id="input-kva" inputmode="decimal" min="0" placeholder="e.g. 10" step="any" type="number"/>
 </div>
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-volts">Voltage (V)</label>
 <input aria-label="Voltage in volts" autocomplete="off" class="input-field" id="input-volts" inputmode="decimal" min="0" step="any" type="number" value="240"/>
 </div>
 </div>
-<div class="circuit-row field-group" style="margin-bottom:0">
+<div class="circuit-row field-group ue7ec54">
 <label for="input-phase">Phase Type</label>
 <select aria-label="Phase type" class="input-field input-field--select" id="input-phase">
 <option value="single">Single-phase</option>
@@ -168,7 +167,7 @@
             Multiply kVA by 1,000 to convert to VA (volt-amps), then divide by the
             line voltage. This gives the current in amps for a single-phase system.
             Example: 5 kVA at 120 V to (5,000) ÷ 120 =
-            <strong style="color:var(--accent)">41.67 A</strong>.
+            <strong class="ubb2b0e">41.67 A</strong>.
           </p>
 </div>
 <div>
@@ -179,7 +178,7 @@
             For three-phase, divide by voltage and the square root of 3 (≈ 1.7321).
             The √3 factor arises from the 120° phase angle between conductors.
             Use line-to-line voltage (e.g. 400 V, 480 V). Example: 5 kVA at 400 V to
-            5,000 ÷ (400 × 1.7321) = <strong style="color:var(--accent)">7.22 A</strong>.
+            5,000 ÷ (400 × 1.7321) = <strong class="ubb2b0e">7.22 A</strong>.
           </p>
 </div>
 </div>
@@ -272,7 +271,7 @@
               <strong>single-phase</strong>: <code>A = (kVA × 1,000) ÷ V</code>.
               For <strong>three-phase</strong>: <code>A = (kVA × 1,000) ÷ (V × √3)</code>.
               For example, 10 kVA at 240 V single-phase gives
-              (10 × 1,000) ÷ 240 = <strong style="color:var(--accent)">41.67 A</strong>.
+              (10 × 1,000) ÷ 240 = <strong class="ubb2b0e">41.67 A</strong>.
             </p>
 </div>
 </div>
@@ -282,13 +281,13 @@
             
 </div>
 <div class="faq-item__answer">
-<ul style="margin-left:1.25rem; line-height:1.9; color:var(--text-secondary)">
-<li><strong style="color:var(--text-primary)">Single-phase:</strong>
+<ul class="u693d37">
+<li><strong class="u5ec72c">Single-phase:</strong>
 <code>A = (kVA × 1,000) ÷ V</code></li>
-<li><strong style="color:var(--text-primary)">Three-phase:</strong>
+<li><strong class="u5ec72c">Three-phase:</strong>
 <code>A = (kVA × 1,000) ÷ (V × √3)</code>, where √3 ≈ 1.7321</li>
 </ul>
-<p style="margin-top:0.5rem">
+<p class="ub83168">
               Note that kVA is <em>apparent</em> power — it does not account for power
               factor, unlike kW (real power). Use kVA when sizing cables, fuses, and
               switchgear.
@@ -301,13 +300,13 @@
             
 </div>
 <div class="faq-item__answer">
-<ul style="margin-left:1.25rem; line-height:1.9; color:var(--text-secondary)">
-<li><strong style="color:var(--text-primary)">Single-phase at 240 V:</strong>
-                (5 × 1,000) ÷ 240 = <strong style="color:var(--accent)">20.83 A</strong></li>
-<li><strong style="color:var(--text-primary)">Three-phase at 240 V (L-L):</strong>
-                (5 × 1,000) ÷ (240 × 1.7321) = <strong style="color:var(--accent)">12.03 A</strong></li>
+<ul class="u693d37">
+<li><strong class="u5ec72c">Single-phase at 240 V:</strong>
+                (5 × 1,000) ÷ 240 = <strong class="ubb2b0e">20.83 A</strong></li>
+<li><strong class="u5ec72c">Three-phase at 240 V (L-L):</strong>
+                (5 × 1,000) ÷ (240 × 1.7321) = <strong class="ubb2b0e">12.03 A</strong></li>
 </ul>
-<p style="margin-top:0.5rem">Three-phase draws less current per conductor
+<p class="ub83168">Three-phase draws less current per conductor
               because load is shared across three wires.</p>
 </div>
 </div>
@@ -318,10 +317,10 @@
 </div>
 <div class="faq-item__answer">
 <p>
-<strong style="color:var(--text-primary)">Single-phase</strong> power uses
+<strong class="u5ec72c">Single-phase</strong> power uses
               one live conductor and a neutral, delivering power as a single sinusoidal
               wave. It is standard in homes and small offices.
-              <strong style="color:var(--text-primary)">Three-phase</strong> power uses
+              <strong class="u5ec72c">Three-phase</strong> power uses
               three live conductors, each carrying a wave offset by 120°. For the same
               kVA, three-phase requires significantly less current per conductor, making
               it more efficient for large motors, industrial equipment, and commercial
@@ -360,113 +359,8 @@
     <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
   </div>
 </footer>
-<script src="/assets/js/converters.js"></script>
-<script src="/assets/js/ui.js"></script>
-<script>
-(function () {
-  'use strict';
-
-  initPage(); // inits footer year, mobile nav, FAQ accordion
-
-  const inputKva    = document.getElementById('input-kva');
-  const inputVolts  = document.getElementById('input-volts');
-  const inputPhase  = document.getElementById('input-phase');
-  const resultEl    = document.getElementById('result-display');
-  const resultValue = document.getElementById('result-value');
-  const resultUnit  = document.getElementById('result-unit');
-  const formulaNote = document.getElementById('formula-note');
-  const tabSingle   = document.getElementById('tab-single');
-  const tabThree    = document.getElementById('tab-three');
-
-  const FORMULAS = {
-    single: 'A = (kVA × 1,000) ÷ V',
-    three:  'A = (kVA × 1,000) ÷ (V × √3)',
-  };
-
-  function updateTabs(phase) {
-    tabSingle.classList.toggle('active', phase === 'single');
-    tabThree.classList.toggle('active',  phase === 'three');
-  }
-
-  function calculate() {
-    const kva   = parseFloat(inputKva.value);
-    const volts = parseFloat(inputVolts.value);
-    const phase = inputPhase.value;
-
-    updateTabs(phase);
-
-    const result = Converters.kvaToAmps(kva, volts, phase);
-
-    if (result === null) {
-      resultEl.classList.add('invalid');
-      resultEl.classList.remove('has-result');
-      resultValue.textContent  = '—';
-      resultUnit.style.display = 'none';
-      formulaNote.classList.remove('live');
-      formulaNote.textContent  = `Formula: ${FORMULAS[phase]}`;
-    } else {
-      resultEl.classList.remove('invalid');
-      resultEl.classList.add('has-result');
-      animateResultTick('result-value');
-      resultValue.textContent  = Converters.formatResult(result, 4);
-      resultUnit.style.display = '';
-
-      const denom = phase === 'three'
-        ? `(${volts} × 1.7321) = ${Converters.formatResult(volts * Math.sqrt(3), 4)}`
-        : `${volts}`;
-      formulaNote.classList.add('live');
-      formulaNote.textContent =
-        `${FORMULAS[phase]}  to  (${kva} × 1,000) ÷ ${denom} = ${Converters.formatResult(result, 4)} A`;
-    }
-  }
-
-  inputKva.addEventListener('input', calculate);
-  inputVolts.addEventListener('input', calculate);
-  inputPhase.addEventListener('change', calculate);
-
-  calculate();
-})();
-</script>
-<script>
-const navToggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-const navClose = document.querySelector('.nav-close');
-
-function openNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.add('is-open');
-  mobileNav.removeAttribute('aria-hidden');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove('is-open');
-  mobileNav.setAttribute('aria-hidden', 'true');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-if (navToggle) navToggle.addEventListener('click', openNav);
-if (navClose) navClose.addEventListener('click', closeNav);
-
-if (mobileNav) {
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) closeNav();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Mark active nav link based on current URL
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname) {
-    link.classList.add('active');
-  }
-});
-</script>
+<script src="/assets/js/converters.js?v=b37905a4" defer></script>
+<script src="/assets/js/calculators.js?v=857a6a51" defer></script>
+<script src="/assets/js/site.js?v=e872e18f" defer></script>
 </body>
 </html>

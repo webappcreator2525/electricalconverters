@@ -16,7 +16,8 @@
 <!-- Tailwind CSS (CDN) -->
 <!-- Google Fonts -->
 <!-- Site Design System -->
-<link href="/assets/css/main.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=5ab7cbd4" rel="stylesheet"/>
 <!-- FAQPage Structured Data -->
 <script type="application/ld+json">
   {
@@ -58,10 +59,8 @@
     ]
   }
   </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
-<body>
+</head>
+<body data-calc="amps-to-watts">
 <!-- ═══════════════════════════════════════════════════════════
      HEADER
 ══════════════════════════════════════════════════════════════ -->
@@ -128,17 +127,17 @@
 <div aria-label="Amps to watts calculator" class="converter-card" role="form">
 <!-- Row 1: Watts + Voltage -->
 <div class="input-row">
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-amps">Current (A)</label>
 <input aria-label="Current in amps" autocomplete="off" class="input-field" id="input-amps" inputmode="decimal" min="0" placeholder="e.g. 15" step="any" type="number"/>
 </div>
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-volts">Voltage (V)</label>
 <input aria-label="Voltage in volts" autocomplete="off" class="input-field" id="input-volts" inputmode="decimal" min="0" step="any" type="number" value="120"/>
 </div>
 </div>
 <!-- Row 2: Circuit type -->
-<div class="circuit-row field-group" style="margin-bottom:0">
+<div class="circuit-row field-group ue7ec54">
 <label for="input-phase">Circuit Type</label>
 <select aria-label="Circuit type" class="input-field input-field--select" id="input-phase">
 <option value="dc">DC (Direct Current)</option>
@@ -148,7 +147,7 @@
 </div>
 <!-- Row 3: Power Factor (AC only) -->
 <div aria-hidden="true" class="pf-wrapper" id="pf-wrapper">
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-pf">Power Factor (PF)</label>
 <input aria-label="Power factor between 0 and 1" autocomplete="off" class="input-field" id="input-pf" inputmode="decimal" max="1" min="0.01" step="0.01" type="number" value="0.8"/>
 </div>
@@ -179,7 +178,7 @@
 <p class="formula-item__desc">
             In a DC circuit, current equals power divided by voltage. There is no
             reactive power, so no power factor is needed. Example: a 60 W bulb on
-            12 V draws 60 ÷ 12 = <strong style="color:var(--text-primary)">5 A</strong>.
+            12 V draws 60 ÷ 12 = <strong class="u5ec72c">5 A</strong>.
           </p>
 </div>
 <div class="formula-item">
@@ -322,12 +321,12 @@
 <p>
               There are three formulas depending on circuit type:
             </p>
-<ul style="margin-top:0.5rem; margin-left:1.25rem; line-height:1.9; color:var(--text-secondary)">
-<li><strong style="color:var(--text-primary)">DC:</strong> <code>A = W ÷ V</code></li>
-<li><strong style="color:var(--text-primary)">AC Single-phase:</strong> <code>A = W ÷ (V × PF)</code></li>
-<li><strong style="color:var(--text-primary)">AC Three-phase:</strong> <code>A = W ÷ (V × PF × √3)</code>, where √3 ≈ 1.732</li>
+<ul class="ud712d4">
+<li><strong class="u5ec72c">DC:</strong> <code>A = W ÷ V</code></li>
+<li><strong class="u5ec72c">AC Single-phase:</strong> <code>A = W ÷ (V × PF)</code></li>
+<li><strong class="u5ec72c">AC Three-phase:</strong> <code>A = W ÷ (V × PF × √3)</code>, where √3 ≈ 1.732</li>
 </ul>
-<p style="margin-top:0.5rem">
+<p class="ub83168">
               PF is the power factor — a value between 0 and 1 that accounts for
               reactive power in AC circuits. DC circuits always have a power factor of 1.
             </p>
@@ -337,11 +336,11 @@
 <h3 class="faq-item__question">How many amps is 1500 watts?</h3>
 <div class="faq-item__answer">
 <p>It depends on voltage and circuit type:</p>
-<ul style="margin-top:0.5rem; margin-left:1.25rem; line-height:1.9; color:var(--text-secondary)">
-<li><strong style="color:var(--text-primary)">120 V DC:</strong> 1500 ÷ 120 = <strong style="color:var(--accent)">12.5 A</strong></li>
-<li><strong style="color:var(--text-primary)">240 V DC:</strong> 1500 ÷ 240 = <strong style="color:var(--accent)">6.25 A</strong></li>
-<li><strong style="color:var(--text-primary)">120 V AC single-phase (PF 0.8):</strong> 1500 ÷ (120 × 0.8) = <strong style="color:var(--accent)">15.625 A</strong></li>
-<li><strong style="color:var(--text-primary)">240 V AC single-phase (PF 0.8):</strong> 1500 ÷ (240 × 0.8) = <strong style="color:var(--accent)">7.8125 A</strong></li>
+<ul class="ud712d4">
+<li><strong class="u5ec72c">120 V DC:</strong> 1500 ÷ 120 = <strong class="ubb2b0e">12.5 A</strong></li>
+<li><strong class="u5ec72c">240 V DC:</strong> 1500 ÷ 240 = <strong class="ubb2b0e">6.25 A</strong></li>
+<li><strong class="u5ec72c">120 V AC single-phase (PF 0.8):</strong> 1500 ÷ (120 × 0.8) = <strong class="ubb2b0e">15.625 A</strong></li>
+<li><strong class="u5ec72c">240 V AC single-phase (PF 0.8):</strong> 1500 ÷ (240 × 0.8) = <strong class="ubb2b0e">7.8125 A</strong></li>
 </ul>
 </div>
 </div>
@@ -349,9 +348,9 @@
 <h3 class="faq-item__question">What is the difference between watts and amps?</h3>
 <div class="faq-item__answer">
 <p>
-<strong style="color:var(--text-primary)">Current (A)</strong> measure electrical
+<strong class="u5ec72c">Current (A)</strong> measure electrical
               <em>power</em> — the rate at which energy is consumed or produced.
-              <strong style="color:var(--text-primary)">Amps (A)</strong> measure electric
+              <strong class="u5ec72c">Amps (A)</strong> measure electric
               <em>current</em> — the rate at which electric charge flows through a conductor.
               The two are linked by voltage: <code>W = A × V</code>. A device can draw
               few amps at high voltage or many amps at low voltage while consuming the
@@ -406,133 +405,8 @@
 <!-- ═══════════════════════════════════════════════════════════
      SCRIPTS
 ══════════════════════════════════════════════════════════════ -->
-<script src="/assets/js/converters.js"></script>
-<script>
-(function () {
-  'use strict';
-
-  /* ── Element refs ──────────────────────────────── */
-  const inputAmps   = document.getElementById('input-watts');
-  const inputVolts   = document.getElementById('input-volts');
-  const inputPhase   = document.getElementById('input-phase');
-  const inputPF      = document.getElementById('input-pf');
-  const pfWrapper    = document.getElementById('pf-wrapper');
-  const resultDisplay = document.getElementById('result-display');
-  const resultValue  = document.getElementById('result-value');
-  const resultUnit   = document.getElementById('result-unit');
-  const formulaNote  = document.getElementById('formula-note');
-
-  /* ── Footer year ───────────────────────────────── */
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-  /* ── Formula strings ───────────────────────────── */
-  const FORMULAS = {
-    dc:     'W = A × V',
-    single: 'W = A × V × PF',
-    three:  'W = A × V × PF × √3',
-  };
-
-  /* ── Show / hide Power Factor field ───────────── */
-  function updatePFVisibility() {
-    const phase = inputPhase.value;
-    const isAC  = phase === 'single' || phase === 'three';
-    pfWrapper.classList.toggle('visible', isAC);
-    pfWrapper.setAttribute('aria-hidden', String(!isAC));
-    inputPF.disabled = !isAC;
-  }
-
-  /* ── Core calculation + UI update ─────────────── */
-  function calculate() {
-    const amps  = parseFloat(inputAmps.value);
-    const volts  = parseFloat(inputVolts.value);
-    const phase  = inputPhase.value;
-    const pf     = parseFloat(inputPF.value);
-
-    const result = Converters.ampsToWatts(amps, volts, pf, phase);
-
-    if (result === null) {
-      /* Invalid state */
-      resultDisplay.classList.add('invalid');
-      resultDisplay.classList.remove('has-result');
-      resultValue.textContent  = '—';
-      resultUnit.style.display = 'none';
-      formulaNote.textContent  = `Formula: ${FORMULAS[phase] || '—'}`;
-    } else {
-      /* Valid result */
-      resultDisplay.classList.remove('invalid');
-      resultDisplay.classList.add('has-result');
-      resultValue.textContent  = Converters.formatResult(result, 4);
-      resultUnit.style.display = '';
-
-      /* Build formula string with live values substituted */
-      let used = '';
-      if (phase === 'dc') {
-        used = `${watts} ÷ ${volts} = ${Converters.formatResult(result, 4)} A`;
-      } else if (phase === 'single') {
-        used = `${watts} ÷ (${volts} × ${pf}) = ${Converters.formatResult(result, 4)} A`;
-      } else {
-        used = `${watts} ÷ (${volts} × ${pf} × 1.7321) = ${Converters.formatResult(result, 4)} A`;
-      }
-      formulaNote.textContent = `Formula used: ${FORMULAS[phase]}  to  ${used}`;
-    }
-  }
-
-  /* ── Event listeners ───────────────────────────── */
-  inputAmps.addEventListener('input', calculate);
-  inputVolts.addEventListener('input', calculate);
-  inputPF.addEventListener('input', calculate);
-
-  inputPhase.addEventListener('change', function () {
-    updatePFVisibility();
-    calculate();
-  });
-
-  /* ── Initialise ────────────────────────────────── */
-  updatePFVisibility();
-  calculate();
-
-})();
-</script>
-<script>
-const navToggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-const navClose = document.querySelector('.nav-close');
-
-function openNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.add('is-open');
-  mobileNav.removeAttribute('aria-hidden');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove('is-open');
-  mobileNav.setAttribute('aria-hidden', 'true');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-if (navToggle) navToggle.addEventListener('click', openNav);
-if (navClose) navClose.addEventListener('click', closeNav);
-
-if (mobileNav) {
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) closeNav();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Mark active nav link based on current URL
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname) {
-    link.classList.add('active');
-  }
-});
-</script>
+<script src="/assets/js/converters.js?v=b37905a4" defer></script>
+<script src="/assets/js/calculators.js?v=857a6a51" defer></script>
+<script src="/assets/js/site.js?v=e872e18f" defer></script>
 </body>
 </html>

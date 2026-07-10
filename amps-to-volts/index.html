@@ -16,7 +16,8 @@
 <!-- Tailwind CSS (CDN) -->
 <!-- Google Fonts -->
 <!-- Site Design System -->
-<link href="/assets/css/main.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=5ab7cbd4" rel="stylesheet"/>
 <!-- FAQPage Structured Data -->
 <script type="application/ld+json">
   {
@@ -78,10 +79,8 @@
     ]
   }
   </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
-<body>
+</head>
+<body data-calc="amps-to-volts">
 <!-- HEADER -->
 <header class="site-header">
 <div class="header-inner">
@@ -147,11 +146,11 @@
 <div aria-label="Amps to volts calculator" class="converter-card" role="form">
 <!-- Row 1: Amps + Ohms -->
 <div class="input-row">
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-amps">Current (A)</label>
 <input aria-label="Current in amps" autocomplete="off" class="input-field" id="input-amps" inputmode="decimal" min="0" step="any" type="number" value="5"/>
 </div>
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-ohms">Resistance (Ω)</label>
 <input aria-label="Resistance in ohms" autocomplete="off" class="input-field" id="input-ohms" inputmode="decimal" min="0" step="any" type="number" value="24"/>
 </div>
@@ -181,15 +180,15 @@
         (amperes), R = resistance (ohms). Rearrangements:
       </p>
 <div class="formula-group">
-<div class="formula-block" style="font-size:1rem; padding:0.75rem;">I = V ÷ R</div>
-<div class="formula-block" style="font-size:1rem; padding:0.75rem;">R = V ÷ I</div>
+<div class="formula-block ud1bffc">I = V ÷ R</div>
+<div class="formula-block ud1bffc">R = V ÷ I</div>
 </div>
 <p class="formula-desc">
         Also show how all four Ohm's Law quantities relate to power:
       </p>
-<div class="formula-block" style="font-size:1rem; padding:0.75rem;">P = V × I = I² × R = V² ÷ R</div>
-<p class="formula-desc" style="font-weight:600;">
-<a href="/learn/ohms-law/" style="color:var(--accent); text-decoration:none;">Full Ohm's Law guide to</a>
+<div class="formula-block ud1bffc">P = V × I = I² × R = V² ÷ R</div>
+<p class="formula-desc ua5d2ba">
+<a class="u638bf1" href="/learn/ohms-law/">Full Ohm's Law guide to</a>
 </p>
 <div class="example-list">
 <div><strong>Example 1:</strong> 5 A through 24 Ω to V = 5 × 24 = 120 V (standard US household voltage)</div>
@@ -199,14 +198,14 @@
 <!-- Context section -->
 <section aria-labelledby="context-heading" class="content-section">
 <h2 id="context-heading">Understanding Ohm's Law</h2>
-<p style="font-size:0.95rem; color:var(--text-secondary); line-height:1.7;">
+<p class="u3df5e8">
         A simple way to understand Ohm's Law is to think of water flowing through a pipe. 
         Voltage (V) represents the water pressure pushing the water, current (I) represents the flow rate of the water, 
         and resistance (R) represents the pipe diameter limiting the flow. 
         Increasing the pressure (voltage) or widening the pipe (lowering resistance) increases the flow (current).
       </p>
-<p style="font-size:0.95rem; font-weight:600; margin-top:1rem;">
-<a href="/learn/ohms-law/" style="color:var(--accent); text-decoration:none;">to Learn Ohm's Law in depth</a>
+<p class="ua15c56">
+<a class="u638bf1" href="/learn/ohms-law/">to Learn Ohm's Law in depth</a>
 </p>
 </section>
 <!-- Reference Table -->
@@ -322,88 +321,8 @@
     <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
   </div>
 </footer>
-<script src="/assets/js/converters.js"></script>
-<script>
-(function () {
-  'use strict';
-
-  const inputAmps = document.getElementById('input-amps');
-  const inputOhms = document.getElementById('input-ohms');
-
-  const resultDisplay = document.getElementById('result-display');
-  const resultValue  = document.getElementById('result-value');
-  const resultUnit   = document.getElementById('result-unit');
-  const formulaNote  = document.getElementById('formula-note');
-
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-  function calculate() {
-    const amps = parseFloat(inputAmps.value);
-    const ohms = parseFloat(inputOhms.value);
-    
-    const result = Converters.ampsToVolts(amps, ohms);
-
-    if (result === null) {
-      resultDisplay.classList.add('invalid');
-      resultDisplay.classList.remove('has-result');
-      resultValue.textContent  = '—';
-      resultUnit.style.display = 'none';
-      formulaNote.textContent  = 'Formula: V = A × Ω';
-    } else {
-      resultDisplay.classList.remove('invalid');
-      resultDisplay.classList.add('has-result');
-      resultValue.textContent  = Converters.formatResult(result, 4);
-      resultUnit.style.display = '';
-      formulaNote.textContent = `V = ${amps} × ${ohms} = ${Converters.formatResult(result, 4)} V`;
-    }
-  }
-
-  inputAmps.addEventListener('input', calculate);
-  inputOhms.addEventListener('input', calculate);
-
-  calculate();
-})();
-</script>
-<script>
-const navToggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-const navClose = document.querySelector('.nav-close');
-
-function openNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.add('is-open');
-  mobileNav.removeAttribute('aria-hidden');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove('is-open');
-  mobileNav.setAttribute('aria-hidden', 'true');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-if (navToggle) navToggle.addEventListener('click', openNav);
-if (navClose) navClose.addEventListener('click', closeNav);
-
-if (mobileNav) {
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) closeNav();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Mark active nav link based on current URL
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname) {
-    link.classList.add('active');
-  }
-});
-</script>
+<script src="/assets/js/converters.js?v=b37905a4" defer></script>
+<script src="/assets/js/calculators.js?v=857a6a51" defer></script>
+<script src="/assets/js/site.js?v=e872e18f" defer></script>
 </body>
 </html>

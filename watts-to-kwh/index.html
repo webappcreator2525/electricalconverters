@@ -16,7 +16,8 @@
 <!-- Tailwind CSS (CDN) -->
 <!-- Google Fonts -->
 <!-- Site Design System -->
-<link href="/assets/css/main.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=5ab7cbd4" rel="stylesheet"/>
 <!-- FAQPage Structured Data -->
 <script type="application/ld+json">
   {
@@ -78,10 +79,8 @@
     ]
   }
   </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
-<body>
+</head>
+<body data-calc="watts-to-kwh">
 <header class="site-header">
 <div class="header-inner">
 <a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
@@ -141,11 +140,11 @@
 <div aria-label="Watts to kWh calculator" class="converter-card" role="form">
 <!-- Inputs -->
 <div class="input-row">
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-watts">Power (W)</label>
 <input aria-label="Power in watts" autocomplete="off" class="input-field" id="input-watts" inputmode="decimal" min="0" step="any" type="number" value="1500"/>
 </div>
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-hours">Hours of Use</label>
 <input aria-label="Time in hours" autocomplete="off" class="input-field" id="input-hours" inputmode="decimal" min="0" step="any" type="number" value="8"/>
 </div>
@@ -164,10 +163,10 @@
 <!-- Cost Estimator -->
 <div class="cost-estimator">
 <div class="cost-estimator__header"> Electricity Cost Estimate</div>
-<div class="field-group" style="margin-bottom: 0;">
+<div class="field-group uc42e0e">
 <label for="input-rate">Electricity Rate ($/kWh)</label>
 <input aria-label="Electricity rate in dollars per kilowatt-hour" autocomplete="off" class="input-field" id="input-rate" inputmode="decimal" min="0" step="0.001" type="number" value="0.16"/>
-<div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.375rem;">US average ≈ $0.16/kWh (2024)</div>
+<div class="ub7dbfd">US average ≈ $0.16/kWh (2024)</div>
 </div>
 <div class="cost-rows">
 <div>Cost for <span id="cost-hours-label">8</span> hours: <strong>$<span id="cost-session">0.00</span></strong></div>
@@ -186,17 +185,17 @@
 <p class="formula-desc">
         To calculate kilowatt-hours, multiply the power consumption in watts by the number of hours the device is used, then divide the result by 1,000 to convert from watt-hours to kilowatt-hours.
       </p>
-<p class="formula-desc" style="margin-top: 1rem;">
+<p class="formula-desc u988c5f">
 <strong>Reverse formula:</strong> W = (kWh × 1,000) ÷ h
         <br/>
-<a href="/kwh-to-watts/" style="color:var(--accent); text-decoration:none; display:inline-block; margin-top:0.5rem;">to kWh to Watts Converter</a>
+<a class="u2be406" href="/kwh-to-watts/">to kWh to Watts Converter</a>
 </p>
-<div style="margin-top: 1.5rem;">
-<p style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.5rem;">Worked Example:</p>
+<div class="u185d79">
+<p class="u17a208">Worked Example:</p>
 <p class="formula-desc">A 900 W air conditioner running 6 hours a day for 30 days:</p>
-<ul style="list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8; color: var(--text-secondary); font-size: 0.9375rem;">
-<li><strong>Daily kWh</strong> = (900 × 6) ÷ 1,000 = <span style="color:var(--accent); font-family:var(--font-mono);">5.4 kWh</span></li>
-<li><strong>Monthly kWh</strong> = 5.4 × 30 = <span style="color:var(--accent); font-family:var(--font-mono);">162 kWh</span></li>
+<ul class="u5c7511">
+<li><strong>Daily kWh</strong> = (900 × 6) ÷ 1,000 = <span class="ubf43fc">5.4 kWh</span></li>
+<li><strong>Monthly kWh</strong> = 5.4 × 30 = <span class="ubf43fc">162 kWh</span></li>
 </ul>
 </div>
 </section>
@@ -384,123 +383,8 @@
     <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
   </div>
 </footer>
-<script src="/assets/js/converters.js"></script>
-<script src="/assets/js/ui.js"></script>
-<script>
-(function () {
-  'use strict';
-
-  initPage(); // inits footer year, mobile nav, FAQ accordion
-
-  const inputWatts = document.getElementById('input-watts');
-  const inputHours = document.getElementById('input-hours');
-  const inputRate  = document.getElementById('input-rate');
-
-  const resultDisplay   = document.getElementById('result-display');
-  const resultValue     = document.getElementById('result-value');
-  const resultUnit      = document.getElementById('result-unit');
-  const formulaNote     = document.getElementById('formula-note');
-
-  const costHoursLabel      = document.getElementById('cost-hours-label');
-  const costDailyHoursLabel = document.getElementById('cost-daily-hours-label');
-  const costSession         = document.getElementById('cost-session');
-  const costDaily           = document.getElementById('cost-daily');
-  const costMonthly         = document.getElementById('cost-monthly');
-
-  function calculate() {
-    const w = parseFloat(inputWatts.value);
-    const h = parseFloat(inputHours.value);
-    const r = parseFloat(inputRate.value);
-
-    // Update hour labels
-    costHoursLabel.textContent      = !isNaN(h) ? h : '—';
-    costDailyHoursLabel.textContent = !isNaN(h) ? h : '—';
-
-    const kwh = Converters.wattsToKwh(w, h);
-
-    if (kwh === null) {
-      resultDisplay.classList.add('invalid');
-      resultDisplay.classList.remove('has-result');
-      resultValue.textContent    = '—';
-      resultUnit.style.display   = 'none';
-      formulaNote.classList.remove('live');
-      formulaNote.textContent    = 'Formula: kWh = (W × hours) ÷ 1,000';
-
-      costSession.textContent = '0.00';
-      costDaily.textContent   = '0.00';
-      costMonthly.textContent = '0.00';
-    } else {
-      resultDisplay.classList.remove('invalid');
-      resultDisplay.classList.add('has-result');
-      animateResultTick('result-value');
-      resultValue.textContent  = Converters.formatResult(kwh, 4);
-      resultUnit.style.display = '';
-
-      formulaNote.classList.add('live');
-      formulaNote.textContent = `kWh = (${w} × ${h}) ÷ 1,000 = ${Converters.formatResult(kwh, 4)} kWh`;
-
-      if (!isNaN(r) && r >= 0) {
-        const cost    = kwh * r;
-        const monthly = cost * 30;
-
-        costSession.textContent = Converters.formatResult(cost, 2);
-        costDaily.textContent   = Converters.formatResult(cost, 2);
-        costMonthly.textContent = Converters.formatResult(monthly, 2);
-      } else {
-        costSession.textContent = '—';
-        costDaily.textContent   = '—';
-        costMonthly.textContent = '—';
-      }
-    }
-  }
-
-  inputWatts.addEventListener('input', calculate);
-  inputHours.addEventListener('input', calculate);
-  inputRate.addEventListener('input', calculate);
-
-  calculate();
-})();
-</script>
-<script>
-const navToggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-const navClose = document.querySelector('.nav-close');
-
-function openNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.add('is-open');
-  mobileNav.removeAttribute('aria-hidden');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove('is-open');
-  mobileNav.setAttribute('aria-hidden', 'true');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-if (navToggle) navToggle.addEventListener('click', openNav);
-if (navClose) navClose.addEventListener('click', closeNav);
-
-if (mobileNav) {
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) closeNav();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Mark active nav link based on current URL
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname) {
-    link.classList.add('active');
-  }
-});
-</script>
+<script src="/assets/js/converters.js?v=b37905a4" defer></script>
+<script src="/assets/js/calculators.js?v=857a6a51" defer></script>
+<script src="/assets/js/site.js?v=e872e18f" defer></script>
 </body>
 </html>

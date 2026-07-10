@@ -16,7 +16,8 @@
 <!-- Tailwind CSS (CDN) -->
 <!-- Google Fonts -->
 <!-- Site Design System -->
-<link href="/assets/css/main.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=5ab7cbd4" rel="stylesheet"/>
 <!-- FAQPage JSON-LD -->
 <script type="application/ld+json">
   {
@@ -58,10 +59,8 @@
     ]
   }
   </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
-<body>
+</head>
+<body data-calc="mah-to-wh">
 <!-- HEADER -->
 <header class="site-header">
 <div class="header-inner">
@@ -132,17 +131,17 @@
 <div aria-label="mAh to Wh calculator" class="converter-card" role="form">
 <!-- Inputs -->
 <div class="input-row">
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-mah">Capacity (mAh)</label>
 <input aria-label="Capacity in milliamp-hours" autocomplete="off" class="input-field" id="input-mah" inputmode="decimal" min="0" placeholder="e.g. 10000" step="any" type="number"/>
 </div>
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-volts">Voltage (V)</label>
 <input aria-label="Nominal voltage in volts" autocomplete="off" class="input-field" id="input-volts" inputmode="decimal" min="0" placeholder="e.g. 3.7" step="any" type="number"/>
 </div>
 </div>
 <!-- Voltage presets -->
-<div style="margin-top: 1.125rem;">
+<div class="ubd9810">
 <div class="preset-label">Common voltages — click to fill</div>
 <div aria-label="Common voltage presets" class="preset-group" role="group">
 <button aria-label="Set voltage to 3.7V — Li-ion cell" class="preset-btn" data-voltage="3.7" type="button">
@@ -194,7 +193,7 @@
 <!-- Formula -->
 <section aria-labelledby="formula-heading" class="content-section">
 <h2 id="formula-heading">mAh to Wh Formula</h2>
-<div class="formula-block" style="margin-bottom: 1rem;">
+<div class="formula-block u4986ec">
 <span class="var">Wh</span> = (<span class="var">mAh</span> × <span class="var">V</span>) ÷ 1,000</div>
 <p class="formula-desc">
         Multiply the battery's capacity in mAh by its nominal voltage, then divide
@@ -220,8 +219,8 @@
 </div>
 </div>
 </section>
-<div class="breaker-box" style="margin-top: 2rem; margin-bottom: 2rem; padding: 1.25rem; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-lg); text-align: center;">
-      Looking for Wh to mAh? Use our <a href="/wh-to-mah/" style="color: var(--accent); font-weight: 600; text-decoration: none;">Back to Wh to mAh Converter</a>
+<div class="breaker-box ua89127">
+      Looking for Wh to mAh? Use our <a class="u7657e5" href="/wh-to-mah/">Back to Wh to mAh Converter</a>
 </div>
 <!-- Battery reference table -->
 <section aria-labelledby="table-heading" class="content-section">
@@ -274,7 +273,7 @@
 <!-- Use-case callouts -->
 <section aria-labelledby="usecases-heading" class="content-section">
 <h2 id="usecases-heading">Why Convert mAh to Wh?</h2>
-<p style="font-size:0.9375rem; color:var(--text-secondary); line-height:1.7; margin-bottom:1.125rem;">
+<p class="u64dadb">
         mAh is only meaningful when you also know the voltage. Watt-hours is the universal
         energy unit — it lets you compare batteries of different chemistries and voltages on
         equal terms.
@@ -324,7 +323,7 @@
               Multiply the milliamp-hour value by the battery voltage, then divide
               by 1,000: <code>Wh = (mAh × V) ÷ 1,000</code>. For example, a
               10,000 mAh power bank at 3.7 V holds
-              (10,000 × 3.7) ÷ 1,000 = <strong style="color:var(--accent)">37 Wh</strong>.
+              (10,000 × 3.7) ÷ 1,000 = <strong class="ubb2b0e">37 Wh</strong>.
               Use the nominal cell voltage, not the USB output voltage.
             </p>
 </div>
@@ -344,17 +343,17 @@
 <h3 class="faq-item__question">How many Wh is 10000 mAh?</h3>
 <div class="faq-item__answer">
 <p>It depends on the battery voltage:</p>
-<ul style="margin-top:0.5rem; margin-left:1.25rem; line-height:1.9; color:var(--text-secondary)">
-<li><strong style="color:var(--text-primary)">3.7 V (Li-ion cell):</strong>
-<strong style="color:var(--accent)">37 Wh</strong></li>
-<li><strong style="color:var(--text-primary)">3.85 V (Li-Po / phone):</strong>
-<strong style="color:var(--accent)">38.5 Wh</strong></li>
-<li><strong style="color:var(--text-primary)">5 V (USB-rated label):</strong>
-<strong style="color:var(--accent)">50 Wh</strong></li>
+<ul class="ud712d4">
+<li><strong class="u5ec72c">3.7 V (Li-ion cell):</strong>
+<strong class="ubb2b0e">37 Wh</strong></li>
+<li><strong class="u5ec72c">3.85 V (Li-Po / phone):</strong>
+<strong class="ubb2b0e">38.5 Wh</strong></li>
+<li><strong class="u5ec72c">5 V (USB-rated label):</strong>
+<strong class="ubb2b0e">50 Wh</strong></li>
 </ul>
-<p style="margin-top:0.5rem">
+<p class="ub83168">
               Most manufacturers use 3.7 V as the cell nominal voltage — so a
-              10,000 mAh pack typically holds about <strong style="color:var(--accent)">37 Wh</strong>
+              10,000 mAh pack typically holds about <strong class="ubb2b0e">37 Wh</strong>
               of usable energy.
             </p>
 </div>
@@ -363,7 +362,7 @@
 <h3 class="faq-item__question">What does mAh mean on a battery?</h3>
 <div class="faq-item__answer">
 <p>
-              mAh stands for <strong style="color:var(--text-primary)">milliamp-hours</strong>.
+              mAh stands for <strong class="u5ec72c">milliamp-hours</strong>.
               It measures how much electric charge a battery can store — specifically,
               how many milliamps of current it can deliver for one hour before depleting.
               A 3,000 mAh cell can supply 3,000 mA (3 A) for 1 hour, or 1,500 mA for
@@ -405,128 +404,8 @@
     <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
   </div>
 </footer>
-<script src="/assets/js/converters.js"></script>
-<script>
-(function () {
-  'use strict';
-
-  const inputMah    = document.getElementById('input-mah');
-  const inputVolts  = document.getElementById('input-volts');
-  const formulaNote = document.getElementById('formula-note');
-
-  const resultWhEl    = document.getElementById('result-wh');
-  const resultValueWh = document.getElementById('result-value-wh');
-  const resultUnitWh  = document.getElementById('result-unit-wh');
-
-  const resultKwhEl    = document.getElementById('result-kwh');
-  const resultValueKwh = document.getElementById('result-value-kwh');
-  const resultUnitKwh  = document.getElementById('result-unit-kwh');
-
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-  /* ── Preset buttons ──────────────────────────────── */
-  const presetBtns = document.querySelectorAll('.preset-btn');
-
-  presetBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      const v = btn.dataset.voltage;
-      inputVolts.value = v;
-      // Toggle selected state
-      presetBtns.forEach(function (b) { b.classList.remove('selected'); });
-      btn.classList.add('selected');
-      calculate();
-    });
-  });
-
-  // Deselect preset if user manually edits voltage
-  inputVolts.addEventListener('input', function () {
-    presetBtns.forEach(function (b) { b.classList.remove('selected'); });
-    // Re-select if value matches a preset
-    const val = parseFloat(inputVolts.value);
-    presetBtns.forEach(function (b) {
-      if (parseFloat(b.dataset.voltage) === val) b.classList.add('selected');
-    });
-    calculate();
-  });
-
-  /* ── Core calculation ────────────────────────────── */
-  function calculate() {
-    const mah   = parseFloat(inputMah.value);
-    const volts = parseFloat(inputVolts.value);
-
-    const wh = Converters.mahToWh(mah, volts);
-
-    if (wh === null) {
-      resultWhEl.classList.add('invalid');  resultWhEl.classList.remove('has-result');
-      resultValueWh.textContent  = '—';    resultUnitWh.style.display  = 'none';
-
-      resultKwhEl.classList.add('invalid'); resultKwhEl.classList.remove('has-result');
-      resultValueKwh.textContent  = '—';   resultUnitKwh.style.display  = 'none';
-
-      formulaNote.classList.remove('live');
-      formulaNote.textContent = 'Formula: Wh = (mAh × V) ÷ 1,000';
-    } else {
-      const kwh = wh / 1000;
-
-      resultWhEl.classList.remove('invalid');  resultWhEl.classList.add('has-result');
-      resultValueWh.textContent  = Converters.formatResult(wh, 4);
-      resultUnitWh.style.display = '';
-
-      resultKwhEl.classList.remove('invalid'); resultKwhEl.classList.add('has-result');
-      resultValueKwh.textContent  = Converters.formatResult(kwh, 6);
-      resultUnitKwh.style.display = '';
-
-      formulaNote.classList.add('live');
-      formulaNote.textContent =
-        `Wh = (${mah} × ${volts}) ÷ 1,000  to  ${Converters.formatResult(wh, 4)} Wh` +
-        `  |  ${Converters.formatResult(kwh, 6)} kWh`;
-    }
-  }
-
-  inputMah.addEventListener('input', calculate);
-  calculate();
-})();
-</script>
-<script>
-const navToggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-const navClose = document.querySelector('.nav-close');
-
-function openNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.add('is-open');
-  mobileNav.removeAttribute('aria-hidden');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove('is-open');
-  mobileNav.setAttribute('aria-hidden', 'true');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-if (navToggle) navToggle.addEventListener('click', openNav);
-if (navClose) navClose.addEventListener('click', closeNav);
-
-if (mobileNav) {
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) closeNav();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Mark active nav link based on current URL
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname) {
-    link.classList.add('active');
-  }
-});
-</script>
+<script src="/assets/js/converters.js?v=b37905a4" defer></script>
+<script src="/assets/js/calculators.js?v=857a6a51" defer></script>
+<script src="/assets/js/site.js?v=e872e18f" defer></script>
 </body>
 </html>

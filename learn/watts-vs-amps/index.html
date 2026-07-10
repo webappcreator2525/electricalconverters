@@ -11,7 +11,8 @@
 <meta content="Watts vs Amps: What's the Difference? | ElectricalConverters" property="og:title"/>
 <meta content="Learn the difference between watts and amps. Understand electrical power and current, how they relate, and how to calculate them using our free guides." property="og:description"/>
 <meta content="https://electricalconverters.com/learn/watts-vs-amps/" property="og:url"/>
-<link href="/assets/css/main.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=5ab7cbd4" rel="stylesheet"/>
 <style>
     .content-body { font-family: var(--font-body); color: var(--color-text-muted); line-height: 1.7; }
     .content-body h2 { font-family: var(--font-body); font-size: 1.5rem; font-weight: 600; color: #ffffff; margin-top: 3rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-border); }
@@ -36,9 +37,7 @@
     .cta-button { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--color-accent); font-weight: 600; text-decoration: none; transition: color var(--transition-fast); }
     .cta-button:hover { text-decoration: underline; color: #ffffff; }
   </style>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
+</head>
 <body>
 <header class="site-header">
 <div class="header-inner">
@@ -119,7 +118,7 @@
 <h3>Practical Example</h3>
 <p>Let's say you have a standard incandescent light bulb rated for <strong>60 Watts</strong>. If you plug this into a standard US residential outlet providing <strong>120 Volts</strong>, how much current (Amps) does it draw?</p>
 <p>Using the formula rearranged for Amps (Amps = Watts ÷ Volts):</p>
-<div class="formula-block" style="margin-bottom: 1.25rem;">
+<div class="formula-block u33424b">
           60W ÷ 120V = 0.5 Amps
         </div>
 <p>The lightbulb draws 0.5 amps of current. If you had a 15-amp circuit breaker, you could safely run up to thirty of these 60W bulbs on the same circuit before it trips!</p>
@@ -208,47 +207,6 @@
     <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
   </div>
 </footer>
-<script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
-<script>
-const navToggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-const navClose = document.querySelector('.nav-close');
-
-function openNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.add('is-open');
-  mobileNav.removeAttribute('aria-hidden');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove('is-open');
-  mobileNav.setAttribute('aria-hidden', 'true');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-if (navToggle) navToggle.addEventListener('click', openNav);
-if (navClose) navClose.addEventListener('click', closeNav);
-
-if (mobileNav) {
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) closeNav();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Mark active nav link based on current URL
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname) {
-    link.classList.add('active');
-  }
-});
-</script>
+<script src="/assets/js/site.js?v=e872e18f" defer></script>
 </body>
 </html>

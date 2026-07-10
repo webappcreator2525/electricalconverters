@@ -16,7 +16,8 @@
 <!-- Tailwind CSS (CDN) -->
 <!-- Google Fonts -->
 <!-- Site Design System -->
-<link href="/assets/css/main.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=5ab7cbd4" rel="stylesheet"/>
 <!-- FAQPage JSON-LD -->
 <script type="application/ld+json">
   {
@@ -69,10 +70,8 @@
     ]
   }
   </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
-<body>
+</head>
+<body data-calc="kw-to-amps">
 <!-- HEADER -->
 <header class="site-header">
 <div class="header-inner">
@@ -133,16 +132,16 @@
 <section aria-label="kW to amps converter tool">
 <div aria-label="kW to amps calculator" class="converter-card" role="form">
 <div class="input-row">
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-kw">Kilowatts (kW)</label>
 <input aria-label="Power in kilowatts" autocomplete="off" class="input-field" id="input-kw" inputmode="decimal" min="0" step="any" type="number" value="1"/>
 </div>
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-volts">Voltage (V)</label>
 <input aria-label="Voltage in volts" autocomplete="off" class="input-field" id="input-volts" inputmode="decimal" min="0" step="any" type="number" value="240"/>
 </div>
 </div>
-<div class="circuit-row field-group" style="margin-bottom:0">
+<div class="circuit-row field-group ue7ec54">
 <label for="input-phase">Circuit Type</label>
 <select aria-label="Circuit type" class="input-field input-field--select" id="input-phase">
 <option value="dc">DC (Direct Current)</option>
@@ -153,7 +152,7 @@
 </div>
 <!-- Power Factor (shown for AC only) -->
 <div aria-hidden="true" class="pf-wrapper" id="pf-wrapper">
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-pf">Power Factor (PF)</label>
 <input aria-label="Power factor" autocomplete="off" class="input-field" id="input-pf" inputmode="decimal" max="1" min="0.01" step="0.01" type="number" value="0.8"/>
 </div>
@@ -190,7 +189,7 @@
             For DC circuits, simply multiply kW by 1,000 to get watts, then divide by voltage.
             Power factor does not apply to DC.<br/>
 <strong>Example:</strong> 2 kW at 120 V to (2 × 1,000) ÷ 120 =
-            <strong style="color:var(--accent)">16.6667 A</strong>.
+            <strong class="ubb2b0e">16.6667 A</strong>.
           </p>
 </div>
 <div>
@@ -201,7 +200,7 @@
             For single-phase AC circuits, divide real power by voltage and power factor.
             A lower PF means more current is drawn for the same useful power output.<br/>
 <strong>Example:</strong> 3 kW at 230 V, PF 0.85 to (3 × 1,000) ÷ (230 × 0.85) =
-            <strong style="color:var(--accent)">15.3374 A</strong>.
+            <strong class="ubb2b0e">15.3374 A</strong>.
           </p>
 </div>
 <div>
@@ -213,7 +212,7 @@
             standard way to specify three-phase voltage (e.g. 208 V, 400 V, 480 V).
             √3 ≈ 1.7321.<br/>
 <strong>Example:</strong> 10 kW at 400 V (L-L), PF 0.9 to (10 × 1,000) ÷ (1.7321 × 400 × 0.9) =
-            <strong style="color:var(--accent)">16.0375 A</strong>.
+            <strong class="ubb2b0e">16.0375 A</strong>.
           </p>
 </div>
 <div>
@@ -225,8 +224,8 @@
             Note: V<sub>LN</sub> ≈ V<sub>LL</sub> ÷ √3, so both three-phase formulas give the same result
             for the same physical system.<br/>
 <strong>Example:</strong> 10 kW at 231 V (L-N), PF 0.9 to (10 × 1,000) ÷ (3 × 231 × 0.9) =
-            <strong style="color:var(--accent)">16.0375 A</strong>
-<em style="color:var(--text-muted)">(same as 400 V L-L example above, since 400 ÷ √3 ≈ 231 V)</em>.
+            <strong class="ubb2b0e">16.0375 A</strong>
+<em class="u5b795a">(same as 400 V L-L example above, since 400 ÷ √3 ≈ 231 V)</em>.
           </p>
 </div>
 </div>
@@ -234,7 +233,7 @@
 <!-- Reference Tables -->
 <section aria-labelledby="table-heading" class="content-section">
 <h2 id="table-heading">kW to Amps Reference Table</h2>
-<p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:1rem;">
+<p class="ubb2d7d">
         All values assume unity power factor (PF = 1.0). For other PF values, use the calculator above.
       </p>
 <div aria-label="Table type" class="table-tab-bar" role="tablist">
@@ -349,17 +348,17 @@
 </div>
 <div class="faq-item__answer">
 <p>Use the formula for your circuit type:</p>
-<ul style="margin-left:1.25rem; line-height:1.9; color:var(--text-secondary)">
-<li><strong style="color:var(--text-primary)">DC:</strong>
+<ul class="u693d37">
+<li><strong class="u5ec72c">DC:</strong>
 <code>A = (kW × 1,000) ÷ V</code></li>
-<li><strong style="color:var(--text-primary)">AC single-phase:</strong>
+<li><strong class="u5ec72c">AC single-phase:</strong>
 <code>A = (kW × 1,000) ÷ (V × PF)</code></li>
-<li><strong style="color:var(--text-primary)">AC three-phase (L-L voltage):</strong>
+<li><strong class="u5ec72c">AC three-phase (L-L voltage):</strong>
 <code>A = (kW × 1,000) ÷ (√3 × V × PF)</code>, where √3 ≈ 1.7321</li>
-<li><strong style="color:var(--text-primary)">AC three-phase (L-N voltage):</strong>
+<li><strong class="u5ec72c">AC three-phase (L-N voltage):</strong>
 <code>A = (kW × 1,000) ÷ (3 × V × PF)</code></li>
 </ul>
-<p style="margin-top:0.5rem">For DC circuits, power factor does not apply. For AC, use PF = 1.0 for resistive loads and PF = 0.8 for typical motors.</p>
+<p class="ub83168">For DC circuits, power factor does not apply. For AC, use PF = 1.0 for resistive loads and PF = 0.8 for typical motors.</p>
 </div>
 </div>
 <div class="faq-item">
@@ -368,13 +367,13 @@
             
 </div>
 <div class="faq-item__answer">
-<ul style="margin-left:1.25rem; line-height:1.9; color:var(--text-secondary)">
-<li><strong style="color:var(--text-primary)">DC at 120 V:</strong>
-                (1 × 1,000) ÷ 120 = <strong style="color:var(--accent)">8.3333 A</strong></li>
-<li><strong style="color:var(--text-primary)">AC single-phase at 120 V, PF 0.8:</strong>
-                (1 × 1,000) ÷ (120 × 0.8) = <strong style="color:var(--accent)">10.4167 A</strong></li>
+<ul class="u693d37">
+<li><strong class="u5ec72c">DC at 120 V:</strong>
+                (1 × 1,000) ÷ 120 = <strong class="ubb2b0e">8.3333 A</strong></li>
+<li><strong class="u5ec72c">AC single-phase at 120 V, PF 0.8:</strong>
+                (1 × 1,000) ÷ (120 × 0.8) = <strong class="ubb2b0e">10.4167 A</strong></li>
 </ul>
-<p style="margin-top:0.5rem">The AC value is higher because a power factor below 1.0 means additional reactive current is drawn that does not contribute to real power.</p>
+<p class="ub83168">The AC value is higher because a power factor below 1.0 means additional reactive current is drawn that does not contribute to real power.</p>
 </div>
 </div>
 <div class="faq-item">
@@ -384,13 +383,13 @@
 </div>
 <div class="faq-item__answer">
 <p>
-<strong style="color:var(--text-primary)">kW (kilowatts)</strong> is real (active) power —
+<strong class="u5ec72c">kW (kilowatts)</strong> is real (active) power —
               the actual energy doing useful work, such as heat, light, or mechanical motion.
-              <strong style="color:var(--text-primary)">kVA (kilovolt-amps)</strong> is apparent power,
+              <strong class="u5ec72c">kVA (kilovolt-amps)</strong> is apparent power,
               which is the total power drawn by the circuit including reactive power.
               They are related by: <code>kW = kVA × PF</code>.
             </p>
-<p style="margin-top:0.5rem">
+<p class="ub83168">
               For purely resistive loads (electric heaters, incandescent bulbs), PF = 1.0,
               so kW = kVA. For motors and other inductive loads, kVA &gt; kW.
               When sizing cables and breakers for AC circuits, use the current calculated
@@ -404,11 +403,11 @@
             
 </div>
 <div class="faq-item__answer">
-<ul style="margin-left:1.25rem; line-height:1.9; color:var(--text-secondary)">
-<li><strong style="color:var(--text-primary)">Three-phase L-L at 240 V, PF 0.8:</strong>
-                (5 × 1,000) ÷ (1.7321 × 240 × 0.8) = <strong style="color:var(--accent)">15.0361 A</strong></li>
-<li><strong style="color:var(--text-primary)">Three-phase L-L at 240 V, PF 1.0:</strong>
-                (5 × 1,000) ÷ (1.7321 × 240) = <strong style="color:var(--accent)">12.0281 A</strong></li>
+<ul class="u693d37">
+<li><strong class="u5ec72c">Three-phase L-L at 240 V, PF 0.8:</strong>
+                (5 × 1,000) ÷ (1.7321 × 240 × 0.8) = <strong class="ubb2b0e">15.0361 A</strong></li>
+<li><strong class="u5ec72c">Three-phase L-L at 240 V, PF 1.0:</strong>
+                (5 × 1,000) ÷ (1.7321 × 240) = <strong class="ubb2b0e">12.0281 A</strong></li>
 </ul>
 </div>
 </div>
@@ -420,14 +419,14 @@
 <div class="faq-item__answer">
 <p>
               Wire sizing depends on current (amps), not directly on watts. At 240 V single-phase
-              with PF = 1.0, 5 kW draws (5 × 1,000) ÷ 240 = <strong style="color:var(--accent)">20.83 A</strong>.
+              with PF = 1.0, 5 kW draws (5 × 1,000) ÷ 240 = <strong class="ubb2b0e">20.83 A</strong>.
             </p>
-<p style="margin-top:0.5rem">
+<p class="ub83168">
               Per NEC 210.20, continuous loads must be sized at 125%:
-              20.83 × 1.25 = <strong style="color:var(--accent)">26.04 A</strong> minimum breaker rating.
-              This requires <strong style="color:var(--accent)">10 AWG copper</strong> wire (rated 30 A) for most installations.
+              20.83 × 1.25 = <strong class="ubb2b0e">26.04 A</strong> minimum breaker rating.
+              This requires <strong class="ubb2b0e">10 AWG copper</strong> wire (rated 30 A) for most installations.
               If PF = 0.8, current rises to 26.04 A, and 125% = 32.55 A — requiring
-              <strong style="color:var(--accent)">8 AWG copper</strong>.
+              <strong class="ubb2b0e">8 AWG copper</strong>.
               Always consult a licensed electrician for actual installation decisions.
             </p>
 </div>
@@ -463,148 +462,8 @@
     <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
   </div>
 </footer>
-<script src="/assets/js/converters.js"></script>
-<script src="/assets/js/ui.js"></script>
-<script>
-(function () {
-  'use strict';
-
-  initPage(); // inits footer year, mobile nav, FAQ accordion
-
-  const inputKw     = document.getElementById('input-kw');
-  const inputVolts  = document.getElementById('input-volts');
-  const inputPhase  = document.getElementById('input-phase');
-  const inputPF     = document.getElementById('input-pf');
-  const pfWrapper   = document.getElementById('pf-wrapper');
-  const resultEl    = document.getElementById('result-display');
-  const resultValue = document.getElementById('result-value');
-  const resultUnit  = document.getElementById('result-unit');
-  const formulaNote = document.getElementById('formula-note');
-  const tabDc       = document.getElementById('tab-dc');
-  const tabSingle   = document.getElementById('tab-single');
-  const tabThreeLl  = document.getElementById('tab-three-ll');
-  const tabThreeLn  = document.getElementById('tab-three-ln');
-
-  const FORMULAS = {
-    'dc':       'A = (kW \u00d7 1,000) \u00f7 V',
-    'single':   'A = (kW \u00d7 1,000) \u00f7 (V \u00d7 PF)',
-    'three-ll': 'A = (kW \u00d7 1,000) \u00f7 (\u221a3 \u00d7 V \u00d7 PF)',
-    'three-ln': 'A = (kW \u00d7 1,000) \u00f7 (3 \u00d7 V \u00d7 PF)',
-  };
-
-  function updatePF() {
-    const ac = inputPhase.value !== 'dc';
-    pfWrapper.classList.toggle('visible', ac);
-    pfWrapper.setAttribute('aria-hidden', String(!ac));
-    inputPF.disabled = !ac;
-  }
-
-  function updateTabs(phase) {
-    tabDc.classList.toggle('active',      phase === 'dc');
-    tabSingle.classList.toggle('active',  phase === 'single');
-    tabThreeLl.classList.toggle('active', phase === 'three-ll');
-    tabThreeLn.classList.toggle('active', phase === 'three-ln');
-  }
-
-  function calculate() {
-    const kw    = parseFloat(inputKw.value);
-    const volts = parseFloat(inputVolts.value);
-    const phase = inputPhase.value;
-    const pf    = parseFloat(inputPF.value);
-
-    updateTabs(phase);
-
-    const result = Converters.kwToAmps(kw, volts, pf, phase);
-
-    if (result === null) {
-      resultEl.classList.add('invalid');
-      resultEl.classList.remove('has-result');
-      resultValue.textContent  = '—';
-      resultUnit.style.display = 'none';
-      formulaNote.classList.remove('live');
-      formulaNote.textContent  = 'Formula: ' + FORMULAS[phase];
-    } else {
-      resultEl.classList.remove('invalid');
-      resultEl.classList.add('has-result');
-      animateResultTick('result-value');
-      resultValue.textContent  = Converters.formatResult(result, 4);
-      resultUnit.style.display = '';
-      formulaNote.classList.add('live');
-
-      let denomStr;
-      if (phase === 'dc') {
-        denomStr = '' + volts;
-      } else if (phase === 'single') {
-        denomStr = '(' + volts + ' \u00d7 ' + pf + ')';
-      } else if (phase === 'three-ll') {
-        denomStr = '(\u221a3 \u00d7 ' + volts + ' \u00d7 ' + pf + ') = ' + Converters.formatResult(Math.sqrt(3) * volts * pf, 4);
-      } else {
-        denomStr = '(3 \u00d7 ' + volts + ' \u00d7 ' + pf + ') = ' + Converters.formatResult(3 * volts * pf, 4);
-      }
-      formulaNote.textContent =
-        FORMULAS[phase] + '  =  (' + kw + ' \u00d7 1,000) \u00f7 ' + denomStr + ' = ' + Converters.formatResult(result, 4) + ' A';
-    }
-  }
-
-  inputKw.addEventListener('input', calculate);
-  inputVolts.addEventListener('input', calculate);
-  inputPF.addEventListener('input', calculate);
-  inputPhase.addEventListener('change', function () { updatePF(); calculate(); });
-
-  updatePF();
-  calculate();
-})();
-</script>
-<script>
-function switchTable(tab) {
-  document.getElementById('table-sp').style.display = tab === 'sp' ? '' : 'none';
-  document.getElementById('table-tp').style.display = tab === 'tp' ? '' : 'none';
-  document.getElementById('btn-tab-sp').classList.toggle('active', tab === 'sp');
-  document.getElementById('btn-tab-tp').classList.toggle('active', tab === 'tp');
-  document.getElementById('btn-tab-sp').setAttribute('aria-selected', String(tab === 'sp'));
-  document.getElementById('btn-tab-tp').setAttribute('aria-selected', String(tab === 'tp'));
-}
-</script>
-<script>
-const navToggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-const navClose = document.querySelector('.nav-close');
-
-function openNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.add('is-open');
-  mobileNav.removeAttribute('aria-hidden');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove('is-open');
-  mobileNav.setAttribute('aria-hidden', 'true');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-if (navToggle) navToggle.addEventListener('click', openNav);
-if (navClose) navClose.addEventListener('click', closeNav);
-
-if (mobileNav) {
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) closeNav();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Mark active nav link based on current URL
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname) {
-    link.classList.add('active');
-  }
-});
-</script>
+<script src="/assets/js/converters.js?v=b37905a4" defer></script>
+<script src="/assets/js/calculators.js?v=857a6a51" defer></script>
+<script src="/assets/js/site.js?v=e872e18f" defer></script>
 </body>
 </html>
