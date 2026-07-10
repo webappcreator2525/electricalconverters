@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Page Not Found | ElectricalConverters</title>
+<meta content="noindex, follow" name="robots"/>
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+
+<link href="/assets/css/main.css" rel="stylesheet"/>
+<style>
+    .site-header { position:sticky;top:0;z-index:50;background-color: #ffffff;-webkit-backdrop-filter:blur(12px); }
+    .site-header__inner { max-width:1100px;margin-inline:auto;padding:0 1.5rem;height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem; }
+    .site-logo {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+    .site-logo span { color:var(--accent); }
+    .site-nav { display:flex;align-items:center;gap:0.25rem;overflow-x:auto;scrollbar-width:none; }
+    .site-nav::-webkit-scrollbar { display:none; }
+    .site-nav a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 0.3rem 0.6rem;
+      white-space: nowrap;
+      transition: color var(--transition-fast);
+    }
+    .site-nav a:hover {
+      color: var(--text-primary);
+    }
+    .page-wrap { max-width:780px;margin-inline:auto;padding:4rem 1.5rem 5rem; text-align: center; }
+    .page-hero { margin-bottom:3rem; }
+    .page-hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 0.625rem;
+    }
+    .page-hero__sub { font-size:1.125rem;color:var(--text-secondary); }
+    .related-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;text-align:left; }
+    .related-link { display:flex;align-items:center;gap:0.75rem;padding:1rem 1.25rem;background-color:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);text-decoration:none;color:var(--text-secondary);font-size:0.9rem;font-weight:500;transition:all var(--transition-fast); }
+    .related-link:hover { color:var(--text-primary);border-color:var(--accent);background-color:var(--accent-glow);transform:translateY(-2px); }
+    .related-link__icon { font-size:1.25rem;flex-shrink:0; }
+    .site-footer { border-top:1px solid var(--border);padding:2rem 1.5rem;text-align:center; }
+    .site-footer p { font-size:0.8125rem;color:var(--text-muted);line-height:1.7; }
+    .site-footer a { color:var(--text-secondary);text-decoration:none; }
+    .site-footer a:hover { color:var(--accent); }
+  </style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
+<body>
+<header class="site-header">
+<div class="header-inner">
+<a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<nav aria-label="Main navigation" class="site-nav">
+<ul class="nav-list">
+<li><a class="nav-link" href="/watts-to-amps/">W to A</a></li>
+<li><a class="nav-link" href="/kw-to-amps/">kW to A</a></li>
+<li><a class="nav-link" href="/amps-to-watts/">A to W</a></li>
+<li><a class="nav-link" href="/watts-to-volts/">W to V</a></li>
+<li><a class="nav-link" href="/amps-to-volts/">A to V</a></li>
+<li><a class="nav-link" href="/kva-to-kw/">kVA to kW</a></li>
+<li><a class="nav-link" href="/kva-to-amps/">kVA to A</a></li>
+<li><a class="nav-link" href="/va-to-watts/">VA to W</a></li>
+<li><a class="nav-link" href="/kwh-to-watts/">kWh to W</a></li>
+<li><a class="nav-link" href="/watts-to-kwh/">W to kWh</a></li>
+<li><a class="nav-link" href="/mah-to-wh/">mAh to Wh</a></li>
+<li><a class="nav-link" href="/wh-to-mah/">Wh to mAh</a></li>
+</ul>
+</nav>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle">
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+</button>
+</div>
+</header>
+<div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
+<div class="mobile-nav-inner">
+<div class="mobile-nav-header">
+<span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+<button aria-label="Close navigation" class="nav-close">✕</button>
+</div>
+<ul class="mobile-nav-list">
+<li><a class="nav-link" href="/watts-to-amps/">W to A</a></li>
+<li><a class="nav-link" href="/kw-to-amps/">kW to A</a></li>
+<li><a class="nav-link" href="/amps-to-watts/">A to W</a></li>
+<li><a class="nav-link" href="/watts-to-volts/">W to V</a></li>
+<li><a class="nav-link" href="/amps-to-volts/">A to V</a></li>
+<li><a class="nav-link" href="/kva-to-kw/">kVA to kW</a></li>
+<li><a class="nav-link" href="/kva-to-amps/">kVA to A</a></li>
+<li><a class="nav-link" href="/va-to-watts/">VA to W</a></li>
+<li><a class="nav-link" href="/kwh-to-watts/">kWh to W</a></li>
+<main id="main-content">
+  <div class="page-wrap">
+    <div class="error-page">
+      <div class="error-page__code">404</div>
+      <h1 class="error-page__title">Page Not Found</h1>
+      <p class="error-page__desc">This page does not exist or has been moved. Try one of the calculators below.</p>
+      <div class="error-page__links">
+        <a href="/" class="back-link back-link--primary">All Calculators</a>
+        <a href="/watts-to-amps/" class="back-link">Watts to Amps</a>
+        <a href="/kw-to-amps/" class="back-link">kW to Amps</a>
+        <a href="/kva-to-kw/" class="back-link">kVA to kW</a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner">
+    <div class="footer-brand">
+      <span class="footer-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+      <p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com</p>
+    </div>
+    <div class="footer-links">
+      <a href="/privacy/">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="footer-disclaimer">
+    <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
+  </div>
+</footer>
+<script>
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>
+<script>
+const navToggle = document.querySelector('.nav-toggle');
+const mobileNav = document.getElementById('mobile-nav');
+const navClose = document.querySelector('.nav-close');
+
+function openNav() {
+  if (!mobileNav) return;
+  mobileNav.classList.add('is-open');
+  mobileNav.removeAttribute('aria-hidden');
+  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeNav() {
+  if (!mobileNav) return;
+  mobileNav.classList.remove('is-open');
+  mobileNav.setAttribute('aria-hidden', 'true');
+  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+if (navToggle) navToggle.addEventListener('click', openNav);
+if (navClose) navClose.addEventListener('click', closeNav);
+
+if (mobileNav) {
+  mobileNav.addEventListener('click', (e) => {
+    if (e.target === mobileNav) closeNav();
+  });
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeNav();
+});
+
+// Mark active nav link based on current URL
+document.querySelectorAll('.nav-link').forEach(link => {
+  if (link.getAttribute('href') === window.location.pathname) {
+    link.classList.add('active');
+  }
+});
+</script>
+</body>
+</html>

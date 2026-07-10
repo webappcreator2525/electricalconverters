@@ -1,0 +1,538 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Primary Meta -->
+<title>Amps to Watts Calculator | ElectricalConverters</title>
+<meta content="Convert amps to watts instantly. Enter amps and voltage — get amps for DC, AC single-phase, and AC three-phase circuits. Free, no signup." name="description"/>
+<link href="https://electricalconverters.com/amps-to-watts/" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="Amps to Watts Calculator | ElectricalConverters" property="og:title"/>
+<meta content="Convert amps to watts instantly. Enter amps and voltage — get amps for DC, AC single-phase, and AC three-phase circuits. Free, no signup." property="og:description"/>
+<meta content="https://electricalconverters.com/amps-to-watts/" property="og:url"/>
+<!-- Tailwind CSS (CDN) -->
+<!-- Google Fonts -->
+<!-- Site Design System -->
+<link href="/assets/css/main.css" rel="stylesheet"/>
+<!-- FAQPage Structured Data -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I convert amps to watts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To convert amps to watts, divide the power in watts by the voltage in volts. For DC circuits: Amps = Watts ÷ Volts. For AC single-phase circuits, also divide by the power factor: Amps = Watts ÷ (Volts × Power Factor). For AC three-phase circuits: Amps = Watts ÷ (Volts × Power Factor × √3). Use our calculator above to get an instant result."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the formula for amps to watts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There are three amps-to-watts formulas depending on circuit type. DC: A = W ÷ V. AC Single-phase: A = W ÷ (V × PF). AC Three-phase: A = W ÷ (V × PF × √3), where √3 ≈ 1.732. PF is the power factor, a value between 0 and 1 that accounts for reactive power in AC circuits. DC circuits always use a power factor of 1."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many amps is 1500 watts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on voltage and circuit type. At 120V DC: 1500 ÷ 120 = 12.5 amps. At 240V DC: 1500 ÷ 240 = 6.25 amps. At 120V AC single-phase with a power factor of 0.8: 1500 ÷ (120 × 0.8) = 15.625 amps. At 240V AC single-phase with PF 0.8: 1500 ÷ (240 × 0.8) = 7.8125 amps."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between watts and amps?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Current (A) measure electrical power — the rate at which energy is consumed or produced. Amps (A), or amperes, measure electric current — the rate at which electric charge flows through a circuit. The two are linked by voltage: Power (W) = Current (A) × Voltage (V). A device can draw few amps at high voltage or many amps at low voltage while consuming the same wattage."
+        }
+      }
+    ]
+  }
+  </script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
+<body>
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════════════════ -->
+<header class="site-header">
+<div class="header-inner">
+<a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<nav aria-label="Main navigation" class="site-nav">
+<ul class="nav-list">
+<li><a class="nav-link" href="/watts-to-amps/">W to A</a></li>
+<li><a class="nav-link" href="/kw-to-amps/">kW to A</a></li>
+<li><a class="nav-link" href="/amps-to-watts/">A to W</a></li>
+<li><a class="nav-link" href="/watts-to-volts/">W to V</a></li>
+<li><a class="nav-link" href="/amps-to-volts/">A to V</a></li>
+<li><a class="nav-link" href="/kva-to-kw/">kVA to kW</a></li>
+<li><a class="nav-link" href="/kva-to-amps/">kVA to A</a></li>
+<li><a class="nav-link" href="/va-to-watts/">VA to W</a></li>
+<li><a class="nav-link" href="/kwh-to-watts/">kWh to W</a></li>
+<li><a class="nav-link" href="/watts-to-kwh/">W to kWh</a></li>
+<li><a class="nav-link" href="/mah-to-wh/">mAh to Wh</a></li>
+<li><a class="nav-link" href="/wh-to-mah/">Wh to mAh</a></li>
+</ul>
+</nav>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle">
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+</button>
+</div>
+</header>
+<div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
+<div class="mobile-nav-inner">
+<div class="mobile-nav-header">
+<span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+<button aria-label="Close navigation" class="nav-close">×</button>
+</div>
+<ul class="mobile-nav-list">
+<li><a class="nav-link" href="/watts-to-amps/">W to A</a></li>
+<li><a class="nav-link" href="/kw-to-amps/">kW to A</a></li>
+<li><a class="nav-link" href="/amps-to-watts/">A to W</a></li>
+<li><a class="nav-link" href="/watts-to-volts/">W to V</a></li>
+<li><a class="nav-link" href="/amps-to-volts/">A to V</a></li>
+<li><a class="nav-link" href="/kva-to-kw/">kVA to kW</a></li>
+<li><a class="nav-link" href="/kva-to-amps/">kVA to A</a></li>
+<li><a class="nav-link" href="/va-to-watts/">VA to W</a></li>
+<li><a class="nav-link" href="/kwh-to-watts/">kWh to W</a></li>
+<li><a class="nav-link" href="/watts-to-kwh/">W to kWh</a></li>
+<li><a class="nav-link" href="/mah-to-wh/">mAh to Wh</a></li>
+<li><a class="nav-link" href="/wh-to-mah/">Wh to mAh</a></li>
+</ul>
+</div>
+</div>
+<!-- ═══════════════════════════════════════════════════════════
+     MAIN
+══════════════════════════════════════════════════════════════ -->
+<main id="main-content">
+<div class="page-wrap">
+<!-- ── Hero ────────────────────────────────────── -->
+<section aria-labelledby="page-heading" class="calc-header">
+<h1 id="page-heading">Amps to Watts Calculator</h1>
+<p>Enter amps and voltage below — result updates instantly.</p>
+</section>
+<!-- ── Converter Tool ──────────────────────────── -->
+<section aria-label="Amps to watts converter tool">
+<div aria-label="Amps to watts calculator" class="converter-card" role="form">
+<!-- Row 1: Watts + Voltage -->
+<div class="input-row">
+<div class="field-group" style="margin-bottom:0">
+<label for="input-amps">Current (A)</label>
+<input aria-label="Current in amps" autocomplete="off" class="input-field" id="input-amps" inputmode="decimal" min="0" placeholder="e.g. 15" step="any" type="number"/>
+</div>
+<div class="field-group" style="margin-bottom:0">
+<label for="input-volts">Voltage (V)</label>
+<input aria-label="Voltage in volts" autocomplete="off" class="input-field" id="input-volts" inputmode="decimal" min="0" step="any" type="number" value="120"/>
+</div>
+</div>
+<!-- Row 2: Circuit type -->
+<div class="circuit-row field-group" style="margin-bottom:0">
+<label for="input-phase">Circuit Type</label>
+<select aria-label="Circuit type" class="input-field input-field--select" id="input-phase">
+<option value="dc">DC (Direct Current)</option>
+<option value="single">AC — Single-phase</option>
+<option value="three">AC — Three-phase</option>
+</select>
+</div>
+<!-- Row 3: Power Factor (AC only) -->
+<div aria-hidden="true" class="pf-wrapper" id="pf-wrapper">
+<div class="field-group" style="margin-bottom:0">
+<label for="input-pf">Power Factor (PF)</label>
+<input aria-label="Power factor between 0 and 1" autocomplete="off" class="input-field" id="input-pf" inputmode="decimal" max="1" min="0.01" step="0.01" type="number" value="0.8"/>
+</div>
+</div>
+<!-- Result display -->
+<div class="result-wrap">
+<div aria-atomic="true" aria-live="polite" class="result-display" id="result-display">
+<div class="result-display__label">RESULT</div>
+<div class="result-display__value-row">
+<span class="result-display__value" id="result-value">—</span>
+<span class="result-display__unit" id="result-unit" style="display:none">W</span>
+</div>
+<div class="result-display__formula-note" id="formula-note">
+              Choose a circuit type and enter values to see the formula used.
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ── Formulas ─────────────────────────────────── -->
+<section aria-labelledby="formulas-heading" class="content-section">
+<h2 id="formulas-heading">Amps to Watts Formula</h2>
+<div class="formula-set">
+<div class="formula-item">
+<div class="formula-item__label">DC Circuits</div>
+<div class="formula-block">
+<span class="var">W</span> = <span class="var">A</span> × <span class="var">V</span></div>
+<p class="formula-item__desc">
+            In a DC circuit, current equals power divided by voltage. There is no
+            reactive power, so no power factor is needed. Example: a 60 W bulb on
+            12 V draws 60 ÷ 12 = <strong style="color:var(--text-primary)">5 A</strong>.
+          </p>
+</div>
+<div class="formula-item">
+<div class="formula-item__label">AC Single-phase</div>
+<div class="formula-block">
+<span class="var">W</span> = <span class="var">A</span> × <span class="var">V</span> × <span class="var">PF</span></div>
+<p class="formula-item__desc">
+            AC circuits carry reactive power, so the power factor (PF) scales the
+            real power. A PF of 1.0 is perfectly resistive (heaters, incandescent
+            bulbs); motors and electronics typically range from 0.7 – 0.95.
+          </p>
+</div>
+<div class="formula-item">
+<div class="formula-item__label">AC Three-phase</div>
+<div class="formula-block">
+<span class="var">W</span> = <span class="var">A</span> × <span class="var">V</span> × <span class="var">PF</span> × √3</div>
+<p class="formula-item__desc">
+            Three-phase power distributes load across three conductors. The √3 factor
+            (≈ 1.732) accounts for the phase angle between conductors. Voltage here
+            is line-to-line (e.g. 400 V in Europe, 208 V or 480 V in the US).
+          </p>
+</div>
+</div>
+</section>
+<!-- ── Examples Table ───────────────────────────── -->
+<section aria-labelledby="examples-heading" class="content-section">
+<h2 id="examples-heading">Common Amps to Watts Examples</h2>
+<div aria-label="Amps to watts reference table" class="examples-table-wrap" role="region" tabindex="0">
+<table class="examples-table">
+<thead>
+<tr>
+<th scope="col">Watts</th>
+<th scope="col">Voltage</th>
+<th scope="col">Circuit</th>
+<th scope="col">Result (Amps)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="col-watts">100 W</td>
+<td class="col-volts">120 V</td>
+<td></td>
+<td class="col-result">0.8333 A</td>
+</tr>
+<tr>
+<td class="col-watts">500 W</td>
+<td class="col-volts">120 V</td>
+<td></td>
+<td class="col-result">4.1667 A</td>
+</tr>
+<tr>
+<td class="col-watts">1,000 W</td>
+<td class="col-volts">120 V</td>
+<td></td>
+<td class="col-result">8.3333 A</td>
+</tr>
+<tr>
+<td class="col-watts">1,500 W</td>
+<td class="col-volts">120 V</td>
+<td></td>
+<td class="col-result">12.5000 A</td>
+</tr>
+<tr>
+<td class="col-watts">2,000 W</td>
+<td class="col-volts">120 V</td>
+<td></td>
+<td class="col-result">16.6667 A</td>
+</tr>
+<tr>
+<td class="col-watts">100 W</td>
+<td class="col-volts">240 V</td>
+<td></td>
+<td class="col-result">0.4167 A</td>
+</tr>
+<tr>
+<td class="col-watts">1,000 W</td>
+<td class="col-volts">240 V</td>
+<td></td>
+<td class="col-result">4.1667 A</td>
+</tr>
+<tr>
+<td class="col-watts">1,500 W</td>
+<td class="col-volts">120 V</td>
+<td></td>
+<td class="col-result">15.6250 A</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- ── Common Calculations ──────────────────────── -->
+<section aria-labelledby="common-heading" class="content-section">
+<h2 id="common-heading">Common Amps to Watts Calculations</h2>
+<div class="related-grid">
+<a class="related-link" href="/amps-to-watts/500-amps-to-watts/">
+<span class="related-link__icon"></span>
+<span>500 Amps to Watts</span>
+</a>
+<a class="related-link" href="/amps-to-watts/1000-amps-to-watts/">
+<span class="related-link__icon"></span>
+<span>1000 Amps to Watts</span>
+</a>
+<a class="related-link" href="/amps-to-watts/1500-amps-to-watts/">
+<span class="related-link__icon"></span>
+<span>1500 Amps to Watts</span>
+</a>
+<a class="related-link" href="/amps-to-watts/2000-amps-to-watts/">
+<span class="related-link__icon"></span>
+<span>2000 Amps to Watts</span>
+</a>
+<a class="related-link" href="/amps-to-watts/3000-amps-to-watts/">
+<span class="related-link__icon"></span>
+<span>3000 Amps to Watts</span>
+</a>
+<a class="related-link" href="/amps-to-watts/5000-amps-to-watts/">
+<span class="related-link__icon"></span>
+<span>5000 Amps to Watts</span>
+</a>
+</div>
+</section>
+<!-- ── FAQ ──────────────────────────────────────── -->
+<section aria-labelledby="faq-heading" class="content-section">
+<h2 id="faq-heading">Frequently Asked Questions</h2>
+<div class="faq-list">
+<div class="faq-item">
+<h3 class="faq-item__question">How do I convert amps to watts?</h3>
+<div class="faq-item__answer">
+<p>
+              Divide the power in watts by the voltage in volts. For <strong>DC circuits</strong>:
+              <code>A = W ÷ V</code>. For <strong>AC single-phase</strong> circuits, also divide by
+              the power factor: <code>A = W ÷ (V × PF)</code>. For
+              <strong>AC three-phase</strong>: <code>A = W ÷ (V × PF × √3)</code>.
+              Use the calculator at the top of this page to get an instant result.
+            </p>
+</div>
+</div>
+<div class="faq-item">
+<h3 class="faq-item__question">What is the formula for amps to watts?</h3>
+<div class="faq-item__answer">
+<p>
+              There are three formulas depending on circuit type:
+            </p>
+<ul style="margin-top:0.5rem; margin-left:1.25rem; line-height:1.9; color:var(--text-secondary)">
+<li><strong style="color:var(--text-primary)">DC:</strong> <code>A = W ÷ V</code></li>
+<li><strong style="color:var(--text-primary)">AC Single-phase:</strong> <code>A = W ÷ (V × PF)</code></li>
+<li><strong style="color:var(--text-primary)">AC Three-phase:</strong> <code>A = W ÷ (V × PF × √3)</code>, where √3 ≈ 1.732</li>
+</ul>
+<p style="margin-top:0.5rem">
+              PF is the power factor — a value between 0 and 1 that accounts for
+              reactive power in AC circuits. DC circuits always have a power factor of 1.
+            </p>
+</div>
+</div>
+<div class="faq-item">
+<h3 class="faq-item__question">How many amps is 1500 watts?</h3>
+<div class="faq-item__answer">
+<p>It depends on voltage and circuit type:</p>
+<ul style="margin-top:0.5rem; margin-left:1.25rem; line-height:1.9; color:var(--text-secondary)">
+<li><strong style="color:var(--text-primary)">120 V DC:</strong> 1500 ÷ 120 = <strong style="color:var(--accent)">12.5 A</strong></li>
+<li><strong style="color:var(--text-primary)">240 V DC:</strong> 1500 ÷ 240 = <strong style="color:var(--accent)">6.25 A</strong></li>
+<li><strong style="color:var(--text-primary)">120 V AC single-phase (PF 0.8):</strong> 1500 ÷ (120 × 0.8) = <strong style="color:var(--accent)">15.625 A</strong></li>
+<li><strong style="color:var(--text-primary)">240 V AC single-phase (PF 0.8):</strong> 1500 ÷ (240 × 0.8) = <strong style="color:var(--accent)">7.8125 A</strong></li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
+<h3 class="faq-item__question">What is the difference between watts and amps?</h3>
+<div class="faq-item__answer">
+<p>
+<strong style="color:var(--text-primary)">Current (A)</strong> measure electrical
+              <em>power</em> — the rate at which energy is consumed or produced.
+              <strong style="color:var(--text-primary)">Amps (A)</strong> measure electric
+              <em>current</em> — the rate at which electric charge flows through a conductor.
+              The two are linked by voltage: <code>W = A × V</code>. A device can draw
+              few amps at high voltage or many amps at low voltage while consuming the
+              same wattage. Think of voltage as pressure, amps as flow, and watts as
+              the total power delivered.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ── Related Calculators ──────────────────────── -->
+<section aria-labelledby="related-heading" class="content-section">
+<h2 id="related-heading">Related Calculators</h2>
+<div class="related-grid">
+<a class="related-link" href="/kva-to-kw/">
+<span class="related-link__icon"></span>
+<span>kVA to kW</span>
+</a>
+<a class="related-link" href="/kwh-to-watts/">
+<span class="related-link__icon"></span>
+<span>kWh to Watts</span>
+</a>
+<a class="related-link" href="/kva-to-amps/">
+<span class="related-link__icon"></span>
+<span>kVA to Amps</span>
+</a>
+<a class="related-link" href="/mah-to-wh/">
+<span class="related-link__icon"></span>
+<span>mAh to Wh</span>
+</a>
+</div>
+</section>
+</div><!-- /page-wrap -->
+</main>
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner">
+    <div class="footer-brand">
+      <span class="footer-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+      <p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com</p>
+    </div>
+    <div class="footer-links">
+      <a href="/privacy/">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="footer-disclaimer">
+    <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
+  </div>
+</footer>
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════════════════════ -->
+<script src="/assets/js/converters.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ── Element refs ──────────────────────────────── */
+  const inputAmps   = document.getElementById('input-watts');
+  const inputVolts   = document.getElementById('input-volts');
+  const inputPhase   = document.getElementById('input-phase');
+  const inputPF      = document.getElementById('input-pf');
+  const pfWrapper    = document.getElementById('pf-wrapper');
+  const resultDisplay = document.getElementById('result-display');
+  const resultValue  = document.getElementById('result-value');
+  const resultUnit   = document.getElementById('result-unit');
+  const formulaNote  = document.getElementById('formula-note');
+
+  /* ── Footer year ───────────────────────────────── */
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  /* ── Formula strings ───────────────────────────── */
+  const FORMULAS = {
+    dc:     'W = A × V',
+    single: 'W = A × V × PF',
+    three:  'W = A × V × PF × √3',
+  };
+
+  /* ── Show / hide Power Factor field ───────────── */
+  function updatePFVisibility() {
+    const phase = inputPhase.value;
+    const isAC  = phase === 'single' || phase === 'three';
+    pfWrapper.classList.toggle('visible', isAC);
+    pfWrapper.setAttribute('aria-hidden', String(!isAC));
+    inputPF.disabled = !isAC;
+  }
+
+  /* ── Core calculation + UI update ─────────────── */
+  function calculate() {
+    const amps  = parseFloat(inputAmps.value);
+    const volts  = parseFloat(inputVolts.value);
+    const phase  = inputPhase.value;
+    const pf     = parseFloat(inputPF.value);
+
+    const result = Converters.ampsToWatts(amps, volts, pf, phase);
+
+    if (result === null) {
+      /* Invalid state */
+      resultDisplay.classList.add('invalid');
+      resultDisplay.classList.remove('has-result');
+      resultValue.textContent  = '—';
+      resultUnit.style.display = 'none';
+      formulaNote.textContent  = `Formula: ${FORMULAS[phase] || '—'}`;
+    } else {
+      /* Valid result */
+      resultDisplay.classList.remove('invalid');
+      resultDisplay.classList.add('has-result');
+      resultValue.textContent  = Converters.formatResult(result, 4);
+      resultUnit.style.display = '';
+
+      /* Build formula string with live values substituted */
+      let used = '';
+      if (phase === 'dc') {
+        used = `${watts} ÷ ${volts} = ${Converters.formatResult(result, 4)} A`;
+      } else if (phase === 'single') {
+        used = `${watts} ÷ (${volts} × ${pf}) = ${Converters.formatResult(result, 4)} A`;
+      } else {
+        used = `${watts} ÷ (${volts} × ${pf} × 1.7321) = ${Converters.formatResult(result, 4)} A`;
+      }
+      formulaNote.textContent = `Formula used: ${FORMULAS[phase]}  to  ${used}`;
+    }
+  }
+
+  /* ── Event listeners ───────────────────────────── */
+  inputAmps.addEventListener('input', calculate);
+  inputVolts.addEventListener('input', calculate);
+  inputPF.addEventListener('input', calculate);
+
+  inputPhase.addEventListener('change', function () {
+    updatePFVisibility();
+    calculate();
+  });
+
+  /* ── Initialise ────────────────────────────────── */
+  updatePFVisibility();
+  calculate();
+
+})();
+</script>
+<script>
+const navToggle = document.querySelector('.nav-toggle');
+const mobileNav = document.getElementById('mobile-nav');
+const navClose = document.querySelector('.nav-close');
+
+function openNav() {
+  if (!mobileNav) return;
+  mobileNav.classList.add('is-open');
+  mobileNav.removeAttribute('aria-hidden');
+  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeNav() {
+  if (!mobileNav) return;
+  mobileNav.classList.remove('is-open');
+  mobileNav.setAttribute('aria-hidden', 'true');
+  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+if (navToggle) navToggle.addEventListener('click', openNav);
+if (navClose) navClose.addEventListener('click', closeNav);
+
+if (mobileNav) {
+  mobileNav.addEventListener('click', (e) => {
+    if (e.target === mobileNav) closeNav();
+  });
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeNav();
+});
+
+// Mark active nav link based on current URL
+document.querySelectorAll('.nav-link').forEach(link => {
+  if (link.getAttribute('href') === window.location.pathname) {
+    link.classList.add('active');
+  }
+});
+</script>
+</body>
+</html>

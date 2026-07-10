@@ -1,0 +1,610 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Primary Meta -->
+<title>kW to Amps Calculator | ElectricalConverters</title>
+<meta content="Convert kilowatts to amps instantly. Enter kW and voltage to get amps for DC, AC single-phase, and AC three-phase circuits. Free, no signup." name="description"/>
+<link href="https://electricalconverters.com/kw-to-amps/" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="kW to Amps Calculator | ElectricalConverters" property="og:title"/>
+<meta content="Convert kilowatts to amps instantly. Enter kW and voltage to get amps for DC, AC single-phase, and AC three-phase circuits. Free, no signup." property="og:description"/>
+<meta content="https://electricalconverters.com/kw-to-amps/" property="og:url"/>
+<!-- Tailwind CSS (CDN) -->
+<!-- Google Fonts -->
+<!-- Site Design System -->
+<link href="/assets/css/main.css" rel="stylesheet"/>
+<!-- FAQPage JSON-LD -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I convert kW to amps?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use one of four formulas depending on circuit type. DC: A = (kW × 1,000) ÷ V. AC single-phase: A = (kW × 1,000) ÷ (V × PF). AC three-phase line-to-line: A = (kW × 1,000) ÷ (√3 × V × PF), where √3 ≈ 1.7321. AC three-phase line-to-neutral: A = (kW × 1,000) ÷ (3 × V × PF). For DC circuits, power factor does not apply (PF defaults to 1). For AC circuits, a typical power factor is 0.8 for motors and 1.0 for resistive loads."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many amps is 1 kW at 120V?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For DC: (1 × 1,000) ÷ 120 = 8.3333 A. For AC single-phase with a power factor of 0.8: (1 × 1,000) ÷ (120 × 0.8) = 10.4167 A. The AC value is higher because power factor below 1 means the circuit must draw more current to deliver the same real power."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between kW and kVA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "kW is real (active) power — the actual work performed by a load, such as heat or mechanical energy. kVA is apparent power, which includes both real and reactive power. They are related by power factor: kW = kVA × PF. For purely resistive loads such as electric heaters (PF = 1), kW and kVA are equal. For inductive loads such as motors (PF ≈ 0.8), kVA is larger than kW because the load draws reactive current that does no useful work."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many amps is 5 kW at 240V three-phase?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Using line-to-line voltage and a power factor of 0.8: (5 × 1,000) ÷ (1.7321 × 240 × 0.8) = 5,000 ÷ 332.563 = 15.0361 A. If PF = 1.0: 5,000 ÷ (1.7321 × 240) = 12.0281 A."
+        }
+      }
+    ]
+  }
+  </script>
+<!-- BreadcrumbList JSON-LD -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home",       "item": "https://electricalconverters.com/"},
+      {"@type": "ListItem", "position": 2, "name": "kW to Amps", "item": "https://electricalconverters.com/kw-to-amps/"}
+    ]
+  }
+  </script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
+<body>
+<!-- HEADER -->
+<header class="site-header">
+<div class="header-inner">
+<a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<nav aria-label="Main navigation" class="site-nav">
+<ul class="nav-list">
+<li><a class="nav-link" href="/watts-to-amps/">W to A</a></li>
+<li><a class="nav-link" href="/kw-to-amps/">kW to A</a></li>
+<li><a class="nav-link" href="/amps-to-watts/">A to W</a></li>
+<li><a class="nav-link" href="/watts-to-volts/">W to V</a></li>
+<li><a class="nav-link" href="/amps-to-volts/">A to V</a></li>
+<li><a class="nav-link" href="/kva-to-kw/">kVA to kW</a></li>
+<li><a class="nav-link" href="/kva-to-amps/">kVA to A</a></li>
+<li><a class="nav-link" href="/va-to-watts/">VA to W</a></li>
+<li><a class="nav-link" href="/kwh-to-watts/">kWh to W</a></li>
+<li><a class="nav-link" href="/watts-to-kwh/">W to kWh</a></li>
+<li><a class="nav-link" href="/mah-to-wh/">mAh to Wh</a></li>
+<li><a class="nav-link" href="/wh-to-mah/">Wh to mAh</a></li>
+</ul>
+</nav>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle">
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+</button>
+</div>
+</header>
+<div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
+<div class="mobile-nav-inner">
+<div class="mobile-nav-header">
+<span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+<button aria-label="Close navigation" class="nav-close">×</button>
+</div>
+<ul class="mobile-nav-list">
+<li><a class="nav-link" href="/watts-to-amps/">W to A</a></li>
+<li><a class="nav-link" href="/kw-to-amps/">kW to A</a></li>
+<li><a class="nav-link" href="/amps-to-watts/">A to W</a></li>
+<li><a class="nav-link" href="/watts-to-volts/">W to V</a></li>
+<li><a class="nav-link" href="/amps-to-volts/">A to V</a></li>
+<li><a class="nav-link" href="/kva-to-kw/">kVA to kW</a></li>
+<li><a class="nav-link" href="/kva-to-amps/">kVA to A</a></li>
+<li><a class="nav-link" href="/va-to-watts/">VA to W</a></li>
+<li><a class="nav-link" href="/kwh-to-watts/">kWh to W</a></li>
+<li><a class="nav-link" href="/watts-to-kwh/">W to kWh</a></li>
+<li><a class="nav-link" href="/mah-to-wh/">mAh to Wh</a></li>
+<li><a class="nav-link" href="/wh-to-mah/">Wh to mAh</a></li>
+</ul>
+</div>
+</div>
+<!-- HERO -->
+<!-- MAIN -->
+<main id="main-content">
+<div class="page-wrap"><div class="calc-header">
+<h1 id="page-heading">kW to Amps Calculator</h1>
+<p>Convert kilowatts to amps for DC, single-phase, and three-phase circuits.</p>
+</div>
+<!-- Converter -->
+<section aria-label="kW to amps converter tool">
+<div aria-label="kW to amps calculator" class="converter-card" role="form">
+<div class="input-row">
+<div class="field-group" style="margin-bottom:0">
+<label for="input-kw">Kilowatts (kW)</label>
+<input aria-label="Power in kilowatts" autocomplete="off" class="input-field" id="input-kw" inputmode="decimal" min="0" step="any" type="number" value="1"/>
+</div>
+<div class="field-group" style="margin-bottom:0">
+<label for="input-volts">Voltage (V)</label>
+<input aria-label="Voltage in volts" autocomplete="off" class="input-field" id="input-volts" inputmode="decimal" min="0" step="any" type="number" value="240"/>
+</div>
+</div>
+<div class="circuit-row field-group" style="margin-bottom:0">
+<label for="input-phase">Circuit Type</label>
+<select aria-label="Circuit type" class="input-field input-field--select" id="input-phase">
+<option value="dc">DC (Direct Current)</option>
+<option value="single">AC — Single-phase</option>
+<option value="three-ll">AC — Three-phase (line-to-line voltage)</option>
+<option value="three-ln">AC — Three-phase (line-to-neutral voltage)</option>
+</select>
+</div>
+<!-- Power Factor (shown for AC only) -->
+<div aria-hidden="true" class="pf-wrapper" id="pf-wrapper">
+<div class="field-group" style="margin-bottom:0">
+<label for="input-pf">Power Factor (PF)</label>
+<input aria-label="Power factor" autocomplete="off" class="input-field" id="input-pf" inputmode="decimal" max="1" min="0.01" step="0.01" type="number" value="0.8"/>
+</div>
+</div>
+<!-- Visual phase tab indicator -->
+<div aria-hidden="true" class="phase-indicator">
+<div class="phase-tab active" id="tab-dc">DC</div>
+<div class="phase-tab" id="tab-single">1Ø</div>
+<div class="phase-tab" id="tab-three-ll">3Ø L-L</div>
+<div class="phase-tab" id="tab-three-ln">3Ø L-N</div>
+</div>
+<!-- Result -->
+<div class="result-wrap">
+<div aria-atomic="true" aria-live="polite" class="result-display" id="result-display">
+<div class="result-display__label">RESULT — CURRENT</div>
+<div class="result-display__value-row">
+<span class="result-display__value" id="result-value">—</span>
+<span class="result-display__unit" id="result-unit" style="display:none">A</span>
+</div>
+<div class="result-display__formula-note" id="formula-note">Formula: A = (kW × 1,000) ÷ V</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Formulas -->
+<section aria-labelledby="formula-heading" class="content-section">
+<h2 id="formula-heading">kW to Amps Formula</h2>
+<div class="formula-pair">
+<div>
+<div class="formula-item__label">DC (Direct Current)</div>
+<div class="formula-block">
+<span class="var">A</span> = (<span class="var">kW</span> × 1,000) ÷ <span class="var">V</span></div>
+<p class="formula-item__desc">
+            For DC circuits, simply multiply kW by 1,000 to get watts, then divide by voltage.
+            Power factor does not apply to DC.<br/>
+<strong>Example:</strong> 2 kW at 120 V to (2 × 1,000) ÷ 120 =
+            <strong style="color:var(--accent)">16.6667 A</strong>.
+          </p>
+</div>
+<div>
+<div class="formula-item__label">AC Single-phase</div>
+<div class="formula-block">
+<span class="var">A</span> = (<span class="var">kW</span> × 1,000) ÷ (<span class="var">V</span> × <span class="var">PF</span>)</div>
+<p class="formula-item__desc">
+            For single-phase AC circuits, divide real power by voltage and power factor.
+            A lower PF means more current is drawn for the same useful power output.<br/>
+<strong>Example:</strong> 3 kW at 230 V, PF 0.85 to (3 × 1,000) ÷ (230 × 0.85) =
+            <strong style="color:var(--accent)">15.3374 A</strong>.
+          </p>
+</div>
+<div>
+<div class="formula-item__label">AC Three-phase — Line-to-Line Voltage</div>
+<div class="formula-block">
+<span class="var">A</span> = (<span class="var">kW</span> × 1,000) ÷ (√3 × <span class="var">V<sub>LL</sub></span> × <span class="var">PF</span>)</div>
+<p class="formula-item__desc">
+            Use this formula when the voltage given is line-to-line (phase-to-phase), which is the
+            standard way to specify three-phase voltage (e.g. 208 V, 400 V, 480 V).
+            √3 ≈ 1.7321.<br/>
+<strong>Example:</strong> 10 kW at 400 V (L-L), PF 0.9 to (10 × 1,000) ÷ (1.7321 × 400 × 0.9) =
+            <strong style="color:var(--accent)">16.0375 A</strong>.
+          </p>
+</div>
+<div>
+<div class="formula-item__label">AC Three-phase — Line-to-Neutral Voltage</div>
+<div class="formula-block">
+<span class="var">A</span> = (<span class="var">kW</span> × 1,000) ÷ (3 × <span class="var">V<sub>LN</sub></span> × <span class="var">PF</span>)</div>
+<p class="formula-item__desc">
+            Use this formula when using the line-to-neutral (phase-to-neutral) voltage.
+            Note: V<sub>LN</sub> ≈ V<sub>LL</sub> ÷ √3, so both three-phase formulas give the same result
+            for the same physical system.<br/>
+<strong>Example:</strong> 10 kW at 231 V (L-N), PF 0.9 to (10 × 1,000) ÷ (3 × 231 × 0.9) =
+            <strong style="color:var(--accent)">16.0375 A</strong>
+<em style="color:var(--text-muted)">(same as 400 V L-L example above, since 400 ÷ √3 ≈ 231 V)</em>.
+          </p>
+</div>
+</div>
+</section>
+<!-- Reference Tables -->
+<section aria-labelledby="table-heading" class="content-section">
+<h2 id="table-heading">kW to Amps Reference Table</h2>
+<p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:1rem;">
+        All values assume unity power factor (PF = 1.0). For other PF values, use the calculator above.
+      </p>
+<div aria-label="Table type" class="table-tab-bar" role="tablist">
+<button aria-controls="table-sp" aria-selected="true" class="table-tab-btn active" id="btn-tab-sp" onclick="switchTable('sp')" role="tab">Single-phase</button>
+<button aria-controls="table-tp" aria-selected="false" class="table-tab-btn" id="btn-tab-tp" onclick="switchTable('tp')" role="tab">Three-phase (L-L)</button>
+</div>
+<!-- Single-phase table -->
+<div aria-labelledby="btn-tab-sp" id="table-sp" role="tabpanel">
+<div aria-label="Single-phase kW to amps reference" class="table-wrap" role="region" tabindex="0">
+<table class="ref-table">
+<thead>
+<tr>
+<th scope="col">kW</th>
+<th class="col-head-blue" scope="col">120 V</th>
+<th scope="col">208 V</th>
+<th class="col-head-green" scope="col">240 V</th>
+<th scope="col">277 V</th>
+<th scope="col">480 V</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="col-mono">1 kW</td> <td class="col-result">8.3333 A</td> <td>4.8077 A</td> <td class="col-result-green">4.1667 A</td> <td>3.6101 A</td> <td>2.0833 A</td></tr>
+<tr><td class="col-mono">2 kW</td> <td class="col-result">16.6667 A</td> <td>9.6154 A</td> <td class="col-result-green">8.3333 A</td> <td>7.2202 A</td> <td>4.1667 A</td></tr>
+<tr><td class="col-mono">3 kW</td> <td class="col-result">25.0000 A</td> <td>14.4231 A</td> <td class="col-result-green">12.5000 A</td> <td>10.8303 A</td> <td>6.2500 A</td></tr>
+<tr><td class="col-mono">5 kW</td> <td class="col-result">41.6667 A</td> <td>24.0385 A</td> <td class="col-result-green">20.8333 A</td> <td>18.0505 A</td> <td>10.4167 A</td></tr>
+<tr><td class="col-mono">7.5 kW</td><td class="col-result">62.5000 A</td> <td>36.0577 A</td> <td class="col-result-green">31.2500 A</td> <td>27.0758 A</td> <td>15.6250 A</td></tr>
+<tr><td class="col-mono">10 kW</td> <td class="col-result">83.3333 A</td> <td>48.0769 A</td> <td class="col-result-green">41.6667 A</td> <td>36.1011 A</td> <td>20.8333 A</td></tr>
+<tr><td class="col-mono">15 kW</td> <td class="col-result">125.0000 A</td><td>72.1154 A</td> <td class="col-result-green">62.5000 A</td> <td>54.1516 A</td> <td>31.2500 A</td></tr>
+<tr><td class="col-mono">20 kW</td> <td class="col-result">166.6667 A</td><td>96.1538 A</td> <td class="col-result-green">83.3333 A</td> <td>72.2022 A</td> <td>41.6667 A</td></tr>
+<tr><td class="col-mono">25 kW</td> <td class="col-result">208.3333 A</td><td>120.1923 A</td><td class="col-result-green">104.1667 A</td><td>90.2527 A</td> <td>52.0833 A</td></tr>
+<tr><td class="col-mono">30 kW</td> <td class="col-result">250.0000 A</td><td>144.2308 A</td><td class="col-result-green">125.0000 A</td><td>108.3032 A</td><td>62.5000 A</td></tr>
+<tr><td class="col-mono">50 kW</td> <td class="col-result">416.6667 A</td><td>240.3846 A</td><td class="col-result-green">208.3333 A</td><td>180.5054 A</td><td>104.1667 A</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Three-phase table (hidden by default) -->
+<div aria-labelledby="btn-tab-tp" id="table-tp" role="tabpanel" style="display:none">
+<div aria-label="Three-phase kW to amps reference" class="table-wrap" role="region" tabindex="0">
+<table class="ref-table">
+<thead>
+<tr>
+<th scope="col">kW</th>
+<th class="col-head-blue" scope="col">208 V (L-L)</th>
+<th scope="col">240 V (L-L)</th>
+<th class="col-head-green" scope="col">480 V (L-L)</th>
+<th scope="col">600 V (L-L)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="col-mono">1 kW</td> <td class="col-result">2.7755 A</td> <td>2.4056 A</td> <td class="col-result-green">1.2028 A</td> <td>0.9623 A</td></tr>
+<tr><td class="col-mono">2 kW</td> <td class="col-result">5.5509 A</td> <td>4.8113 A</td> <td class="col-result-green">2.4056 A</td> <td>1.9245 A</td></tr>
+<tr><td class="col-mono">3 kW</td> <td class="col-result">8.3264 A</td> <td>7.2169 A</td> <td class="col-result-green">3.6084 A</td> <td>2.8868 A</td></tr>
+<tr><td class="col-mono">5 kW</td> <td class="col-result">13.8774 A</td> <td>12.0281 A</td> <td class="col-result-green">6.0141 A</td> <td>4.8113 A</td></tr>
+<tr><td class="col-mono">7.5 kW</td><td class="col-result">20.8160 A</td> <td>18.0422 A</td> <td class="col-result-green">9.0211 A</td> <td>7.2169 A</td></tr>
+<tr><td class="col-mono">10 kW</td> <td class="col-result">27.7547 A</td> <td>24.0563 A</td> <td class="col-result-green">12.0281 A</td> <td>9.6225 A</td></tr>
+<tr><td class="col-mono">15 kW</td> <td class="col-result">41.6321 A</td> <td>36.0844 A</td> <td class="col-result-green">18.0422 A</td> <td>14.4338 A</td></tr>
+<tr><td class="col-mono">20 kW</td> <td class="col-result">55.5094 A</td> <td>48.1125 A</td> <td class="col-result-green">24.0563 A</td> <td>19.2450 A</td></tr>
+<tr><td class="col-mono">25 kW</td> <td class="col-result">69.3868 A</td> <td>60.1406 A</td> <td class="col-result-green">30.0703 A</td> <td>24.0563 A</td></tr>
+<tr><td class="col-mono">30 kW</td> <td class="col-result">83.2641 A</td> <td>72.1688 A</td> <td class="col-result-green">36.0844 A</td> <td>28.8675 A</td></tr>
+<tr><td class="col-mono">50 kW</td> <td class="col-result">138.8402 A</td><td>120.2813 A</td><td class="col-result-green">60.1406 A</td> <td>48.1125 A</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Phase Cards -->
+<section aria-labelledby="phase-heading" class="content-section">
+<h2 id="phase-heading">Single-phase vs Three-phase vs Power Factor</h2>
+<div class="phase-grid">
+<div class="phase-card">
+<span aria-hidden="true" class="phase-card__icon"></span>
+<div class="phase-card__title">Single-phase (1Ø)</div>
+<p class="phase-card__body">
+            One live conductor and a neutral. Standard for homes, small offices,
+            and loads up to about 10 kW. For the same power, single-phase draws
+            more current per conductor than three-phase.
+          </p>
+<span class="phase-card__example">A = (kW × 1,000) ÷ (V × PF)</span>
+</div>
+<div class="phase-card">
+<span aria-hidden="true" class="phase-card__icon"></span>
+<div class="phase-card__title">Three-phase (3Ø)</div>
+<p class="phase-card__body">
+            Three conductors, each offset 120°. Used in industrial and commercial
+            buildings for motors, HVAC, and large equipment. For the same kW,
+            three-phase requires less current per conductor than single-phase.
+          </p>
+<span class="phase-card__example">A = (kW × 1,000) ÷ (√3 × V × PF)</span>
+</div>
+<div class="phase-card">
+<span aria-hidden="true" class="phase-card__icon"></span>
+<div class="phase-card__title">Power Factor (PF)</div>
+<p class="phase-card__body">
+            PF measures how efficiently a circuit converts apparent power (kVA) to
+            real power (kW). Resistive loads (heaters, incandescent bulbs) have
+            PF = 1.0. Inductive loads (motors) typically have PF ≈ 0.8.
+            General commercial: PF ≈ 0.9. A lower PF means higher current.
+          </p>
+<span class="phase-card__example">PF = kW ÷ kVA</span>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section aria-labelledby="faq-heading" class="content-section">
+<h2 id="faq-heading">Frequently Asked Questions</h2>
+<div class="faq-list">
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            How do I convert kW to amps?
+            
+</div>
+<div class="faq-item__answer">
+<p>Use the formula for your circuit type:</p>
+<ul style="margin-left:1.25rem; line-height:1.9; color:var(--text-secondary)">
+<li><strong style="color:var(--text-primary)">DC:</strong>
+<code>A = (kW × 1,000) ÷ V</code></li>
+<li><strong style="color:var(--text-primary)">AC single-phase:</strong>
+<code>A = (kW × 1,000) ÷ (V × PF)</code></li>
+<li><strong style="color:var(--text-primary)">AC three-phase (L-L voltage):</strong>
+<code>A = (kW × 1,000) ÷ (√3 × V × PF)</code>, where √3 ≈ 1.7321</li>
+<li><strong style="color:var(--text-primary)">AC three-phase (L-N voltage):</strong>
+<code>A = (kW × 1,000) ÷ (3 × V × PF)</code></li>
+</ul>
+<p style="margin-top:0.5rem">For DC circuits, power factor does not apply. For AC, use PF = 1.0 for resistive loads and PF = 0.8 for typical motors.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            How many amps is 1 kW at 120V?
+            
+</div>
+<div class="faq-item__answer">
+<ul style="margin-left:1.25rem; line-height:1.9; color:var(--text-secondary)">
+<li><strong style="color:var(--text-primary)">DC at 120 V:</strong>
+                (1 × 1,000) ÷ 120 = <strong style="color:var(--accent)">8.3333 A</strong></li>
+<li><strong style="color:var(--text-primary)">AC single-phase at 120 V, PF 0.8:</strong>
+                (1 × 1,000) ÷ (120 × 0.8) = <strong style="color:var(--accent)">10.4167 A</strong></li>
+</ul>
+<p style="margin-top:0.5rem">The AC value is higher because a power factor below 1.0 means additional reactive current is drawn that does not contribute to real power.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            What is the difference between kW and kVA?
+            
+</div>
+<div class="faq-item__answer">
+<p>
+<strong style="color:var(--text-primary)">kW (kilowatts)</strong> is real (active) power —
+              the actual energy doing useful work, such as heat, light, or mechanical motion.
+              <strong style="color:var(--text-primary)">kVA (kilovolt-amps)</strong> is apparent power,
+              which is the total power drawn by the circuit including reactive power.
+              They are related by: <code>kW = kVA × PF</code>.
+            </p>
+<p style="margin-top:0.5rem">
+              For purely resistive loads (electric heaters, incandescent bulbs), PF = 1.0,
+              so kW = kVA. For motors and other inductive loads, kVA &gt; kW.
+              When sizing cables and breakers for AC circuits, use the current calculated
+              from kVA (or from kW ÷ PF) to account for the full apparent power.
+            </p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            How many amps is 5 kW at 240V three-phase?
+            
+</div>
+<div class="faq-item__answer">
+<ul style="margin-left:1.25rem; line-height:1.9; color:var(--text-secondary)">
+<li><strong style="color:var(--text-primary)">Three-phase L-L at 240 V, PF 0.8:</strong>
+                (5 × 1,000) ÷ (1.7321 × 240 × 0.8) = <strong style="color:var(--accent)">15.0361 A</strong></li>
+<li><strong style="color:var(--text-primary)">Three-phase L-L at 240 V, PF 1.0:</strong>
+                (5 × 1,000) ÷ (1.7321 × 240) = <strong style="color:var(--accent)">12.0281 A</strong></li>
+</ul>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            What size wire do I need for a 5 kW load?
+            
+</div>
+<div class="faq-item__answer">
+<p>
+              Wire sizing depends on current (amps), not directly on watts. At 240 V single-phase
+              with PF = 1.0, 5 kW draws (5 × 1,000) ÷ 240 = <strong style="color:var(--accent)">20.83 A</strong>.
+            </p>
+<p style="margin-top:0.5rem">
+              Per NEC 210.20, continuous loads must be sized at 125%:
+              20.83 × 1.25 = <strong style="color:var(--accent)">26.04 A</strong> minimum breaker rating.
+              This requires <strong style="color:var(--accent)">10 AWG copper</strong> wire (rated 30 A) for most installations.
+              If PF = 0.8, current rises to 26.04 A, and 125% = 32.55 A — requiring
+              <strong style="color:var(--accent)">8 AWG copper</strong>.
+              Always consult a licensed electrician for actual installation decisions.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Related Calculators -->
+<section aria-labelledby="related-heading" class="content-section">
+<h2 id="related-heading">Related Calculators</h2>
+<div class="related-grid">
+<a class="related-link" href="/watts-to-amps/"><span></span> Watts to Amps</a>
+<a class="related-link" href="/kva-to-amps/"><span></span> kVA to Amps</a>
+<a class="related-link" href="/kva-to-kw/"><span></span> kVA to kW</a>
+<a class="related-link" href="/amps-to-watts/"><span></span> Amps to Watts</a>
+<a class="related-link" href="/watts-to-volts/"><span></span> Watts to Volts</a>
+<a class="related-link" href="/amps-to-volts/"><span></span> Amps to Volts</a>
+</div>
+</section>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner">
+    <div class="footer-brand">
+      <span class="footer-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+      <p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com</p>
+    </div>
+    <div class="footer-links">
+      <a href="/privacy/">Privacy Policy</a>
+    </div>
+  </div>
+  <div class="footer-disclaimer">
+    <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
+  </div>
+</footer>
+<script src="/assets/js/converters.js"></script>
+<script src="/assets/js/ui.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  initPage(); // inits footer year, mobile nav, FAQ accordion
+
+  const inputKw     = document.getElementById('input-kw');
+  const inputVolts  = document.getElementById('input-volts');
+  const inputPhase  = document.getElementById('input-phase');
+  const inputPF     = document.getElementById('input-pf');
+  const pfWrapper   = document.getElementById('pf-wrapper');
+  const resultEl    = document.getElementById('result-display');
+  const resultValue = document.getElementById('result-value');
+  const resultUnit  = document.getElementById('result-unit');
+  const formulaNote = document.getElementById('formula-note');
+  const tabDc       = document.getElementById('tab-dc');
+  const tabSingle   = document.getElementById('tab-single');
+  const tabThreeLl  = document.getElementById('tab-three-ll');
+  const tabThreeLn  = document.getElementById('tab-three-ln');
+
+  const FORMULAS = {
+    'dc':       'A = (kW \u00d7 1,000) \u00f7 V',
+    'single':   'A = (kW \u00d7 1,000) \u00f7 (V \u00d7 PF)',
+    'three-ll': 'A = (kW \u00d7 1,000) \u00f7 (\u221a3 \u00d7 V \u00d7 PF)',
+    'three-ln': 'A = (kW \u00d7 1,000) \u00f7 (3 \u00d7 V \u00d7 PF)',
+  };
+
+  function updatePF() {
+    const ac = inputPhase.value !== 'dc';
+    pfWrapper.classList.toggle('visible', ac);
+    pfWrapper.setAttribute('aria-hidden', String(!ac));
+    inputPF.disabled = !ac;
+  }
+
+  function updateTabs(phase) {
+    tabDc.classList.toggle('active',      phase === 'dc');
+    tabSingle.classList.toggle('active',  phase === 'single');
+    tabThreeLl.classList.toggle('active', phase === 'three-ll');
+    tabThreeLn.classList.toggle('active', phase === 'three-ln');
+  }
+
+  function calculate() {
+    const kw    = parseFloat(inputKw.value);
+    const volts = parseFloat(inputVolts.value);
+    const phase = inputPhase.value;
+    const pf    = parseFloat(inputPF.value);
+
+    updateTabs(phase);
+
+    const result = Converters.kwToAmps(kw, volts, pf, phase);
+
+    if (result === null) {
+      resultEl.classList.add('invalid');
+      resultEl.classList.remove('has-result');
+      resultValue.textContent  = '—';
+      resultUnit.style.display = 'none';
+      formulaNote.classList.remove('live');
+      formulaNote.textContent  = 'Formula: ' + FORMULAS[phase];
+    } else {
+      resultEl.classList.remove('invalid');
+      resultEl.classList.add('has-result');
+      animateResultTick('result-value');
+      resultValue.textContent  = Converters.formatResult(result, 4);
+      resultUnit.style.display = '';
+      formulaNote.classList.add('live');
+
+      let denomStr;
+      if (phase === 'dc') {
+        denomStr = '' + volts;
+      } else if (phase === 'single') {
+        denomStr = '(' + volts + ' \u00d7 ' + pf + ')';
+      } else if (phase === 'three-ll') {
+        denomStr = '(\u221a3 \u00d7 ' + volts + ' \u00d7 ' + pf + ') = ' + Converters.formatResult(Math.sqrt(3) * volts * pf, 4);
+      } else {
+        denomStr = '(3 \u00d7 ' + volts + ' \u00d7 ' + pf + ') = ' + Converters.formatResult(3 * volts * pf, 4);
+      }
+      formulaNote.textContent =
+        FORMULAS[phase] + '  =  (' + kw + ' \u00d7 1,000) \u00f7 ' + denomStr + ' = ' + Converters.formatResult(result, 4) + ' A';
+    }
+  }
+
+  inputKw.addEventListener('input', calculate);
+  inputVolts.addEventListener('input', calculate);
+  inputPF.addEventListener('input', calculate);
+  inputPhase.addEventListener('change', function () { updatePF(); calculate(); });
+
+  updatePF();
+  calculate();
+})();
+</script>
+<script>
+function switchTable(tab) {
+  document.getElementById('table-sp').style.display = tab === 'sp' ? '' : 'none';
+  document.getElementById('table-tp').style.display = tab === 'tp' ? '' : 'none';
+  document.getElementById('btn-tab-sp').classList.toggle('active', tab === 'sp');
+  document.getElementById('btn-tab-tp').classList.toggle('active', tab === 'tp');
+  document.getElementById('btn-tab-sp').setAttribute('aria-selected', String(tab === 'sp'));
+  document.getElementById('btn-tab-tp').setAttribute('aria-selected', String(tab === 'tp'));
+}
+</script>
+<script>
+const navToggle = document.querySelector('.nav-toggle');
+const mobileNav = document.getElementById('mobile-nav');
+const navClose = document.querySelector('.nav-close');
+
+function openNav() {
+  if (!mobileNav) return;
+  mobileNav.classList.add('is-open');
+  mobileNav.removeAttribute('aria-hidden');
+  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeNav() {
+  if (!mobileNav) return;
+  mobileNav.classList.remove('is-open');
+  mobileNav.setAttribute('aria-hidden', 'true');
+  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+if (navToggle) navToggle.addEventListener('click', openNav);
+if (navClose) navClose.addEventListener('click', closeNav);
+
+if (mobileNav) {
+  mobileNav.addEventListener('click', (e) => {
+    if (e.target === mobileNav) closeNav();
+  });
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeNav();
+});
+
+// Mark active nav link based on current URL
+document.querySelectorAll('.nav-link').forEach(link => {
+  if (link.getAttribute('href') === window.location.pathname) {
+    link.classList.add('active');
+  }
+});
+</script>
+</body>
+</html>
