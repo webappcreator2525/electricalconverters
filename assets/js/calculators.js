@@ -94,7 +94,7 @@
 
   /* ── amps-to-watts ────────────────────────────────────────── */
   function ampsToWatts() {
-    var a = $('input-watts') /* legacy id reused for amps field */,
+    var a = $('input-amps') || $('input-watts') /* current field (legacy id fallback) */,
         v = $('input-volts'), ph = $('input-phase'), pf = $('input-pf'),
         pfw = $('pf-wrapper');
     var els = { display: $('result-display'), value: $('result-value'),
@@ -469,6 +469,269 @@
     });
   }
 
+  /* ── amps-to-kw (reverse of kw-to-amps) ───────────────────── */
+  function ampsToKw() {
+    var a = $('input-amps'), v = $('input-volts'), ph = $('input-phase'),
+        pf = $('input-pf'), pfw = $('pf-wrapper');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!a || !v || !ph) return;
+    var F = { dc: 'kW = (A × V) ÷ 1,000',
+              single: 'kW = (A × V × PF) ÷ 1,000',
+              three: 'kW = (√3 × A × V × PF) ÷ 1,000' };
+    function calc() {
+      var phase = ph.value;
+      togglePF(pfw, pf, phase !== 'dc');
+      var r = C.ampsToKw(num(a), num(v), num(pf), phase);
+      render(els, r, fmt(r, 4),
+        r === null ? 'Formula: ' + F[phase] : F[phase] + '  →  ' + fmt(r, 4) + ' kW', true);
+    }
+    [a, v, pf].forEach(function (el) { el && el.addEventListener('input', calc); });
+    ph.addEventListener('change', calc);
+    calc();
+  }
+
+  /* ── volts-to-amps (mode: power or resistance) ────────────── */
+  function voltsToAmps() {
+    var mP = $('mode-power'), mR = $('mode-resistance');
+    var sP = $('section-power'), sR = $('section-resistance');
+    var vP = $('input-volts'), power = $('input-power'), circuit = $('input-circuit'),
+        pf = $('input-pf'), pfw = $('pf-wrapper');
+    var vR = $('input-volts2'), ohms = $('input-ohms');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!vP || !circuit) return;
+    var mode = 'power';
+
+    function setMode(m) {
+      mode = m;
+      if (mP) { mP.classList.toggle('active', m === 'power'); mP.setAttribute('aria-selected', String(m === 'power')); }
+      if (mR) { mR.classList.toggle('active', m === 'resistance'); mR.setAttribute('aria-selected', String(m === 'resistance')); }
+      if (sP) sP.classList.toggle('active', m === 'power');
+      if (sR) sR.classList.toggle('active', m === 'resistance');
+      calc();
+    }
+    function updatePF() { togglePF(pfw, pf, circuit.value === 'ac'); }
+
+    function calc() {
+      var r = null, F = '', used = '';
+      if (mode === 'power') {
+        var vv = num(vP), pw = num(power), pfv = num(pf);
+        var cm = circuit.value === 'dc' ? 'power-dc' : 'power-ac';
+        r = C.voltsToAmps(vv, pw, cm, pfv);
+        if (circuit.value === 'dc') { F = 'A = P ÷ V'; if (r !== null) used = pw + ' ÷ ' + vv + ' = ' + fmt(r, 4) + ' A'; }
+        else { F = 'A = P ÷ (V × PF)'; if (r !== null) used = pw + ' ÷ (' + vv + ' × ' + pfv + ') = ' + fmt(r, 4) + ' A'; }
+      } else {
+        var vv2 = num(vR), ov = num(ohms);
+        r = C.voltsToAmps(vv2, ov, 'resistance');
+        F = 'A = V ÷ R';
+        if (r !== null) used = vv2 + ' ÷ ' + ov + ' = ' + fmt(r, 4) + ' A';
+      }
+      render(els, r, fmt(r, 4), r === null ? 'Formula: ' + F : F + '  →  ' + used, true);
+    }
+
+    if (mP) mP.addEventListener('click', function () { setMode('power'); });
+    if (mR) mR.addEventListener('click', function () { setMode('resistance'); });
+    [vP, power, pf].forEach(function (el) { el && el.addEventListener('input', calc); });
+    circuit.addEventListener('change', function () { updatePF(); calc(); });
+    [vR, ohms].forEach(function (el) { el && el.addEventListener('input', calc); });
+    updatePF(); calc();
+  }
+
+  /* ── volts-to-watts ───────────────────────────────────────── */
+  function voltsToWatts() {
+    var v = $('input-volts'), a = $('input-amps'), ph = $('input-phase'),
+        pf = $('input-pf'), pfw = $('pf-wrapper');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!v || !a || !ph) return;
+    var F = { dc: 'W = V × A', single: 'W = V × A × PF',
+              three: 'W = √3 × V × A × PF' };
+    function calc() {
+      var phase = ph.value;
+      togglePF(pfw, pf, phase !== 'dc');
+      var r = C.voltsToWatts(num(v), num(a), num(pf), phase);
+      render(els, r, fmt(r, 4),
+        r === null ? 'Formula: ' + F[phase] : F[phase] + '  →  ' + fmt(r, 4) + ' W', true);
+    }
+    [v, a, pf].forEach(function (el) { el && el.addEventListener('input', calc); });
+    ph.addEventListener('change', calc);
+    calc();
+  }
+
+  /* ── wh-to-kwh (simple /1000) ─────────────────────────────── */
+  function whToKwh() {
+    var wh = $('input-wh');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!wh) return;
+    function calc() {
+      var r = C.whToKwh(num(wh));
+      render(els, r, fmt(r, 4),
+        r === null ? 'Formula: kWh = Wh ÷ 1,000'
+          : 'kWh = ' + num(wh) + ' ÷ 1,000 = ' + fmt(r, 4) + ' kWh', true);
+    }
+    wh.addEventListener('input', calc);
+    calc();
+  }
+
+  /* ── ah-to-wh (voltage presets) ───────────────────────────── */
+  function ahToWh() {
+    var ah = $('input-ah'), v = $('input-volts');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!ah || !v) return;
+    function calc() {
+      var r = C.ahToWh(num(ah), num(v));
+      render(els, r, fmt(r, 2),
+        r === null ? 'Formula: Wh = Ah × V'
+          : 'Wh = ' + num(ah) + ' × ' + num(v) + ' = ' + fmt(r, 2) + ' Wh', true);
+    }
+    wirePresets(v, calc);
+    ah.addEventListener('input', calc);
+    calc();
+  }
+
+  /* ── mah-to-ah (simple /1000) ─────────────────────────────── */
+  function mahToAh() {
+    var mah = $('input-mah');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!mah) return;
+    function calc() {
+      var r = C.mahToAh(num(mah));
+      render(els, r, fmt(r, 4),
+        r === null ? 'Formula: Ah = mAh ÷ 1,000'
+          : 'Ah = ' + num(mah) + ' ÷ 1,000 = ' + fmt(r, 4) + ' Ah', true);
+    }
+    mah.addEventListener('input', calc);
+    calc();
+  }
+
+  /* ── joules-to-watts (needs time) ─────────────────────────── */
+  function joulesToWatts() {
+    var j = $('input-joules'), s = $('input-seconds');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!j || !s) return;
+    function calc() {
+      var r = C.joulesToWatts(num(j), num(s));
+      render(els, r, fmt(r, 4),
+        r === null ? 'Formula: W = J ÷ s'
+          : 'W = ' + num(j) + ' ÷ ' + num(s) + ' = ' + fmt(r, 4) + ' W', true);
+    }
+    j.addEventListener('input', calc); s.addEventListener('input', calc);
+    calc();
+  }
+
+  /* ── hp-to-amps (motor FLA: hp, V, phase, PF, efficiency) ─── */
+  function hpToAmps() {
+    var hp = $('input-hp'), v = $('input-volts'), ph = $('input-phase'),
+        pf = $('input-pf'), pfw = $('pf-wrapper'), eff = $('input-eff');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!hp || !v || !ph || !eff) return;
+    var F = { dc: 'A = (hp × 746) ÷ (V × η)',
+              single: 'A = (hp × 746) ÷ (V × PF × η)',
+              three: 'A = (hp × 746) ÷ (√3 × V × PF × η)' };
+    function calc() {
+      var phase = ph.value;
+      togglePF(pfw, pf, phase !== 'dc');
+      var r = C.hpToAmps(num(hp), num(v), num(pf), num(eff), phase);
+      render(els, r, fmt(r, 4),
+        r === null ? 'Formula: ' + F[phase] : F[phase] + '  →  ' + fmt(r, 4) + ' A', true);
+    }
+    [hp, v, pf, eff].forEach(function (el) { el && el.addEventListener('input', calc); });
+    ph.addEventListener('change', calc);
+    calc();
+  }
+
+  /* ── hp-to-kw ─────────────────────────────────────────────── */
+  function hpToKw() {
+    var hp = $('input-hp');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!hp) return;
+    function calc() {
+      var r = C.hpToKw(num(hp));
+      render(els, r, fmt(r, 4),
+        r === null ? 'Formula: kW = hp × 0.7457'
+          : 'kW = ' + num(hp) + ' × 0.7457 = ' + fmt(r, 4) + ' kW', true);
+    }
+    hp.addEventListener('input', calc);
+    calc();
+  }
+
+  /* ── kw-to-hp ─────────────────────────────────────────────── */
+  function kwToHp() {
+    var k = $('input-kw');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!k) return;
+    function calc() {
+      var r = C.kwToHp(num(k));
+      render(els, r, fmt(r, 4),
+        r === null ? 'Formula: hp = kW ÷ 0.7457'
+          : 'hp = ' + num(k) + ' ÷ 0.7457 = ' + fmt(r, 4) + ' hp', true);
+    }
+    k.addEventListener('input', calc);
+    calc();
+  }
+
+  /* ── watts-to-kva (needs PF) ──────────────────────────────── */
+  function wattsToKva() {
+    var w = $('input-watts'), pf = $('input-pf');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!w || !pf) return;
+    function calc() {
+      var r = C.wattsToKva(num(w), num(pf));
+      render(els, r, fmt(r, 4),
+        r === null ? 'Formula: kVA = W ÷ (PF × 1,000)'
+          : 'kVA = ' + num(w) + ' ÷ (' + num(pf) + ' × 1,000) = ' + fmt(r, 4) + ' kVA', true);
+    }
+    w.addEventListener('input', calc); pf.addEventListener('input', calc);
+    calc();
+  }
+
+  /* ── kw-to-kva (needs PF) ─────────────────────────────────── */
+  function kwToKva() {
+    var k = $('input-kw'), pf = $('input-pf');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!k || !pf) return;
+    function calc() {
+      var r = C.kwToKva(num(k), num(pf));
+      render(els, r, fmt(r, 4),
+        r === null ? 'Formula: kVA = kW ÷ PF'
+          : 'kVA = ' + num(k) + ' ÷ ' + num(pf) + ' = ' + fmt(r, 4) + ' kVA', true);
+    }
+    k.addEventListener('input', calc); pf.addEventListener('input', calc);
+    calc();
+  }
+
+  /* ── amps-to-kva (single/three, tab + select) ─────────────── */
+  function ampsToKva() {
+    var a = $('input-amps'), v = $('input-volts'), ph = $('input-phase');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!a || !v || !ph) return;
+    var tabs = ['tab-single', 'tab-three'];
+    var F = { single: 'kVA = (A × V) ÷ 1,000',
+              three: 'kVA = (√3 × A × V) ÷ 1,000' };
+    function calc() {
+      var phase = ph.value;
+      reflectTabs(tabs, phase);
+      var r = C.ampsToKva(num(a), num(v), phase);
+      render(els, r, fmt(r, 4),
+        r === null ? 'Formula: ' + F[phase] : F[phase] + '  →  ' + fmt(r, 4) + ' kVA', true);
+    }
+    [a, v].forEach(function (el) { el.addEventListener('input', calc); });
+    ph.addEventListener('change', calc);
+    wireTabs(ph, tabs, calc);
+    calc();
+  }
+
   /* ── Dispatch ─────────────────────────────────────────────── */
   var REGISTRY = {
     'watts-to-amps': wattsToAmps,
@@ -484,7 +747,20 @@
     'wh-to-mah': whToMah,
     'va-to-watts': vaToWatts,
     'watts-to-volts': wattsToVolts,
-    'ohms-law': ohmsLaw
+    'ohms-law': ohmsLaw,
+    'amps-to-kw': ampsToKw,
+    'volts-to-amps': voltsToAmps,
+    'volts-to-watts': voltsToWatts,
+    'wh-to-kwh': whToKwh,
+    'ah-to-wh': ahToWh,
+    'mah-to-ah': mahToAh,
+    'joules-to-watts': joulesToWatts,
+    'hp-to-amps': hpToAmps,
+    'hp-to-kw': hpToKw,
+    'kw-to-hp': kwToHp,
+    'watts-to-kva': wattsToKva,
+    'kw-to-kva': kwToKva,
+    'amps-to-kva': ampsToKva
   };
 
   var type = document.body && document.body.getAttribute('data-calc');

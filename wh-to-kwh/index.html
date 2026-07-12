@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Primary Meta -->
+<title>Wh to kWh Calculator</title>
+<meta content="Convert watt-hours to kilowatt-hours (kWh = Wh ÷ 1,000). Enter watt-hours for a battery or appliance — result and formula shown. Free, no signup." name="description"/>
+<link href="https://electricalconverters.com/wh-to-kwh/" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="Wh to kWh Calculator" property="og:title"/>
+<meta content="Convert watt-hours to kilowatt-hours (kWh = Wh ÷ 1,000). Enter watt-hours for a battery or appliance — result and formula shown. Free, no signup." property="og:description"/>
+<meta content="https://electricalconverters.com/wh-to-kwh/" property="og:url"/>
+<!-- Site Design System -->
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=19efc609" rel="stylesheet"/>
+<!-- FAQPage Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert Wh to kWh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide the watt-hours by 1,000. For example, 500 Wh ÷ 1,000 = 0.5 kWh. A kilowatt-hour is 1,000 watt-hours, so the conversion just shifts the decimal point three places to the left."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many kWh is 500 Wh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "500 Wh equals 0.5 kWh, because 500 ÷ 1,000 = 0.5. At an electricity rate of 15 cents per kWh, that half a kilowatt-hour would cost about 7.5 cents to recharge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is 1,000 Wh the same as 1 kWh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. One kilowatt-hour is exactly 1,000 watt-hours. The prefix \"kilo\" means one thousand, so 1,000 Wh = 1 kWh."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why convert watt-hours to kilowatt-hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Electricity is billed in kilowatt-hours, while battery and appliance labels often list watt-hours. Converting to kWh lets you compare a device's energy to your utility bill and estimate charging or running costs."
+      }
+    }
+  ]
+}
+</script>
+<!-- p2:meta -->
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="#0b0e13" name="theme-color"/>
+<meta content="ElectricalConverters editorial team" name="author"/>
+<meta content="ElectricalConverters" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image:secure_url"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ElectricalConverters — free electrical calculators" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Wh to kWh Calculator" name="twitter:title"/>
+<meta content="Convert watt-hours to kilowatt-hours (kWh = Wh ÷ 1,000). Enter watt-hours for a battery or appliance — result and formula shown. Free, no signup." name="twitter:description"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" name="twitter:image"/>
+<meta content="ElectricalConverters — free electrical calculators" name="twitter:image:alt"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- /p2:meta -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Wh to kWh Calculator",
+  "url":"https://electricalconverters.com/wh-to-kwh/",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Web Browser",
+  "browserRequirements":"Requires JavaScript",
+  "isAccessibleForFree":true,
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "publisher":{"@type":"Organization","name":"ElectricalConverters","url":"https://electricalconverters.com/","logo":{"@type":"ImageObject","url":"https://electricalconverters.com/icon-512.png","width":512,"height":512}}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://electricalconverters.com/"},{"@type":"ListItem","position":2,"name":"Wh to kWh","item":"https://electricalconverters.com/wh-to-kwh/"}]
+}
+</script>
+</head>
+<body data-calc="wh-to-kwh">
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════════════════ -->
+<header class="site-header">
+<div class="header-inner">
+<a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<nav aria-label="Main navigation" class="site-nav">
+<ul class="nav-list">
+<li class="nav-group">
+<button aria-controls="menu-power" aria-expanded="false" class="nav-trigger" id="trigger-power" type="button">Power &amp; Current <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-power">
+<a class="nav-panel__link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-panel__link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-panel__link" href="/amps-to-volts/">Amps to Volts</a>
+<div class="nav-panel__sub">Guides</div>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/ohms-law/">Ohm's Law</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-apparent" aria-expanded="false" class="nav-trigger" id="trigger-apparent" type="button">Apparent Power <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-apparent">
+<a class="nav-panel__link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-panel__link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-panel__link" href="/va-to-watts/">VA to Watts</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-energy" aria-expanded="false" class="nav-trigger" id="trigger-energy" type="button">Energy <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-energy">
+<a class="nav-panel__link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kwh/">Watts to kWh</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-battery" aria-expanded="false" class="nav-trigger" id="trigger-battery" type="button">Battery <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-battery">
+<a class="nav-panel__link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-panel__link" href="/wh-to-mah/">Wh to mAh</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-motors" aria-expanded="false" class="nav-trigger" id="trigger-motors" type="button">Motors <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-motors">
+<p class="nav-panel__note">HP to amps, HP to kW and kW to HP are coming soon. For now, <a href="/kw-to-amps/">size a motor circuit with kW to amps</a>.</p>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-wiring" aria-expanded="false" class="nav-trigger" id="trigger-wiring" type="button">Wiring <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-wiring">
+<p class="nav-panel__note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</div>
+</li>
+</ul>
+</nav>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button">
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+</button>
+</div>
+</header>
+<div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
+<div class="mobile-nav-inner">
+<div class="mobile-nav-header">
+<span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+<button aria-label="Close navigation" class="nav-close" type="button">&times;</button>
+</div>
+<ul class="mobile-nav-list">
+<li class="m-group">
+<div class="m-group__label">Power &amp; Current</div>
+<a class="nav-link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-link" href="/amps-to-volts/">Amps to Volts</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Apparent Power</div>
+<a class="nav-link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-link" href="/va-to-watts/">VA to Watts</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Energy &amp; Cost</div>
+<a class="nav-link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-link" href="/watts-to-kwh/">Watts to kWh</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Battery Capacity</div>
+<a class="nav-link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-link" href="/wh-to-mah/">Wh to mAh</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Motors &amp; Horsepower</div>
+<p class="m-note">Coming soon. For now, <a href="/kw-to-amps/">size a motor circuit with kW to amps</a>.</p>
+</li>
+<li class="m-group">
+<div class="m-group__label">Wiring &amp; Safety</div>
+<p class="m-note">Coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</li>
+<li class="m-group">
+<div class="m-group__label">Guides</div>
+<a class="nav-link" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+<a class="nav-link" href="/learn/ohms-law/">Ohm's Law</a>
+</li>
+</ul>
+</div>
+</div>
+<main id="main-content">
+<div class="page-wrap">
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true" class="breadcrumb__sep">›</span>
+<span class="breadcrumb__current">Wh to kWh</span>
+</nav>
+
+<!-- ── Hero ────────────────────────────────────── -->
+<section aria-labelledby="page-heading" class="calc-header">
+<h1 id="page-heading">Wh to kWh Calculator</h1>
+<div class="page-byline">
+<span class="page-byline__item">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Last updated <strong>July 2026</strong></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Estimates only — <a href="/about/">how we check</a></span>
+</div>
+<p>Enter watt-hours below — the kilowatt-hours update instantly.</p>
+</section>
+<!-- ── Converter Tool ──────────────────────────── -->
+<section aria-label="Wh to kWh converter tool">
+<div aria-label="Watt-hours to kilowatt-hours calculator" class="converter-card" role="form">
+<div class="input-row">
+<div class="field-group ue7ec54">
+<label for="input-wh">Watt-hours (Wh)</label>
+<input aria-label="Energy in watt-hours" autocomplete="off" class="input-field" id="input-wh" inputmode="decimal" min="0" placeholder="e.g. 500" step="any" type="number" value="500"/>
+</div>
+</div>
+<div class="result-wrap">
+<div aria-atomic="true" aria-live="polite" class="result-display" id="result-display">
+<div class="result-display__label">RESULT — ENERGY</div>
+<div class="result-display__value-row">
+<span class="result-display__value" id="result-value">—</span>
+<span class="result-display__unit" id="result-unit" style="display:none">kWh</span>
+</div>
+<div class="result-display__formula-note" id="formula-note">Formula: kWh = Wh ÷ 1,000</div>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="how-heading" class="content-section">
+<h2 id="how-heading">How do you convert Wh to kWh?</h2>
+<p>Divide watt-hours by 1,000. A 500 Wh portable power station stores 500 ÷ 1,000 = <strong>0.5 kWh</strong>. A 2,400 Wh battery equals 2.4 kWh. Because your utility bills in kilowatt-hours, converting Wh to kWh tells you exactly how much a full charge adds to your electricity meter and its running cost.</p>
+</section>
+<!-- ── Formula ─────────────────────────────────── -->
+<section aria-labelledby="formula-heading" class="content-section">
+<h2 id="formula-heading">Wh to kWh Formula</h2>
+<div class="formula-block u4986ec"><span class="var">kWh</span> = <span class="var">Wh</span> ÷ 1,000</div>
+<p class="formula-desc">A kilowatt-hour is simply 1,000 watt-hours — the same unit at a larger scale. One kWh is the energy of a 1,000 W appliance running for one hour. Dividing by 1,000 shifts the decimal three places, so 750 Wh becomes 0.75 kWh.</p>
+</section>
+<!-- ── Examples Table ───────────────────────────── -->
+<section aria-labelledby="examples-heading" class="content-section">
+<h2 id="examples-heading">Wh to kWh Conversion Table</h2>
+<div aria-label="Watt-hours to kilowatt-hours reference table" class="examples-table-wrap" role="region" tabindex="0">
+<table class="examples-table">
+<thead>
+<tr><th scope="col">Watt-hours</th><th scope="col">Kilowatt-hours</th><th scope="col">Typical example</th></tr>
+</thead>
+<tbody>
+<tr><td class="col-result">100 Wh</td><td>0.1 kWh</td><td>Small drone battery</td></tr>
+<tr><td class="col-result">250 Wh</td><td>0.25 kWh</td><td>E-bike battery</td></tr>
+<tr><td class="col-result">500 Wh</td><td>0.5 kWh</td><td>Portable power station</td></tr>
+<tr><td class="col-result">1,000 Wh</td><td>1 kWh</td><td>1,000 W device for 1 hour</td></tr>
+<tr><td class="col-result">2,400 Wh</td><td>2.4 kWh</td><td>Solar generator</td></tr>
+<tr><td class="col-result">5,000 Wh</td><td>5 kWh</td><td>Home battery module</td></tr>
+<tr><td class="col-result">10,000 Wh</td><td>10 kWh</td><td>Whole-home battery</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- ── FAQ ──────────────────────────────────────── -->
+<section aria-labelledby="faq-heading" class="content-section">
+<h2 id="faq-heading">Frequently Asked Questions</h2>
+<div class="faq-list">
+<div class="faq-item">
+<h3 class="faq-item__question">How do I convert Wh to kWh?</h3>
+<div class="faq-item__answer">
+<p>Divide the watt-hours by 1,000: <code>kWh = Wh ÷ 1,000</code>. For example, 500 Wh ÷ 1,000 = <strong class="ubb2b0e">0.5 kWh</strong>. A kilowatt-hour is 1,000 watt-hours, so you just move the decimal three places left.</p>
+</div>
+</div>
+<div class="faq-item">
+<h3 class="faq-item__question">How many kWh is 500 Wh?</h3>
+<div class="faq-item__answer">
+<p>500 Wh equals <strong class="ubb2b0e">0.5 kWh</strong> (500 ÷ 1,000). At 15¢ per kWh, recharging it costs roughly 7.5¢.</p>
+</div>
+</div>
+<div class="faq-item">
+<h3 class="faq-item__question">Is 1,000 Wh the same as 1 kWh?</h3>
+<div class="faq-item__answer">
+<p>Yes. The prefix "kilo" means one thousand, so <strong>1,000 Wh = 1 kWh</strong> exactly.</p>
+</div>
+</div>
+<div class="faq-item">
+<h3 class="faq-item__question">Why convert watt-hours to kilowatt-hours?</h3>
+<div class="faq-item__answer">
+<p>Electricity is billed in <strong>kilowatt-hours</strong>, but batteries and appliances are often rated in <strong>watt-hours</strong>. Converting to kWh lets you compare against your bill and estimate running cost — pair it with our <a href="/watts-to-kwh/">watts to kWh</a> tool.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- related:start -->
+<section class="related-conversions" aria-labelledby="related-conversions-heading">
+<h2 id="related-conversions-heading">Related conversions</h2>
+<p class="related-conversions__intro">This calculator is part of our <strong>Energy & Running Cost (kWh)</strong> tools. Jump to a related conversion:</p>
+<ul class="rel-list">
+<li class="rel-item"><a class="rel-item__link" href="/kwh-to-watts/">Convert energy to power with kWh to watts</a><span class="rel-item__desc">Average power draw from an energy reading.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/watts-to-kwh/">Estimate running cost by converting watts to kWh</a><span class="rel-item__desc">Energy use and electricity cost over time.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/joules-to-watts/">Convert joules to watts</a><span class="rel-item__desc">Energy in joules to average power.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/watts-to-amps/">Convert watts to amps</a><span class="rel-item__desc">Power to current for DC, single- and three-phase circuits.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/mah-to-wh/">Compare power banks by converting mAh to Wh</a><span class="rel-item__desc">Battery capacity from mAh and voltage.</span></li>
+</ul>
+<p class="related-conversions__learn">Background reading: <a href="/learn/watts-vs-amps/">Watts vs Amps: the difference explained</a>.</p>
+</section>
+<!-- related:end -->
+</div><!-- /page-wrap -->
+</main>
+<footer class="site-footer" role="contentinfo">
+<div class="site-footer__inner">
+<div class="footer-brand">
+<a class="footer-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<p class="footer-tagline">Free, client-side conversion instruments for engineers, electricians, and students. No signup, no tracking.</p>
+<p class="footer-review">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a> · estimates only.</p>
+</div>
+<nav class="footer-col" aria-label="Power and current calculators">
+<div class="footer-col__label">Power &amp; Current</div>
+<a href="/watts-to-amps/">Watts to Amps</a>
+<a href="/amps-to-watts/">Amps to Watts</a>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/watts-to-volts/">Watts to Volts</a>
+<a href="/amps-to-volts/">Amps to Volts</a>
+</nav>
+<nav class="footer-col" aria-label="Apparent power and energy calculators">
+<div class="footer-col__label">Apparent &amp; Energy</div>
+<a href="/kva-to-kw/">kVA to kW</a>
+<a href="/kva-to-amps/">kVA to Amps</a>
+<a href="/va-to-watts/">VA to Watts</a>
+<a href="/kwh-to-watts/">kWh to Watts</a>
+<a href="/watts-to-kwh/">Watts to kWh</a>
+</nav>
+<nav class="footer-col" aria-label="Battery calculators and guides">
+<div class="footer-col__label">Battery &amp; Guides</div>
+<a href="/mah-to-wh/">mAh to Wh</a>
+<a href="/wh-to-mah/">Wh to mAh</a>
+<a href="/learn/watts-vs-amps/">Watts vs Amps</a>
+<a href="/learn/ohms-law/">Ohm's Law</a>
+</nav>
+<nav class="footer-col" aria-label="Site information">
+<div class="footer-col__label">Site</div>
+<a href="/about/">About &amp; method</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy/">Privacy</a>
+</nav>
+</div>
+<div class="footer-meta">
+<p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com · calculations run entirely in your browser.</p>
+<p class="footer-accuracy"><strong>How these work:</strong> each tool applies the standard conversion formula shown on its page — DC, AC single-phase and three-phase where relevant. Results are rounded estimates for reference and education only; always verify against the National Electrical Code (NEC / NFPA 70) and consult a licensed electrician before sizing conductors, breakers, or equipment.</p>
+</div>
+</footer>
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════════════════════ -->
+<script src="/assets/js/converters.js?v=6612cb10" defer></script>
+<script src="/assets/js/calculators.js?v=1443c1bf" defer></script>
+<script src="/assets/js/site.js?v=de5988fd" defer></script>
+</body>
+</html>

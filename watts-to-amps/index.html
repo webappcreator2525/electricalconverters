@@ -1,18 +1,18 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Watts to Amps Calculator | ElectricalConverters</title>
-<meta content="Convert watts to amps instantly. Enter watts and voltage — get amps for DC, AC single-phase, and AC three-phase circuits. Free, no signup." name="description"/>
+<title>Watts to Amps Calculator (W → A)</title>
+<meta content="Convert watts to amps instantly for DC, AC single-phase and three-phase. Enter watts and voltage — get amps with the formula shown. Free, no signup." name="description"/>
 <link href="https://electricalconverters.com/watts-to-amps/" rel="canonical"/>
 <meta content="website" property="og:type"/>
-<meta content="Watts to Amps Calculator | ElectricalConverters" property="og:title"/>
-<meta content="Convert watts to amps instantly. Enter watts and voltage — get amps for DC, AC single-phase, and AC three-phase circuits. Free, no signup." property="og:description"/>
+<meta content="Watts to Amps Calculator (W → A)" property="og:title"/>
+<meta content="Convert watts to amps instantly for DC, AC single-phase and three-phase. Enter watts and voltage — get amps with the formula shown. Free, no signup." property="og:description"/>
 <meta content="https://electricalconverters.com/watts-to-amps/" property="og:url"/>
 <link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
-<link href="/assets/css/main.css?v=5ab7cbd4" rel="stylesheet"/>
+<link href="/assets/css/main.css?v=19efc609" rel="stylesheet"/>
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,6 +53,49 @@
     ]
   }
   </script>
+<!-- p2:meta -->
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="#0b0e13" name="theme-color"/>
+<meta content="ElectricalConverters editorial team" name="author"/>
+<meta content="ElectricalConverters" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image:secure_url"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ElectricalConverters — free electrical calculators" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Watts to Amps Calculator (W → A)" name="twitter:title"/>
+<meta content="Convert watts to amps instantly for DC, AC single-phase and three-phase. Enter watts and voltage — get amps with the formula shown. Free, no signup." name="twitter:description"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" name="twitter:image"/>
+<meta content="ElectricalConverters — free electrical calculators" name="twitter:image:alt"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- /p2:meta -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Watts to Amps Calculator",
+  "url":"https://electricalconverters.com/watts-to-amps/",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Web Browser",
+  "browserRequirements":"Requires JavaScript",
+  "isAccessibleForFree":true,
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "publisher":{"@type":"Organization","name":"ElectricalConverters","url":"https://electricalconverters.com/","logo":{"@type":"ImageObject","url":"https://electricalconverters.com/icon-512.png","width":512,"height":512}}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://electricalconverters.com/"},{"@type":"ListItem","position":2,"name":"Watts to Amps","item":"https://electricalconverters.com/watts-to-amps/"}]
+}
+</script>
 </head>
 <body data-calc="watts-to-amps">
 <header class="site-header">
@@ -60,21 +103,56 @@
 <a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
 <nav aria-label="Main navigation" class="site-nav">
 <ul class="nav-list">
-<li><a class="nav-link" href="/watts-to-amps/">W to A</a></li>
-<li><a class="nav-link" href="/kw-to-amps/">kW to A</a></li>
-<li><a class="nav-link" href="/amps-to-watts/">A to W</a></li>
-<li><a class="nav-link" href="/watts-to-volts/">W to V</a></li>
-<li><a class="nav-link" href="/amps-to-volts/">A to V</a></li>
-<li><a class="nav-link" href="/kva-to-kw/">kVA to kW</a></li>
-<li><a class="nav-link" href="/kva-to-amps/">kVA to A</a></li>
-<li><a class="nav-link" href="/va-to-watts/">VA to W</a></li>
-<li><a class="nav-link" href="/kwh-to-watts/">kWh to W</a></li>
-<li><a class="nav-link" href="/watts-to-kwh/">W to kWh</a></li>
-<li><a class="nav-link" href="/mah-to-wh/">mAh to Wh</a></li>
-<li><a class="nav-link" href="/wh-to-mah/">Wh to mAh</a></li>
+<li class="nav-group">
+<button aria-controls="menu-power" aria-expanded="false" class="nav-trigger" id="trigger-power" type="button">Power &amp; Current <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-power">
+<a class="nav-panel__link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-panel__link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-panel__link" href="/amps-to-volts/">Amps to Volts</a>
+<div class="nav-panel__sub">Guides</div>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/ohms-law/">Ohm's Law</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-apparent" aria-expanded="false" class="nav-trigger" id="trigger-apparent" type="button">Apparent Power <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-apparent">
+<a class="nav-panel__link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-panel__link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-panel__link" href="/va-to-watts/">VA to Watts</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-energy" aria-expanded="false" class="nav-trigger" id="trigger-energy" type="button">Energy <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-energy">
+<a class="nav-panel__link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kwh/">Watts to kWh</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-battery" aria-expanded="false" class="nav-trigger" id="trigger-battery" type="button">Battery <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-battery">
+<a class="nav-panel__link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-panel__link" href="/wh-to-mah/">Wh to mAh</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-motors" aria-expanded="false" class="nav-trigger" id="trigger-motors" type="button">Motors <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-motors">
+<p class="nav-panel__note">HP to amps, HP to kW and kW to HP are coming soon. For now, <a href="/kw-to-amps/">size a motor circuit with kW to amps</a>.</p>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-wiring" aria-expanded="false" class="nav-trigger" id="trigger-wiring" type="button">Wiring <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-wiring">
+<p class="nav-panel__note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</div>
+</li>
 </ul>
 </nav>
-<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle">
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button">
 <span class="nav-toggle-bar"></span>
 <span class="nav-toggle-bar"></span>
 <span class="nav-toggle-bar"></span>
@@ -85,28 +163,66 @@
 <div class="mobile-nav-inner">
 <div class="mobile-nav-header">
 <span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
-<button aria-label="Close navigation" class="nav-close">×</button>
+<button aria-label="Close navigation" class="nav-close" type="button">&times;</button>
 </div>
 <ul class="mobile-nav-list">
-<li><a class="nav-link" href="/watts-to-amps/">W to A</a></li>
-<li><a class="nav-link" href="/kw-to-amps/">kW to A</a></li>
-<li><a class="nav-link" href="/amps-to-watts/">A to W</a></li>
-<li><a class="nav-link" href="/watts-to-volts/">W to V</a></li>
-<li><a class="nav-link" href="/amps-to-volts/">A to V</a></li>
-<li><a class="nav-link" href="/kva-to-kw/">kVA to kW</a></li>
-<li><a class="nav-link" href="/kva-to-amps/">kVA to A</a></li>
-<li><a class="nav-link" href="/va-to-watts/">VA to W</a></li>
-<li><a class="nav-link" href="/kwh-to-watts/">kWh to W</a></li>
-<li><a class="nav-link" href="/watts-to-kwh/">W to kWh</a></li>
-<li><a class="nav-link" href="/mah-to-wh/">mAh to Wh</a></li>
-<li><a class="nav-link" href="/wh-to-mah/">Wh to mAh</a></li>
+<li class="m-group">
+<div class="m-group__label">Power &amp; Current</div>
+<a class="nav-link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-link" href="/amps-to-volts/">Amps to Volts</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Apparent Power</div>
+<a class="nav-link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-link" href="/va-to-watts/">VA to Watts</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Energy &amp; Cost</div>
+<a class="nav-link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-link" href="/watts-to-kwh/">Watts to kWh</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Battery Capacity</div>
+<a class="nav-link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-link" href="/wh-to-mah/">Wh to mAh</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Motors &amp; Horsepower</div>
+<p class="m-note">Coming soon. For now, <a href="/kw-to-amps/">size a motor circuit with kW to amps</a>.</p>
+</li>
+<li class="m-group">
+<div class="m-group__label">Wiring &amp; Safety</div>
+<p class="m-note">Coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</li>
+<li class="m-group">
+<div class="m-group__label">Guides</div>
+<a class="nav-link" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+<a class="nav-link" href="/learn/ohms-law/">Ohm's Law</a>
+</li>
 </ul>
 </div>
 </div>
 <main id="main-content">
 <div class="page-wrap">
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true" class="breadcrumb__sep">›</span>
+<span class="breadcrumb__current">Watts to Amps</span>
+</nav>
+
 <div class="calc-header">
 <h1 id="page-heading">Watts to Amps Calculator</h1>
+<div class="page-byline">
+<span class="page-byline__item">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Last updated <strong>July 2026</strong></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Estimates only — <a href="/about/">how we check</a></span>
+</div>
 <p>Enter watts and voltage below — result updates instantly.</p>
 </div>
 <!-- CALCULATOR CARD -->
@@ -123,25 +239,55 @@
 <input aria-label="Voltage in volts" autocomplete="off" class="input-field" id="input-volts" inputmode="decimal" min="0" step="any" type="number" value="120"/>
 </div>
 </div>
-<!-- Row 2: Circuit type & PF -->
-<div class="input-row">
-<div class="field-group">
+<!-- Row 2: Circuit type -->
+<div class="circuit-row field-group">
 <label for="input-phase">Circuit Type</label>
-<select aria-label="Circuit type" class="input-field u87f5fc" id="input-phase">
+<select aria-label="Circuit type" class="input-field input-field--select" id="input-phase">
 <option value="dc">DC (Direct Current)</option>
 <option value="single">AC — Single-phase</option>
 <option value="three">AC — Three-phase</option>
 </select>
 </div>
-<div class="field-group" id="pf-wrapper">
+<!-- Row 3: Power Factor (AC only) -->
+<div aria-hidden="true" class="pf-wrapper" id="pf-wrapper">
+<div class="field-group">
 <label for="input-pf">Power Factor (PF)</label>
 <input aria-label="Power factor between 0 and 1" autocomplete="off" class="input-field" disabled="" id="input-pf" inputmode="decimal" max="1" min="0.01" step="0.01" type="number" value="0.8"/>
 </div>
 </div>
+<!-- Result display -->
+<div class="result-wrap">
 <div aria-atomic="true" aria-live="polite" class="result-display" id="result-display">
-<div class="result-display__label">RESULT — AMPS</div>
-<div class="result-display__value empty" id="result-value">—</div>
+<div class="result-display__label">Result — Amps</div>
+<div class="result-display__value-row">
+<span class="result-display__value empty" id="result-value">—</span>
+<span class="result-display__unit" id="result-unit" style="display:none">A</span>
 </div>
+<div class="result-display__formula-note" id="formula-note">Choose a circuit type and enter values to see the formula used.</div>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="how-heading" class="content-section">
+<h2 id="how-heading">How do you convert watts to amps?</h2>
+<p>To convert watts to amps, divide watts by volts. For example, a 1500 W heater on a 120 V circuit draws 1500 ÷ 120 = <strong>12.5 amps</strong>; on a 240 V circuit the same 1500 W draws 1500 ÷ 240 = 6.25 A. For AC circuits, also divide by the power factor: A = W ÷ (V × PF).</p>
+</section>
+<section aria-labelledby="reftable-heading" class="content-section">
+<h2 id="reftable-heading">Watts to Amps Conversion Table (DC)</h2>
+<div aria-label="Watts to amps at common voltages" class="examples-table-wrap" role="region" tabindex="0">
+<table class="examples-table">
+<thead>
+<tr><th scope="col">Power</th><th scope="col">at 12 V</th><th scope="col">at 120 V</th><th scope="col">at 240 V</th></tr>
+</thead>
+<tbody>
+<tr><td class="col-result"><a href="/watts-to-amps/500-watts-to-amps/">500 W</a></td><td>41.67 A</td><td>4.17 A</td><td>2.08 A</td></tr>
+<tr><td class="col-result"><a href="/watts-to-amps/1000-watts-to-amps/">1000 W</a></td><td>83.33 A</td><td>8.33 A</td><td>4.17 A</td></tr>
+<tr><td class="col-result"><a href="/watts-to-amps/1500-watts-to-amps/">1500 W</a></td><td>125.0 A</td><td>12.50 A</td><td>6.25 A</td></tr>
+<tr><td class="col-result"><a href="/watts-to-amps/2000-watts-to-amps/">2000 W</a></td><td>166.7 A</td><td>16.67 A</td><td>8.33 A</td></tr>
+<tr><td class="col-result"><a href="/watts-to-amps/3000-watts-to-amps/">3000 W</a></td><td>250.0 A</td><td>25.00 A</td><td>12.50 A</td></tr>
+<tr><td class="col-result"><a href="/watts-to-amps/5000-watts-to-amps/">5000 W</a></td><td>416.7 A</td><td>41.67 A</td><td>20.83 A</td></tr>
+</tbody>
+</table>
 </div>
 </section>
 <!-- FORMULA SECTION -->
@@ -195,24 +341,86 @@
 </div>
 </div>
 </section>
+
+
+<!-- related:start -->
+<section class="related-conversions" aria-labelledby="related-conversions-heading">
+<h2 id="related-conversions-heading">Related conversions</h2>
+<p class="related-conversions__intro">This calculator is part of our <strong>Power ↔ Current</strong> tools. Jump to a related conversion:</p>
+<ul class="rel-list">
+<li class="rel-item"><a class="rel-item__link" href="/amps-to-watts/">Convert the current back with amps to watts</a><span class="rel-item__desc">Turn a measured current into power in watts.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/kw-to-amps/">Size larger loads with the kW to amps calculator</a><span class="rel-item__desc">Kilowatts to current for single- and three-phase.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/watts-to-volts/">Find voltage with watts to volts</a><span class="rel-item__desc">Solve for voltage from power and current.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/amps-to-volts/">Apply Ohm's law with amps to volts</a><span class="rel-item__desc">Voltage from current and resistance (V = I × R).</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/amps-to-kw/">Convert amps to kilowatts</a><span class="rel-item__desc">Current to real power in kilowatts.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/volts-to-amps/">Find current with volts to amps</a><span class="rel-item__desc">Current from voltage, power or resistance.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/volts-to-watts/">Convert volts to watts</a><span class="rel-item__desc">Power from voltage and current.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/kva-to-kw/">Account for power factor with kVA to kW</a><span class="rel-item__desc">Apparent power to real power using power factor.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/kwh-to-watts/">Convert energy to power with kWh to watts</a><span class="rel-item__desc">Average power draw from an energy reading.</span></li>
+</ul>
+<p class="related-conversions__intro">Popular watts to amps values:</p>
+<div class="rel-sub">
+<a class="rel-sub__link" href="/watts-to-amps/100-watts-to-amps/">100 watts to amps</a>
+<a class="rel-sub__link" href="/watts-to-amps/250-watts-to-amps/">250 watts to amps</a>
+<a class="rel-sub__link" href="/watts-to-amps/500-watts-to-amps/">500 watts to amps</a>
+<a class="rel-sub__link" href="/watts-to-amps/750-watts-to-amps/">750 watts to amps</a>
+<a class="rel-sub__link" href="/watts-to-amps/800-watts-to-amps/">800 watts to amps</a>
+<a class="rel-sub__link" href="/watts-to-amps/1000-watts-to-amps/">1000 watts to amps</a>
+<a class="rel-sub__link" href="/watts-to-amps/1200-watts-to-amps/">1200 watts to amps</a>
+<a class="rel-sub__link" href="/watts-to-amps/1500-watts-to-amps/">1500 watts to amps</a>
+<a class="rel-sub__link" href="/watts-to-amps/2000-watts-to-amps/">2000 watts to amps</a>
+<a class="rel-sub__link" href="/watts-to-amps/3000-watts-to-amps/">3000 watts to amps</a>
+<a class="rel-sub__link" href="/watts-to-amps/5000-watts-to-amps/">5000 watts to amps</a>
+</div>
+<p class="related-conversions__learn">Background reading: <a href="/learn/watts-vs-amps/">Watts vs Amps: the difference explained</a>.</p>
+</section>
+<!-- related:end -->
 </div>
 </main>
 <footer class="site-footer" role="contentinfo">
-  <div class="site-footer__inner">
-    <div class="footer-brand">
-      <span class="footer-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
-      <p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com</p>
-    </div>
-    <div class="footer-links">
-      <a href="/privacy/">Privacy Policy</a>
-    </div>
-  </div>
-  <div class="footer-disclaimer">
-    <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
-  </div>
+<div class="site-footer__inner">
+<div class="footer-brand">
+<a class="footer-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<p class="footer-tagline">Free, client-side conversion instruments for engineers, electricians, and students. No signup, no tracking.</p>
+<p class="footer-review">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a> · estimates only.</p>
+</div>
+<nav class="footer-col" aria-label="Power and current calculators">
+<div class="footer-col__label">Power &amp; Current</div>
+<a href="/watts-to-amps/">Watts to Amps</a>
+<a href="/amps-to-watts/">Amps to Watts</a>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/watts-to-volts/">Watts to Volts</a>
+<a href="/amps-to-volts/">Amps to Volts</a>
+</nav>
+<nav class="footer-col" aria-label="Apparent power and energy calculators">
+<div class="footer-col__label">Apparent &amp; Energy</div>
+<a href="/kva-to-kw/">kVA to kW</a>
+<a href="/kva-to-amps/">kVA to Amps</a>
+<a href="/va-to-watts/">VA to Watts</a>
+<a href="/kwh-to-watts/">kWh to Watts</a>
+<a href="/watts-to-kwh/">Watts to kWh</a>
+</nav>
+<nav class="footer-col" aria-label="Battery calculators and guides">
+<div class="footer-col__label">Battery &amp; Guides</div>
+<a href="/mah-to-wh/">mAh to Wh</a>
+<a href="/wh-to-mah/">Wh to mAh</a>
+<a href="/learn/watts-vs-amps/">Watts vs Amps</a>
+<a href="/learn/ohms-law/">Ohm's Law</a>
+</nav>
+<nav class="footer-col" aria-label="Site information">
+<div class="footer-col__label">Site</div>
+<a href="/about/">About &amp; method</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy/">Privacy</a>
+</nav>
+</div>
+<div class="footer-meta">
+<p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com · calculations run entirely in your browser.</p>
+<p class="footer-accuracy"><strong>How these work:</strong> each tool applies the standard conversion formula shown on its page — DC, AC single-phase and three-phase where relevant. Results are rounded estimates for reference and education only; always verify against the National Electrical Code (NEC / NFPA 70) and consult a licensed electrician before sizing conductors, breakers, or equipment.</p>
+</div>
 </footer>
-<script src="/assets/js/converters.js?v=b37905a4" defer></script>
-<script src="/assets/js/calculators.js?v=857a6a51" defer></script>
-<script src="/assets/js/site.js?v=e872e18f" defer></script>
+<script src="/assets/js/converters.js?v=6612cb10" defer></script>
+<script src="/assets/js/calculators.js?v=1443c1bf" defer></script>
+<script src="/assets/js/site.js?v=de5988fd" defer></script>
 </body>
 </html>
