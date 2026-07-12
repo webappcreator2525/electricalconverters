@@ -1,17 +1,18 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>1 kW to Amps — How Many Amps Is 1 Kilowatt?</title>
+<title>1 kW to Amps (at 120V, 240V)</title>
 <meta content="How many amps is 1 kW? At 120V DC: 8.3333 A. At 240V DC: 4.1667 A. At 240V AC single-phase PF 0.8: 5.2083 A. Free kW to amps calculator." name="description"/>
 <link href="https://electricalconverters.com/kw-to-amps/1-kw-to-amps/" rel="canonical"/>
 <meta content="website" property="og:type"/>
-<meta content="1 kW to Amps — How Many Amps Is 1 Kilowatt?" property="og:title"/>
+<meta content="1 kW to Amps (at 120V, 240V)" property="og:title"/>
 <meta content="How many amps is 1 kW? At 120V DC: 8.3333 A. At 240V DC: 4.1667 A. At 240V AC single-phase PF 0.8: 5.2083 A. Free kW to amps calculator." property="og:description"/>
 <meta content="https://electricalconverters.com/kw-to-amps/1-kw-to-amps/" property="og:url"/>
-<link href="/assets/css/main.css" rel="stylesheet"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=19efc609" rel="stylesheet"/>
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -34,30 +35,99 @@
     ]
   }
   </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/></head>
-<body>
+<!-- p2:meta -->
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="#0b0e13" name="theme-color"/>
+<meta content="ElectricalConverters editorial team" name="author"/>
+<meta content="ElectricalConverters" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image:secure_url"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ElectricalConverters — free electrical calculators" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="1 kW to Amps (at 120V, 240V)" name="twitter:title"/>
+<meta content="How many amps is 1 kW? At 120V DC: 8.3333 A. At 240V DC: 4.1667 A. At 240V AC single-phase PF 0.8: 5.2083 A. Free kW to amps calculator." name="twitter:description"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" name="twitter:image"/>
+<meta content="ElectricalConverters — free electrical calculators" name="twitter:image:alt"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- /p2:meta -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"1 kW to Amps Calculator",
+  "url":"https://electricalconverters.com/kw-to-amps/1-kw-to-amps/",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Web Browser",
+  "browserRequirements":"Requires JavaScript",
+  "isAccessibleForFree":true,
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "publisher":{"@type":"Organization","name":"ElectricalConverters","url":"https://electricalconverters.com/","logo":{"@type":"ImageObject","url":"https://electricalconverters.com/icon-512.png","width":512,"height":512}}
+}
+</script>
+</head>
+<body data-calc="kw-to-amps-value">
 <header class="site-header">
 <div class="header-inner">
 <a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
 <nav aria-label="Main navigation" class="site-nav">
 <ul class="nav-list">
-<li><a class="nav-link" href="/watts-to-amps/">W to A</a></li>
-<li><a class="nav-link" href="/kw-to-amps/">kW to A</a></li>
-<li><a class="nav-link" href="/amps-to-watts/">A to W</a></li>
-<li><a class="nav-link" href="/watts-to-volts/">W to V</a></li>
-<li><a class="nav-link" href="/amps-to-volts/">A to V</a></li>
-<li><a class="nav-link" href="/kva-to-kw/">kVA to kW</a></li>
-<li><a class="nav-link" href="/kva-to-amps/">kVA to A</a></li>
-<li><a class="nav-link" href="/va-to-watts/">VA to W</a></li>
-<li><a class="nav-link" href="/kwh-to-watts/">kWh to W</a></li>
-<li><a class="nav-link" href="/watts-to-kwh/">W to kWh</a></li>
-<li><a class="nav-link" href="/mah-to-wh/">mAh to Wh</a></li>
-<li><a class="nav-link" href="/wh-to-mah/">Wh to mAh</a></li>
+<li class="nav-group">
+<button aria-controls="menu-power" aria-expanded="false" class="nav-trigger" id="trigger-power" type="button">Power &amp; Current <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-power">
+<a class="nav-panel__link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-panel__link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-panel__link" href="/amps-to-volts/">Amps to Volts</a>
+<div class="nav-panel__sub">Guides</div>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/ohms-law/">Ohm's Law</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-apparent" aria-expanded="false" class="nav-trigger" id="trigger-apparent" type="button">Apparent Power <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-apparent">
+<a class="nav-panel__link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-panel__link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-panel__link" href="/va-to-watts/">VA to Watts</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-energy" aria-expanded="false" class="nav-trigger" id="trigger-energy" type="button">Energy <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-energy">
+<a class="nav-panel__link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kwh/">Watts to kWh</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-battery" aria-expanded="false" class="nav-trigger" id="trigger-battery" type="button">Battery <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-battery">
+<a class="nav-panel__link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-panel__link" href="/wh-to-mah/">Wh to mAh</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-motors" aria-expanded="false" class="nav-trigger" id="trigger-motors" type="button">Motors <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-motors">
+<p class="nav-panel__note">HP to amps, HP to kW and kW to HP are coming soon. For now, <a href="/kw-to-amps/">size a motor circuit with kW to amps</a>.</p>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-wiring" aria-expanded="false" class="nav-trigger" id="trigger-wiring" type="button">Wiring <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-wiring">
+<p class="nav-panel__note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</div>
+</li>
 </ul>
 </nav>
-<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle">
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button">
 <span class="nav-toggle-bar"></span>
 <span class="nav-toggle-bar"></span>
 <span class="nav-toggle-bar"></span>
@@ -68,21 +138,46 @@
 <div class="mobile-nav-inner">
 <div class="mobile-nav-header">
 <span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
-<button aria-label="Close navigation" class="nav-close">×</button>
+<button aria-label="Close navigation" class="nav-close" type="button">&times;</button>
 </div>
 <ul class="mobile-nav-list">
-<li><a class="nav-link" href="/watts-to-amps/">W to A</a></li>
-<li><a class="nav-link" href="/kw-to-amps/">kW to A</a></li>
-<li><a class="nav-link" href="/amps-to-watts/">A to W</a></li>
-<li><a class="nav-link" href="/watts-to-volts/">W to V</a></li>
-<li><a class="nav-link" href="/amps-to-volts/">A to V</a></li>
-<li><a class="nav-link" href="/kva-to-kw/">kVA to kW</a></li>
-<li><a class="nav-link" href="/kva-to-amps/">kVA to A</a></li>
-<li><a class="nav-link" href="/va-to-watts/">VA to W</a></li>
-<li><a class="nav-link" href="/kwh-to-watts/">kWh to W</a></li>
-<li><a class="nav-link" href="/watts-to-kwh/">W to kWh</a></li>
-<li><a class="nav-link" href="/mah-to-wh/">mAh to Wh</a></li>
-<li><a class="nav-link" href="/wh-to-mah/">Wh to mAh</a></li>
+<li class="m-group">
+<div class="m-group__label">Power &amp; Current</div>
+<a class="nav-link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-link" href="/amps-to-volts/">Amps to Volts</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Apparent Power</div>
+<a class="nav-link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-link" href="/va-to-watts/">VA to Watts</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Energy &amp; Cost</div>
+<a class="nav-link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-link" href="/watts-to-kwh/">Watts to kWh</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Battery Capacity</div>
+<a class="nav-link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-link" href="/wh-to-mah/">Wh to mAh</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Motors &amp; Horsepower</div>
+<p class="m-note">Coming soon. For now, <a href="/kw-to-amps/">size a motor circuit with kW to amps</a>.</p>
+</li>
+<li class="m-group">
+<div class="m-group__label">Wiring &amp; Safety</div>
+<p class="m-note">Coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</li>
+<li class="m-group">
+<div class="m-group__label">Guides</div>
+<a class="nav-link" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+<a class="nav-link" href="/learn/ohms-law/">Ohm's Law</a>
+</li>
 </ul>
 </div>
 </div>
@@ -96,7 +191,14 @@
 <span class="breadcrumb__current">1 kW to Amps</span>
 </nav>
 <section aria-labelledby="page-heading" class="calc-header">
-<h1 id="page-heading">1 kW to Amps</h1>
+<h1 id="page-heading">How Many Amps Is 1 kW?</h1>
+<div class="page-byline">
+<span class="page-byline__item">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Last updated <strong>July 2026</strong></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Estimates only — <a href="/about/">how we check</a></span>
+</div>
 </section>
 <div aria-label="Quick answer" class="answer-box" role="note">
 <div class="answer-box__label">Quick Answer</div>
@@ -110,16 +212,16 @@
 <section aria-label="kW to amps calculator">
 <div class="converter-card">
 <div class="input-row">
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-kw">Kilowatts (kW)</label>
 <input aria-label="Power in kilowatts" autocomplete="off" class="input-field" id="input-kw" inputmode="decimal" min="0" step="any" type="number" value="1"/>
 </div>
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-volts">Voltage (V)</label>
 <input aria-label="Voltage in volts" autocomplete="off" class="input-field" id="input-volts" inputmode="decimal" min="0" step="any" type="number" value="120"/>
 </div>
 </div>
-<div class="field-group" style="margin-top:1.25rem;margin-bottom:0">
+<div class="field-group u0ca412">
 <label for="input-phase">Circuit Type</label>
 <select aria-label="Circuit type" class="input-field input-field--select" id="input-phase">
 <option value="dc">DC (Direct Current)</option>
@@ -129,7 +231,7 @@
 </select>
 </div>
 <div aria-hidden="true" class="pf-wrapper" id="pf-wrapper">
-<div class="field-group" style="margin-bottom:0">
+<div class="field-group ue7ec54">
 <label for="input-pf">Power Factor (PF)</label>
 <input aria-label="Power factor" autocomplete="off" class="input-field" id="input-pf" inputmode="decimal" max="1" min="0.01" step="0.01" type="number" value="0.8"/>
 </div>
@@ -180,15 +282,15 @@
 <div class="faq-item">
 <h3 class="faq-item__question">How many amps is 1 kW at 120V?</h3>
 <div class="faq-item__answer">
-<p>1 kW at 120 V DC = (1 × 1,000) ÷ 120 = <strong style="color:var(--accent)">8.3333 amps</strong>.
-            For AC single-phase with PF 0.8: (1,000) ÷ (120 × 0.8) = <strong style="color:var(--accent)">10.4167 amps</strong>.</p>
+<p>1 kW at 120 V DC = (1 × 1,000) ÷ 120 = <strong class="ubb2b0e">8.3333 amps</strong>.
+            For AC single-phase with PF 0.8: (1,000) ÷ (120 × 0.8) = <strong class="ubb2b0e">10.4167 amps</strong>.</p>
 </div>
 </div>
 <div class="faq-item">
 <h3 class="faq-item__question">How many amps is 1 kW at 240V?</h3>
 <div class="faq-item__answer">
-<p>1 kW at 240 V DC = (1 × 1,000) ÷ 240 = <strong style="color:var(--accent)">4.1667 amps</strong>.
-            For AC single-phase with PF 0.8: (1,000) ÷ (240 × 0.8) = <strong style="color:var(--accent)">5.2083 amps</strong>.</p>
+<p>1 kW at 240 V DC = (1 × 1,000) ÷ 240 = <strong class="ubb2b0e">4.1667 amps</strong>.
+            For AC single-phase with PF 0.8: (1,000) ÷ (240 × 0.8) = <strong class="ubb2b0e">5.2083 amps</strong>.</p>
 </div>
 </div>
 <div class="faq-item">
@@ -196,8 +298,8 @@
 <div class="faq-item__answer">
 <p>At 120 V, 1 kW draws 8.33 A. The NEC requires breakers sized at 125% for
             continuous loads: 8.33 × 1.25 = 10.42 A. A standard
-            <strong style="color:var(--accent)">15 A breaker</strong> is sufficient.
-            At 240 V (4.17 A), a <strong style="color:var(--accent)">15 A breaker</strong> is also adequate.
+            <strong class="ubb2b0e">15 A breaker</strong> is sufficient.
+            At 240 V (4.17 A), a <strong class="ubb2b0e">15 A breaker</strong> is also adequate.
             Always consult a licensed electrician.</p>
 </div>
 </div>
@@ -205,106 +307,80 @@
 </section>
 <section aria-labelledby="other-heading" class="content-section">
 <h2 id="other-heading">Other kW Calculations</h2>
-<div aria-label="Other kW sub-pages" class="subpage-nav">
-<a aria-current="page" class="current" href="./">1 kW</a>
-<a href="../2-kw-to-amps/">2 kW</a>
-<a href="../5-kw-to-amps/">5 kW</a>
-<a href="../10-kw-to-amps/">10 kW</a>
+<div aria-label="Other kW Calculations" class="subpage-nav">
+<a aria-current="page" class="current" href="/kw-to-amps/1-kw-to-amps/">1 kW</a>
+<a href="/kw-to-amps/2-kw-to-amps/">2 kW</a>
+<a href="/kw-to-amps/3-kw-to-amps/">3 kW</a>
+<a href="/kw-to-amps/5-kw-to-amps/">5 kW</a>
+<a href="/kw-to-amps/7.5-kw-to-amps/">7.5 kW</a>
+<a href="/kw-to-amps/10-kw-to-amps/">10 kW</a>
+<a href="/kw-to-amps/11-kw-to-amps/">11 kW</a>
+<a href="/kw-to-amps/15-kw-to-amps/">15 kW</a>
+<a href="/kw-to-amps/22-kw-to-amps/">22 kW</a>
 </div>
 </section>
-<section aria-labelledby="links-heading" class="content-section">
-<h2 id="links-heading">Related Tools</h2>
-<div class="back-links">
-<a class="back-link back-link--primary" href="/kw-to-amps/">Back to All kW to Amps</a>
-<a class="back-link" href="/watts-to-amps/"> Watts to Amps</a>
-<a class="back-link" href="/kva-to-amps/"> kVA to Amps</a>
-</div>
+
+
+
+<!-- related:start -->
+<section class="related-conversions" aria-labelledby="related-conversions-heading">
+<h2 id="related-conversions-heading">Related conversions</h2>
+<p class="related-conversions__intro">A worked example from the <a href="/kw-to-amps/">kw to amps calculator</a> hub. Try nearby values or a related conversion:</p>
+<ul class="rel-list">
+<li class="rel-item"><a class="rel-item__link" href="/kw-to-amps/">Open the full kW to amps calculator</a><span class="rel-item__desc">Kilowatts to current for single- and three-phase.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/kw-to-amps/2-kw-to-amps/">2 kW to amps</a><span class="rel-item__desc">See 2&nbsp;kW worked out.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/kva-to-kw/">Account for power factor with kVA to kW</a><span class="rel-item__desc">Apparent power to real power using power factor.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/kwh-to-watts/">Convert energy to power with kWh to watts</a><span class="rel-item__desc">Average power draw from an energy reading.</span></li>
+</ul>
+<p class="related-conversions__learn">Background reading: <a href="/learn/watts-vs-amps/">Watts vs Amps: the difference explained</a>.</p>
 </section>
+<!-- related:end -->
 </div>
 </main>
 <footer class="site-footer" role="contentinfo">
-  <div class="site-footer__inner">
-    <div class="footer-brand">
-      <span class="footer-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
-      <p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com</p>
-    </div>
-    <div class="footer-links">
-      <a href="/privacy/">Privacy Policy</a>
-    </div>
-  </div>
-  <div class="footer-disclaimer">
-    <p>All calculations are provided for reference only. Consult a licensed electrician for safety-critical decisions.</p>
-  </div>
+<div class="site-footer__inner">
+<div class="footer-brand">
+<a class="footer-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<p class="footer-tagline">Free, client-side conversion instruments for engineers, electricians, and students. No signup, no tracking.</p>
+<p class="footer-review">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a> · estimates only.</p>
+</div>
+<nav class="footer-col" aria-label="Power and current calculators">
+<div class="footer-col__label">Power &amp; Current</div>
+<a href="/watts-to-amps/">Watts to Amps</a>
+<a href="/amps-to-watts/">Amps to Watts</a>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/watts-to-volts/">Watts to Volts</a>
+<a href="/amps-to-volts/">Amps to Volts</a>
+</nav>
+<nav class="footer-col" aria-label="Apparent power and energy calculators">
+<div class="footer-col__label">Apparent &amp; Energy</div>
+<a href="/kva-to-kw/">kVA to kW</a>
+<a href="/kva-to-amps/">kVA to Amps</a>
+<a href="/va-to-watts/">VA to Watts</a>
+<a href="/kwh-to-watts/">kWh to Watts</a>
+<a href="/watts-to-kwh/">Watts to kWh</a>
+</nav>
+<nav class="footer-col" aria-label="Battery calculators and guides">
+<div class="footer-col__label">Battery &amp; Guides</div>
+<a href="/mah-to-wh/">mAh to Wh</a>
+<a href="/wh-to-mah/">Wh to mAh</a>
+<a href="/learn/watts-vs-amps/">Watts vs Amps</a>
+<a href="/learn/ohms-law/">Ohm's Law</a>
+</nav>
+<nav class="footer-col" aria-label="Site information">
+<div class="footer-col__label">Site</div>
+<a href="/about/">About &amp; method</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy/">Privacy</a>
+</nav>
+</div>
+<div class="footer-meta">
+<p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com · calculations run entirely in your browser.</p>
+<p class="footer-accuracy"><strong>How these work:</strong> each tool applies the standard conversion formula shown on its page — DC, AC single-phase and three-phase where relevant. Results are rounded estimates for reference and education only; always verify against the National Electrical Code (NEC / NFPA 70) and consult a licensed electrician before sizing conductors, breakers, or equipment.</p>
+</div>
 </footer>
-<script src="/assets/js/converters.js"></script>
-<script>
-(function(){
-  'use strict';
-  var FORMULAS={'dc':'A = (kW \u00d7 1,000) \u00f7 V','single':'A = (kW \u00d7 1,000) \u00f7 (V \u00d7 PF)','three-ll':'A = (kW \u00d7 1,000) \u00f7 (\u221a3 \u00d7 V \u00d7 PF)','three-ln':'A = (kW \u00d7 1,000) \u00f7 (3 \u00d7 V \u00d7 PF)'};
-  var inputKw=document.getElementById('input-kw');
-  var inputVolts=document.getElementById('input-volts');
-  var inputPhase=document.getElementById('input-phase');
-  var inputPF=document.getElementById('input-pf');
-  var pfWrapper=document.getElementById('pf-wrapper');
-  var resultDisplay=document.getElementById('result-display');
-  var resultValue=document.getElementById('result-value');
-  var resultUnit=document.getElementById('result-unit');
-  var formulaNote=document.getElementById('formula-note');
-  document.getElementById('footer-year').textContent=new Date().getFullYear();
-  function updatePF(){var ac=inputPhase.value!=='dc';pfWrapper.classList.toggle('visible',ac);pfWrapper.setAttribute('aria-hidden',String(!ac));inputPF.disabled=!ac;}
-  function calculate(){
-    var kw=parseFloat(inputKw.value),v=parseFloat(inputVolts.value),ph=inputPhase.value,pf=parseFloat(inputPF.value);
-    var r=Converters.kwToAmps(kw,v,pf,ph);
-    if(r===null){resultDisplay.classList.add('invalid');resultDisplay.classList.remove('has-result');resultValue.textContent='—';resultUnit.style.display='none';formulaNote.classList.remove('live');formulaNote.textContent='Formula: '+FORMULAS[ph];}
-    else{resultDisplay.classList.remove('invalid');resultDisplay.classList.add('has-result');resultValue.textContent=Converters.formatResult(r,4);resultUnit.style.display='';formulaNote.classList.add('live');formulaNote.textContent=FORMULAS[ph]+' = '+Converters.formatResult(r,4)+' A';}
-  }
-  inputKw.addEventListener('input',calculate);
-  inputVolts.addEventListener('input',calculate);
-  inputPF.addEventListener('input',calculate);
-  inputPhase.addEventListener('change',function(){updatePF();calculate();});
-  updatePF();calculate();
-})();
-</script>
-<script>
-const navToggle = document.querySelector('.nav-toggle');
-const mobileNav = document.getElementById('mobile-nav');
-const navClose = document.querySelector('.nav-close');
-
-function openNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.add('is-open');
-  mobileNav.removeAttribute('aria-hidden');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeNav() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove('is-open');
-  mobileNav.setAttribute('aria-hidden', 'true');
-  if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-
-if (navToggle) navToggle.addEventListener('click', openNav);
-if (navClose) navClose.addEventListener('click', closeNav);
-
-if (mobileNav) {
-  mobileNav.addEventListener('click', (e) => {
-    if (e.target === mobileNav) closeNav();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeNav();
-});
-
-// Mark active nav link based on current URL
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === window.location.pathname) {
-    link.classList.add('active');
-  }
-});
-</script>
+<script src="/assets/js/converters.js?v=6612cb10" defer></script>
+<script src="/assets/js/calculators.js?v=1443c1bf" defer></script>
+<script src="/assets/js/site.js?v=de5988fd" defer></script>
 </body>
 </html>
