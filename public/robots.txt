@@ -1,2 +1,4 @@
-Disallow: /tools/
-Disallow: /internal/
+User-agent: *
+Allow: /
+
+Sitemap: https://electricalconverters.com/sitemap.xml
