@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Primary Meta -->
+<title>VA to Watts Calculator (VA → W)</title>
+<meta content="Convert VA to watts using power factor (W = VA × PF). Enter apparent power and PF for instant real power in watts. Free online calculator." name="description"/>
+<link href="https://electricalconverters.com/va-to-watts/" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="VA to Watts Calculator (VA → W)" property="og:title"/>
+<meta content="Convert VA to watts using power factor (W = VA × PF). Enter apparent power and PF for instant real power in watts. Free online calculator." property="og:description"/>
+<meta content="https://electricalconverters.com/va-to-watts/" property="og:url"/>
+<!-- Tailwind CSS (CDN) -->
+<!-- Google Fonts -->
+<!-- Site Design System -->
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=19efc609" rel="stylesheet"/>
+<!-- FAQPage Structured Data -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I convert VA to watts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "W = VA × PF, where PF is the power factor (a number between 0 and 1). For a 1,500 VA UPS with a power factor of 0.6: W = 1,500 × 0.6 = 900 W. For resistive loads (PF = 1), VA equals watts exactly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is VA the same as watts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. VA (volt-amperes) is apparent power — the total power drawn from the supply, including reactive power from inductive or capacitive loads. Watts is real power — the portion that does actual work. They are equal only when the power factor is 1.0 (purely resistive loads like incandescent bulbs and simple heaters). For motors, UPS systems, and most electronics, PF < 1, so VA > watts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many watts is a 1500 VA UPS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on the UPS power factor. Older UPS units: PF ≈ 0.6 to 1,500 × 0.6 = 900 W. Modern online double-conversion UPS units: PF ≈ 0.9 to 1,500 × 0.9 = 1,350 W. Check the UPS datasheet for the rated power factor."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What power factor should I use for my calculation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Common values: 0.6 for older UPS units (offline/line-interactive type), 0.7–0.8 for industrial motors, 0.8–0.9 for modern UPS (double-conversion), 0.9–0.95 for large commercial HVAC, 1.0 for resistive loads (heaters, incandescent lights). When in doubt, use 0.8 as a conservative estimate."
+        }
+      }
+    ]
+  }
+  </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://electricalconverters.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "VA to Watts",
+        "item": "https://electricalconverters.com/va-to-watts/"
+      }
+    ]
+  }
+  </script>
+<!-- p2:meta -->
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="#0b0e13" name="theme-color"/>
+<meta content="ElectricalConverters editorial team" name="author"/>
+<meta content="ElectricalConverters" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image:secure_url"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ElectricalConverters — free electrical calculators" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="VA to Watts Calculator (VA → W)" name="twitter:title"/>
+<meta content="Convert VA to watts using power factor (W = VA × PF). Enter apparent power and PF for instant real power in watts. Free online calculator." name="twitter:description"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" name="twitter:image"/>
+<meta content="ElectricalConverters — free electrical calculators" name="twitter:image:alt"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- /p2:meta -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"VA to Watts Calculator",
+  "url":"https://electricalconverters.com/va-to-watts/",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Web Browser",
+  "browserRequirements":"Requires JavaScript",
+  "isAccessibleForFree":true,
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "publisher":{"@type":"Organization","name":"ElectricalConverters","url":"https://electricalconverters.com/","logo":{"@type":"ImageObject","url":"https://electricalconverters.com/icon-512.png","width":512,"height":512}}
+}
+</script>
+</head>
+<body data-calc="va-to-watts">
+<!-- HEADER -->
+<header class="site-header">
+<div class="header-inner">
+<a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<nav aria-label="Main navigation" class="site-nav">
+<ul class="nav-list">
+<li class="nav-group">
+<button aria-controls="menu-power" aria-expanded="false" class="nav-trigger" id="trigger-power" type="button">Power &amp; Current <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-power">
+<a class="nav-panel__link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-panel__link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-panel__link" href="/amps-to-volts/">Amps to Volts</a>
+<div class="nav-panel__sub">Guides</div>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/ohms-law/">Ohm's Law</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-apparent" aria-expanded="false" class="nav-trigger" id="trigger-apparent" type="button">Apparent Power <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-apparent">
+<a class="nav-panel__link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-panel__link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-panel__link" href="/va-to-watts/">VA to Watts</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-energy" aria-expanded="false" class="nav-trigger" id="trigger-energy" type="button">Energy <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-energy">
+<a class="nav-panel__link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kwh/">Watts to kWh</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-battery" aria-expanded="false" class="nav-trigger" id="trigger-battery" type="button">Battery <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-battery">
+<a class="nav-panel__link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-panel__link" href="/wh-to-mah/">Wh to mAh</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-motors" aria-expanded="false" class="nav-trigger" id="trigger-motors" type="button">Motors <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-motors">
+<p class="nav-panel__note">HP to amps, HP to kW and kW to HP are coming soon. For now, <a href="/kw-to-amps/">size a motor circuit with kW to amps</a>.</p>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-wiring" aria-expanded="false" class="nav-trigger" id="trigger-wiring" type="button">Wiring <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-wiring">
+<p class="nav-panel__note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</div>
+</li>
+</ul>
+</nav>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button">
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+</button>
+</div>
+</header>
+<div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
+<div class="mobile-nav-inner">
+<div class="mobile-nav-header">
+<span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+<button aria-label="Close navigation" class="nav-close" type="button">&times;</button>
+</div>
+<ul class="mobile-nav-list">
+<li class="m-group">
+<div class="m-group__label">Power &amp; Current</div>
+<a class="nav-link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-link" href="/amps-to-volts/">Amps to Volts</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Apparent Power</div>
+<a class="nav-link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-link" href="/va-to-watts/">VA to Watts</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Energy &amp; Cost</div>
+<a class="nav-link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-link" href="/watts-to-kwh/">Watts to kWh</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Battery Capacity</div>
+<a class="nav-link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-link" href="/wh-to-mah/">Wh to mAh</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Motors &amp; Horsepower</div>
+<p class="m-note">Coming soon. For now, <a href="/kw-to-amps/">size a motor circuit with kW to amps</a>.</p>
+</li>
+<li class="m-group">
+<div class="m-group__label">Wiring &amp; Safety</div>
+<p class="m-note">Coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</li>
+<li class="m-group">
+<div class="m-group__label">Guides</div>
+<a class="nav-link" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+<a class="nav-link" href="/learn/ohms-law/">Ohm's Law</a>
+</li>
+</ul>
+</div>
+</div>
+<main id="main-content">
+<div class="page-wrap">
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true" class="breadcrumb__sep">›</span>
+<span class="breadcrumb__current">VA to Watts</span>
+</nav>
+<div class="calc-header">
+<h1>VA to Watts Calculator</h1>
+<div class="page-byline">
+<span class="page-byline__item">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Last updated <strong>July 2026</strong></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Estimates only — <a href="/about/">how we check</a></span>
+</div>
+<p>Convert volt-amperes to real power in watts or kilowatts.</p>
+</div>
+<!-- Converter -->
+<section aria-label="VA to watts converter tool">
+<div aria-label="VA to watts calculator" class="converter-card" role="form">
+<!-- Inputs -->
+<div class="input-row">
+<div class="field-group ue7ec54">
+<label for="input-va">Volt-Amperes (VA)</label>
+<input aria-label="Apparent power in volt-amperes" autocomplete="off" class="input-field" id="input-va" inputmode="decimal" min="0" step="any" type="number" value="1500"/>
+</div>
+<div class="field-group ue7ec54">
+<label for="input-pf">Power Factor (PF)</label>
+<input aria-label="Power factor between 0 and 1" autocomplete="off" class="input-field" id="input-pf" inputmode="decimal" max="1" min="0.01" step="0.01" type="number" value="0.8"/>
+</div>
+</div>
+<!-- PF Presets -->
+<div class="u18e6cd">
+<div class="pf-preset-label">Common power factors — click to fill</div>
+<div aria-label="Power factor presets" class="pf-presets" role="group">
+<button aria-label="Set PF to 0.6 — older UPS" class="pf-btn" data-pf="0.6" type="button">
+<span class="pf-btn__val">0.6</span>
+<span class="pf-btn__desc">Older UPS</span>
+</button>
+<button aria-label="Set PF to 0.7 — industrial motor" class="pf-btn" data-pf="0.7" type="button">
+<span class="pf-btn__val">0.7</span>
+<span class="pf-btn__desc">Industrial motor</span>
+</button>
+<button aria-label="Set PF to 0.8 — general (default)" class="pf-btn selected" data-pf="0.8" type="button">
+<span class="pf-btn__val">0.8</span>
+<span class="pf-btn__desc">General</span>
+</button>
+<button aria-label="Set PF to 0.9 — modern UPS" class="pf-btn" data-pf="0.9" type="button">
+<span class="pf-btn__val">0.9</span>
+<span class="pf-btn__desc">Modern UPS</span>
+</button>
+<button aria-label="Set PF to 1.0 — resistive load" class="pf-btn" data-pf="1.0" type="button">
+<span class="pf-btn__val">1.0</span>
+<span class="pf-btn__desc">Resistive load</span>
+</button>
+</div>
+</div>
+<!-- Dual result display -->
+<div class="result-wrap">
+<div class="result-dual">
+<!-- Panel 1: Watts -->
+<div>
+<div aria-atomic="true" aria-live="polite" class="result-primary invalid" id="result-w">
+<div class="result-label-w">REAL POWER — WATTS</div>
+<div>
+<span class="result-value" id="result-value-w">—</span>
+<span class="result-unit" id="result-unit-w" style="display:none">W</span>
+</div>
+</div>
+<div class="formula-note" id="formula-note-w">W = VA × PF</div>
+</div>
+<!-- Panel 2: kW -->
+<div>
+<div aria-atomic="true" aria-live="polite" class="result-secondary invalid" id="result-kw">
+<div class="result-label-kw">REAL POWER — KILOWATTS</div>
+<div>
+<span class="result-value" id="result-value-kw">—</span>
+<span class="result-unit" id="result-unit-kw" style="display:none">kW</span>
+</div>
+</div>
+<div class="formula-note formula-note-kw" id="formula-note-kw">kW = (VA × PF) ÷ 1,000</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="how-heading" class="content-section">
+<h2 id="how-heading">How do you convert VA to watts?</h2>
+<p>Multiply VA by the power factor: watts = VA × PF. A 500 VA power supply at a 0.9 power factor delivers 500 × 0.9 = <strong>450 W</strong> of real power. For purely resistive loads the power factor is 1, so volt-amperes and watts are equal.</p>
+</section>
+<!-- Formula Section -->
+<section aria-labelledby="formula-heading" class="content-section">
+<h2 id="formula-heading">VA to Watts Formula</h2>
+<div class="formula-block u58fdc5">
+<span class="var">W</span> = <span class="var">VA</span> × <span class="var">PF</span>
+</div>
+<p class="formula-desc u3db596">
+<strong>Example:</strong> 2,000 VA × 0.85 PF = 1,700 W
+      </p>
+<div class="formula-block u642eb3">
+<span class="var">kW</span> = (<span class="var">VA</span> × <span class="var">PF</span>) ÷ 1,000
+      </div>
+<p class="formula-desc u3db596">
+<strong>Example:</strong> 2,000 VA × 0.85 PF = 1.7 kW
+      </p>
+<p class="formula-desc uc9d9eb">
+        The <strong>power triangle</strong> shows three related quantities: apparent power (VA), real power (W), and reactive power (VAR). The power factor is the cosine of the angle between apparent and real power: <strong>PF = W ÷ VA</strong>. A PF of 1.0 means all apparent power is doing useful work; a lower PF means some power is being stored and returned by reactive components (inductors, capacitors) rather than consumed.
+      </p>
+<p class="formula-desc u001c27">
+        Working with kilovolt-amperes instead? See our <a class="u5d2657" href="/kva-to-kw/">kVA to kW Calculator to</a>
+</p>
+</section>
+<!-- Reference Table -->
+<section aria-labelledby="table-heading" class="content-section">
+<h2 id="table-heading">VA to Watts — UPS Reference Table</h2>
+<div aria-label="VA to watts reference table" class="table-wrap" role="region" tabindex="0">
+<table class="ref-table">
+<thead>
+<tr>
+<th scope="col">VA Rating</th>
+<th scope="col">PF 0.6</th>
+<th scope="col">PF 0.7</th>
+<th scope="col">PF 0.8</th>
+<th scope="col">PF 0.9</th>
+<th scope="col">PF 1.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="col-va">500 VA</td>
+<td class="col-w">300 W</td>
+<td class="col-w">350 W</td>
+<td class="col-w col-highlight">400 W</td>
+<td class="col-w">450 W</td>
+<td class="col-w">500 W</td>
+</tr>
+<tr>
+<td class="col-va">650 VA</td>
+<td class="col-w">390 W</td>
+<td class="col-w">455 W</td>
+<td class="col-w col-highlight">520 W</td>
+<td class="col-w">585 W</td>
+<td class="col-w">650 W</td>
+</tr>
+<tr>
+<td class="col-va">1,000 VA</td>
+<td class="col-w">600 W</td>
+<td class="col-w">700 W</td>
+<td class="col-w col-highlight">800 W</td>
+<td class="col-w">900 W</td>
+<td class="col-w">1,000 W</td>
+</tr>
+<tr>
+<td class="col-va">1,500 VA</td>
+<td class="col-w">900 W</td>
+<td class="col-w">1,050 W</td>
+<td class="col-w col-highlight">1,200 W</td>
+<td class="col-w">1,350 W</td>
+<td class="col-w">1,500 W</td>
+</tr>
+<tr>
+<td class="col-va">2,000 VA</td>
+<td class="col-w">1,200 W</td>
+<td class="col-w">1,400 W</td>
+<td class="col-w col-highlight">1,600 W</td>
+<td class="col-w">1,800 W</td>
+<td class="col-w">2,000 W</td>
+</tr>
+<tr>
+<td class="col-va">3,000 VA</td>
+<td class="col-w">1,800 W</td>
+<td class="col-w">2,100 W</td>
+<td class="col-w col-highlight">2,400 W</td>
+<td class="col-w">2,700 W</td>
+<td class="col-w">3,000 W</td>
+</tr>
+<tr>
+<td class="col-va">5,000 VA</td>
+<td class="col-w">3,000 W</td>
+<td class="col-w">3,500 W</td>
+<td class="col-w col-highlight">4,000 W</td>
+<td class="col-w">4,500 W</td>
+<td class="col-w">5,000 W</td>
+</tr>
+<tr>
+<td class="col-va">10,000 VA</td>
+<td class="col-w">6,000 W</td>
+<td class="col-w">7,000 W</td>
+<td class="col-w col-highlight">8,000 W</td>
+<td class="col-w">9,000 W</td>
+<td class="col-w">10,000 W</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="u80632b">PF 0.8 column highlighted — the most common default for general estimation.</p>
+</section>
+<!-- VA vs Watts Explainer -->
+<section aria-labelledby="explainer-heading" class="content-section">
+<h2 id="explainer-heading">VA vs Watts: What's the Difference?</h2>
+<div class="explainer-grid">
+<div class="explainer-card">
+<span class="explainer-card__icon"></span>
+<div class="explainer-card__title">Volt-Amperes (VA) — Apparent Power</div>
+<p class="explainer-card__body">
+            VA is the total power drawn from the supply, combining both real power (doing useful work) and reactive power (stored and returned by inductors and capacitors). Cables, fuses, circuit breakers, UPS units, and transformers must all be sized to handle the full VA load — not just the watts.
+          </p>
+<span class="explainer-card__badge">VA = W ÷ PF</span>
+</div>
+<div class="explainer-card">
+<span class="explainer-card__icon"></span>
+<div class="explainer-card__title">Watts (W) — Real Power</div>
+<p class="explainer-card__body">
+            Watts measure the actual work performed: generating heat, light, or mechanical motion. This is what your electricity meter measures and what you are billed for. For resistive loads like heaters and incandescent bulbs, VA and watts are identical. For inductive loads (motors, transformers, UPS), watts are always less than VA.
+          </p>
+<span class="explainer-card__badge">W = VA × PF</span>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section aria-labelledby="faq-heading" class="content-section">
+<h2 id="faq-heading">Frequently Asked Questions</h2>
+<div class="faq-list">
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            How do I convert VA to watts?
+            
+</div>
+<div class="faq-item__answer">
+<p>W = VA × PF, where PF is the power factor (a number between 0 and 1). For a 1,500 VA UPS with a power factor of 0.6: W = 1,500 × 0.6 = 900 W. For resistive loads (PF = 1), VA equals watts exactly.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            Is VA the same as watts?
+            
+</div>
+<div class="faq-item__answer">
+<p>No. VA (volt-amperes) is apparent power — the total power drawn from the supply, including reactive power from inductive or capacitive loads. Watts is real power — the portion that does actual work. They are equal only when the power factor is 1.0 (purely resistive loads like incandescent bulbs and simple heaters). For motors, UPS systems, and most electronics, PF &lt; 1, so VA &gt; watts.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            How many watts is a 1500 VA UPS?
+            
+</div>
+<div class="faq-item__answer">
+<p>It depends on the UPS power factor. Older UPS units: PF ≈ 0.6 to 1,500 × 0.6 = 900 W. Modern online double-conversion UPS units: PF ≈ 0.9 to 1,500 × 0.9 = 1,350 W. Check the UPS datasheet for the rated power factor.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            What power factor should I use for my calculation?
+            
+</div>
+<div class="faq-item__answer">
+<p>Common values: 0.6 for older UPS units (offline/line-interactive type), 0.7–0.8 for industrial motors, 0.8–0.9 for modern UPS (double-conversion), 0.9–0.95 for large commercial HVAC, 1.0 for resistive loads (heaters, incandescent lights). When in doubt, use 0.8 as a conservative estimate.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            How do I find the power factor of my device?
+            
+</div>
+<div class="faq-item__answer">
+<p>Check the device datasheet or the label on the back panel — it is often listed as "PF" or "cos φ". If not listed, use a power meter (such as a Kill-A-Watt device) to measure VA and watts simultaneously; PF = W ÷ VA. For UPS systems, the power factor is always specified in the product specifications.</p>
+</div>
+</div>
+</div>
+</section>
+
+
+
+<!-- related:start -->
+<section class="related-conversions" aria-labelledby="related-conversions-heading">
+<h2 id="related-conversions-heading">Related conversions</h2>
+<p class="related-conversions__intro">This calculator is part of our <strong>Apparent Power (kVA & VA)</strong> tools. Jump to a related conversion:</p>
+<ul class="rel-list">
+<li class="rel-item"><a class="rel-item__link" href="/kva-to-kw/">Account for power factor with kVA to kW</a><span class="rel-item__desc">Apparent power to real power using power factor.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/kva-to-amps/">Get amps straight from kVA</a><span class="rel-item__desc">Line current directly from apparent power.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/watts-to-amps/">Convert watts to amps</a><span class="rel-item__desc">Power to current for DC, single- and three-phase circuits.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/kwh-to-watts/">Convert energy to power with kWh to watts</a><span class="rel-item__desc">Average power draw from an energy reading.</span></li>
+</ul>
+<p class="related-conversions__learn">Background reading: <a href="/learn/watts-vs-amps/">Watts vs Amps: the difference explained</a>.</p>
+</section>
+<!-- related:end -->
+</div><!-- /page-wrap -->
+</main>
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+<div class="site-footer__inner">
+<div class="footer-brand">
+<a class="footer-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<p class="footer-tagline">Free, client-side conversion instruments for engineers, electricians, and students. No signup, no tracking.</p>
+<p class="footer-review">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a> · estimates only.</p>
+</div>
+<nav class="footer-col" aria-label="Power and current calculators">
+<div class="footer-col__label">Power &amp; Current</div>
+<a href="/watts-to-amps/">Watts to Amps</a>
+<a href="/amps-to-watts/">Amps to Watts</a>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/watts-to-volts/">Watts to Volts</a>
+<a href="/amps-to-volts/">Amps to Volts</a>
+</nav>
+<nav class="footer-col" aria-label="Apparent power and energy calculators">
+<div class="footer-col__label">Apparent &amp; Energy</div>
+<a href="/kva-to-kw/">kVA to kW</a>
+<a href="/kva-to-amps/">kVA to Amps</a>
+<a href="/va-to-watts/">VA to Watts</a>
+<a href="/kwh-to-watts/">kWh to Watts</a>
+<a href="/watts-to-kwh/">Watts to kWh</a>
+</nav>
+<nav class="footer-col" aria-label="Battery calculators and guides">
+<div class="footer-col__label">Battery &amp; Guides</div>
+<a href="/mah-to-wh/">mAh to Wh</a>
+<a href="/wh-to-mah/">Wh to mAh</a>
+<a href="/learn/watts-vs-amps/">Watts vs Amps</a>
+<a href="/learn/ohms-law/">Ohm's Law</a>
+</nav>
+<nav class="footer-col" aria-label="Site information">
+<div class="footer-col__label">Site</div>
+<a href="/about/">About &amp; method</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy/">Privacy</a>
+</nav>
+</div>
+<div class="footer-meta">
+<p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com · calculations run entirely in your browser.</p>
+<p class="footer-accuracy"><strong>How these work:</strong> each tool applies the standard conversion formula shown on its page — DC, AC single-phase and three-phase where relevant. Results are rounded estimates for reference and education only; always verify against the National Electrical Code (NEC / NFPA 70) and consult a licensed electrician before sizing conductors, breakers, or equipment.</p>
+</div>
+</footer>
+<script src="/assets/js/converters.js?v=6612cb10" defer></script>
+<script src="/assets/js/calculators.js?v=1443c1bf" defer></script>
+<script src="/assets/js/site.js?v=de5988fd" defer></script>
+</body>
+</html>

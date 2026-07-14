@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Watts to kVA Calculator</title>
+<meta content="Convert watts to kVA using power factor. kVA = W ÷ (PF × 1000). Explains real vs apparent power. Instant result, no submit button needed. Free online calculator." name="description"/>
+<link href="https://electricalconverters.com/watts-to-kva/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Watts to kVA Calculator" property="og:title"/>
+<meta content="Convert watts to kVA using power factor. kVA = W ÷ (PF × 1000). Explains real vs apparent power. Instant result, no submit button needed. Free online calculator." property="og:description"/>
+<meta content="https://electricalconverters.com/watts-to-kva/" property="og:url"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=19efc609" rel="stylesheet"/>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you convert watts to kVA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To convert watts to kVA you need to know the power factor: kVA = W ÷ (PF × 1000). For example, a 1500 W load at a power factor of 0.8 equals 1500 ÷ (0.8 × 1000) = 1.875 kVA."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between watts (real power) and kVA (apparent power)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Watts measure real power — the actual energy consumed as heat, light or mechanical work. kVA measures apparent power — the total power the supply must deliver, including the portion that is stored and returned by inductive or capacitive loads. They are related by the power factor: kW = kVA × PF. At unity PF (resistive loads) they are equal."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does a generator or UPS need to be rated in kVA rather than kW?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Generators and UPS systems must supply the full apparent power (kVA) demanded by the load, regardless of how much is converted to useful work. A 10 kVA generator with a load at 0.8 PF can only supply 8 kW of real power. Rating equipment in kVA ensures the supply can handle the actual current drawn."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many kVA is 2000 watts at 0.9 power factor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "2000 W at 0.9 PF = 2000 ÷ (0.9 × 1000) = 2.222 kVA."
+        }
+      }
+    ]
+  }
+</script>
+<!-- p2:meta -->
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="#0b0e13" name="theme-color"/>
+<meta content="ElectricalConverters editorial team" name="author"/>
+<meta content="ElectricalConverters" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image:secure_url"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ElectricalConverters — free electrical calculators" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Watts to kVA Calculator" name="twitter:title"/>
+<meta content="Convert watts to kVA using power factor. kVA = W ÷ (PF × 1000). Explains real vs apparent power. Instant result, no submit button needed. Free online calculator." name="twitter:description"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" name="twitter:image"/>
+<meta content="ElectricalConverters — free electrical calculators" name="twitter:image:alt"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- /p2:meta -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Watts to kVA Calculator",
+  "url":"https://electricalconverters.com/watts-to-kva/",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Web Browser",
+  "browserRequirements":"Requires JavaScript",
+  "isAccessibleForFree":true,
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "publisher":{"@type":"Organization","name":"ElectricalConverters","url":"https://electricalconverters.com/","logo":{"@type":"ImageObject","url":"https://electricalconverters.com/icon-512.png","width":512,"height":512}}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://electricalconverters.com/"},{"@type":"ListItem","position":2,"name":"Watts to kVA","item":"https://electricalconverters.com/watts-to-kva/"}]
+}
+</script>
+</head>
+<body data-calc="watts-to-kva">
+<header class="site-header">
+<div class="header-inner">
+<a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<nav aria-label="Main navigation" class="site-nav">
+<ul class="nav-list">
+<li class="nav-group">
+<button aria-controls="menu-power" aria-expanded="false" class="nav-trigger" id="trigger-power" type="button">Power &amp; Current <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-power">
+<a class="nav-panel__link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-panel__link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-panel__link" href="/amps-to-volts/">Amps to Volts</a>
+<div class="nav-panel__sub">Guides</div>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/ohms-law/">Ohm's Law</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-apparent" aria-expanded="false" class="nav-trigger" id="trigger-apparent" type="button">Apparent Power <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-apparent">
+<a class="nav-panel__link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-panel__link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-panel__link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-panel__link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-panel__link" href="/amps-to-kva/">Amps to kVA</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-energy" aria-expanded="false" class="nav-trigger" id="trigger-energy" type="button">Energy <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-energy">
+<a class="nav-panel__link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kwh/">Watts to kWh</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-battery" aria-expanded="false" class="nav-trigger" id="trigger-battery" type="button">Battery <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-battery">
+<a class="nav-panel__link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-panel__link" href="/wh-to-mah/">Wh to mAh</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-motors" aria-expanded="false" class="nav-trigger" id="trigger-motors" type="button">Motors <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-motors">
+<a class="nav-panel__link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-panel__link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-panel__link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-wiring" aria-expanded="false" class="nav-trigger" id="trigger-wiring" type="button">Wiring <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-wiring">
+<p class="nav-panel__note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</div>
+</li>
+</ul>
+</nav>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button">
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+</button>
+</div>
+</header>
+<div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
+<div class="mobile-nav-inner">
+<div class="mobile-nav-header">
+<span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+<button aria-label="Close navigation" class="nav-close" type="button">&times;</button>
+</div>
+<ul class="mobile-nav-list">
+<li class="m-group">
+<div class="m-group__label">Power &amp; Current</div>
+<a class="nav-link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-link" href="/amps-to-volts/">Amps to Volts</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Apparent Power</div>
+<a class="nav-link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-link" href="/amps-to-kva/">Amps to kVA</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Energy &amp; Cost</div>
+<a class="nav-link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-link" href="/watts-to-kwh/">Watts to kWh</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Battery Capacity</div>
+<a class="nav-link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-link" href="/wh-to-mah/">Wh to mAh</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Motors &amp; Horsepower</div>
+<a class="nav-link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Wiring &amp; Safety</div>
+<p class="m-note">Coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</li>
+<li class="m-group">
+<div class="m-group__label">Guides</div>
+<a class="nav-link" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+<a class="nav-link" href="/learn/ohms-law/">Ohm's Law</a>
+</li>
+</ul>
+</div>
+</div>
+<main id="main-content">
+<div class="page-wrap">
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true" class="breadcrumb__sep">›</span>
+<span class="breadcrumb__current">Watts to kVA</span>
+</nav>
+
+<div class="calc-header">
+<h1 id="page-heading">Watts to kVA Calculator</h1>
+<div class="page-byline">
+<span class="page-byline__item">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Last updated <strong>July 2026</strong></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Estimates only — <a href="/about/">how we check</a></span>
+</div>
+<p>Enter real power in watts and power factor to calculate apparent power in kVA instantly. Essential for sizing generators, UPS systems and transformers.</p>
+</div>
+<!-- CALCULATOR CARD -->
+<section aria-label="Watts to kVA converter tool">
+<div aria-label="Watts to kVA calculator" class="converter-card" role="form">
+<div class="input-row">
+<div class="field-group">
+<label for="input-watts">Real Power (Watts)</label>
+<input aria-label="Real power in watts" autocomplete="off" class="input-field" id="input-watts" inputmode="decimal" min="0" placeholder="e.g. 1500" step="any" type="number"/>
+</div>
+<div class="field-group">
+<label for="input-pf">Power Factor (PF)</label>
+<input aria-label="Power factor" autocomplete="off" class="input-field" id="input-pf" inputmode="decimal" max="1" min="0.01" step="0.01" type="number" value="0.8"/>
+</div>
+</div>
+<div aria-atomic="true" aria-live="polite" class="result-display" id="result-display">
+<div class="result-display__label">Result — Apparent Power</div>
+<div class="result-display__value-row">
+<span class="result-display__value empty" id="result-value">—</span>
+<span class="result-display__unit" id="result-unit" style="display:none">kVA</span>
+</div>
+<div class="result-display__formula-note" id="formula-note">Enter watts and power factor to see the formula used.</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="how-heading" class="content-section">
+<h2 id="how-heading">How do you convert watts to kVA?</h2>
+<p>Divide watts by the power factor and then by 1000: kVA = W ÷ (PF × 1000). A <strong>1500 W load at PF 0.8</strong> equals 1500 ÷ (0.8 × 1000) = <strong>1.875 kVA</strong>. Because apparent power is always ≥ real power, a generator or UPS rated in kVA must be chosen based on this larger figure — not the watts alone.</p>
+<p>Power factor represents the efficiency of power use in an AC circuit. Resistive loads (heaters, incandescent lamps) have PF = 1.0 so kVA = kW. Inductive loads (motors, transformers) typically have PF 0.7–0.95, meaning the apparent power is significantly higher than the real power.</p>
+</section>
+
+<section aria-labelledby="reftable-heading" class="content-section">
+<h2 id="reftable-heading">Watts to kVA Conversion Table</h2>
+<div aria-label="Watts to kVA at common power factors" class="examples-table-wrap" role="region" tabindex="0">
+<table class="examples-table">
+<thead>
+<tr><th scope="col">Watts (W)</th><th scope="col">PF 0.7</th><th scope="col">PF 0.8</th><th scope="col">PF 0.9</th><th scope="col">PF 1.0</th></tr>
+</thead>
+<tbody>
+<tr><td class="col-result">500 W</td><td>0.714 kVA</td><td>0.625 kVA</td><td>0.556 kVA</td><td>0.500 kVA</td></tr>
+<tr><td class="col-result">1000 W</td><td>1.429 kVA</td><td>1.250 kVA</td><td>1.111 kVA</td><td>1.000 kVA</td></tr>
+<tr><td class="col-result">1500 W</td><td>2.143 kVA</td><td>1.875 kVA</td><td>1.667 kVA</td><td>1.500 kVA</td></tr>
+<tr><td class="col-result">2000 W</td><td>2.857 kVA</td><td>2.500 kVA</td><td>2.222 kVA</td><td>2.000 kVA</td></tr>
+<tr><td class="col-result">5000 W</td><td>7.143 kVA</td><td>6.250 kVA</td><td>5.556 kVA</td><td>5.000 kVA</td></tr>
+<tr><td class="col-result">10000 W</td><td>14.29 kVA</td><td>12.50 kVA</td><td>11.11 kVA</td><td>10.00 kVA</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- FORMULA SECTION -->
+<section aria-labelledby="formula-heading">
+<h2 class="section-heading" id="formula-heading">Formula</h2>
+<div class="formula-block">
+  kVA = W ÷ (PF × 1,000)
+</div>
+<p>Where: <strong>kVA</strong> = apparent power in kilovolt-amps, <strong>W</strong> = real power in watts, <strong>PF</strong> = power factor (0–1).</p>
+<p>Alternatively expressed as: <strong>kVA = kW ÷ PF</strong>. If you already have kW, use the <a href="/kw-to-kva/">kW to kVA calculator</a> directly.</p>
+</section>
+<!-- FAQ SECTION -->
+<section aria-labelledby="faq-heading">
+<h2 class="section-heading" id="faq-heading">Frequently Asked Questions</h2>
+<div class="faq-list">
+<div class="faq-item">
+<div class="faq-item__question">
+            How do you convert watts to kVA?
+          </div>
+<div class="faq-item__answer">
+<p>Use the formula kVA = W ÷ (PF × 1000). You need the power factor of your load. If unknown, 0.8 is a common conservative assumption for mixed AC loads.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question">
+            What is the difference between real power (watts) and apparent power (kVA)?
+          </div>
+<div class="faq-item__answer">
+<p>Real power (watts) is the energy actually consumed as heat, light or work. Apparent power (kVA) is the total power the supply delivers, including the reactive portion that flows back and forth in inductive circuits. A generator must be sized to the apparent power, not just the real power.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question">
+            Why do I need power factor to convert watts to kVA?
+          </div>
+<div class="faq-item__answer">
+<p>Power factor is the ratio of real power to apparent power (PF = kW ÷ kVA). Without it, you cannot determine how much of the apparent power is doing useful work. A purely resistive load (PF = 1) has kVA = kW, but a motor at PF = 0.8 needs 25 % more apparent power than its real-power rating.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question">
+            How many kVA is 2000 watts?
+          </div>
+<div class="faq-item__answer">
+<p>It depends on the power factor. At PF 0.8: 2000 ÷ (0.8 × 1000) = 2.5 kVA. At PF 0.9: 2000 ÷ (0.9 × 1000) ≈ 2.22 kVA. At PF 1.0: 2000 ÷ 1000 = 2.0 kVA.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question">
+            Can kVA be less than kW?
+          </div>
+<div class="faq-item__answer">
+<p>No. Apparent power (kVA) is always greater than or equal to real power (kW) because PF is always ≤ 1. If kVA equalled kW, the power factor would be 1.0, meaning a purely resistive load with no reactive component.</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- related:start -->
+<section class="related-conversions" aria-labelledby="related-conversions-heading">
+<h2 id="related-conversions-heading">Related conversions</h2>
+<p class="related-conversions__intro">This calculator is part of our <strong>Apparent Power (kVA &amp; VA)</strong> tools. Jump to a related conversion:</p>
+<ul class="rel-list">
+<li class="rel-item"><a class="rel-item__link" href="/kva-to-kw/">Account for power factor with kVA to kW</a><span class="rel-item__desc">Apparent power to real power using power factor.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/kw-to-kva/">Convert kW to kVA</a><span class="rel-item__desc">Real power to apparent power via power factor.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/kva-to-amps/">Get amps straight from kVA</a><span class="rel-item__desc">Line current directly from apparent power.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/amps-to-kva/">Convert amps to kVA</a><span class="rel-item__desc">Apparent power from line current.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/va-to-watts/">Convert VA to watts</a><span class="rel-item__desc">Volt-amps to real power in watts.</span></li>
+</ul>
+<p class="related-conversions__learn">Background reading: <a href="/learn/watts-vs-amps/">Watts vs Amps: the difference explained</a>.</p>
+</section>
+<!-- related:end -->
+</div>
+</main>
+<footer class="site-footer" role="contentinfo">
+<div class="site-footer__inner">
+<div class="footer-brand">
+<a class="footer-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<p class="footer-tagline">Free, client-side conversion instruments for engineers, electricians, and students. No signup, no tracking.</p>
+<p class="footer-review">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a> · estimates only.</p>
+</div>
+<nav class="footer-col" aria-label="Power and current calculators">
+<div class="footer-col__label">Power &amp; Current</div>
+<a href="/watts-to-amps/">Watts to Amps</a>
+<a href="/amps-to-watts/">Amps to Watts</a>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/watts-to-volts/">Watts to Volts</a>
+<a href="/amps-to-volts/">Amps to Volts</a>
+</nav>
+<nav class="footer-col" aria-label="Apparent power and energy calculators">
+<div class="footer-col__label">Apparent &amp; Energy</div>
+<a href="/kva-to-kw/">kVA to kW</a>
+<a href="/kva-to-amps/">kVA to Amps</a>
+<a href="/va-to-watts/">VA to Watts</a>
+<a href="/watts-to-kva/">Watts to kVA</a>
+<a href="/kw-to-kva/">kW to kVA</a>
+<a href="/amps-to-kva/">Amps to kVA</a>
+<a href="/kwh-to-watts/">kWh to Watts</a>
+<a href="/watts-to-kwh/">Watts to kWh</a>
+</nav>
+<nav class="footer-col" aria-label="Motors and horsepower calculators">
+<div class="footer-col__label">Motors &amp; HP</div>
+<a href="/hp-to-amps/">HP to Amps</a>
+<a href="/hp-to-kw/">HP to kW</a>
+<a href="/kw-to-hp/">kW to HP</a>
+</nav>
+<nav class="footer-col" aria-label="Site information">
+<div class="footer-col__label">Site</div>
+<a href="/about/">About &amp; method</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy/">Privacy</a>
+</nav>
+</div>
+<div class="footer-meta">
+<p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com · calculations run entirely in your browser.</p>
+<p class="footer-accuracy"><strong>How these work:</strong> each tool applies the standard conversion formula shown on its page — DC, AC single-phase and three-phase where relevant. Results are rounded estimates for reference and education only; always verify against the National Electrical Code (NEC / NFPA 70) and consult a licensed electrician before sizing conductors, breakers, or equipment.</p>
+</div>
+</footer>
+<script src="/assets/js/converters.js?v=6612cb10" defer></script>
+<script src="/assets/js/calculators.js?v=1443c1bf" defer></script>
+<script src="/assets/js/site.js?v=de5988fd" defer></script>
+</body>
+</html>
