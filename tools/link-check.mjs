@@ -7,7 +7,7 @@ import { join, resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dirname, '..');
+const ROOT = resolve(__dirname, '..', 'public');
 
 function walk(dir, results = []) {
   for (const entry of readdirSync(dir)) {

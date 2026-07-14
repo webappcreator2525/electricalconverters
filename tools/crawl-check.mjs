@@ -8,7 +8,7 @@ import { join, dirname, relative } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..'); // site root (one level up from tools/)
+const ROOT = join(__dirname, '..', 'public'); // site root (one level up from tools/)
 
 // Pages exempt from breadcrumb / Related-conversions requirements
 const EXEMPT_PAGES = ['index.html', 'privacy/index.html', 'contact/index.html', 'about/index.html', '404.html'];
