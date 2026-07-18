@@ -8,8 +8,47 @@ const publicDir = path.join(__dirname, '../public');
 const CLUSTERS = related.CLUSTERS;
 const PAGES = related.PAGES;
 
+// Dynamically register CHILDREN into PAGES so they can be cross-linked
+for (const [parentKey, childObj] of Object.entries(related.CHILDREN || {})) {
+    if (childObj && childObj.values) {
+        childObj.values.forEach(val => {
+            const childKey = `${val}-${parentKey}`;
+            let pairs = [];
+            if (parentKey === 'kw-to-amps' && [7.5, 11, 15, 22].includes(val)) {
+                pairs.push('ev-charging-time-calculator');
+            }
+            PAGES[childKey] = {
+                href: `/${parentKey}/${childKey}/`,
+                label: `${val} ${childObj.unitLabel}`,
+                anchor: `Calculate for ${val} ${childObj.unitLabel}`,
+                blurb: `Specific conversion for ${val} ${childObj.unitLabel}.`,
+                pairs: pairs.length ? pairs : undefined,
+                exists: true
+            };
+        });
+    }
+}
+// Dynamically register VOLTAGES
+for (const [parentKey, vArr] of Object.entries(related.VOLTAGES || {})) {
+    if (Array.isArray(vArr)) {
+        vArr.forEach(vObj => {
+            // Extract voltage key like '12v'
+            const parts = vObj.href.split('/');
+            const vKey = parts[parts.length - 2];
+            const fullKey = `${parentKey}-${vKey}`;
+            PAGES[fullKey] = {
+                href: vObj.href,
+                label: vObj.label,
+                anchor: vObj.anchor,
+                blurb: vObj.blurb,
+                exists: true
+            };
+        });
+    }
+}
+
 function getPagesInCluster(clusterId) {
-    return Object.keys(PAGES).filter(k => PAGES[k].clusters.includes(clusterId) && PAGES[k].exists);
+    return Object.keys(PAGES).filter(k => PAGES[k].clusters && PAGES[k].clusters.includes(clusterId) && PAGES[k].exists);
 }
 
 // Generate Header Nav List
@@ -64,17 +103,28 @@ getPagesInCluster('motor').concat(getPagesInCluster('battery')).forEach(pk => {
 footerCols += `</nav>\n<nav class="footer-col" aria-label="Site information">\n<div class="footer-col__label">Site</div>\n<a href="/about/">About &amp; method</a>\n<a href="/contact/">Contact</a>\n<a href="/privacy/">Privacy</a>\n<a href="/learn/ohms-law/">Ohm's Law</a>\n<a href="/learn/watts-vs-amps/">Watts vs Amps</a>\n</nav>`;
 
 function getRelatedBlock(pageKey) {
-    if (!pageKey || !PAGES[pageKey]) return '';
-    const page = PAGES[pageKey];
+    let baseKey = pageKey;
+    if (pageKey && pageKey.includes(':')) {
+        baseKey = pageKey.split(':')[0]; // e.g., 'ah-to-wh:100' -> 'ah-to-wh'
+    }
+    if (!baseKey || !PAGES[baseKey]) return '';
+    const page = PAGES[baseKey];
     const cId = page.clusters && page.clusters[0];
     if (!cId) return '';
     const cluster = CLUSTERS[cId];
     
-    let relatedKeys = getPagesInCluster(cId).filter(k => k !== pageKey);
+    let relatedKeys = getPagesInCluster(cId).filter(k => k !== baseKey);
     // If hub, add bridges
-    if (cluster.hub === pageKey && cluster.bridges) {
+    if (cluster.hub === baseKey && cluster.bridges) {
         relatedKeys = relatedKeys.concat(cluster.bridges.filter(k => PAGES[k] && PAGES[k].exists));
     }
+    
+    // Add explicitly defined pair/extra links
+    if (page.pairs) {
+        let pairsToAdd = page.pairs.filter(k => PAGES[k] && PAGES[k].exists);
+        relatedKeys = Array.from(new Set(pairsToAdd.concat(relatedKeys)));
+    }
+    
     // Limit to 5
     relatedKeys = relatedKeys.slice(0, 5);
     
@@ -94,7 +144,7 @@ function getRelatedBlock(pageKey) {
 
 // --- 2. TRAVERSE AND UPDATE HTML FILES ---
 
-const CACHE_VERSION = 'v=phase11'; // Update to bump cache
+const CACHE_VERSION = 'v=phase12'; // Update to bump cache
 
 function processDir(dir) {
     const files = fs.readdirSync(dir);
