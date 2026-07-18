@@ -94,7 +94,7 @@ function getRelatedBlock(pageKey) {
 
 // --- 2. TRAVERSE AND UPDATE HTML FILES ---
 
-const CACHE_VERSION = 'v=phase10'; // Update to bump cache
+const CACHE_VERSION = 'v=phase11'; // Update to bump cache
 
 function processDir(dir) {
     const files = fs.readdirSync(dir);

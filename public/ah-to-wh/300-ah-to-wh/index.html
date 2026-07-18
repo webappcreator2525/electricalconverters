@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Primary Meta -->
+<title>300 Ah to Wh Calculator (12V, 24V, 48V)</title>
+<meta content="Convert amp-hours to watt-hours (Wh = Ah × V) for batteries and solar banks. Enter capacity and voltage — result and formula shown. Free, no signup." name="description"/>
+<link href="https://electricalconverters.com/ah-to-wh/" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="Ah to Wh Calculator (Battery Energy)" property="og:title"/>
+<meta content="Convert amp-hours to watt-hours (Wh = Ah × V) for batteries and solar banks. Enter capacity and voltage — result and formula shown. Free, no signup." property="og:description"/>
+<meta content="https://electricalconverters.com/ah-to-wh/" property="og:url"/>
+<!-- Site Design System -->
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=phase11" rel="stylesheet"/>
+<!-- FAQPage Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert Ah to Wh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply the amp-hours by the battery voltage: Wh = Ah × V. For example, a 100 Ah battery at 12 V stores 100 × 12 = 1,200 Wh. Use the nominal (rated) voltage of the battery."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many watt-hours is a 100Ah 12V battery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 100 Ah battery at 12 V holds 100 × 12 = 1,200 Wh, which is 1.2 kWh. At 24 V the same 100 Ah would hold 2,400 Wh, and at 48 V it would hold 4,800 Wh."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which voltage should I use for the conversion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use the battery's nominal voltage — for example 3.7 V for a Li-ion cell, 12 V for a lead-acid battery, or 48 V for a solar storage bank. The nominal voltage represents the average voltage during discharge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Ah and Wh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Amp-hours (Ah) measure charge capacity and ignore voltage, while watt-hours (Wh) measure energy and include voltage. Wh is the fairer way to compare batteries of different voltages, since Wh = Ah × V."
+      }
+    }
+  ]
+}
+</script>
+<!-- p2:meta -->
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="#f4f6f8" name="theme-color"/>
+<meta content="ElectricalConverters editorial team" name="author"/>
+<meta content="ElectricalConverters" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image:secure_url"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ElectricalConverters — free electrical calculators" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Ah to Wh Calculator (Battery Energy)" name="twitter:title"/>
+<meta content="Convert amp-hours to watt-hours (Wh = Ah × V) for batteries and solar banks. Enter capacity and voltage — result and formula shown. Free, no signup." name="twitter:description"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" name="twitter:image"/>
+<meta content="ElectricalConverters — free electrical calculators" name="twitter:image:alt"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- /p2:meta -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Ah to Wh Calculator",
+  "url":"https://electricalconverters.com/ah-to-wh/",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Web Browser",
+  "browserRequirements":"Requires JavaScript",
+  "isAccessibleForFree":true,
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "publisher":{"@type":"Organization","name":"ElectricalConverters","url":"https://electricalconverters.com/","logo":{"@type":"ImageObject","url":"https://electricalconverters.com/icon-512.png","width":512,"height":512}}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://electricalconverters.com/"},{"@type":"ListItem","position":2,"name":"Ah to Wh","item":"https://electricalconverters.com/ah-to-wh/"},{"@type":"ListItem","position":3,"name":"300 Ah to Wh","item":"https://electricalconverters.com/ah-to-wh/300-ah-to-wh/"}]
+}
+</script>
+</head>
+<body data-calc="ah-to-wh:300">
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════════════════ -->
+<header class="site-header">
+<div class="header-inner">
+<a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<nav aria-label="Main navigation" class="site-nav">
+<ul class="nav-list">
+<li class="nav-group">
+<button aria-controls="menu-power-current" aria-expanded="false" class="nav-trigger" id="trigger-power-current" type="button">Power ↔ Current <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-power-current">
+<a class="nav-panel__link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-panel__link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-panel__link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-panel__link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-panel__link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-panel__link" href="/volts-to-watts/">Volts to Watts</a>
+<div class="nav-panel__sub">Guides</div>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/ohms-law/">Ohm's Law</a>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-apparent" aria-expanded="false" class="nav-trigger" id="trigger-apparent" type="button">Apparent Power (kVA &amp; VA) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-apparent">
+<a class="nav-panel__link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-panel__link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-panel__link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-panel__link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-panel__link" href="/kva-to-watts/">kVA to Watts</a>
+<a class="nav-panel__link" href="/amps-to-kva/">Amps to kVA</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-energy" aria-expanded="false" class="nav-trigger" id="trigger-energy" type="button">Energy &amp; Running Cost (kWh) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-energy">
+<a class="nav-panel__link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kwh/">Watts to kWh</a>
+<a class="nav-panel__link" href="/wh-to-kwh/">Wh to kWh</a>
+<a class="nav-panel__link" href="/joules-to-watts/">Joules to Watts</a>
+<a class="nav-panel__link" href="/watts-to-joules/">Watts to Joules</a>
+<a class="nav-panel__link" href="/btu-to-watts/">BTU to Watts</a>
+<a class="nav-panel__link" href="/watts-to-btu/">Watts to BTU</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-battery" aria-expanded="false" class="nav-trigger" id="trigger-battery" type="button">Battery Capacity <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-battery">
+<a class="nav-panel__link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-panel__link" href="/wh-to-mah/">Wh to mAh</a>
+<a class="nav-panel__link" href="/ah-to-wh/">Ah to Wh</a>
+<a class="nav-panel__link" href="/wh-to-ah/">Wh to Ah</a>
+<a class="nav-panel__link" href="/mah-to-ah/">mAh to Ah</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-motor" aria-expanded="false" class="nav-trigger" id="trigger-motor" type="button">Motors &amp; Horsepower <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-motor">
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-panel__link" href="/amps-to-hp/">Amps to HP</a>
+<a class="nav-panel__link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-panel__link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-panel__link" href="/ev-charging-time-calculator/">EV Charging Time</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-safety" aria-expanded="false" class="nav-trigger" id="trigger-safety" type="button">Wiring &amp; Safety Sizing <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-safety">
+<p class="nav-panel__note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</div>
+</li>
+</ul>
+</nav>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button">
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+</button>
+</div>
+</header>
+<div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
+<div class="mobile-nav-inner">
+<div class="mobile-nav-header">
+<span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+<button aria-label="Close navigation" class="nav-close" type="button">&times;</button>
+</div>
+<ul class="mobile-nav-list">
+<li class="m-group">
+<div class="m-group__label">Power ↔ Current</div>
+<a class="nav-link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-link" href="/volts-to-watts/">Volts to Watts</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Apparent Power (kVA &amp; VA)</div>
+<a class="nav-link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-link" href="/kva-to-watts/">kVA to Watts</a>
+<a class="nav-link" href="/amps-to-kva/">Amps to kVA</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Energy &amp; Running Cost (kWh)</div>
+<a class="nav-link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-link" href="/watts-to-kwh/">Watts to kWh</a>
+<a class="nav-link" href="/wh-to-kwh/">Wh to kWh</a>
+<a class="nav-link" href="/joules-to-watts/">Joules to Watts</a>
+<a class="nav-link" href="/watts-to-joules/">Watts to Joules</a>
+<a class="nav-link" href="/btu-to-watts/">BTU to Watts</a>
+<a class="nav-link" href="/watts-to-btu/">Watts to BTU</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Battery Capacity</div>
+<a class="nav-link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-link" href="/wh-to-mah/">Wh to mAh</a>
+<a class="nav-link" href="/ah-to-wh/">Ah to Wh</a>
+<a class="nav-link" href="/wh-to-ah/">Wh to Ah</a>
+<a class="nav-link" href="/mah-to-ah/">mAh to Ah</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Motors &amp; Horsepower</div>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-link" href="/amps-to-hp/">Amps to HP</a>
+<a class="nav-link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-link" href="/ev-charging-time-calculator/">EV Charging Time</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Wiring &amp; Safety Sizing</div>
+<p class="m-note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</li>
+<li class="m-group">
+<div class="m-group__label">Guides</div>
+<a class="nav-link" href="/learn/ohms-law/">Ohm's Law</a>
+<a class="nav-link" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</li>
+</ul>
+</div>
+</div>
+<main id="main-content">
+<div class="page-wrap">
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true" class="breadcrumb__sep">/</span>
+<a href="/ah-to-wh/">Ah to Wh</a>
+<span aria-hidden="true" class="breadcrumb__sep">/</span>
+<span aria-current="page" class="breadcrumb__current">300 Ah to Wh</span>
+</nav>
+
+<!-- ── Hero ────────────────────────────────────── -->
+<section aria-labelledby="page-heading" class="calc-header">
+<h1 id="page-heading">300 Ah to Wh</h1>
+<div class="page-byline">
+<span class="page-byline__item">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Last updated <strong>July 2026</strong></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Estimates only — <a href="/about/">how we check</a></span>
+</div>
+<p>Enter amp-hours and battery voltage below — the watt-hours update instantly.</p>
+</section>
+<!-- ── Converter Tool ──────────────────────────── -->
+<div class="content-section" style="margin-top:2rem;">
+<p>A high-capacity 300 Ah battery at 12 V provides 3.600 Wh of total energy—ideal for backing up an off-grid cabin or running a 200W appliance for roughly 18 hours. If configured in a 24 V system, that 300 Ah bank delivers 7.200 Wh, while a 48 V system yields an impressive 14.400 Wh.</p>
+    <div class="table-wrap" role="region" tabindex="0">
+    <table class="data-table">
+    <thead><tr><th scope="col">Battery Capacity</th><th scope="col">Energy at 12V</th><th scope="col">Energy at 24V</th><th scope="col">Energy at 48V</th></tr></thead>
+    <tbody><tr><td>300 Ah</td><td class="col-result">3.600 Wh</td><td class="col-result">7.200 Wh</td><td class="col-result">14.400 Wh</td></tr></tbody>
+    </table></div>
+
+<div aria-label="Other Calculations" class="subpage-nav">
+<a href="/ah-to-wh/50-ah-to-wh/">50Ah</a>
+<a href="/ah-to-wh/100-ah-to-wh/">100Ah</a>
+<a href="/ah-to-wh/150-ah-to-wh/">150Ah</a>
+<a href="/ah-to-wh/200-ah-to-wh/">200Ah</a>
+<a href="/ah-to-wh/250-ah-to-wh/">250Ah</a>
+<a aria-current="page" class="current" href="/ah-to-wh/300-ah-to-wh/">300Ah</a>
+<a href="/ah-to-wh/400-ah-to-wh/">400Ah</a>
+</div>
+</div>
+<section aria-label="Ah to Wh converter tool">
+<div aria-label="Amp-hours to watt-hours calculator" class="converter-card" role="form">
+<div class="input-row">
+<div class="field-group ue7ec54">
+<label for="input-ah">Amp-hours (Ah)</label>
+<input aria-label="Capacity in amp-hours" autocomplete="off" class="input-field" id="input-ah" inputmode="decimal" min="0" placeholder="e.g. 100" step="any" type="number" value="300" readonly/>
+</div>
+<div class="field-group ue7ec54">
+<label for="input-volts">Voltage (V)</label>
+<input aria-label="Battery voltage" autocomplete="off" class="input-field" id="input-volts" inputmode="decimal" min="0" step="any" type="number" value="12"/>
+</div>
+</div>
+<!-- Voltage presets -->
+<div class="ubd9810">
+<div class="preset-label">Common battery voltages — click to fill</div>
+<div aria-label="Common voltage presets" class="preset-group" role="group">
+<button aria-label="Set voltage to 3.2V — LiFePO₄ cell" class="preset-btn" data-voltage="3.2" type="button">
+<span class="preset-btn__voltage">3.2 V</span>
+<span class="preset-btn__label">LiFePO₄ cell</span>
+</button>
+<button aria-label="Set voltage to 3.7V — Li-ion cell" class="preset-btn" data-voltage="3.7" type="button">
+<span class="preset-btn__voltage">3.7 V</span>
+<span class="preset-btn__label">Li-ion cell</span>
+</button>
+<button aria-label="Set voltage to 12V — Lead-acid / SLA" class="preset-btn selected" data-voltage="12" type="button">
+<span class="preset-btn__voltage">12 V</span>
+<span class="preset-btn__label">Lead-acid / SLA</span>
+</button>
+<button aria-label="Set voltage to 24V — System" class="preset-btn" data-voltage="24" type="button">
+<span class="preset-btn__voltage">24 V</span>
+<span class="preset-btn__label">24 V System</span>
+</button>
+<button aria-label="Set voltage to 48V — Solar bank" class="preset-btn" data-voltage="48" type="button">
+<span class="preset-btn__voltage">48 V</span>
+<span class="preset-btn__label">Solar bank</span>
+</button>
+<button aria-label="Set voltage to 51.2V — LiFePO₄ 16S" class="preset-btn" data-voltage="51.2" type="button">
+<span class="preset-btn__voltage">51.2 V</span>
+<span class="preset-btn__label">LiFePO₄ 16S</span>
+</button>
+</div>
+</div>
+<div class="result-wrap">
+<div aria-atomic="true" aria-live="polite" class="result-display" id="result-display">
+<div class="result-display__label">RESULT — ENERGY</div>
+<div class="result-display__value-row">
+<span class="result-display__value" id="result-value">—</span>
+<span class="result-display__unit" id="result-unit" style="display:none">Wh</span>
+</div>
+<div class="result-display__formula-note" id="formula-note">Formula: Wh = Ah × V</div>
+</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="how-heading" class="content-section">
+<h2 id="how-heading">How do you convert Ah to Wh?</h2>
+<p>Multiply amp-hours by voltage: Wh = Ah × V. A 100 Ah battery at 12 V stores 100 × 12 = <strong>1,200 Wh</strong> (1.2 kWh). Always use the battery's nominal voltage — a 100 Ah bank at 48 V holds four times the energy of the same 100 Ah at 12 V, because watt-hours scale directly with voltage.</p>
+</section>
+<!-- ── Formula ─────────────────────────────────── -->
+<section aria-labelledby="formula-heading" class="content-section">
+<h2 id="formula-heading">Ah to Wh Formula</h2>
+<div class="formula-block u4986ec"><span class="var">Wh</span> = <span class="var">Ah</span> × <span class="var">V</span></div>
+<p class="formula-desc">Amp-hours measure electric charge; watt-hours measure energy. Since energy = charge × voltage, multiplying capacity in Ah by the battery voltage gives the stored energy in Wh. This is why two batteries with the same Ah rating hold different energy if their voltages differ.</p>
+</section>
+<!-- ── Examples Table ───────────────────────────── -->
+<section aria-labelledby="examples-heading" class="content-section">
+<h2 id="examples-heading">Ah to Wh at Common Battery Voltages</h2>
+<div aria-label="Amp-hours to watt-hours reference table" class="examples-table-wrap" role="region" tabindex="0">
+<table class="examples-table">
+<thead>
+<tr><th scope="col">Capacity</th><th scope="col">at 3.7 V</th><th scope="col">at 12 V</th><th scope="col">at 48 V</th></tr>
+</thead>
+<tbody>
+<tr><td class="col-result">2 Ah</td><td>7.4 Wh</td><td>24 Wh</td><td>96 Wh</td></tr>
+<tr><td class="col-result">5 Ah</td><td>18.5 Wh</td><td>60 Wh</td><td>240 Wh</td></tr>
+<tr><td class="col-result">10 Ah</td><td>37 Wh</td><td>120 Wh</td><td>480 Wh</td></tr>
+<tr><td class="col-result">50 Ah</td><td>185 Wh</td><td>600 Wh</td><td>2,400 Wh</td></tr>
+<tr><td class="col-result">100 Ah</td><td>370 Wh</td><td>1,200 Wh</td><td>4,800 Wh</td></tr>
+<tr><td class="col-result">200 Ah</td><td>740 Wh</td><td>2,400 Wh</td><td>9,600 Wh</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- ── FAQ ──────────────────────────────────────── -->
+<section aria-labelledby="faq-heading" class="content-section">
+<h2 id="faq-heading">Frequently Asked Questions</h2>
+<div class="faq-list">
+<div class="faq-item">
+<h3 class="faq-item__question">How do I convert Ah to Wh?</h3>
+<div class="faq-item__answer">
+<p>Multiply amp-hours by voltage: <code>Wh = Ah × V</code>. A 100 Ah battery at 12 V stores 100 × 12 = <strong class="ubb2b0e">1,200 Wh</strong>. Always use the battery's nominal voltage.</p>
+</div>
+</div>
+<div class="faq-item">
+<h3 class="faq-item__question">How many watt-hours is a 100Ah 12V battery?</h3>
+<div class="faq-item__answer">
+<p>100 Ah × 12 V = <strong class="ubb2b0e">1,200 Wh</strong> (1.2 kWh). At 24 V it would be 2,400 Wh; at 48 V, 4,800 Wh — the energy scales with voltage.</p>
+</div>
+</div>
+<div class="faq-item">
+<h3 class="faq-item__question">Which voltage should I use for the conversion?</h3>
+<div class="faq-item__answer">
+<p>Use the <strong>nominal</strong> voltage — 3.7 V for a Li-ion cell, 12 V for lead-acid, 48 V for a solar bank. It represents the average voltage across a discharge, which the preset buttons above fill for you.</p>
+</div>
+</div>
+<div class="faq-item">
+<h3 class="faq-item__question">What is the difference between Ah and Wh?</h3>
+<div class="faq-item__answer">
+<p><strong class="u5ec72c">Ah</strong> measures charge and ignores voltage; <strong class="u5ec72c">Wh</strong> measures energy and includes it. Because <code>Wh = Ah × V</code>, watt-hours are the fairer way to compare batteries of different voltages.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- related:start -->
+<section class="related-conversions" aria-labelledby="related-conversions-heading">
+<h2 id="related-conversions-heading">Related conversions</h2>
+<p class="related-conversions__intro">This calculator is part of our <strong>Battery Capacity</strong> tools. Jump to a related conversion:</p>
+<ul class="rel-list">
+<li class="rel-item"><a class="rel-item__link" href="/mah-to-wh/">Compare power banks by converting mAh to Wh</a><span class="rel-item__desc">Battery capacity from mAh and voltage.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/wh-to-mah/">Convert watt-hours back to mAh</a><span class="rel-item__desc">Battery capacity from watt-hours and voltage.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/wh-to-ah/">Convert watt-hours back to amp-hours</a><span class="rel-item__desc">Battery capacity from watt-hours and voltage.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/mah-to-ah/">Convert mAh to Ah</a><span class="rel-item__desc">Milliamp-hours to amp-hours.</span></li>
+</ul>
+<p class="related-conversions__learn">Background reading: <a href="/learn/ah-vs-wh/">Ah vs Wh: What's the Difference?</a>.</p>
+</section>
+<!-- related:end -->
+</div><!-- /page-wrap -->
+</main>
+<footer class="site-footer" role="contentinfo">
+<div class="site-footer__inner">
+<div class="footer-brand">
+<a class="footer-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<p class="footer-tagline">Free, client-side conversion instruments for engineers, electricians, and students. No signup, no tracking.</p>
+<p class="footer-review">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a> · estimates only.</p>
+</div>
+
+
+
+
+
+
+
+<nav class="footer-col" aria-label="Power and current calculators">
+<div class="footer-col__label">Power &amp; Current</div>
+<a href="/watts-to-amps/">Watts to Amps</a>
+<a href="/amps-to-watts/">Amps to Watts</a>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/watts-to-volts/">Watts to Volts</a>
+<a href="/amps-to-volts/">Amps to Volts</a>
+<a href="/amps-to-kw/">Amps to kW</a>
+<a href="/volts-to-amps/">Volts to Amps</a>
+<a href="/volts-to-watts/">Volts to Watts</a>
+</nav>
+<nav class="footer-col" aria-label="Apparent power and energy calculators">
+<div class="footer-col__label">Apparent &amp; Energy</div>
+<a href="/kva-to-kw/">kVA to kW</a>
+<a href="/kva-to-amps/">kVA to Amps</a>
+<a href="/va-to-watts/">VA to Watts</a>
+<a href="/watts-to-kva/">Watts to kVA</a>
+<a href="/kw-to-kva/">kW to kVA</a>
+<a href="/kva-to-watts/">kVA to Watts</a>
+<a href="/amps-to-kva/">Amps to kVA</a>
+<a href="/kwh-to-watts/">kWh to Watts</a>
+<a href="/watts-to-kwh/">Watts to kWh</a>
+<a href="/wh-to-kwh/">Wh to kWh</a>
+<a href="/joules-to-watts/">Joules to Watts</a>
+<a href="/watts-to-joules/">Watts to Joules</a>
+<a href="/btu-to-watts/">BTU to Watts</a>
+<a href="/watts-to-btu/">Watts to BTU</a>
+</nav>
+<nav class="footer-col" aria-label="Motors, battery and guides">
+<div class="footer-col__label">Motors &amp; Battery</div>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/hp-to-amps/">HP to Amps</a>
+<a href="/amps-to-hp/">Amps to HP</a>
+<a href="/hp-to-kw/">HP to kW</a>
+<a href="/kw-to-hp/">kW to HP</a>
+<a href="/ev-charging-time-calculator/">EV Charging Time</a>
+<a href="/mah-to-wh/">mAh to Wh</a>
+<a href="/wh-to-mah/">Wh to mAh</a>
+<a href="/ah-to-wh/">Ah to Wh</a>
+<a href="/wh-to-ah/">Wh to Ah</a>
+<a href="/mah-to-ah/">mAh to Ah</a>
+</nav>
+<nav class="footer-col" aria-label="Site information">
+<div class="footer-col__label">Site</div>
+<a href="/about/">About &amp; method</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy/">Privacy</a>
+<a href="/learn/ohms-law/">Ohm's Law</a>
+<a href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</nav>
+</div>
+<div class="footer-meta">
+<p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com · calculations run entirely in your browser.</p>
+<p class="footer-accuracy"><strong>How these work:</strong> each tool applies the standard conversion formula shown on its page — DC, AC single-phase and three-phase where relevant. Results are rounded estimates for reference and education only; always verify against the National Electrical Code (NEC / NFPA 70) and consult a licensed electrician before sizing conductors, breakers, or equipment.</p>
+</div>
+</footer>
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════════════════════ -->
+<script src="/assets/js/converters.js?v=phase11" defer></script>
+<script src="/assets/js/calculators.js?v=phase11" defer></script>
+<script src="/assets/js/site.js?v=phase11" defer></script>
+</body>
+</html>

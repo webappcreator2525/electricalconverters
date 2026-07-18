@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Primary Meta -->
+<title>5000 mAh to Wh (Lithium-ion Battery)</title>
+<meta content="Convert mAh to Wh for any battery. Enter capacity in mAh and voltage to get watt-hours, with the formula shown. Free battery calculator." name="description"/>
+<link href="https://electricalconverters.com/mah-to-wh/" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="mAh to Wh Calculator (Battery Capacity)" property="og:title"/>
+<meta content="Convert mAh to Wh for any battery. Enter capacity in mAh and voltage to get watt-hours, with the formula shown. Free battery calculator." property="og:description"/>
+<meta content="https://electricalconverters.com/mah-to-wh/" property="og:url"/>
+<!-- Tailwind CSS (CDN) -->
+<!-- Google Fonts -->
+<!-- Site Design System -->
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=phase11" rel="stylesheet"/>
+<!-- FAQPage JSON-LD -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I convert mAh to Wh?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To convert milliamp-hours (mAh) to watt-hours (Wh), multiply the mAh value by the battery voltage and divide by 1,000: Wh = (mAh × V) ÷ 1,000. For example, a 10,000 mAh power bank at 3.7 V contains (10,000 × 3.7) ÷ 1,000 = 37 Wh of energy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the formula for mAh to Wh?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The formula is: Wh = (mAh × V) ÷ 1,000. This works because watt-hours equal milliamp-hours multiplied by voltage, divided by 1,000 to convert milliamps to amps. Always use the nominal voltage of the battery cell, not the charging voltage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many Wh is 10000 mAh?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "10,000 mAh converts to different watt-hours depending on battery voltage: at 3.7 V (standard Li-ion cell): 37 Wh; at 3.85 V (modern Li-Po phone battery): 38.5 Wh; at 5 V (USB output rated): 50 Wh. Most power bank manufacturers use 3.7 V as the nominal cell voltage, so a 10,000 mAh pack typically holds about 37 Wh of actual energy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does mAh mean on a battery?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "mAh stands for milliamp-hours. It measures how much electric charge a battery can store — specifically, how many milliamps of current it can deliver for one hour before it is depleted. A 3,000 mAh battery can theoretically supply 3,000 mA (3 A) for 1 hour, or 1,500 mA for 2 hours. However, mAh alone does not tell you total energy — you also need the voltage to calculate watt-hours."
+        }
+      }
+    ]
+  }
+  </script>
+<!-- p2:meta -->
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="#f4f6f8" name="theme-color"/>
+<meta content="ElectricalConverters editorial team" name="author"/>
+<meta content="ElectricalConverters" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image:secure_url"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ElectricalConverters — free electrical calculators" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="mAh to Wh Calculator (Battery Capacity)" name="twitter:title"/>
+<meta content="Convert mAh to Wh for any battery. Enter capacity in mAh and voltage to get watt-hours, with the formula shown. Free battery calculator." name="twitter:description"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" name="twitter:image"/>
+<meta content="ElectricalConverters — free electrical calculators" name="twitter:image:alt"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- /p2:meta -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"mAh to Wh Calculator",
+  "url":"https://electricalconverters.com/mah-to-wh/",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Web Browser",
+  "browserRequirements":"Requires JavaScript",
+  "isAccessibleForFree":true,
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "publisher":{"@type":"Organization","name":"ElectricalConverters","url":"https://electricalconverters.com/","logo":{"@type":"ImageObject","url":"https://electricalconverters.com/icon-512.png","width":512,"height":512}}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://electricalconverters.com/"},{"@type":"ListItem","position":2,"name":"mAh to Wh","item":"https://electricalconverters.com/mah-to-wh/"},{"@type":"ListItem","position":3,"name":"5000 mAh to Wh","item":"https://electricalconverters.com/mah-to-wh/5000-mah-to-wh/"}]
+}
+</script>
+</head>
+<body data-calc="mah-to-wh:5000">
+<!-- HEADER -->
+<header class="site-header">
+<div class="header-inner">
+<a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<nav aria-label="Main navigation" class="site-nav">
+<ul class="nav-list">
+<li class="nav-group">
+<button aria-controls="menu-power-current" aria-expanded="false" class="nav-trigger" id="trigger-power-current" type="button">Power ↔ Current <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-power-current">
+<a class="nav-panel__link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-panel__link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-panel__link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-panel__link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-panel__link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-panel__link" href="/volts-to-watts/">Volts to Watts</a>
+<div class="nav-panel__sub">Guides</div>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/ohms-law/">Ohm's Law</a>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-apparent" aria-expanded="false" class="nav-trigger" id="trigger-apparent" type="button">Apparent Power (kVA &amp; VA) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-apparent">
+<a class="nav-panel__link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-panel__link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-panel__link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-panel__link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-panel__link" href="/kva-to-watts/">kVA to Watts</a>
+<a class="nav-panel__link" href="/amps-to-kva/">Amps to kVA</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-energy" aria-expanded="false" class="nav-trigger" id="trigger-energy" type="button">Energy &amp; Running Cost (kWh) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-energy">
+<a class="nav-panel__link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kwh/">Watts to kWh</a>
+<a class="nav-panel__link" href="/wh-to-kwh/">Wh to kWh</a>
+<a class="nav-panel__link" href="/joules-to-watts/">Joules to Watts</a>
+<a class="nav-panel__link" href="/watts-to-joules/">Watts to Joules</a>
+<a class="nav-panel__link" href="/btu-to-watts/">BTU to Watts</a>
+<a class="nav-panel__link" href="/watts-to-btu/">Watts to BTU</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-battery" aria-expanded="false" class="nav-trigger" id="trigger-battery" type="button">Battery Capacity <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-battery">
+<a class="nav-panel__link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-panel__link" href="/wh-to-mah/">Wh to mAh</a>
+<a class="nav-panel__link" href="/ah-to-wh/">Ah to Wh</a>
+<a class="nav-panel__link" href="/wh-to-ah/">Wh to Ah</a>
+<a class="nav-panel__link" href="/mah-to-ah/">mAh to Ah</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-motor" aria-expanded="false" class="nav-trigger" id="trigger-motor" type="button">Motors &amp; Horsepower <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-motor">
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-panel__link" href="/amps-to-hp/">Amps to HP</a>
+<a class="nav-panel__link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-panel__link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-panel__link" href="/ev-charging-time-calculator/">EV Charging Time</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-safety" aria-expanded="false" class="nav-trigger" id="trigger-safety" type="button">Wiring &amp; Safety Sizing <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-safety">
+<p class="nav-panel__note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</div>
+</li>
+</ul>
+</nav>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button">
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+</button>
+</div>
+</header>
+<div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
+<div class="mobile-nav-inner">
+<div class="mobile-nav-header">
+<span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+<button aria-label="Close navigation" class="nav-close" type="button">&times;</button>
+</div>
+<ul class="mobile-nav-list">
+<li class="m-group">
+<div class="m-group__label">Power ↔ Current</div>
+<a class="nav-link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-link" href="/volts-to-watts/">Volts to Watts</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Apparent Power (kVA &amp; VA)</div>
+<a class="nav-link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-link" href="/kva-to-watts/">kVA to Watts</a>
+<a class="nav-link" href="/amps-to-kva/">Amps to kVA</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Energy &amp; Running Cost (kWh)</div>
+<a class="nav-link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-link" href="/watts-to-kwh/">Watts to kWh</a>
+<a class="nav-link" href="/wh-to-kwh/">Wh to kWh</a>
+<a class="nav-link" href="/joules-to-watts/">Joules to Watts</a>
+<a class="nav-link" href="/watts-to-joules/">Watts to Joules</a>
+<a class="nav-link" href="/btu-to-watts/">BTU to Watts</a>
+<a class="nav-link" href="/watts-to-btu/">Watts to BTU</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Battery Capacity</div>
+<a class="nav-link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-link" href="/wh-to-mah/">Wh to mAh</a>
+<a class="nav-link" href="/ah-to-wh/">Ah to Wh</a>
+<a class="nav-link" href="/wh-to-ah/">Wh to Ah</a>
+<a class="nav-link" href="/mah-to-ah/">mAh to Ah</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Motors &amp; Horsepower</div>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-link" href="/amps-to-hp/">Amps to HP</a>
+<a class="nav-link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-link" href="/ev-charging-time-calculator/">EV Charging Time</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Wiring &amp; Safety Sizing</div>
+<p class="m-note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</li>
+<li class="m-group">
+<div class="m-group__label">Guides</div>
+<a class="nav-link" href="/learn/ohms-law/">Ohm's Law</a>
+<a class="nav-link" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</li>
+</ul>
+</div>
+</div>
+<main id="main-content">
+<div class="page-wrap">
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true" class="breadcrumb__sep">/</span>
+<a href="/mah-to-wh/">mAh to Wh</a>
+<span aria-hidden="true" class="breadcrumb__sep">/</span>
+<span aria-current="page" class="breadcrumb__current">5000 mAh to Wh</span>
+</nav>
+
+<!-- Hero -->
+<section aria-labelledby="page-heading" class="calc-header">
+<h1 id="page-heading">5000 mAh to Wh</h1>
+<div class="page-byline">
+<span class="page-byline__item">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Last updated <strong>July 2026</strong></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Estimates only — <a href="/about/">how we check</a></span>
+</div>
+<p>
+        Convert battery capacity in milliamp-hours to energy in watt-hours.
+        Useful for comparing power banks, EV battery packs, solar storage cells,
+        and portable electronics on a like-for-like energy basis.
+      </p>
+<div aria-label="Common uses" class="page-hero__use-case">
+        
+        Power banks  ·  Solar storage  ·  EV cells  ·  Drones
+      </div>
+</section>
+<!-- Converter -->
+<div class="content-section" style="margin-top:2rem;">
+<p>A standard 5.000 mAh power bank at 3.7 V (the typical nominal voltage for lithium-ion cells) contains 18.50 Wh of total energy. To calculate this, simply multiply 5.000 by 3.7 and divide by 1,000.</p><div class="alert-box alert-box--info"><p style="margin:0;"><strong>Airline Travel Note:</strong> A 5.000 mAh power bank at 3.7V holds 18.50 Wh, which is UNDER the commonly cited 100 Wh carry-on threshold limit for most commercial airlines — always verify current limits with your specific airline before flying.</p></div>
+
+<div aria-label="Other Calculations" class="subpage-nav">
+<a aria-current="page" class="current" href="/mah-to-wh/5000-mah-to-wh/">5000mAh</a>
+<a href="/mah-to-wh/10000-mah-to-wh/">10000mAh</a>
+<a href="/mah-to-wh/15000-mah-to-wh/">15000mAh</a>
+<a href="/mah-to-wh/20000-mah-to-wh/">20000mAh</a>
+<a href="/mah-to-wh/26800-mah-to-wh/">26800mAh</a>
+<a href="/mah-to-wh/30000-mah-to-wh/">30000mAh</a>
+<a href="/mah-to-wh/40000-mah-to-wh/">40000mAh</a>
+<a href="/mah-to-wh/50000-mah-to-wh/">50000mAh</a>
+</div>
+</div>
+<section aria-label="mAh to Wh converter tool">
+<div aria-label="mAh to Wh calculator" class="converter-card" role="form">
+<!-- Inputs -->
+<div class="input-row">
+<div class="field-group ue7ec54">
+<label for="input-mah">Capacity (mAh)</label>
+<input aria-label="Capacity in milliamp-hours" autocomplete="off" class="input-field" id="input-mah" inputmode="decimal" min="0" placeholder="e.g. 10000" step="any" type="number"/ value="5000" readonly>
+</div>
+<div class="field-group ue7ec54">
+<label for="input-volts">Voltage (V)</label>
+<input aria-label="Nominal voltage in volts" autocomplete="off" class="input-field" id="input-volts" inputmode="decimal" min="0" placeholder="e.g. 3.7" step="any" type="number"/>
+</div>
+</div>
+<!-- Voltage presets -->
+<div class="ubd9810">
+<div class="preset-label">Common voltages — click to fill</div>
+<div aria-label="Common voltage presets" class="preset-group" role="group">
+<button aria-label="Set voltage to 3.7V — Li-ion cell" class="preset-btn" data-voltage="3.7" type="button">
+<span class="preset-btn__voltage">3.7 V</span>
+<span class="preset-btn__label">Li-ion cell</span>
+</button>
+<button aria-label="Set voltage to 3.85V — Phone / Li-Po" class="preset-btn" data-voltage="3.85" type="button">
+<span class="preset-btn__voltage">3.85 V</span>
+<span class="preset-btn__label">Phone / Li-Po</span>
+</button>
+<button aria-label="Set voltage to 3.6V — 18650 cell" class="preset-btn" data-voltage="3.6" type="button">
+<span class="preset-btn__voltage">3.6 V</span>
+<span class="preset-btn__label">18650 cell</span>
+</button>
+<button aria-label="Set voltage to 1.5V — AA / AAA" class="preset-btn" data-voltage="1.5" type="button">
+<span class="preset-btn__voltage">1.5 V</span>
+<span class="preset-btn__label">AA / AAA</span>
+</button>
+<button aria-label="Set voltage to 11.1V — Laptop 3S pack" class="preset-btn" data-voltage="11.1" type="button">
+<span class="preset-btn__voltage">11.1 V</span>
+<span class="preset-btn__label">Laptop 3S</span>
+</button>
+</div>
+</div>
+<!-- Dual result -->
+<div class="result-wrap">
+<div class="result-dual">
+<!-- Primary: Wh -->
+<div aria-atomic="true" aria-live="polite" class="result-card result-primary invalid" id="result-wh">
+<div class="result-card__label">RESULT — WATT-HOURS</div>
+<div>
+<span class="result-card__value" id="result-value-wh">—</span>
+<span class="result-card__unit" id="result-unit-wh" style="display:none">Wh</span>
+</div>
+</div>
+<!-- Secondary: kWh -->
+<div aria-atomic="true" aria-live="polite" class="result-card result-secondary invalid" id="result-kwh">
+<div class="result-card__label">ALSO IN KILOWATT-HOURS</div>
+<div>
+<span class="result-card__value" id="result-value-kwh">—</span>
+<span class="result-card__unit" id="result-unit-kwh" style="display:none">kWh</span>
+</div>
+</div>
+</div>
+<div class="formula-note" id="formula-note">Formula: Wh = (mAh × V) ÷ 1,000</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="how-heading" class="content-section">
+<h2 id="how-heading">How do you convert mAh to Wh?</h2>
+<p>Multiply milliamp-hours by the battery voltage, then divide by 1000: Wh = (mAh × V) ÷ 1000. A 3000 mAh cell at 3.7 V stores (3000 × 3.7) ÷ 1000 = <strong>11.1 Wh</strong>. Always use the battery's nominal voltage, not its fully charged voltage.</p>
+</section>
+<!-- Formula -->
+<section aria-labelledby="formula-heading" class="content-section">
+<h2 id="formula-heading">mAh to Wh Formula</h2>
+<div class="formula-block u4986ec">
+<span class="var">Wh</span> = (<span class="var">mAh</span> × <span class="var">V</span>) ÷ 1,000</div>
+<p class="formula-desc">
+        Multiply the battery's capacity in mAh by its nominal voltage, then divide
+        by 1,000 to convert milliamp-hours into amp-hours (since 1 Ah = 1,000 mAh).
+        The result is energy in watt-hours. Always use the cell's <em>nominal</em> voltage —
+        not the charging or cut-off voltage.
+      </p>
+<div class="formula-breakdown">
+<div class="formula-var-card">
+<span class="formula-var-card__sym">Wh</span>
+<span class="formula-var-card__name">Watt-hours</span>
+<div class="formula-var-card__note">Total energy stored in the battery</div>
+</div>
+<div class="formula-var-card">
+<span class="formula-var-card__sym">mAh</span>
+<span class="formula-var-card__name">Milliamp-hours</span>
+<div class="formula-var-card__note">Charge capacity printed on the battery</div>
+</div>
+<div class="formula-var-card">
+<span class="formula-var-card__sym">V</span>
+<span class="formula-var-card__name">Nominal Voltage</span>
+<div class="formula-var-card__note">3.7 V for Li-ion, 1.5 V for alkaline</div>
+</div>
+</div>
+</section>
+<div class="breaker-box ua89127">
+      Looking for Wh to mAh? Use our <a class="u7657e5" href="/wh-to-mah/">Back to Wh to mAh Converter</a>
+</div>
+<!-- Battery reference table -->
+<section aria-labelledby="table-heading" class="content-section">
+<h2 id="table-heading">Common Battery Sizes — mAh to Wh</h2>
+<div aria-label="Battery mAh to Wh reference table" class="table-wrap" role="region" tabindex="0">
+<table class="ref-table">
+<thead>
+<tr>
+<th scope="col">Battery / Device</th>
+<th scope="col">Capacity (mAh)</th>
+<th scope="col">Voltage (V)</th>
+<th scope="col">Energy (Wh)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Power bank (standard)</td>
+<td class="col-mono">10,000 mAh</td>
+<td class="col-mono">3.7 V</td>
+<td class="col-result">37.00 Wh</td>
+</tr>
+<tr>
+<td><span aria-hidden="true" class="battery-icon"></span>Smartphone</td>
+<td class="col-mono">4,500 mAh</td>
+<td class="col-mono">3.85 V</td>
+<td class="col-result">17.33 Wh</td>
+</tr>
+<tr>
+<td><span aria-hidden="true" class="battery-icon"></span>AA alkaline cell</td>
+<td class="col-mono">2,500 mAh</td>
+<td class="col-mono">1.5 V</td>
+<td class="col-result">3.75 Wh</td>
+</tr>
+<tr>
+<td>18650 Li-ion cell</td>
+<td class="col-mono">3,000 mAh</td>
+<td class="col-mono">3.6 V</td>
+<td class="col-result">10.80 Wh</td>
+</tr>
+<tr>
+<td><span aria-hidden="true" class="battery-icon"></span>Laptop (3S pack)</td>
+<td class="col-mono">5,000 mAh</td>
+<td class="col-mono">11.1 V</td>
+<td class="col-result">55.50 Wh</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Use-case callouts -->
+<section aria-labelledby="usecases-heading" class="content-section">
+<h2 id="usecases-heading">Why Convert mAh to Wh?</h2>
+<p class="u64dadb">
+        mAh is only meaningful when you also know the voltage. Watt-hours is the universal
+        energy unit — it lets you compare batteries of different chemistries and voltages on
+        equal terms.
+      </p>
+<div class="callout-grid">
+<div class="callout-card">
+<div class="callout-card__title">Power Bank Comparison</div>
+<p class="callout-card__body">
+            Airlines limit carry-on batteries to 100 Wh (or 160 Wh with approval) — 
+            not mAh. Convert to check if your power bank is flight-safe.
+          </p>
+</div>
+<div class="callout-card">
+<span aria-hidden="true" class="callout-card__icon"></span>
+<div class="callout-card__title">Solar Storage</div>
+<p class="callout-card__body">
+            Solar battery banks are rated in Wh or kWh. Convert your cell's mAh to
+            Wh to calculate how many hours of load a pack can support.
+          </p>
+</div>
+<div class="callout-card">
+<span aria-hidden="true" class="callout-card__icon"></span>
+<div class="callout-card__title">EV &amp; E-bikes</div>
+<p class="callout-card__body">
+            EV range estimates use Wh/km. Knowing your pack's Wh capacity lets you
+            estimate range at a given efficiency figure.
+          </p>
+</div>
+<div class="callout-card">
+<span aria-hidden="true" class="callout-card__icon"></span>
+<div class="callout-card__title">Drones &amp; RC</div>
+<p class="callout-card__body">
+            LiPo packs use different cell counts (1S–6S) and voltages. Wh lets you
+            compare packs with different S-ratings fairly.
+          </p>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section aria-labelledby="faq-heading" class="content-section">
+<h2 id="faq-heading">Frequently Asked Questions</h2>
+<div class="faq-list">
+<div class="faq-item">
+<h3 class="faq-item__question">How do I convert mAh to Wh?</h3>
+<div class="faq-item__answer">
+<p>
+              Multiply the milliamp-hour value by the battery voltage, then divide
+              by 1,000: <code>Wh = (mAh × V) ÷ 1,000</code>. For example, a
+              10,000 mAh power bank at 3.7 V holds
+              (10,000 × 3.7) ÷ 1,000 = <strong class="ubb2b0e">37 Wh</strong>.
+              Use the nominal cell voltage, not the USB output voltage.
+            </p>
+</div>
+</div>
+<div class="faq-item">
+<h3 class="faq-item__question">What is the formula for mAh to Wh?</h3>
+<div class="faq-item__answer">
+<p>
+              The formula is: <code>Wh = (mAh × V) ÷ 1,000</code>. This works
+              because watt-hours = amp-hours × volts, and 1 Ah = 1,000 mAh.
+              Always use the <em>nominal</em> cell voltage — for Li-ion cells this is
+              typically 3.6–3.7 V, not the 4.2 V peak charging voltage.
+            </p>
+</div>
+</div>
+<div class="faq-item">
+<h3 class="faq-item__question">How many Wh is 10000 mAh?</h3>
+<div class="faq-item__answer">
+<p>It depends on the battery voltage:</p>
+<ul class="ud712d4">
+<li><strong class="u5ec72c">3.7 V (Li-ion cell):</strong>
+<strong class="ubb2b0e">37 Wh</strong></li>
+<li><strong class="u5ec72c">3.85 V (Li-Po / phone):</strong>
+<strong class="ubb2b0e">38.5 Wh</strong></li>
+<li><strong class="u5ec72c">5 V (USB-rated label):</strong>
+<strong class="ubb2b0e">50 Wh</strong></li>
+</ul>
+<p class="ub83168">
+              Most manufacturers use 3.7 V as the cell nominal voltage — so a
+              10,000 mAh pack typically holds about <strong class="ubb2b0e">37 Wh</strong>
+              of usable energy.
+            </p>
+</div>
+</div>
+<div class="faq-item">
+<h3 class="faq-item__question">What does mAh mean on a battery?</h3>
+<div class="faq-item__answer">
+<p>
+              mAh stands for <strong class="u5ec72c">milliamp-hours</strong>.
+              It measures how much electric charge a battery can store — specifically,
+              how many milliamps of current it can deliver for one hour before depleting.
+              A 3,000 mAh cell can supply 3,000 mA (3 A) for 1 hour, or 1,500 mA for
+              2 hours. However, mAh alone does <em>not</em> tell you total stored energy
+              — you also need the voltage to calculate watt-hours.
+            </p>
+</div>
+</div>
+</div>
+</section>
+
+
+
+<!-- related:start -->
+<section class="related-conversions" aria-labelledby="related-conversions-heading">
+<h2 id="related-conversions-heading">Related conversions</h2>
+<p class="related-conversions__intro">This calculator is part of our <strong>Battery Capacity</strong> tools. Jump to a related conversion:</p>
+<ul class="rel-list">
+<li class="rel-item"><a class="rel-item__link" href="/wh-to-mah/">Convert watt-hours back to mAh</a><span class="rel-item__desc">Battery capacity from watt-hours and voltage.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/ah-to-wh/">Convert amp-hours to watt-hours</a><span class="rel-item__desc">Battery capacity from amp-hours and voltage.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/wh-to-ah/">Convert watt-hours back to amp-hours</a><span class="rel-item__desc">Battery capacity from watt-hours and voltage.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/mah-to-ah/">Convert mAh to Ah</a><span class="rel-item__desc">Milliamp-hours to amp-hours.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/kwh-to-watts/">Convert energy to power with kWh to watts</a><span class="rel-item__desc">Average power draw from an energy reading.</span></li>
+</ul>
+<p class="related-conversions__learn">Background reading: <a href="/learn/watts-vs-amps/">Watts vs Amps: the difference explained</a>.</p>
+</section>
+<!-- related:end -->
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+<div class="site-footer__inner">
+<div class="footer-brand">
+<a class="footer-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<p class="footer-tagline">Free, client-side conversion instruments for engineers, electricians, and students. No signup, no tracking.</p>
+<p class="footer-review">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a> · estimates only.</p>
+</div>
+
+
+
+
+
+
+
+<nav class="footer-col" aria-label="Power and current calculators">
+<div class="footer-col__label">Power &amp; Current</div>
+<a href="/watts-to-amps/">Watts to Amps</a>
+<a href="/amps-to-watts/">Amps to Watts</a>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/watts-to-volts/">Watts to Volts</a>
+<a href="/amps-to-volts/">Amps to Volts</a>
+<a href="/amps-to-kw/">Amps to kW</a>
+<a href="/volts-to-amps/">Volts to Amps</a>
+<a href="/volts-to-watts/">Volts to Watts</a>
+</nav>
+<nav class="footer-col" aria-label="Apparent power and energy calculators">
+<div class="footer-col__label">Apparent &amp; Energy</div>
+<a href="/kva-to-kw/">kVA to kW</a>
+<a href="/kva-to-amps/">kVA to Amps</a>
+<a href="/va-to-watts/">VA to Watts</a>
+<a href="/watts-to-kva/">Watts to kVA</a>
+<a href="/kw-to-kva/">kW to kVA</a>
+<a href="/kva-to-watts/">kVA to Watts</a>
+<a href="/amps-to-kva/">Amps to kVA</a>
+<a href="/kwh-to-watts/">kWh to Watts</a>
+<a href="/watts-to-kwh/">Watts to kWh</a>
+<a href="/wh-to-kwh/">Wh to kWh</a>
+<a href="/joules-to-watts/">Joules to Watts</a>
+<a href="/watts-to-joules/">Watts to Joules</a>
+<a href="/btu-to-watts/">BTU to Watts</a>
+<a href="/watts-to-btu/">Watts to BTU</a>
+</nav>
+<nav class="footer-col" aria-label="Motors, battery and guides">
+<div class="footer-col__label">Motors &amp; Battery</div>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/hp-to-amps/">HP to Amps</a>
+<a href="/amps-to-hp/">Amps to HP</a>
+<a href="/hp-to-kw/">HP to kW</a>
+<a href="/kw-to-hp/">kW to HP</a>
+<a href="/ev-charging-time-calculator/">EV Charging Time</a>
+<a href="/mah-to-wh/">mAh to Wh</a>
+<a href="/wh-to-mah/">Wh to mAh</a>
+<a href="/ah-to-wh/">Ah to Wh</a>
+<a href="/wh-to-ah/">Wh to Ah</a>
+<a href="/mah-to-ah/">mAh to Ah</a>
+</nav>
+<nav class="footer-col" aria-label="Site information">
+<div class="footer-col__label">Site</div>
+<a href="/about/">About &amp; method</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy/">Privacy</a>
+<a href="/learn/ohms-law/">Ohm's Law</a>
+<a href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</nav>
+</div>
+<div class="footer-meta">
+<p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com · calculations run entirely in your browser.</p>
+<p class="footer-accuracy"><strong>How these work:</strong> each tool applies the standard conversion formula shown on its page — DC, AC single-phase and three-phase where relevant. Results are rounded estimates for reference and education only; always verify against the National Electrical Code (NEC / NFPA 70) and consult a licensed electrician before sizing conductors, breakers, or equipment.</p>
+</div>
+</footer>
+<script src="/assets/js/converters.js?v=phase11" defer></script>
+<script src="/assets/js/calculators.js?v=phase11" defer></script>
+<script src="/assets/js/site.js?v=phase11" defer></script>
+</body>
+</html>

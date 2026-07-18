@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>10 HP to Amps Calculator (FLA Motor Size)</title>
+<meta content="Convert horsepower to amps for single-phase and three-phase motors. Enter HP, voltage, power factor and efficiency for an instant full-load amps result. Free online motor calculator." name="description"/>
+<link href="https://electricalconverters.com/hp-to-amps/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="HP to Amps Calculator (Motor FLA)" property="og:title"/>
+<meta content="Convert horsepower to amps for single-phase and three-phase motors. Enter HP, voltage, power factor and efficiency for an instant full-load amps result. Free online motor calculator." property="og:description"/>
+<meta content="https://electricalconverters.com/hp-to-amps/" property="og:url"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=phase11" rel="stylesheet"/>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you convert HP to amps for a single-phase motor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For a single-phase AC motor use: A = (HP × 746) ÷ (V × PF × η). For example, a 5 HP motor at 230 V, 0.85 power factor and 90 % efficiency draws (5 × 746) ÷ (230 × 0.85 × 0.90) = 3730 ÷ 175.95 ≈ 21.2 A."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the HP to amps formula for a three-phase motor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For a three-phase AC motor use: A = (HP × 746) ÷ (√3 × V × PF × η). The √3 factor (≈ 1.7321) accounts for the three-phase system. For a 10 HP motor at 460 V, PF 0.85, efficiency 90 %: A = 7460 ÷ (1.7321 × 460 × 0.85 × 0.90) ≈ 12.24 A."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is NEC full-load amperage and why does it differ from the calculated value?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "NEC Table 430.248 (single-phase) and Table 430.250 (three-phase) list full-load ampere (FLA) values for standard motor ratings. These are empirical values used to size conductors and breakers per NFPA 70. They may differ from the formula because they reflect typical motor efficiencies and power factors at rated load rather than nameplate values."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many amps does a 1 HP motor draw?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A 1 HP single-phase 120 V motor with PF 0.85 and efficiency 85 % draws approximately (1 × 746) ÷ (120 × 0.85 × 0.85) ≈ 8.6 A. At 230 V the same motor draws about 4.5 A. Always check the motor nameplate for the rated full-load current."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What power factor and efficiency should I use for a motor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standard induction motors typically have a power factor of 0.80–0.90 and efficiency of 85–95 % at rated load. Premium-efficiency (IE3/NEMA Premium) motors can reach 92–96 % efficiency. If the nameplate is unavailable, 0.85 PF and 0.90 efficiency are common conservative defaults."
+        }
+      }
+    ]
+  }
+</script>
+<!-- p2:meta -->
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="#f4f6f8" name="theme-color"/>
+<meta content="ElectricalConverters editorial team" name="author"/>
+<meta content="ElectricalConverters" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image:secure_url"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ElectricalConverters — free electrical calculators" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="HP to Amps Calculator (Motor FLA)" name="twitter:title"/>
+<meta content="Convert horsepower to amps for single-phase and three-phase motors. Enter HP, voltage, power factor and efficiency for an instant full-load amps result. Free online motor calculator." name="twitter:description"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" name="twitter:image"/>
+<meta content="ElectricalConverters — free electrical calculators" name="twitter:image:alt"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- /p2:meta -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"HP to Amps Calculator",
+  "url":"https://electricalconverters.com/hp-to-amps/",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Web Browser",
+  "browserRequirements":"Requires JavaScript",
+  "isAccessibleForFree":true,
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "publisher":{"@type":"Organization","name":"ElectricalConverters","url":"https://electricalconverters.com/","logo":{"@type":"ImageObject","url":"https://electricalconverters.com/icon-512.png","width":512,"height":512}}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://electricalconverters.com/"},{"@type":"ListItem","position":2,"name":"HP to Amps","item":"https://electricalconverters.com/hp-to-amps/"},{"@type":"ListItem","position":3,"name":"10 HP to Amps","item":"https://electricalconverters.com/hp-to-amps/10-hp-to-amps/"}]
+}
+</script>
+</head>
+<body data-calc="hp-to-amps:10">
+<header class="site-header">
+<div class="header-inner">
+<a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<nav aria-label="Main navigation" class="site-nav">
+<ul class="nav-list">
+<li class="nav-group">
+<button aria-controls="menu-power-current" aria-expanded="false" class="nav-trigger" id="trigger-power-current" type="button">Power ↔ Current <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-power-current">
+<a class="nav-panel__link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-panel__link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-panel__link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-panel__link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-panel__link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-panel__link" href="/volts-to-watts/">Volts to Watts</a>
+<div class="nav-panel__sub">Guides</div>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/ohms-law/">Ohm's Law</a>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-apparent" aria-expanded="false" class="nav-trigger" id="trigger-apparent" type="button">Apparent Power (kVA &amp; VA) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-apparent">
+<a class="nav-panel__link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-panel__link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-panel__link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-panel__link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-panel__link" href="/kva-to-watts/">kVA to Watts</a>
+<a class="nav-panel__link" href="/amps-to-kva/">Amps to kVA</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-energy" aria-expanded="false" class="nav-trigger" id="trigger-energy" type="button">Energy &amp; Running Cost (kWh) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-energy">
+<a class="nav-panel__link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kwh/">Watts to kWh</a>
+<a class="nav-panel__link" href="/wh-to-kwh/">Wh to kWh</a>
+<a class="nav-panel__link" href="/joules-to-watts/">Joules to Watts</a>
+<a class="nav-panel__link" href="/watts-to-joules/">Watts to Joules</a>
+<a class="nav-panel__link" href="/btu-to-watts/">BTU to Watts</a>
+<a class="nav-panel__link" href="/watts-to-btu/">Watts to BTU</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-battery" aria-expanded="false" class="nav-trigger" id="trigger-battery" type="button">Battery Capacity <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-battery">
+<a class="nav-panel__link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-panel__link" href="/wh-to-mah/">Wh to mAh</a>
+<a class="nav-panel__link" href="/ah-to-wh/">Ah to Wh</a>
+<a class="nav-panel__link" href="/wh-to-ah/">Wh to Ah</a>
+<a class="nav-panel__link" href="/mah-to-ah/">mAh to Ah</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-motor" aria-expanded="false" class="nav-trigger" id="trigger-motor" type="button">Motors &amp; Horsepower <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-motor">
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-panel__link" href="/amps-to-hp/">Amps to HP</a>
+<a class="nav-panel__link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-panel__link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-panel__link" href="/ev-charging-time-calculator/">EV Charging Time</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-safety" aria-expanded="false" class="nav-trigger" id="trigger-safety" type="button">Wiring &amp; Safety Sizing <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-safety">
+<p class="nav-panel__note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</div>
+</li>
+</ul>
+</nav>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button">
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+</button>
+</div>
+</header>
+<div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
+<div class="mobile-nav-inner">
+<div class="mobile-nav-header">
+<span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+<button aria-label="Close navigation" class="nav-close" type="button">&times;</button>
+</div>
+<ul class="mobile-nav-list">
+<li class="m-group">
+<div class="m-group__label">Power ↔ Current</div>
+<a class="nav-link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-link" href="/volts-to-watts/">Volts to Watts</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Apparent Power (kVA &amp; VA)</div>
+<a class="nav-link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-link" href="/kva-to-watts/">kVA to Watts</a>
+<a class="nav-link" href="/amps-to-kva/">Amps to kVA</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Energy &amp; Running Cost (kWh)</div>
+<a class="nav-link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-link" href="/watts-to-kwh/">Watts to kWh</a>
+<a class="nav-link" href="/wh-to-kwh/">Wh to kWh</a>
+<a class="nav-link" href="/joules-to-watts/">Joules to Watts</a>
+<a class="nav-link" href="/watts-to-joules/">Watts to Joules</a>
+<a class="nav-link" href="/btu-to-watts/">BTU to Watts</a>
+<a class="nav-link" href="/watts-to-btu/">Watts to BTU</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Battery Capacity</div>
+<a class="nav-link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-link" href="/wh-to-mah/">Wh to mAh</a>
+<a class="nav-link" href="/ah-to-wh/">Ah to Wh</a>
+<a class="nav-link" href="/wh-to-ah/">Wh to Ah</a>
+<a class="nav-link" href="/mah-to-ah/">mAh to Ah</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Motors &amp; Horsepower</div>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-link" href="/amps-to-hp/">Amps to HP</a>
+<a class="nav-link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-link" href="/ev-charging-time-calculator/">EV Charging Time</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Wiring &amp; Safety Sizing</div>
+<p class="m-note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</li>
+<li class="m-group">
+<div class="m-group__label">Guides</div>
+<a class="nav-link" href="/learn/ohms-law/">Ohm's Law</a>
+<a class="nav-link" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</li>
+</ul>
+</div>
+</div>
+<main id="main-content">
+<div class="page-wrap">
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true" class="breadcrumb__sep">/</span>
+<a href="/hp-to-amps/">HP to Amps</a>
+<span aria-hidden="true" class="breadcrumb__sep">/</span>
+<span aria-current="page" class="breadcrumb__current">10 HP to Amps</span>
+</nav>
+
+<div class="calc-header">
+<h1 id="page-heading">10 HP to Amps</h1>
+<div class="page-byline">
+<span class="page-byline__item">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Last updated <strong>July 2026</strong></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Estimates only — <a href="/about/">how we check</a></span>
+</div>
+<p>Enter motor horsepower, voltage, phase, power factor and efficiency to calculate full-load amps (FLA) instantly. Results follow the NEC motor-sizing formula.</p>
+</div>
+<!-- CALCULATOR CARD -->
+<div class="content-section" style="margin-top:2rem;">
+<p>When sizing breakers and wiring for a 10 HP motor, expect a current draw of roughly 40.63 Amps at 240V (single-phase). If you're using three-phase industrial power, the FLA is around 27.07 Amps at 208V and 11.73 Amps at 480V.</p><p>These estimates are derived using the standard base formula and assume a motor efficiency of 90% and a power factor of 0.85. The three-phase math includes the standard <section aria-label="HP to amps converter tool">.732$ ($\sqrt{3}$) constant multiplier.</p>
+    <div class="table-wrap" role="region" tabindex="0">
+    <table class="data-table">
+    <thead><tr><th scope="col">Phase & Voltage</th><th scope="col">Estimated FLA (Amps)</th></tr></thead>
+    <tbody>
+    <tr><td>Single-phase 120V</td><td class="col-result">81.26 A</td></tr>
+    <tr><td>Single-phase 240V</td><td class="col-result">40.63 A</td></tr>
+    <tr><td>Three-phase 208V</td><td class="col-result">27.07 A</td></tr>
+    <tr><td>Three-phase 480V</td><td class="col-result">11.73 A</td></tr>
+    </tbody>
+    </table></div>
+
+<div aria-label="Other Calculations" class="subpage-nav">
+<a href="/hp-to-amps/0.5-hp-to-amps/">0.5HP</a>
+<a href="/hp-to-amps/1-hp-to-amps/">1HP</a>
+<a href="/hp-to-amps/1.5-hp-to-amps/">1.5HP</a>
+<a href="/hp-to-amps/2-hp-to-amps/">2HP</a>
+<a href="/hp-to-amps/3-hp-to-amps/">3HP</a>
+<a href="/hp-to-amps/5-hp-to-amps/">5HP</a>
+<a href="/hp-to-amps/7.5-hp-to-amps/">7.5HP</a>
+<a aria-current="page" class="current" href="/hp-to-amps/10-hp-to-amps/">10HP</a>
+</div>
+</div>
+<section aria-label="HP to amps converter tool">
+<div aria-label="HP to amps calculator" class="converter-card" role="form">
+<div class="input-row">
+<div class="field-group">
+<label for="input-hp">Motor Horsepower (HP)</label>
+<input aria-label="Motor horsepower" autocomplete="off" class="input-field" id="input-hp" inputmode="decimal" min="0" placeholder="e.g. 5" step="any" type="number"/ value="10" readonly>
+</div>
+<div class="field-group">
+<label for="input-volts">Voltage (V)</label>
+<input aria-label="Supply voltage in volts" autocomplete="off" class="input-field" id="input-volts" inputmode="decimal" min="0" placeholder="e.g. 230" step="any" type="number" value="230"/>
+</div>
+</div>
+<div class="input-row">
+<div class="field-group">
+<label for="input-phase">Phase</label>
+<select class="input-field" id="input-phase" aria-label="Circuit phase">
+<option value="single">Single-phase AC</option>
+<option value="three">Three-phase AC</option>
+<option value="dc">DC</option>
+</select>
+</div>
+<div class="field-group" id="pf-wrapper">
+<label for="input-pf">Power Factor (PF)</label>
+<input aria-label="Power factor" autocomplete="off" class="input-field" id="input-pf" inputmode="decimal" max="1" min="0.01" step="0.01" type="number" value="0.85"/>
+</div>
+</div>
+<div class="input-row">
+<div class="field-group">
+<label for="input-eff">Efficiency (η) — 0 to 1</label>
+<input aria-label="Motor efficiency as a decimal" autocomplete="off" class="input-field" id="input-eff" inputmode="decimal" max="1" min="0.01" step="0.01" type="number" value="0.90"/>
+</div>
+</div>
+<div aria-atomic="true" aria-live="polite" class="result-display" id="result-display">
+<div class="result-display__label">Result — Full-Load Amps</div>
+<div class="result-display__value-row">
+<span class="result-display__value empty" id="result-value">—</span>
+<span class="result-display__unit" id="result-unit" style="display:none">A</span>
+</div>
+<div class="result-display__formula-note" id="formula-note">Enter HP and voltage to see the formula used.</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="how-heading" class="content-section">
+<h2 id="how-heading">How do you convert HP to amps for a motor?</h2>
+<p>Multiply horsepower by 746 (watts per HP), then divide by the product of voltage, power factor and efficiency. For a <strong>5 HP single-phase motor at 230 V, PF 0.85, η 0.90</strong>: A = (5 × 746) ÷ (230 × 0.85 × 0.90) = 3730 ÷ 175.95 = <strong>21.2 A</strong>.</p>
+<p>This formula is consistent with NEC Article 430. NEC Tables 430.248 and 430.250 provide standardised full-load amps for common voltage/HP ratings and are the values legally required for conductor and breaker sizing; use this calculator for quick estimates and always cross-check with the applicable NEC table and motor nameplate.</p>
+</section>
+
+<section aria-labelledby="reftable-heading" class="content-section">
+<h2 id="reftable-heading">HP to Amps Reference Table (Typical Motor FLA)</h2>
+<div aria-label="HP to amps at common voltages" class="examples-table-wrap" role="region" tabindex="0">
+<table class="examples-table">
+<thead>
+<tr><th scope="col">Motor HP</th><th scope="col">Single-phase 120 V</th><th scope="col">Single-phase 230 V</th><th scope="col">Three-phase 230 V</th><th scope="col">Three-phase 460 V</th></tr>
+</thead>
+<tbody>
+<tr><td class="col-result">1 HP</td><td>9.8 A</td><td>5.1 A</td><td>3.4 A</td><td>1.7 A</td></tr>
+<tr><td class="col-result">2 HP</td><td>19.5 A</td><td>10.2 A</td><td>6.8 A</td><td>3.4 A</td></tr>
+<tr><td class="col-result">5 HP</td><td>—</td><td>25.4 A</td><td>16.9 A</td><td>8.5 A</td></tr>
+<tr><td class="col-result">10 HP</td><td>—</td><td>50.9 A</td><td>33.9 A</td><td>17.0 A</td></tr>
+<tr><td class="col-result">25 HP</td><td>—</td><td>—</td><td>84.7 A</td><td>42.4 A</td></tr>
+<tr><td class="col-result">50 HP</td><td>—</td><td>—</td><td>169.5 A</td><td>84.7 A</td></tr>
+</tbody>
+</table>
+</div>
+<p class="table-note">Calculated at PF 0.85, efficiency 0.90. Always verify against the motor nameplate and NEC Tables 430.248/430.250.</p>
+</section>
+<!-- FORMULA SECTION -->
+<section aria-labelledby="formula-heading">
+<h2 class="section-heading" id="formula-heading">Formula</h2>
+<div class="formula-block">
+  Single-phase: A = (HP × 746) ÷ (V × PF × η)<br>
+  Three-phase:  A = (HP × 746) ÷ (√3 × V × PF × η)<br>
+  DC:           A = (HP × 746) ÷ (V × η)
+</div>
+<p>Where: <strong>HP</strong> = rated horsepower, <strong>V</strong> = supply voltage in volts, <strong>PF</strong> = power factor (0–1), <strong>η</strong> (eta) = motor efficiency (0–1), <strong>√3</strong> ≈ 1.7321 for three-phase systems.</p>
+</section>
+<!-- FAQ SECTION -->
+<section aria-labelledby="faq-heading">
+<h2 class="section-heading" id="faq-heading">Frequently Asked Questions</h2>
+<div class="faq-list">
+<div class="faq-item">
+<div class="faq-item__question">
+            How do you convert HP to amps for a single-phase motor?
+          </div>
+<div class="faq-item__answer">
+<p>Use the formula A = (HP × 746) ÷ (V × PF × η). For example, a 5 HP motor at 230 V, PF 0.85, efficiency 90 % draws approximately 21.2 A.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question">
+            What is the HP to amps formula for three-phase?
+          </div>
+<div class="faq-item__answer">
+<p>For three-phase AC use: A = (HP × 746) ÷ (√3 × V × PF × η). The √3 ≈ 1.7321 factor accounts for the three-phase supply. A 10 HP motor at 460 V, PF 0.85, efficiency 90 % draws about 12.2 A.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question">
+            What is NEC full-load amperage and how does it differ?
+          </div>
+<div class="faq-item__answer">
+<p>NEC Tables 430.248 and 430.250 give standardised FLA values for conductor and breaker sizing per NFPA 70. They may differ from the formula because they represent typical motor characteristics rather than specific nameplate values.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question">
+            What power factor and efficiency should I use?
+          </div>
+<div class="faq-item__answer">
+<p>Standard induction motors typically have PF 0.80–0.90 and efficiency 85–95 % at rated load. If the nameplate is unavailable, PF 0.85 and efficiency 90 % are conservative defaults commonly used in load-estimating.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question">
+            How many amps does a 1 HP motor draw?
+          </div>
+<div class="faq-item__answer">
+<p>A 1 HP single-phase 230 V motor at PF 0.85, efficiency 85 % draws about 4.5 A. At 120 V the same motor draws roughly 8.6 A. Always check the motor nameplate for the actual full-load current rating.</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- related:start -->
+<section class="related-conversions" aria-labelledby="related-conversions-heading">
+<h2 id="related-conversions-heading">Related conversions</h2>
+<p class="related-conversions__intro">This calculator is part of our <strong>Motors &amp; Horsepower</strong> tools. Jump to a related conversion:</p>
+<ul class="rel-list">
+<li class="rel-item"><a class="rel-item__link" href="/kw-to-amps/">Size larger loads with the kW to amps calculator</a><span class="rel-item__desc">Kilowatts to current for single- and three-phase.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/amps-to-hp/">Convert amps back to horsepower</a><span class="rel-item__desc">Full-load current to motor horsepower.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/hp-to-kw/">Convert horsepower to kilowatts</a><span class="rel-item__desc">Motor rating from HP to kW.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/kw-to-hp/">Convert kilowatts to horsepower</a><span class="rel-item__desc">Motor rating from kW to HP.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/ev-charging-time-calculator/">Calculate EV charging time</a><span class="rel-item__desc">Estimate charging duration for electric vehicles.</span></li>
+</ul>
+<p class="related-conversions__learn">Background reading: <a href="/learn/watts-vs-amps/">Watts vs Amps: the difference explained</a>.</p>
+</section>
+<!-- related:end -->
+</div>
+</main>
+<footer class="site-footer" role="contentinfo">
+<div class="site-footer__inner">
+<div class="footer-brand">
+<a class="footer-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<p class="footer-tagline">Free, client-side conversion instruments for engineers, electricians, and students. No signup, no tracking.</p>
+<p class="footer-review">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a> · estimates only.</p>
+</div>
+
+
+
+
+
+
+
+<nav class="footer-col" aria-label="Power and current calculators">
+<div class="footer-col__label">Power &amp; Current</div>
+<a href="/watts-to-amps/">Watts to Amps</a>
+<a href="/amps-to-watts/">Amps to Watts</a>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/watts-to-volts/">Watts to Volts</a>
+<a href="/amps-to-volts/">Amps to Volts</a>
+<a href="/amps-to-kw/">Amps to kW</a>
+<a href="/volts-to-amps/">Volts to Amps</a>
+<a href="/volts-to-watts/">Volts to Watts</a>
+</nav>
+<nav class="footer-col" aria-label="Apparent power and energy calculators">
+<div class="footer-col__label">Apparent &amp; Energy</div>
+<a href="/kva-to-kw/">kVA to kW</a>
+<a href="/kva-to-amps/">kVA to Amps</a>
+<a href="/va-to-watts/">VA to Watts</a>
+<a href="/watts-to-kva/">Watts to kVA</a>
+<a href="/kw-to-kva/">kW to kVA</a>
+<a href="/kva-to-watts/">kVA to Watts</a>
+<a href="/amps-to-kva/">Amps to kVA</a>
+<a href="/kwh-to-watts/">kWh to Watts</a>
+<a href="/watts-to-kwh/">Watts to kWh</a>
+<a href="/wh-to-kwh/">Wh to kWh</a>
+<a href="/joules-to-watts/">Joules to Watts</a>
+<a href="/watts-to-joules/">Watts to Joules</a>
+<a href="/btu-to-watts/">BTU to Watts</a>
+<a href="/watts-to-btu/">Watts to BTU</a>
+</nav>
+<nav class="footer-col" aria-label="Motors, battery and guides">
+<div class="footer-col__label">Motors &amp; Battery</div>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/hp-to-amps/">HP to Amps</a>
+<a href="/amps-to-hp/">Amps to HP</a>
+<a href="/hp-to-kw/">HP to kW</a>
+<a href="/kw-to-hp/">kW to HP</a>
+<a href="/ev-charging-time-calculator/">EV Charging Time</a>
+<a href="/mah-to-wh/">mAh to Wh</a>
+<a href="/wh-to-mah/">Wh to mAh</a>
+<a href="/ah-to-wh/">Ah to Wh</a>
+<a href="/wh-to-ah/">Wh to Ah</a>
+<a href="/mah-to-ah/">mAh to Ah</a>
+</nav>
+<nav class="footer-col" aria-label="Site information">
+<div class="footer-col__label">Site</div>
+<a href="/about/">About &amp; method</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy/">Privacy</a>
+<a href="/learn/ohms-law/">Ohm's Law</a>
+<a href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</nav>
+</div>
+<div class="footer-meta">
+<p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com · calculations run entirely in your browser.</p>
+<p class="footer-accuracy"><strong>How these work:</strong> each tool applies the standard conversion formula shown on its page — DC, AC single-phase and three-phase where relevant. Results are rounded estimates for reference and education only; always verify against the National Electrical Code (NEC / NFPA 70) and consult a licensed electrician before sizing conductors, breakers, or equipment.</p>
+</div>
+</footer>
+<script src="/assets/js/converters.js?v=phase11" defer></script>
+<script src="/assets/js/calculators.js?v=phase11" defer></script>
+<script src="/assets/js/site.js?v=phase11" defer></script>
+</body>
+</html>
