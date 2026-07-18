@@ -74,12 +74,12 @@
     'volts-to-watts': { href: '/volts-to-watts/', label: 'Volts to Watts', anchor: 'Convert volts to watts', blurb: 'Power from voltage and current.', clusters: ['power-current'], learn: ['ohms-law'], exists: true },
 
     /* Cluster 4 — Apparent power */
-    'kva-to-kw': { href: '/kva-to-kw/', label: 'kVA to kW', anchor: 'Account for power factor with kVA to kW', blurb: 'Apparent power to real power using power factor.', clusters: ['apparent'], learn: ['watts-vs-amps'], exists: true },
+    'kva-to-kw': { href: '/kva-to-kw/', label: 'kVA to kW', anchor: 'Account for power factor with kVA to kW', blurb: 'Apparent power to real power using power factor.', clusters: ['apparent'], learn: ['kva-vs-kw'], exists: true },
     'kva-to-amps': { href: '/kva-to-amps/', label: 'kVA to Amps', anchor: 'Get amps straight from kVA', blurb: 'Line current directly from apparent power.', clusters: ['apparent'], learn: ['watts-vs-amps'], exists: true },
     'va-to-watts': { href: '/va-to-watts/', label: 'VA to Watts', anchor: 'Convert VA to watts', blurb: 'Volt-amps to real power in watts.', clusters: ['apparent'], learn: ['watts-vs-amps'], exists: true },
     'watts-to-kva': { href: '/watts-to-kva/', label: 'Watts to kVA', anchor: 'Convert watts to kVA', blurb: 'Real power to apparent power.', clusters: ['apparent'], learn: ['watts-vs-amps'], exists: true },
     'kw-to-kva': { href: '/kw-to-kva/', label: 'kW to kVA', anchor: 'Convert kW to kVA', blurb: 'Real power to apparent power via power factor.', clusters: ['apparent'], learn: ['watts-vs-amps'], exists: true },
-    'kva-to-watts': { href: '/kva-to-watts/', label: 'kVA to Watts', anchor: 'Convert kVA to watts', blurb: 'Apparent power to real power in watts.', clusters: ['apparent'], learn: ['watts-vs-amps'], exists: true },
+    'kva-to-watts': { href: '/kva-to-watts/', label: 'kVA to Watts', anchor: 'Convert kVA to watts', blurb: 'Apparent power to real power in watts.', clusters: ['apparent'], learn: ['kva-vs-kw'], exists: true },
     'amps-to-kva': { href: '/amps-to-kva/', label: 'Amps to kVA', anchor: 'Convert amps to kVA', blurb: 'Apparent power from line current.', clusters: ['apparent'], learn: ['watts-vs-amps'], exists: true },
 
     /* Cluster 2 — Energy */
@@ -94,8 +94,8 @@
     /* Cluster 3 — Battery */
     'mah-to-wh': { href: '/mah-to-wh/', label: 'mAh to Wh', anchor: 'Compare power banks by converting mAh to Wh', blurb: 'Battery capacity from mAh and voltage.', clusters: ['battery'], learn: ['watts-vs-amps'], exists: true },
     'wh-to-mah': { href: '/wh-to-mah/', label: 'Wh to mAh', anchor: 'Convert watt-hours back to mAh', blurb: 'Battery capacity from watt-hours and voltage.', clusters: ['battery'], learn: ['watts-vs-amps'], exists: true },
-    'ah-to-wh': { href: '/ah-to-wh/', label: 'Ah to Wh', anchor: 'Convert amp-hours to watt-hours', blurb: 'Battery capacity from amp-hours and voltage.', clusters: ['battery'], learn: ['watts-vs-amps'], exists: true },
-    'wh-to-ah': { href: '/wh-to-ah/', label: 'Wh to Ah', anchor: 'Convert watt-hours back to amp-hours', blurb: 'Battery capacity from watt-hours and voltage.', clusters: ['battery'], learn: ['watts-vs-amps'], exists: true },
+    'ah-to-wh': { href: '/ah-to-wh/', label: 'Ah to Wh', anchor: 'Convert amp-hours to watt-hours', blurb: 'Battery capacity from amp-hours and voltage.', clusters: ['battery'], learn: ['ah-vs-wh'], exists: true },
+    'wh-to-ah': { href: '/wh-to-ah/', label: 'Wh to Ah', anchor: 'Convert watt-hours back to amp-hours', blurb: 'Battery capacity from watt-hours and voltage.', clusters: ['battery'], learn: ['ah-vs-wh'], exists: true },
     'mah-to-ah': { href: '/mah-to-ah/', label: 'mAh to Ah', anchor: 'Convert mAh to Ah', blurb: 'Milliamp-hours to amp-hours.', clusters: ['battery'], learn: ['watts-vs-amps'], exists: true },
 
     /* Cluster 5 — Motor / HP (Part B) */
@@ -116,7 +116,9 @@
    * extra = makaleye özgü ek converter linkleri (PAGE key'leri) */
   var LEARN = {
     'ohms-law': { href: '/learn/ohms-law/', label: "Ohm's Law", anchor: "Ohm's Law explained (V = I × R)", blurb: 'How voltage, current and resistance relate.', extra: ['amps-to-volts', 'watts-to-volts'] },
-    'watts-vs-amps': { href: '/learn/watts-vs-amps/', label: 'Watts vs Amps', anchor: 'Watts vs Amps: the difference explained', blurb: 'Why power and current are not the same thing.', extra: ['amps-to-watts'] }
+    'watts-vs-amps': { href: '/learn/watts-vs-amps/', label: 'Watts vs Amps', anchor: 'Watts vs Amps: the difference explained', blurb: 'Why power and current are not the same thing.', extra: ['amps-to-watts'] },
+    'ah-vs-wh': { href: '/learn/ah-vs-wh/', label: 'Ah vs Wh', anchor: "Ah vs Wh: What's the Difference?", blurb: 'Understand battery capacity units and why Wh is universal.', extra: ['ah-to-wh', 'wh-to-ah'] },
+    'kva-vs-kw': { href: '/learn/kva-vs-kw/', label: 'kVA vs kW', anchor: "kVA vs kW: What's the Difference?", blurb: 'Apparent power vs real power and how power factor affects sizing.', extra: ['kva-to-kw', 'kva-to-watts'] }
   };
 
   /* ── Specific-value (spoke) sayfaları ──────────────────────────
