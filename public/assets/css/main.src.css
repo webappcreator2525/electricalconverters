@@ -48,15 +48,16 @@
   --ec-ink: #0f1923;         /* primary text */
   --ec-ink-dim: #4a5568;     /* secondary text (AA on all surfaces) */
   --ec-ink-tertiary: #64748b;/* tertiary text */
-  --ec-ink-faint: #94a3b8;   /* placeholder / disabled / empty state */
+  --ec-ink-faint: #596a7e;   /* placeholder / disabled / empty state */
 
   /* Accents — one signature + one micro (tuned for light bg) */
-  --ec-phosphor: #0891b2;        /* SIGNATURE readout + primary accent */
-  --ec-phosphor-2: #06b6d4;      /* glow highlight */
-  --ec-phosphor-deep: #0e7490;   /* phosphor on hover / pressed */
-  --ec-amber: #d97706;           /* secondary channel / units / live LED */
-  --ec-phosphor-rgb: 8, 145, 178;
-  --ec-amber-rgb: 217, 119, 6;
+  --ec-phosphor: #0e7490;        /* SIGNATURE readout + primary accent */
+  --ec-phosphor-2: #0c5f78;      /* glow highlight */
+  --ec-phosphor-deep: #0c5f78;   /* phosphor on hover / pressed */
+  --ec-amber: #a05207;           /* secondary channel / units / live LED (light bg) */
+  --ec-amber-on-dark: #d97706;   /* amber on dark bezel — 4.85:1 on #1a2535 */
+  --ec-phosphor-rgb: 14, 116, 144;
+  --ec-amber-rgb: 160, 82, 7;
 
   /* Semantic tokens (used throughout; repoint here to re-theme) */
   --color-bg: var(--ec-bg);
@@ -99,7 +100,7 @@
   --accent-hover: var(--color-accent-hover);
   --accent-2: var(--color-accent-2);
   --text-primary: var(--color-text);
-  --text-secondary: #c4cede;
+  --text-secondary: var(--ec-ink-dim);
   --text-muted: var(--color-text-muted);
   --surface: var(--color-surface);
   --surface-2: var(--color-surface-2);
@@ -1522,8 +1523,8 @@ a:hover {
 
 /* ── CTA BOX ── */
 .cta-box { background: rgba(var(--ec-phosphor-rgb), 0.05); border: 1px solid rgba(var(--ec-phosphor-rgb), 0.2); border-radius: 8px; padding: 1.5rem 2rem; margin-bottom: 3rem; text-align: center; }
-.cta-button { display: inline-block; background: var(--color-accent); color: var(--ec-bg); font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); text-decoration: none; transition: background var(--transition-fast), box-shadow var(--transition-fast); margin-top: 1rem; }
-.cta-button:hover { background: var(--ec-phosphor-2); color: var(--ec-bg); box-shadow: 0 0 20px rgba(var(--ec-phosphor-rgb), 0.35); }
+.cta-button { display: inline-block; background: var(--color-accent); color: #ffffff; font-family: var(--font-body); font-weight: 700; font-size: 0.9rem; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); text-decoration: none; transition: background var(--transition-fast), box-shadow var(--transition-fast); margin-top: 1rem; }
+.cta-button:hover { background: var(--ec-phosphor-2); color: #ffffff; box-shadow: 0 0 20px rgba(var(--ec-phosphor-rgb), 0.35); }
 
 /* ── TABLE TAB BAR (consolidated in §11) ── */
 
@@ -1633,7 +1634,8 @@ html, body {
   font-family: var(--font-mono);
   font-size: clamp(4.5rem, 14vw, 8rem);
   font-weight: 500;
-  color: var(--ec-amber);
+  /* Use bright amber on dark bezel (4.85:1 on #1a2535); ec-amber darkened for light surfaces */
+  color: var(--ec-amber-on-dark);
   line-height: 1;
   letter-spacing: 0.02em;
   margin-bottom: 1.5rem;
@@ -1653,8 +1655,8 @@ html, body {
   font-size: var(--fs-label);
   letter-spacing: 0.22em;
   vertical-align: middle;
-  color: var(--ec-amber);
-  opacity: 0.8;
+  /* Remove opacity:0.8 — use explicit passing color; #d97706 on #1a2535 = 4.85:1 ≥ 4.5 needed */
+  color: var(--ec-amber-on-dark);
 }
 
 .error-page__title {
