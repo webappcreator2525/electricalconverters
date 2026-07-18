@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kVA to Watts Calculator | Electrical Converters</title>
+<meta name="description" content="Convert apparent power in kilovolt-amps (kVA) to real power in watts (W) using power factor.">
+<link rel="canonical" href="https://electricalconverters.com/kva-to-watts/">
+<link rel="stylesheet" href="/assets/css/main.css?v=phase9">
+<meta property="og:title" content="kVA to Watts Calculator">
+<meta property="og:description" content="Convert apparent power in kilovolt-amps (kVA) to real power in watts (W) using power factor.">
+<meta property="og:url" content="https://electricalconverters.com/kva-to-watts/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://electricalconverters.com/assets/og/default.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "kVA to Watts Calculator",
+  "url": "https://electricalconverters.com/kva-to-watts/",
+  "applicationCategory": "CalculatorApplication",
+  "operatingSystem": "All"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://electricalconverters.com/" },
+    { "@type": "ListItem", "position": 2, "name": "kVA to Watts Calculator", "item": "https://electricalconverters.com/kva-to-watts/" }
+  ]
+}
+</script>
+</head>
+<body data-calc="kva-to-watts">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header class="site-header">
+<!-- build script will inject header -->
+<ul class="nav-list">
+<li class="nav-group">
+<button aria-controls="menu-power-current" aria-expanded="false" class="nav-trigger" id="trigger-power-current" type="button">Power ↔ Current <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-power-current">
+<a class="nav-panel__link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-panel__link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-panel__link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-panel__link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-panel__link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-panel__link" href="/volts-to-watts/">Volts to Watts</a>
+<div class="nav-panel__sub">Guides</div>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/ohms-law/">Ohm's Law</a>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-apparent" aria-expanded="false" class="nav-trigger" id="trigger-apparent" type="button">Apparent Power (kVA &amp; VA) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-apparent">
+<a class="nav-panel__link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-panel__link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-panel__link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-panel__link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-panel__link" href="/kva-to-watts/">kVA to Watts</a>
+<a class="nav-panel__link" href="/amps-to-kva/">Amps to kVA</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-energy" aria-expanded="false" class="nav-trigger" id="trigger-energy" type="button">Energy &amp; Running Cost (kWh) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-energy">
+<a class="nav-panel__link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kwh/">Watts to kWh</a>
+<a class="nav-panel__link" href="/wh-to-kwh/">Wh to kWh</a>
+<a class="nav-panel__link" href="/joules-to-watts/">Joules to Watts</a>
+<a class="nav-panel__link" href="/watts-to-joules/">Watts to Joules</a>
+<a class="nav-panel__link" href="/btu-to-watts/">BTU to Watts</a>
+<a class="nav-panel__link" href="/watts-to-btu/">Watts to BTU</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-battery" aria-expanded="false" class="nav-trigger" id="trigger-battery" type="button">Battery Capacity <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-battery">
+<a class="nav-panel__link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-panel__link" href="/wh-to-mah/">Wh to mAh</a>
+<a class="nav-panel__link" href="/ah-to-wh/">Ah to Wh</a>
+<a class="nav-panel__link" href="/wh-to-ah/">Wh to Ah</a>
+<a class="nav-panel__link" href="/mah-to-ah/">mAh to Ah</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-motor" aria-expanded="false" class="nav-trigger" id="trigger-motor" type="button">Motors &amp; Horsepower <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-motor">
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-panel__link" href="/amps-to-hp/">Amps to HP</a>
+<a class="nav-panel__link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-panel__link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-panel__link" href="/ev-charging-time-calculator/">EV Charging Time</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-safety" aria-expanded="false" class="nav-trigger" id="trigger-safety" type="button">Wiring &amp; Safety Sizing <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-safety">
+<p class="nav-panel__note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</div>
+</li>
+</ul>
+</header>
+<div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
+<!-- build script will inject mobile nav -->
+<ul class="mobile-nav-list">
+<li class="m-group">
+<div class="m-group__label">Power ↔ Current</div>
+<a class="nav-link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-link" href="/volts-to-watts/">Volts to Watts</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Apparent Power (kVA &amp; VA)</div>
+<a class="nav-link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-link" href="/kva-to-watts/">kVA to Watts</a>
+<a class="nav-link" href="/amps-to-kva/">Amps to kVA</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Energy &amp; Running Cost (kWh)</div>
+<a class="nav-link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-link" href="/watts-to-kwh/">Watts to kWh</a>
+<a class="nav-link" href="/wh-to-kwh/">Wh to kWh</a>
+<a class="nav-link" href="/joules-to-watts/">Joules to Watts</a>
+<a class="nav-link" href="/watts-to-joules/">Watts to Joules</a>
+<a class="nav-link" href="/btu-to-watts/">BTU to Watts</a>
+<a class="nav-link" href="/watts-to-btu/">Watts to BTU</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Battery Capacity</div>
+<a class="nav-link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-link" href="/wh-to-mah/">Wh to mAh</a>
+<a class="nav-link" href="/ah-to-wh/">Ah to Wh</a>
+<a class="nav-link" href="/wh-to-ah/">Wh to Ah</a>
+<a class="nav-link" href="/mah-to-ah/">mAh to Ah</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Motors &amp; Horsepower</div>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-link" href="/amps-to-hp/">Amps to HP</a>
+<a class="nav-link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-link" href="/ev-charging-time-calculator/">EV Charging Time</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Wiring &amp; Safety Sizing</div>
+<p class="m-note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</li>
+<li class="m-group">
+<div class="m-group__label">Guides</div>
+<a class="nav-link" href="/learn/ohms-law/">Ohm's Law</a>
+<a class="nav-link" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</li>
+</ul>
+<button class="nav-close" type="button" aria-label="Close menu">×</button>
+</div>
+<main id="main-content" class="page-main">
+  <div class="content-wrapper">
+    <article class="calc-article">
+      <header class="calc-header">
+        <h1>kVA to Watts Calculator</h1>
+        <p class="calc-intro">Convert apparent power in kilovolt-amps (kVA) to real power in watts (W) using power factor.</p>
+      </header>
+      
+<div class="calc-widget">
+  <div class="input-group">
+    <label for="input-kva">Apparent Power (kVA)</label>
+    <input type="number" id="input-kva" inputmode="decimal" placeholder="e.g. 10" min="0" step="any">
+  </div>
+  <div class="input-group">
+    <label for="input-pf">Power Factor</label>
+    <input type="number" id="input-pf" inputmode="decimal" value="0.8" min="0" max="1" step="0.01">
+  </div>
+</div>
+<div class="result-display" aria-live="polite" aria-atomic="true" id="result-display">
+  <div class="result-value" id="result-value">—</div>
+  <div class="result-unit" id="result-unit">W</div>
+  <div class="formula-note" id="formula-note">Formula: W = kVA × PF × 1,000</div>
+</div>
+      <div class="calc-content">
+        
+<h2 id="formula">How to convert kVA to Watts</h2>
+<p>The formula is <strong>Watts = kVA × Power Factor × 1,000</strong>.</p>
+<p>For example, a generator rated at 10 kVA with a power factor of 0.8 provides exactly 8000 W of real power. This determines the actual working power available to your appliances.</p>
+
+<h2 id="reference">Common kVA to Watts Conversions (0.8 PF)</h2>
+<div class="table-container">
+  <table>
+    <thead><tr><th>kVA</th><th>Power Factor</th><th>Watts (W)</th></tr></thead>
+    <tbody>
+      <tr><td>1 kVA</td><td>0.8</td><td>800 W</td></tr>
+      <tr><td>5 kVA</td><td>0.8</td><td>4000 W</td></tr>
+      <tr><td>10 kVA</td><td>0.8</td><td>8000 W</td></tr>
+      <tr><td>25 kVA</td><td>0.8</td><td>20000 W</td></tr>
+      <tr><td>50 kVA</td><td>0.8</td><td>40000 W</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq-list">
+  <div class="faq-item">
+    <h3>What is power factor?</h3>
+    <p>Power factor is the ratio of real power (W) to apparent power (VA). A typical value for generators and inductive loads is 0.8.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Why is a 10 kVA generator not 10,000 W?</h3>
+    <p>Because of inefficiency and reactive power in alternating current circuits, represented by the power factor. At 0.8 PF, 10 kVA yields 8000 watts.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Does power factor apply to DC circuits?</h3>
+    <p>No, in DC circuits the power factor is always 1, so kVA and kW are equal.</p>
+  </div>
+</div>
+      </div>
+      <footer class="calc-meta">
+        <p><strong>Reviewer:</strong> Team &middot; <strong>Last Updated:</strong> <time datetime="2026-07-18">2026-07-18</time></p>
+        <p class="disclaimer"><em>Disclaimer: For general information only. Always consult a licensed electrician or engineer for real-world electrical design and safety.</em></p>
+      </footer>
+    </article>
+    <!-- related:start -->
+<section class="related-conversions" aria-labelledby="related-conversions-heading">
+<h2 id="related-conversions-heading">Related conversions</h2>
+<p class="related-conversions__intro">This calculator is part of our <strong>Apparent Power (kVA &amp; VA)</strong> tools. Jump to a related conversion:</p>
+<ul class="rel-list">
+<li class="rel-item"><a class="rel-item__link" href="/kva-to-kw/">Account for power factor with kVA to kW</a><span class="rel-item__desc">Apparent power to real power using power factor.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/kva-to-amps/">Get amps straight from kVA</a><span class="rel-item__desc">Line current directly from apparent power.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/va-to-watts/">Convert VA to watts</a><span class="rel-item__desc">Volt-amps to real power in watts.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/watts-to-kva/">Convert watts to kVA</a><span class="rel-item__desc">Real power to apparent power.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/kw-to-kva/">Convert kW to kVA</a><span class="rel-item__desc">Real power to apparent power via power factor.</span></li>
+</ul>
+<p class="related-conversions__learn">Background reading: <a href="/learn/watts-vs-amps/">Watts vs Amps: the difference explained</a>.</p>
+</section>
+<!-- related:end -->
+  </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-wrapper">
+    <div class="footer-cols">
+      <!-- build script will inject footer -->
+      
+<nav class="footer-col" aria-label="Power and current calculators">
+<div class="footer-col__label">Power &amp; Current</div>
+<a href="/watts-to-amps/">Watts to Amps</a>
+<a href="/amps-to-watts/">Amps to Watts</a>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/watts-to-volts/">Watts to Volts</a>
+<a href="/amps-to-volts/">Amps to Volts</a>
+<a href="/amps-to-kw/">Amps to kW</a>
+<a href="/volts-to-amps/">Volts to Amps</a>
+<a href="/volts-to-watts/">Volts to Watts</a>
+</nav>
+<nav class="footer-col" aria-label="Apparent power and energy calculators">
+<div class="footer-col__label">Apparent &amp; Energy</div>
+<a href="/kva-to-kw/">kVA to kW</a>
+<a href="/kva-to-amps/">kVA to Amps</a>
+<a href="/va-to-watts/">VA to Watts</a>
+<a href="/watts-to-kva/">Watts to kVA</a>
+<a href="/kw-to-kva/">kW to kVA</a>
+<a href="/kva-to-watts/">kVA to Watts</a>
+<a href="/amps-to-kva/">Amps to kVA</a>
+<a href="/kwh-to-watts/">kWh to Watts</a>
+<a href="/watts-to-kwh/">Watts to kWh</a>
+<a href="/wh-to-kwh/">Wh to kWh</a>
+<a href="/joules-to-watts/">Joules to Watts</a>
+<a href="/watts-to-joules/">Watts to Joules</a>
+<a href="/btu-to-watts/">BTU to Watts</a>
+<a href="/watts-to-btu/">Watts to BTU</a>
+</nav>
+<nav class="footer-col" aria-label="Motors, battery and guides">
+<div class="footer-col__label">Motors &amp; Battery</div>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/hp-to-amps/">HP to Amps</a>
+<a href="/amps-to-hp/">Amps to HP</a>
+<a href="/hp-to-kw/">HP to kW</a>
+<a href="/kw-to-hp/">kW to HP</a>
+<a href="/ev-charging-time-calculator/">EV Charging Time</a>
+<a href="/mah-to-wh/">mAh to Wh</a>
+<a href="/wh-to-mah/">Wh to mAh</a>
+<a href="/ah-to-wh/">Ah to Wh</a>
+<a href="/wh-to-ah/">Wh to Ah</a>
+<a href="/mah-to-ah/">mAh to Ah</a>
+</nav>
+<nav class="footer-col" aria-label="Site information">
+<div class="footer-col__label">Site</div>
+<a href="/about/">About &amp; method</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy/">Privacy</a>
+<a href="/learn/ohms-law/">Ohm's Law</a>
+<a href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</nav>
+</div>
+<div class="footer-meta">
+      <p>&copy; <span id="footer-year">2026</span> electricalconverters.com</p>
+    </div>
+  </div>
+</footer>
+<script src="/assets/js/converters.js?v=phase9" defer></script>
+<script src="/assets/js/calculators.js?v=phase9" defer></script>
+<script src="/assets/js/site.js?v=phase9" defer></script>
+</body>
+</html>

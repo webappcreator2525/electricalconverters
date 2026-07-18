@@ -630,6 +630,47 @@ function hpToAmps(hp, volts, powerFactor = 1, efficiency = 1, phase = 'single') 
 
 
 /* ============================================================
+   17b. AMPS TO HP  (reverse of hpToAmps)
+   DC             : hp = (A × V × eff) / 745.7
+   AC Single-phase: hp = (A × V × PF × eff) / 745.7
+   AC Three-phase : hp = (A × V × PF × eff × √3) / 745.7
+   ============================================================ */
+
+/**
+ * Convert full-load current (amps) to motor horsepower.
+ *
+ * @param {number}  amps            - Current in amps (A > 0)
+ * @param {number}  volts           - Voltage in volts (V > 0)
+ * @param {number}  [powerFactor=1] - Power factor, 0 < PF ≤ 1 (ignored for DC)
+ * @param {number}  [efficiency=1]  - Motor efficiency, 0 < η ≤ 1
+ * @param {string}  [phase='single']- 'dc' | 'single' | 'three'
+ * @returns {number|null}
+ */
+function ampsToHp(amps, volts, powerFactor = 1, efficiency = 1, phase = 'single') {
+  if (!_allPositive(amps, volts)) return null;
+  if (!_validPF(efficiency)) return null;
+  
+  let wattsIn;
+  switch (phase) {
+    case 'dc':
+      wattsIn = amps * volts;
+      break;
+    case 'single':
+      if (!_validPF(powerFactor)) return null;
+      wattsIn = amps * volts * powerFactor;
+      break;
+    case 'three':
+      if (!_validPF(powerFactor)) return null;
+      wattsIn = SQRT3 * amps * volts * powerFactor;
+      break;
+    default:
+      return null;
+  }
+  return (wattsIn * efficiency) / HP_W;
+}
+
+
+/* ============================================================
    18. WATTS TO KVA  (reverse of vaToWatts, kVA scale)
    kVA = W ÷ (PF × 1,000)
    ============================================================ */
@@ -675,6 +716,117 @@ function ampsToKva(amps, volts, phase = 'single') {
     default:
       return null;
   }
+}
+
+
+/* ============================================================
+   20. WH TO AH  (reverse of ahToWh)
+   Ah = Wh / V
+   ============================================================ */
+
+/**
+ * Convert energy (Wh) at a given voltage to battery capacity (Ah).
+ *
+ * @param {number} wh    - Energy in watt-hours (Wh > 0)
+ * @param {number} volts - Nominal voltage (V > 0)
+ * @returns {number|null}
+ */
+function whToAh(wh, volts) {
+  if (!_allPositive(wh, volts)) return null;
+  return wh / volts;
+}
+
+
+/* ============================================================
+   21. KVA TO WATTS
+   W = kVA × PF × 1000
+   ============================================================ */
+
+/**
+ * Convert apparent power (kVA) to real power (watts).
+ *
+ * @param {number} kva         - Apparent power in kVA (kVA > 0)
+ * @param {number} powerFactor - Power factor, 0 < PF ≤ 1
+ * @returns {number|null}
+ */
+function kvaToWatts(kva, powerFactor) {
+  if (!_allPositive(kva)) return null;
+  if (!_validPF(powerFactor)) return null;
+  return kva * powerFactor * 1000;
+}
+
+
+/* ============================================================
+   22. WATTS TO JOULES
+   J = W × s
+   ============================================================ */
+
+/**
+ * Convert power (watts) over a time period (seconds) to energy (joules).
+ *
+ * @param {number} watts   - Power in watts (W > 0)
+ * @param {number} seconds - Time in seconds (s > 0)
+ * @returns {number|null}
+ */
+function wattsToJoules(watts, seconds) {
+  if (!_allPositive(watts, seconds)) return null;
+  return watts * seconds;
+}
+
+
+/* ============================================================
+   23. BTU TO WATTS / WATTS TO BTU
+   W = BTU/hr / 3.412142
+   ============================================================ */
+
+const BTU_PER_WATT = 3.412142;
+
+/**
+ * Convert BTU/hr to watts.
+ *
+ * @param {number} btu - Power in BTU/hr (BTU > 0)
+ * @returns {number|null}
+ */
+function btuToWatts(btu) {
+  if (!_allPositive(btu)) return null;
+  return btu / BTU_PER_WATT;
+}
+
+/**
+ * Convert watts to BTU/hr.
+ *
+ * @param {number} watts - Power in watts (W > 0)
+ * @returns {number|null}
+ */
+function wattsToBtu(watts) {
+  if (!_allPositive(watts)) return null;
+  return watts * BTU_PER_WATT;
+}
+
+
+/* ============================================================
+   24. EV CHARGING TIME
+   Time (hours) = (Battery kWh × (Target% - Current%)) / (Charger kW × Efficiency)
+   ============================================================ */
+
+/**
+ * Calculate EV charging time in hours.
+ *
+ * @param {number} kwh         - Battery capacity in kWh (kWh > 0)
+ * @param {number} targetPct   - Target charge percentage (0 < pct <= 100)
+ * @param {number} currentPct  - Current charge percentage (0 <= pct < targetPct)
+ * @param {number} kw          - Charger power in kW (kW > 0)
+ * @param {number} efficiency  - Charging efficiency (0 < eff <= 1)
+ * @returns {number|null}
+ */
+function evChargingTime(kwh, targetPct, currentPct, kw, efficiency) {
+  if (!_allPositive(kwh, kw)) return null;
+  if (!_validPF(efficiency)) return null;
+  if (typeof targetPct !== 'number' || typeof currentPct !== 'number') return null;
+  if (targetPct <= 0 || targetPct > 100 || currentPct < 0 || currentPct >= targetPct) return null;
+  
+  const pctDiff = (targetPct - currentPct) / 100;
+  return (kwh * pctDiff) / (kw * efficiency);
 }
 
 
@@ -749,6 +901,14 @@ const Converters = {
   hpToAmps,
   wattsToKva,
   ampsToKva,
+  // Phase 9 additions (Quick-Win)
+  whToAh,
+  kvaToWatts,
+  wattsToJoules,
+  ampsToHp,
+  btuToWatts,
+  wattsToBtu,
+  evChargingTime,
   // Formatter
   formatResult,
 };

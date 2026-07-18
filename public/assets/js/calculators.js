@@ -732,6 +732,148 @@
     calc();
   }
 
+  /* ── wh-to-ah ─────────────────────────────────────────────── */
+  function whToAh() {
+    var wh = $('input-wh'), v = $('input-volts');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!wh || !v) return;
+    function calc() {
+      var r = C.whToAh(num(wh), num(v));
+      render(els, r, fmt(r, 2),
+        r === null ? 'Formula: Ah = Wh ÷ V'
+          : 'Ah = ' + num(wh) + ' ÷ ' + num(v) + ' = ' + fmt(r, 2) + ' Ah', true);
+    }
+    wirePresets(v, calc);
+    wh.addEventListener('input', calc);
+    calc();
+  }
+
+  /* ── kva-to-watts ─────────────────────────────────────────── */
+  function kvaToWatts() {
+    var k = $('input-kva'), pf = $('input-pf');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!k || !pf) return;
+    function calc() {
+      var r = C.kvaToWatts(num(k), num(pf));
+      render(els, r, fmt(r, 4),
+        r === null ? 'Formula: W = kVA × PF × 1,000'
+          : 'W = ' + num(k) + ' × ' + num(pf) + ' × 1,000 = ' + fmt(r, 4) + ' W', true);
+    }
+    k.addEventListener('input', calc); pf.addEventListener('input', calc);
+    calc();
+  }
+
+  /* ── watts-to-joules ──────────────────────────────────────── */
+  function wattsToJoules() {
+    var w = $('input-watts'), t = $('input-time'), unit = $('input-time-unit');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!w || !t || !unit) return;
+    function calc() {
+      var u = unit.value;
+      var mult = u === 'minutes' ? 60 : (u === 'hours' ? 3600 : 1);
+      var sec = num(t) * mult;
+      var r = C.wattsToJoules(num(w), sec);
+      render(els, r, fmt(r, 4),
+        r === null ? 'Formula: J = W × seconds'
+          : 'J = ' + num(w) + ' × ' + sec + ' = ' + fmt(r, 4) + ' J', true);
+    }
+    [w, t, unit].forEach(function(el) { el.addEventListener('input', calc); });
+    calc();
+  }
+
+  /* ── amps-to-hp ───────────────────────────────────────────── */
+  function ampsToHp() {
+    var a = $('input-amps'), v = $('input-volts'), ph = $('input-phase'),
+        pf = $('input-pf'), pfw = $('pf-wrapper'), eff = $('input-eff');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!a || !v || !ph || !eff) return;
+    var F = { dc: 'hp = (A × V × η) ÷ 746',
+              single: 'hp = (A × V × PF × η) ÷ 746',
+              three: 'hp = (√3 × A × V × PF × η) ÷ 746' };
+    function calc() {
+      var phase = ph.value;
+      togglePF(pfw, pf, phase !== 'dc');
+      var r = C.ampsToHp(num(a), num(v), num(pf), num(eff), phase);
+      render(els, r, fmt(r, 4),
+        r === null ? 'Formula: ' + F[phase] : F[phase] + '  →  ' + fmt(r, 4) + ' hp', true);
+    }
+    [a, v, pf, eff].forEach(function(el) { el && el.addEventListener('input', calc); });
+    ph.addEventListener('change', calc);
+    calc();
+  }
+
+  /* ── btu-to-watts ─────────────────────────────────────────── */
+  function btuToWatts() {
+    var btu = $('input-btu');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!btu) return;
+    function calc() {
+      var r = C.btuToWatts(num(btu));
+      render(els, r, fmt(r, 4),
+        r === null ? 'Formula: W = BTU/hr ÷ 3.412142'
+          : 'W = ' + num(btu) + ' ÷ 3.412142 = ' + fmt(r, 4) + ' W', true);
+    }
+    btu.addEventListener('input', calc);
+    calc();
+  }
+
+  /* ── watts-to-btu ─────────────────────────────────────────── */
+  function wattsToBtu() {
+    var w = $('input-watts');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!w) return;
+    function calc() {
+      var r = C.wattsToBtu(num(w));
+      render(els, r, fmt(r, 4),
+        r === null ? 'Formula: BTU/hr = W × 3.412142'
+          : 'BTU/hr = ' + num(w) + ' × 3.412142 = ' + fmt(r, 4) + ' BTU/hr', true);
+    }
+    w.addEventListener('input', calc);
+    calc();
+  }
+
+  /* ── ev-charging-time-calculator ──────────────────────────── */
+  function evChargingTimeCalculator() {
+    var kwh = $('input-kwh'), current = $('input-current-pct'), target = $('input-target-pct'),
+        kw = $('input-kw'), eff = $('input-eff');
+    var els = { display: $('result-display'), value: $('result-value'),
+                unit: $('result-unit'), note: $('formula-note') };
+    if (!kwh || !current || !target || !kw || !eff) return;
+    function calc() {
+      var r = C.evChargingTime(num(kwh), num(target), num(current), num(kw), num(eff));
+      var tStr = (num(target) - num(current)) + '%';
+      render(els, r, fmt(r, 2),
+        r === null ? 'Formula: Time = (kWh × Diff%) ÷ (kW × eff)'
+          : 'Time = (' + num(kwh) + ' × ' + tStr + ') ÷ (' + num(kw) + ' × ' + num(eff) + ') = ' + fmt(r, 2) + ' hours', true);
+    }
+    [kwh, current, target, kw, eff].forEach(function(el) { el.addEventListener('input', calc); });
+    
+    // Wire presets for kW
+    var btns = document.querySelectorAll('.kw-btn');
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        kw.value = btn.dataset.kw;
+        btns.forEach(function (b) { b.classList.remove('selected'); });
+        btn.classList.add('selected');
+        calc();
+      });
+    });
+    kw.addEventListener('input', function () {
+      var val = parseFloat(kw.value);
+      btns.forEach(function (b) {
+        b.classList.toggle('selected', parseFloat(b.dataset.kw) === val);
+      });
+    });
+
+    calc();
+  }
+
   /* ── Dispatch ─────────────────────────────────────────────── */
   var REGISTRY = {
     'watts-to-amps': wattsToAmps,
@@ -760,7 +902,14 @@
     'kw-to-hp': kwToHp,
     'watts-to-kva': wattsToKva,
     'kw-to-kva': kwToKva,
-    'amps-to-kva': ampsToKva
+    'amps-to-kva': ampsToKva,
+    'wh-to-ah': whToAh,
+    'kva-to-watts': kvaToWatts,
+    'watts-to-joules': wattsToJoules,
+    'amps-to-hp': ampsToHp,
+    'btu-to-watts': btuToWatts,
+    'watts-to-btu': wattsToBtu,
+    'ev-charging-time-calculator': evChargingTimeCalculator
   };
 
   var type = document.body && document.body.getAttribute('data-calc');

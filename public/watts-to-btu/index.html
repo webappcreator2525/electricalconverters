@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watts to BTU Calculator | Electrical Converters</title>
+<meta name="description" content="Convert electrical heating or cooling power from watts (W) to BTU/hr.">
+<link rel="canonical" href="https://electricalconverters.com/watts-to-btu/">
+<link rel="stylesheet" href="/assets/css/main.css?v=phase9">
+<meta property="og:title" content="Watts to BTU Calculator">
+<meta property="og:description" content="Convert electrical heating or cooling power from watts (W) to BTU/hr.">
+<meta property="og:url" content="https://electricalconverters.com/watts-to-btu/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://electricalconverters.com/assets/og/default.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Watts to BTU Calculator",
+  "url": "https://electricalconverters.com/watts-to-btu/",
+  "applicationCategory": "CalculatorApplication",
+  "operatingSystem": "All"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://electricalconverters.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Watts to BTU Calculator", "item": "https://electricalconverters.com/watts-to-btu/" }
+  ]
+}
+</script>
+</head>
+<body data-calc="watts-to-btu">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header class="site-header">
+<!-- build script will inject header -->
+<ul class="nav-list">
+<li class="nav-group">
+<button aria-controls="menu-power-current" aria-expanded="false" class="nav-trigger" id="trigger-power-current" type="button">Power ↔ Current <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-power-current">
+<a class="nav-panel__link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-panel__link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-panel__link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-panel__link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-panel__link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-panel__link" href="/volts-to-watts/">Volts to Watts</a>
+<div class="nav-panel__sub">Guides</div>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/ohms-law/">Ohm's Law</a>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-apparent" aria-expanded="false" class="nav-trigger" id="trigger-apparent" type="button">Apparent Power (kVA &amp; VA) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-apparent">
+<a class="nav-panel__link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-panel__link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-panel__link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-panel__link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-panel__link" href="/kva-to-watts/">kVA to Watts</a>
+<a class="nav-panel__link" href="/amps-to-kva/">Amps to kVA</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-energy" aria-expanded="false" class="nav-trigger" id="trigger-energy" type="button">Energy &amp; Running Cost (kWh) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-energy">
+<a class="nav-panel__link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kwh/">Watts to kWh</a>
+<a class="nav-panel__link" href="/wh-to-kwh/">Wh to kWh</a>
+<a class="nav-panel__link" href="/joules-to-watts/">Joules to Watts</a>
+<a class="nav-panel__link" href="/watts-to-joules/">Watts to Joules</a>
+<a class="nav-panel__link" href="/btu-to-watts/">BTU to Watts</a>
+<a class="nav-panel__link" href="/watts-to-btu/">Watts to BTU</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-battery" aria-expanded="false" class="nav-trigger" id="trigger-battery" type="button">Battery Capacity <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-battery">
+<a class="nav-panel__link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-panel__link" href="/wh-to-mah/">Wh to mAh</a>
+<a class="nav-panel__link" href="/ah-to-wh/">Ah to Wh</a>
+<a class="nav-panel__link" href="/wh-to-ah/">Wh to Ah</a>
+<a class="nav-panel__link" href="/mah-to-ah/">mAh to Ah</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-motor" aria-expanded="false" class="nav-trigger" id="trigger-motor" type="button">Motors &amp; Horsepower <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-motor">
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-panel__link" href="/amps-to-hp/">Amps to HP</a>
+<a class="nav-panel__link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-panel__link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-panel__link" href="/ev-charging-time-calculator/">EV Charging Time</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-safety" aria-expanded="false" class="nav-trigger" id="trigger-safety" type="button">Wiring &amp; Safety Sizing <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-safety">
+<p class="nav-panel__note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</div>
+</li>
+</ul>
+</header>
+<div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
+<!-- build script will inject mobile nav -->
+<ul class="mobile-nav-list">
+<li class="m-group">
+<div class="m-group__label">Power ↔ Current</div>
+<a class="nav-link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-link" href="/volts-to-watts/">Volts to Watts</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Apparent Power (kVA &amp; VA)</div>
+<a class="nav-link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-link" href="/kva-to-watts/">kVA to Watts</a>
+<a class="nav-link" href="/amps-to-kva/">Amps to kVA</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Energy &amp; Running Cost (kWh)</div>
+<a class="nav-link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-link" href="/watts-to-kwh/">Watts to kWh</a>
+<a class="nav-link" href="/wh-to-kwh/">Wh to kWh</a>
+<a class="nav-link" href="/joules-to-watts/">Joules to Watts</a>
+<a class="nav-link" href="/watts-to-joules/">Watts to Joules</a>
+<a class="nav-link" href="/btu-to-watts/">BTU to Watts</a>
+<a class="nav-link" href="/watts-to-btu/">Watts to BTU</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Battery Capacity</div>
+<a class="nav-link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-link" href="/wh-to-mah/">Wh to mAh</a>
+<a class="nav-link" href="/ah-to-wh/">Ah to Wh</a>
+<a class="nav-link" href="/wh-to-ah/">Wh to Ah</a>
+<a class="nav-link" href="/mah-to-ah/">mAh to Ah</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Motors &amp; Horsepower</div>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-link" href="/amps-to-hp/">Amps to HP</a>
+<a class="nav-link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-link" href="/ev-charging-time-calculator/">EV Charging Time</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Wiring &amp; Safety Sizing</div>
+<p class="m-note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+</li>
+<li class="m-group">
+<div class="m-group__label">Guides</div>
+<a class="nav-link" href="/learn/ohms-law/">Ohm's Law</a>
+<a class="nav-link" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</li>
+</ul>
+<button class="nav-close" type="button" aria-label="Close menu">×</button>
+</div>
+<main id="main-content" class="page-main">
+  <div class="content-wrapper">
+    <article class="calc-article">
+      <header class="calc-header">
+        <h1>Watts to BTU Calculator</h1>
+        <p class="calc-intro">Convert electrical heating or cooling power from watts (W) to BTU/hr.</p>
+      </header>
+      
+<div class="calc-widget">
+  <div class="input-group">
+    <label for="input-watts">Power (Watts)</label>
+    <input type="number" id="input-watts" inputmode="decimal" placeholder="e.g. 1500" min="0" step="any">
+  </div>
+</div>
+<div class="result-display" aria-live="polite" aria-atomic="true" id="result-display">
+  <div class="result-value" id="result-value">—</div>
+  <div class="result-unit" id="result-unit">BTU/hr</div>
+  <div class="formula-note" id="formula-note">Formula: BTU/hr = W × 3.412142</div>
+</div>
+      <div class="calc-content">
+        
+<h2 id="formula">How to convert Watts to BTU/hr</h2>
+<p>The formula is <strong>BTU/hr = Watts × 3.412142</strong>.</p>
+<p>For example, a 1500 W space heater will output approximately 5118 BTU/hr. Resistive electric heating is 100% efficient, so the electrical watts equal the thermal watts output.</p>
+
+<h2 id="reference">Common Watts to BTU/hr Conversions</h2>
+<div class="table-container">
+  <table>
+    <thead><tr><th>Watts (W)</th><th>BTU/hr</th></tr></thead>
+    <tbody>
+      <tr><td>100 W</td><td>341 BTU/hr</td></tr>
+      <tr><td>500 W</td><td>1,706 BTU/hr</td></tr>
+      <tr><td>1,000 W</td><td>3,412 BTU/hr</td></tr>
+      <tr><td>1,500 W</td><td>5,118 BTU/hr</td></tr>
+      <tr><td>2,000 W</td><td>6,824 BTU/hr</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq-list">
+  <div class="faq-item">
+    <h3>Why convert watts to BTU?</h3>
+    <p>BTU is the standard measurement for HVAC systems in the United States, so converting electrical power to BTU helps you size a space heater or understand the cooling equivalent of your equipment.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Are all watts converted to heat?</h3>
+    <p>For a purely resistive electric heater, yes, essentially 100% of the electrical watts are converted to heat (thermal watts), which equals 3.412 BTU/hr per watt.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Is a BTU the same as a ton of AC?</h3>
+    <p>No, but they measure the same thing. One "ton" of refrigeration capacity is equal to 12,000 BTU/hr.</p>
+  </div>
+</div>
+      </div>
+      <footer class="calc-meta">
+        <p><strong>Reviewer:</strong> Team &middot; <strong>Last Updated:</strong> <time datetime="2026-07-18">2026-07-18</time></p>
+        <p class="disclaimer"><em>Disclaimer: For general information only. Always consult a licensed electrician or engineer for real-world electrical design and safety.</em></p>
+      </footer>
+    </article>
+    <!-- related:start -->
+<section class="related-conversions" aria-labelledby="related-conversions-heading">
+<h2 id="related-conversions-heading">Related conversions</h2>
+<p class="related-conversions__intro">This calculator is part of our <strong>Energy &amp; Running Cost (kWh)</strong> tools. Jump to a related conversion:</p>
+<ul class="rel-list">
+<li class="rel-item"><a class="rel-item__link" href="/kwh-to-watts/">Convert energy to power with kWh to watts</a><span class="rel-item__desc">Average power draw from an energy reading.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/watts-to-kwh/">Estimate running cost by converting watts to kWh</a><span class="rel-item__desc">Energy use and electricity cost over time.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/wh-to-kwh/">Convert watt-hours to kilowatt-hours</a><span class="rel-item__desc">Scale watt-hours up to billed kWh.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/joules-to-watts/">Convert joules to watts</a><span class="rel-item__desc">Energy in joules to average power.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/watts-to-joules/">Convert watts to joules</a><span class="rel-item__desc">Average power to energy in joules.</span></li>
+</ul>
+<p class="related-conversions__learn">Background reading: <a href="/learn/watts-vs-amps/">Watts vs Amps: the difference explained</a>.</p>
+</section>
+<!-- related:end -->
+  </div>
+</main>
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-wrapper">
+    <div class="footer-cols">
+      <!-- build script will inject footer -->
+      
+<nav class="footer-col" aria-label="Power and current calculators">
+<div class="footer-col__label">Power &amp; Current</div>
+<a href="/watts-to-amps/">Watts to Amps</a>
+<a href="/amps-to-watts/">Amps to Watts</a>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/watts-to-volts/">Watts to Volts</a>
+<a href="/amps-to-volts/">Amps to Volts</a>
+<a href="/amps-to-kw/">Amps to kW</a>
+<a href="/volts-to-amps/">Volts to Amps</a>
+<a href="/volts-to-watts/">Volts to Watts</a>
+</nav>
+<nav class="footer-col" aria-label="Apparent power and energy calculators">
+<div class="footer-col__label">Apparent &amp; Energy</div>
+<a href="/kva-to-kw/">kVA to kW</a>
+<a href="/kva-to-amps/">kVA to Amps</a>
+<a href="/va-to-watts/">VA to Watts</a>
+<a href="/watts-to-kva/">Watts to kVA</a>
+<a href="/kw-to-kva/">kW to kVA</a>
+<a href="/kva-to-watts/">kVA to Watts</a>
+<a href="/amps-to-kva/">Amps to kVA</a>
+<a href="/kwh-to-watts/">kWh to Watts</a>
+<a href="/watts-to-kwh/">Watts to kWh</a>
+<a href="/wh-to-kwh/">Wh to kWh</a>
+<a href="/joules-to-watts/">Joules to Watts</a>
+<a href="/watts-to-joules/">Watts to Joules</a>
+<a href="/btu-to-watts/">BTU to Watts</a>
+<a href="/watts-to-btu/">Watts to BTU</a>
+</nav>
+<nav class="footer-col" aria-label="Motors, battery and guides">
+<div class="footer-col__label">Motors &amp; Battery</div>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/hp-to-amps/">HP to Amps</a>
+<a href="/amps-to-hp/">Amps to HP</a>
+<a href="/hp-to-kw/">HP to kW</a>
+<a href="/kw-to-hp/">kW to HP</a>
+<a href="/ev-charging-time-calculator/">EV Charging Time</a>
+<a href="/mah-to-wh/">mAh to Wh</a>
+<a href="/wh-to-mah/">Wh to mAh</a>
+<a href="/ah-to-wh/">Ah to Wh</a>
+<a href="/wh-to-ah/">Wh to Ah</a>
+<a href="/mah-to-ah/">mAh to Ah</a>
+</nav>
+<nav class="footer-col" aria-label="Site information">
+<div class="footer-col__label">Site</div>
+<a href="/about/">About &amp; method</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy/">Privacy</a>
+<a href="/learn/ohms-law/">Ohm's Law</a>
+<a href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</nav>
+</div>
+<div class="footer-meta">
+      <p>&copy; <span id="footer-year">2026</span> electricalconverters.com</p>
+    </div>
+  </div>
+</footer>
+<script src="/assets/js/converters.js?v=phase9" defer></script>
+<script src="/assets/js/calculators.js?v=phase9" defer></script>
+<script src="/assets/js/site.js?v=phase9" defer></script>
+</body>
+</html>

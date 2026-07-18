@@ -79,6 +79,7 @@
     'va-to-watts': { href: '/va-to-watts/', label: 'VA to Watts', anchor: 'Convert VA to watts', blurb: 'Volt-amps to real power in watts.', clusters: ['apparent'], learn: ['watts-vs-amps'], exists: true },
     'watts-to-kva': { href: '/watts-to-kva/', label: 'Watts to kVA', anchor: 'Convert watts to kVA', blurb: 'Real power to apparent power.', clusters: ['apparent'], learn: ['watts-vs-amps'], exists: true },
     'kw-to-kva': { href: '/kw-to-kva/', label: 'kW to kVA', anchor: 'Convert kW to kVA', blurb: 'Real power to apparent power via power factor.', clusters: ['apparent'], learn: ['watts-vs-amps'], exists: true },
+    'kva-to-watts': { href: '/kva-to-watts/', label: 'kVA to Watts', anchor: 'Convert kVA to watts', blurb: 'Apparent power to real power in watts.', clusters: ['apparent'], learn: ['watts-vs-amps'], exists: true },
     'amps-to-kva': { href: '/amps-to-kva/', label: 'Amps to kVA', anchor: 'Convert amps to kVA', blurb: 'Apparent power from line current.', clusters: ['apparent'], learn: ['watts-vs-amps'], exists: true },
 
     /* Cluster 2 — Energy */
@@ -86,17 +87,23 @@
     'watts-to-kwh': { href: '/watts-to-kwh/', label: 'Watts to kWh', anchor: 'Estimate running cost by converting watts to kWh', blurb: 'Energy use and electricity cost over time.', clusters: ['energy'], learn: ['watts-vs-amps'], exists: true },
     'wh-to-kwh': { href: '/wh-to-kwh/', label: 'Wh to kWh', anchor: 'Convert watt-hours to kilowatt-hours', blurb: 'Scale watt-hours up to billed kWh.', clusters: ['energy'], learn: ['watts-vs-amps'], exists: true },
     'joules-to-watts': { href: '/joules-to-watts/', label: 'Joules to Watts', anchor: 'Convert joules to watts', blurb: 'Energy in joules to average power.', clusters: ['energy'], learn: ['watts-vs-amps'], exists: true },
+    'watts-to-joules': { href: '/watts-to-joules/', label: 'Watts to Joules', anchor: 'Convert watts to joules', blurb: 'Average power to energy in joules.', clusters: ['energy'], learn: ['watts-vs-amps'], exists: true },
+    'btu-to-watts': { href: '/btu-to-watts/', label: 'BTU to Watts', anchor: 'Convert BTU to watts', blurb: 'HVAC cooling power to electrical watts.', clusters: ['energy'], learn: ['watts-vs-amps'], exists: true },
+    'watts-to-btu': { href: '/watts-to-btu/', label: 'Watts to BTU', anchor: 'Convert watts to BTU', blurb: 'Electrical watts to HVAC cooling power.', clusters: ['energy'], learn: ['watts-vs-amps'], exists: true },
 
     /* Cluster 3 — Battery */
     'mah-to-wh': { href: '/mah-to-wh/', label: 'mAh to Wh', anchor: 'Compare power banks by converting mAh to Wh', blurb: 'Battery capacity from mAh and voltage.', clusters: ['battery'], learn: ['watts-vs-amps'], exists: true },
     'wh-to-mah': { href: '/wh-to-mah/', label: 'Wh to mAh', anchor: 'Convert watt-hours back to mAh', blurb: 'Battery capacity from watt-hours and voltage.', clusters: ['battery'], learn: ['watts-vs-amps'], exists: true },
     'ah-to-wh': { href: '/ah-to-wh/', label: 'Ah to Wh', anchor: 'Convert amp-hours to watt-hours', blurb: 'Battery capacity from amp-hours and voltage.', clusters: ['battery'], learn: ['watts-vs-amps'], exists: true },
+    'wh-to-ah': { href: '/wh-to-ah/', label: 'Wh to Ah', anchor: 'Convert watt-hours back to amp-hours', blurb: 'Battery capacity from watt-hours and voltage.', clusters: ['battery'], learn: ['watts-vs-amps'], exists: true },
     'mah-to-ah': { href: '/mah-to-ah/', label: 'mAh to Ah', anchor: 'Convert mAh to Ah', blurb: 'Milliamp-hours to amp-hours.', clusters: ['battery'], learn: ['watts-vs-amps'], exists: true },
 
     /* Cluster 5 — Motor / HP (Part B) */
     'hp-to-amps': { href: '/hp-to-amps/', label: 'HP to Amps', anchor: 'Size a motor circuit with hp to amps', blurb: 'Motor horsepower to full-load current.', clusters: ['motor'], learn: ['watts-vs-amps'], exists: true },
+    'amps-to-hp': { href: '/amps-to-hp/', label: 'Amps to HP', anchor: 'Convert amps back to horsepower', blurb: 'Full-load current to motor horsepower.', clusters: ['motor'], learn: ['watts-vs-amps'], exists: true },
     'hp-to-kw': { href: '/hp-to-kw/', label: 'HP to kW', anchor: 'Convert horsepower to kilowatts', blurb: 'Motor rating from HP to kW.', clusters: ['motor'], learn: ['watts-vs-amps'], exists: true },
     'kw-to-hp': { href: '/kw-to-hp/', label: 'kW to HP', anchor: 'Convert kilowatts to horsepower', blurb: 'Motor rating from kW to HP.', clusters: ['motor'], learn: ['watts-vs-amps'], exists: true },
+    'ev-charging-time-calculator': { href: '/ev-charging-time-calculator/', label: 'EV Charging Time', anchor: 'Calculate EV charging time', blurb: 'Estimate charging duration for electric vehicles.', clusters: ['motor'], exists: true },
 
     /* Cluster 6 — Safety / sizing (Part B) */
     'wire-gauge': { href: '/wire-gauge/', label: 'Wire Gauge', anchor: 'Size your wire after finding amps', blurb: 'Pick AWG wire gauge from current and length.', clusters: ['safety'], learn: ['watts-vs-amps'], exists: false },
