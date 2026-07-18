@@ -129,5 +129,20 @@
     'kw-to-amps': { unitLabel: 'kW', phrase: 'kW to amps', values: [1, 2, 3, 5, 7.5, 10, 11, 15, 22] }
   };
 
-  return { CLUSTERS: CLUSTERS, PAGES: PAGES, LEARN: LEARN, CHILDREN: CHILDREN };
+  /* ── Voltage sayfaları ─────────────────────────────────────────
+   * base hub için voltage linklerini üretir */
+  var VOLTAGES = {
+    'watts-to-amps': [
+      { href: '/watts-to-amps/12v/', label: 'Calculate at 12V', anchor: 'Calculate at 12V (DC)', blurb: 'Automotive, marine, and off-grid solar systems.' },
+      { href: '/watts-to-amps/120v/', label: 'Calculate at 120V', anchor: 'Calculate at 120V (AC)', blurb: 'Standard US residential outlets and loads.' },
+      { href: '/watts-to-amps/240v/', label: 'Calculate at 240V', anchor: 'Calculate at 240V (AC)', blurb: 'Heavy US appliances like dryers and EV chargers.' }
+    ],
+    'amps-to-watts': [
+      { href: '/amps-to-watts/12v/', label: 'Calculate at 12V', anchor: 'Calculate at 12V (DC)', blurb: 'Automotive, marine, and off-grid solar systems.' },
+      { href: '/amps-to-watts/120v/', label: 'Calculate at 120V', anchor: 'Calculate at 120V (AC)', blurb: 'Standard US residential outlets and loads.' },
+      { href: '/amps-to-watts/240v/', label: 'Calculate at 240V', anchor: 'Calculate at 240V (AC)', blurb: 'Heavy US appliances like dryers and EV chargers.' }
+    ]
+  };
+
+  return { CLUSTERS: CLUSTERS, PAGES: PAGES, LEARN: LEARN, CHILDREN: CHILDREN, VOLTAGES: VOLTAGES };
 });

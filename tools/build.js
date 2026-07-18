@@ -94,7 +94,7 @@ function getRelatedBlock(pageKey) {
 
 // --- 2. TRAVERSE AND UPDATE HTML FILES ---
 
-const CACHE_VERSION = 'v=phase9'; // Update to bump cache
+const CACHE_VERSION = 'v=phase10'; // Update to bump cache
 
 function processDir(dir) {
     const files = fs.readdirSync(dir);
@@ -133,6 +133,17 @@ function updateFile(filePath) {
         const relatedHtml = getRelatedBlock(pageKey);
         if (relatedHtml) {
             content = content.replace(/<!-- related:start -->[\s\S]*?<!-- related:end -->/, `<!-- related:start -->\n${relatedHtml}\n<!-- related:end -->`);
+        }
+
+        // 6. Update Voltage Blocks
+        if (related.VOLTAGES && related.VOLTAGES[pageKey]) {
+            const vData = related.VOLTAGES[pageKey];
+            let vHtml = `<section class="related-conversions" aria-labelledby="voltage-conversions-heading">\n<h2 id="voltage-conversions-heading">Calculate by Voltage</h2>\n<p class="related-conversions__intro">Jump to a pre-filled calculator for common system voltages:</p>\n<ul class="rel-list">\n`;
+            vData.forEach(v => {
+                vHtml += `<li class="rel-item"><a class="rel-item__link" href="${v.href}">${v.anchor}</a><span class="rel-item__desc">${v.blurb || ''}</span></li>\n`;
+            });
+            vHtml += `</ul>\n</section>`;
+            content = content.replace(/<!-- voltages:start -->[\s\S]*?<!-- voltages:end -->/, `<!-- voltages:start -->\n${vHtml}\n<!-- voltages:end -->`);
         }
     }
 
