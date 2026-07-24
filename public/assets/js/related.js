@@ -103,7 +103,7 @@
     'amps-to-hp': { href: '/amps-to-hp/', label: 'Amps to HP', anchor: 'Convert amps back to horsepower', blurb: 'Full-load current to motor horsepower.', clusters: ['motor'], learn: ['watts-vs-amps'], pairs: ['hp-to-amps'], exists: true },
     'hp-to-kw': { href: '/hp-to-kw/', label: 'HP to kW', anchor: 'Convert horsepower to kilowatts', blurb: 'Motor rating from HP to kW.', clusters: ['motor'], learn: ['watts-vs-amps'], exists: true },
     'kw-to-hp': { href: '/kw-to-hp/', label: 'kW to HP', anchor: 'Convert kilowatts to horsepower', blurb: 'Motor rating from kW to HP.', clusters: ['motor'], learn: ['watts-vs-amps'], exists: true },
-    'ev-charging-time-calculator': { href: '/ev-charging-time-calculator/', label: 'EV Charging Time', anchor: 'Calculate EV charging time', blurb: 'Estimate charging duration for electric vehicles.', clusters: ['motor'], pairs: ['7.5-kw-to-amps', '11-kw-to-amps', '15-kw-to-amps', '22-kw-to-amps'], exists: true },
+    'ev-charging-time-calculator': { href: '/ev-charging-time-calculator/', label: 'EV Charging Time', anchor: 'Calculate EV charging time', blurb: 'Estimate charging duration for electric vehicles.', clusters: ['motor'], exists: true },
 
     /* Cluster 6 — Safety / sizing (Part B) */
     'wire-gauge': { href: '/wire-gauge/', label: 'Wire Gauge', anchor: 'Size your wire after finding amps', blurb: 'Pick AWG wire gauge from current and length.', clusters: ['safety'], learn: ['watts-vs-amps'], exists: false },
@@ -122,31 +122,10 @@
   };
 
   /* ── Specific-value (spoke) sayfaları ──────────────────────────
-   * parent hub + değer listesi; child href/label/anchor bunlardan türetilir */
-  var CHILDREN = {
-    'watts-to-amps': { unitLabel: 'W', phrase: 'watts to amps', values: [100, 250, 500, 750, 800, 1000, 1200, 1500, 2000, 3000, 5000] },
-    'amps-to-watts': { unitLabel: 'A', phrase: 'amps to watts', values: [15, 20, 30, 40, 50] },
-    'kw-to-amps': { unitLabel: 'kW', phrase: 'kW to amps', values: [1, 2, 3, 5, 7.5, 10, 11, 15, 22] },
-    'ah-to-wh': { unitLabel: 'Ah', phrase: 'ah to wh', values: [50, 100, 150, 200, 250, 300, 400] },
-    'mah-to-wh': { unitLabel: 'mAh', phrase: 'mah to wh', values: [5000, 10000, 15000, 20000, 26800, 30000, 40000, 50000] },
-    'kva-to-amps': { unitLabel: 'kVA', phrase: 'kva to amps', values: [5, 10, 15, 20, 25, 30, 40, 50, 75, 100] },
-    'hp-to-amps': { unitLabel: 'HP', phrase: 'hp to amps', values: [0.5, 1, 1.5, 2, 3, 5, 7.5, 10] }
-  };
+   * Removed 2026-07-24: 64 specific-value subpages were retired.
+   * 301 redirects from all old URLs → parent hub are in public/_redirects.
+   * CHILDREN and VOLTAGES objects have been removed; the build script
+   * no longer generates spoke pages. */
 
-  /* ── Voltage sayfaları ─────────────────────────────────────────
-   * base hub için voltage linklerini üretir */
-  var VOLTAGES = {
-    'watts-to-amps': [
-      { href: '/watts-to-amps/12v/', label: 'Calculate at 12V', anchor: 'Calculate at 12V (DC)', blurb: 'Automotive, marine, and off-grid solar systems.' },
-      { href: '/watts-to-amps/120v/', label: 'Calculate at 120V', anchor: 'Calculate at 120V (AC)', blurb: 'Standard US residential outlets and loads.' },
-      { href: '/watts-to-amps/240v/', label: 'Calculate at 240V', anchor: 'Calculate at 240V (AC)', blurb: 'Heavy US appliances like dryers and EV chargers.' }
-    ],
-    'amps-to-watts': [
-      { href: '/amps-to-watts/12v/', label: 'Calculate at 12V', anchor: 'Calculate at 12V (DC)', blurb: 'Automotive, marine, and off-grid solar systems.' },
-      { href: '/amps-to-watts/120v/', label: 'Calculate at 120V', anchor: 'Calculate at 120V (AC)', blurb: 'Standard US residential outlets and loads.' },
-      { href: '/amps-to-watts/240v/', label: 'Calculate at 240V', anchor: 'Calculate at 240V (AC)', blurb: 'Heavy US appliances like dryers and EV chargers.' }
-    ]
-  };
-
-  return { CLUSTERS: CLUSTERS, PAGES: PAGES, LEARN: LEARN, CHILDREN: CHILDREN, VOLTAGES: VOLTAGES };
+  return { CLUSTERS: CLUSTERS, PAGES: PAGES, LEARN: LEARN };
 });

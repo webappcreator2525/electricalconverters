@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Primary Meta -->
+<title>Ah to kWh Calculator — Convert Amp-Hours to Kilowatt-Hours</title>
+<meta content="Free Ah to kWh calculator: convert battery amp-hours to kilowatt-hours with voltage and battery chemistry depth of discharge (DoD) adjustment." name="description"/>
+<link href="https://electricalconverters.com/ah-to-kwh-calculator/" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="Ah to kWh Calculator — Convert Amp-Hours to Kilowatt-Hours" property="og:title"/>
+<meta content="Free Ah to kWh calculator: convert battery amp-hours to kilowatt-hours with voltage and battery chemistry depth of discharge (DoD) adjustment." property="og:description"/>
+<meta content="https://electricalconverters.com/ah-to-kwh-calculator/" property="og:url"/>
+<!-- Site Design System -->
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=phase12" rel="stylesheet"/>
+<!-- JSON-LD: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Ah to kWh Calculator",
+  "url": "https://electricalconverters.com/ah-to-kwh-calculator/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web Browser",
+  "browserRequirements": "Requires JavaScript",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Convert battery capacity from amp-hours (Ah) to kilowatt-hours (kWh). Features voltage selection and depth-of-discharge (DoD) usable energy calculations.",
+  "publisher": {"@type": "Organization", "name": "ElectricalConverters", "url": "https://electricalconverters.com/", "logo": {"@type": "ImageObject", "url": "https://electricalconverters.com/icon-512.png", "width": 512, "height": 512}}
+}
+</script>
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many kWh is a 100Ah 12V battery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 100Ah 12V battery has a theoretical energy capacity of 1.2 kWh (100 Ah × 12 V / 1000). However, actual usable energy depends on chemistry: a 12V 100Ah LiFePO4 battery (90% DoD) yields ~1.08 kWh usable energy, whereas a 12V 100Ah lead-acid battery (50% DoD) provides ~0.60 kWh."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many kWh is a 48V 100Ah battery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 48V 100Ah battery stores 4.8 kWh of theoretical energy (100 Ah × 48 V / 1000). In a LiFePO4 server rack battery with 90% recommended Depth of Discharge, usable energy is 4.32 kWh."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much usable energy is in a lithium battery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lithium Iron Phosphate (LiFePO4) batteries typically allow 80% to 90% Depth of Discharge (DoD) safely without degrading cycle life. This means an 80–90% ratio of total nominal kWh is available for active load running."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is Amp-hours (Ah) alone not enough to measure battery energy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Amp-hours measures electric charge volume, not energy. Energy depends on both charge and voltage (kWh = Ah × V / 1000). A 100Ah 48V battery holds four times as much total energy (4.8 kWh) as a 100Ah 12V battery (1.2 kWh)."
+      }
+    }
+  ]
+}
+</script>
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://electricalconverters.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Ah to kWh Calculator", "item": "https://electricalconverters.com/ah-to-kwh-calculator/"}
+  ]
+}
+</script>
+<!-- p2:meta -->
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="#f4f6f8" name="theme-color"/>
+<meta content="ElectricalConverters editorial team" name="author"/>
+<meta content="ElectricalConverters" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image:secure_url"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ElectricalConverters — free electrical calculators" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Ah to kWh Calculator — Convert Amp-Hours to Kilowatt-Hours" name="twitter:title"/>
+<meta content="Free Ah to kWh calculator: convert battery amp-hours to kilowatt-hours with voltage and battery chemistry depth of discharge (DoD) adjustment." name="twitter:description"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" name="twitter:image"/>
+<meta content="ElectricalConverters — free electrical calculators" name="twitter:image:alt"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- /p2:meta -->
+
+<style>
+  /* ── Page-scoped styles for Ah to kWh Calculator ── */
+  .dod-slider-wrap {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+  }
+  .dod-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+  .dod-title {
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-text-muted);
+  }
+  .dod-badge {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    background: rgba(var(--ec-phosphor-rgb), 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(var(--ec-phosphor-rgb), 0.2);
+  }
+  .dod-slider {
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--color-border);
+    outline: none;
+    accent-color: var(--color-accent);
+    cursor: pointer;
+  }
+  .dod-hint {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--color-text-dim);
+    margin-top: 0.5rem;
+  }
+
+  /* Dual Result Display */
+  .capacity-dual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  @media (max-width: 640px) {
+    .capacity-dual-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  .cap-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.25rem, 4vw, 1.75rem);
+    display: flex;
+    flex-direction: column;
+  }
+  .cap-card--usable {
+    border: 2px solid var(--color-accent);
+    background: linear-gradient(135deg, var(--color-surface) 0%, rgba(var(--ec-phosphor-rgb), 0.03) 100%);
+  }
+  .cap-card--theoretical {
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+  .cap-card__label {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .cap-card--usable .cap-card__label { color: var(--color-accent); }
+  .cap-card--theoretical .cap-card__label { color: var(--color-text-muted); }
+
+  .cap-card__value {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .cap-card__unit {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-left: 0.2rem;
+  }
+  .cap-card__desc {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    margin-top: 0.75rem;
+    line-height: 1.5;
+  }
+
+  /* Preset quick buttons */
+  .ah-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .ah-btn {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  .ah-btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: rgba(var(--ec-phosphor-rgb), 0.06);
+  }
+
+  #custom-volts-wrap {
+    display: none;
+    margin-top: 1rem;
+  }
+  #custom-volts-wrap.visible {
+    display: block;
+  }
+</style>
+</head>
+<body data-calc="ah-to-kwh">
+
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════════════════ -->
+<header class="site-header">
+<div class="header-inner">
+<a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<nav aria-label="Main navigation" class="site-nav">
+<ul class="nav-list">
+<li class="nav-group">
+<button aria-controls="menu-power-current" aria-expanded="false" class="nav-trigger" id="trigger-power-current" type="button">Power ↔ Current <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-power-current">
+<a class="nav-panel__link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-panel__link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-panel__link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-panel__link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-panel__link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-panel__link" href="/volts-to-watts/">Volts to Watts</a>
+<a class="nav-panel__link" href="/led-resistor-calculator/">LED Resistor</a>
+<div class="nav-panel__sub">Guides</div>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/ohms-law/">Ohm's Law</a>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-apparent" aria-expanded="false" class="nav-trigger" id="trigger-apparent" type="button">Apparent Power (kVA &amp; VA) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-apparent">
+<a class="nav-panel__link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-panel__link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-panel__link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-panel__link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-panel__link" href="/kva-to-watts/">kVA to Watts</a>
+<a class="nav-panel__link" href="/amps-to-kva/">Amps to kVA</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-energy" aria-expanded="false" class="nav-trigger" id="trigger-energy" type="button">Energy &amp; Running Cost (kWh) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-energy">
+<a class="nav-panel__link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kwh/">Watts to kWh</a>
+<a class="nav-panel__link" href="/wh-to-kwh/">Wh to kWh</a>
+<a class="nav-panel__link" href="/joules-to-watts/">Joules to Watts</a>
+<a class="nav-panel__link" href="/watts-to-joules/">Watts to Joules</a>
+<a class="nav-panel__link" href="/btu-to-watts/">BTU to Watts</a>
+<a class="nav-panel__link" href="/watts-to-btu/">Watts to BTU</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-battery" aria-expanded="false" class="nav-trigger" id="trigger-battery" type="button">Battery Capacity <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-battery">
+<a class="nav-panel__link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-panel__link" href="/wh-to-mah/">Wh to mAh</a>
+<a class="nav-panel__link" href="/ah-to-wh/">Ah to Wh</a>
+<a class="nav-panel__link" href="/wh-to-ah/">Wh to Ah</a>
+<a class="nav-panel__link" href="/mah-to-ah/">mAh to Ah</a>
+<a class="nav-panel__link" href="/ah-to-kwh-calculator/">Ah to kWh</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-motor" aria-expanded="false" class="nav-trigger" id="trigger-motor" type="button">Motors &amp; Horsepower <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-motor">
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-panel__link" href="/amps-to-hp/">Amps to HP</a>
+<a class="nav-panel__link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-panel__link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-panel__link" href="/ev-charging-time-calculator/">EV Charging Time</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-safety" aria-expanded="false" class="nav-trigger" id="trigger-safety" type="button">Wiring &amp; Safety Sizing <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-safety">
+<a class="nav-panel__link" href="/circuit-breaker-size-calculator/">Circuit Breaker Size</a>
+<a class="nav-panel__link" href="/12v-wire-size-calculator/">12V Wire Size</a>
+<a class="nav-panel__link" href="/trolling-motor-wire-size-calculator/">Trolling Motor Wire Size</a>
+</div>
+</li>
+</ul>
+</nav>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button">
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+</button>
+</div>
+</header>
+
+<!-- Mobile nav overlay -->
+<div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
+<div class="mobile-nav-inner">
+<div class="mobile-nav-header">
+<span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+<button aria-label="Close navigation" class="nav-close" type="button">&times;</button>
+</div>
+<ul class="mobile-nav-list">
+<li class="m-group">
+<div class="m-group__label">Power ↔ Current</div>
+<a class="nav-link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-link" href="/volts-to-watts/">Volts to Watts</a>
+<a class="nav-link" href="/led-resistor-calculator/">LED Resistor</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Apparent Power (kVA &amp; VA)</div>
+<a class="nav-link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-link" href="/kva-to-watts/">kVA to Watts</a>
+<a class="nav-link" href="/amps-to-kva/">Amps to kVA</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Energy &amp; Running Cost (kWh)</div>
+<a class="nav-link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-link" href="/watts-to-kwh/">Watts to kWh</a>
+<a class="nav-link" href="/wh-to-kwh/">Wh to kWh</a>
+<a class="nav-link" href="/joules-to-watts/">Joules to Watts</a>
+<a class="nav-link" href="/watts-to-joules/">Watts to Joules</a>
+<a class="nav-link" href="/btu-to-watts/">BTU to Watts</a>
+<a class="nav-link" href="/watts-to-btu/">Watts to BTU</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Battery Capacity</div>
+<a class="nav-link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-link" href="/wh-to-mah/">Wh to mAh</a>
+<a class="nav-link" href="/ah-to-wh/">Ah to Wh</a>
+<a class="nav-link" href="/wh-to-ah/">Wh to Ah</a>
+<a class="nav-link" href="/mah-to-ah/">mAh to Ah</a>
+<a class="nav-link" href="/ah-to-kwh-calculator/">Ah to kWh</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Motors &amp; Horsepower</div>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-link" href="/amps-to-hp/">Amps to HP</a>
+<a class="nav-link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-link" href="/ev-charging-time-calculator/">EV Charging Time</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Wiring &amp; Safety Sizing</div>
+<a class="nav-link" href="/circuit-breaker-size-calculator/">Circuit Breaker Size</a>
+<a class="nav-link" href="/12v-wire-size-calculator/">12V Wire Size</a>
+<a class="nav-link" href="/trolling-motor-wire-size-calculator/">Trolling Motor Wire Size</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Guides</div>
+<a class="nav-link" href="/learn/ohms-law/">Ohm's Law</a>
+<a class="nav-link" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</li>
+</ul>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MAIN
+══════════════════════════════════════════════════════════════ -->
+<main id="main-content">
+<div class="page-wrap">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <a href="/">Home</a>
+    <span aria-hidden="true" class="breadcrumb__sep">›</span>
+    <span class="breadcrumb__current">Ah to kWh Calculator</span>
+  </nav>
+
+  <!-- Page heading -->
+  <div class="calc-header">
+    <h1 id="page-heading">Ah to kWh Calculator</h1>
+    <div class="page-byline">
+      <span class="page-byline__item">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a></span>
+      <span aria-hidden="true" class="page-byline__dot"></span>
+      <span class="page-byline__item">Last updated <strong>July 2026</strong></span>
+      <span aria-hidden="true" class="page-byline__dot"></span>
+      <span class="page-byline__item">Estimates only — <a href="/about/">how we check</a></span>
+    </div>
+    <p>Convert battery amp-hours (Ah) to kilowatt-hours (kWh). Accounts for system voltage and battery chemistry Depth of Discharge (DoD) to show true usable energy.</p>
+  </div>
+
+  <!-- ── Calculator Tool ──────────────────────────── -->
+  <section aria-label="Ah to kWh calculator tool">
+    <div aria-label="Ah to kWh converter" class="converter-card" role="form">
+
+      <!-- Inputs row -->
+      <div class="input-row">
+        <!-- Battery Capacity Ah -->
+        <div class="field-group">
+          <label for="input-ah">Battery Capacity (Ah)</label>
+          <input
+            aria-label="Battery capacity in amp-hours"
+            autocomplete="off"
+            class="input-field"
+            id="input-ah"
+            inputmode="decimal"
+            min="0.1"
+            step="any"
+            type="number"
+            value="100"
+          />
+          <div class="ah-presets">
+            <button class="ah-btn" type="button" data-ah="50">50 Ah</button>
+            <button class="ah-btn" type="button" data-ah="100">100 Ah</button>
+            <button class="ah-btn" type="button" data-ah="200">200 Ah</button>
+            <button class="ah-btn" type="button" data-ah="300">300 Ah</button>
+          </div>
+        </div>
+
+        <!-- Nominal Voltage -->
+        <div class="field-group">
+          <label for="input-voltage">System Voltage (V)</label>
+          <select aria-label="Battery nominal voltage" class="input-field input-field--select" id="input-voltage">
+            <option value="12">12 V (Standard RV / Marine)</option>
+            <option value="24">24 V (Off-Grid / Solar)</option>
+            <option value="36">36 V (Trolling Motor / Golf Cart)</option>
+            <option value="48" selected>48 V (Server Rack / Home Solar)</option>
+            <option value="custom">Other / Custom Voltage…</option>
+          </select>
+
+          <div id="custom-volts-wrap">
+            <label for="input-custom-volts" style="margin-top:0.75rem;">Custom Voltage (V)</label>
+            <input
+              aria-label="Custom battery voltage"
+              autocomplete="off"
+              class="input-field"
+              id="input-custom-volts"
+              inputmode="decimal"
+              min="1"
+              max="1000"
+              step="any"
+              type="number"
+              value="51.2"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Chemistry & DoD row -->
+      <div class="input-row" style="margin-bottom:1rem;">
+        <div class="field-group" style="grid-column: 1 / -1;">
+          <label for="input-chemistry">Battery Chemistry</label>
+          <select aria-label="Battery chemistry type" class="input-field input-field--select" id="input-chemistry">
+            <option value="lifepo4" selected>Lithium Iron Phosphate (LiFePO4) — Rec. 90% DoD</option>
+            <option value="lead-acid">Lead-Acid (Flooded / Deep Cycle) — Rec. 50% DoD</option>
+            <option value="agm">AGM / Gel Sealed Lead-Acid — Rec. 50% DoD</option>
+            <option value="nmc">Lithium-ion NMC / NCA — Rec. 80% DoD</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Depth of Discharge Slider -->
+      <div class="dod-slider-wrap">
+        <div class="dod-header">
+          <label class="dod-title" for="input-dod">Depth of Discharge (DoD)</label>
+          <span class="dod-badge" id="dod-val-display">90%</span>
+        </div>
+        <input
+          aria-label="Depth of discharge percentage"
+          class="dod-slider"
+          id="input-dod"
+          max="100"
+          min="10"
+          step="5"
+          type="range"
+          value="90"
+        />
+        <div class="dod-hint" id="dod-hint-text">
+          LiFePO4 batteries safely support up to 90% discharge without shortening lifespan.
+        </div>
+      </div>
+
+      <!-- Formula Live Display -->
+      <div class="formula-block" id="formula-live" style="margin-bottom:1.5rem;" aria-live="polite">
+        kWh = (<span class="var">100 Ah</span> &times; <span class="var">48 V</span>) &divide; 1,000 = <span class="var">4.80 kWh</span>
+      </div>
+
+      <!-- Dual Capacity Output Cards -->
+      <div class="capacity-dual-grid" aria-live="polite" aria-atomic="true">
+        
+        <!-- Usable Energy Card -->
+        <div class="cap-card cap-card--usable">
+          <div class="cap-card__label">Usable Capacity (Real World)</div>
+          <div>
+            <span class="cap-card__value" id="res-usable">4.32</span>
+            <span class="cap-card__unit">kWh</span>
+          </div>
+          <p class="cap-card__desc" id="desc-usable">
+            Based on <strong>90% DoD</strong> for LiFePO4. This is the actual energy available before reaching safe discharge limits.
+          </p>
+        </div>
+
+        <!-- Theoretical Raw Energy Card -->
+        <div class="cap-card cap-card--theoretical">
+          <div class="cap-card__label">Theoretical Capacity (Nameplate)</div>
+          <div>
+            <span class="cap-card__value" id="res-theoretical">4.80</span>
+            <span class="cap-card__unit">kWh</span>
+          </div>
+          <p class="cap-card__desc" id="desc-theoretical">
+            Raw electrical energy at 100% total discharge (Ah &times; V / 1,000). Equal to <strong>4,800 Watt-hours (Wh)</strong>.
+          </p>
+        </div>
+
+      </div>
+
+    </div><!-- /converter-card -->
+  </section>
+
+  <!-- ── Why Ah alone isn't enough ─────────────────── -->
+  <section aria-labelledby="why-heading" class="content-section">
+    <h2 id="why-heading">Why Amp-Hours (Ah) Alone Don't Tell the Whole Energy Story</h2>
+    <p>Amp-hours (Ah) measure electric charge volume over time, but energy storage depends equally on system voltage. A <strong>100Ah 12V battery</strong> holds only 1.2 kWh of energy, whereas a <strong>100Ah 48V battery</strong> holds 4.8 kWh — four times as much energy in the exact same amp-hour rating! When sizing solar battery banks or inverter power systems, converting Ah to kilowatt-hours (kWh) provides the true metric of stored energy. To convert small battery ratings, use our <a href="/mah-to-wh/">mAh to Wh calculator</a> or convert larger loads with the <a href="/kw-to-amps/">kW to Amps calculator</a>.</p>
+  </section>
+
+  <!-- ── Formula Section ────────────────────────────── -->
+  <section aria-labelledby="formula-heading" class="content-section">
+    <h2 id="formula-heading">Ah to kWh Conversion Formula</h2>
+    <div class="formula-set">
+      <div class="formula-item">
+        <div class="formula-item__label">Theoretical Energy Formula</div>
+        <div class="formula-block" style="margin-bottom:0.75rem;">
+          <span class="var">kWh</span> = (<span class="var">Ah</span> &times; <span class="var">V</span>) &divide; 1,000
+        </div>
+        <p class="formula-item__desc">
+          Multiply battery capacity in amp-hours (<span class="var">Ah</span>) by nominal system voltage (<span class="var">V</span>) to find total watt-hours, then divide by 1,000 to yield kilowatt-hours (<span class="var">kWh</span>).
+        </p>
+      </div>
+
+      <div class="formula-item">
+        <div class="formula-item__label">Usable Energy (DoD) Formula</div>
+        <div class="formula-block" style="margin-bottom:0.75rem;">
+          <span class="var">Usable kWh</span> = <span class="var">Theoretical kWh</span> &times; (<span class="var">DoD%</span> &divide; 100)
+        </div>
+        <p class="formula-item__desc">
+          Depth of Discharge (<span class="var">DoD</span>) reflects how much battery capacity can be safely drawn without damaging internal cells or degrading lifespan.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Depth of Discharge Reference Table ────────── -->
+  <section aria-labelledby="dod-table-heading" class="content-section">
+    <h2 id="dod-table-heading">Depth of Discharge (DoD) &amp; Chemistry Reference</h2>
+    <p>Discharging a battery completely (100% DoD) rapidly degrades most chemical cells. The table below lists recommended maximum discharge thresholds to maximize battery cycle life:</p>
+
+    <div aria-label="Battery chemistry depth of discharge reference table" class="examples-table-wrap" role="region" tabindex="0">
+      <table class="examples-table">
+        <thead>
+          <tr>
+            <th scope="col">Battery Chemistry</th>
+            <th scope="col">Rec. Max DoD</th>
+            <th scope="col">Typical Cycle Life</th>
+            <th scope="col">Usable Energy from 100Ah @ 12V</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-mono">LiFePO4 (Lithium Iron Phosphate)</td>
+            <td class="col-result">80% – 90%</td>
+            <td>3,000 – 6,000+ cycles</td>
+            <td>1.08 kWh (at 90% DoD)</td>
+          </tr>
+          <tr>
+            <td class="col-mono">Lithium-ion NMC / NCA</td>
+            <td class="col-result">80%</td>
+            <td>1,000 – 2,000 cycles</td>
+            <td>0.96 kWh (at 80% DoD)</td>
+          </tr>
+          <tr>
+            <td class="col-mono">AGM / Gel Sealed Lead-Acid</td>
+            <td class="col-result">50%</td>
+            <td>500 – 1,000 cycles</td>
+            <td>0.60 kWh (at 50% DoD)</td>
+          </tr>
+          <tr>
+            <td class="col-mono">Flooded Lead-Acid (Deep Cycle)</td>
+            <td class="col-result">50%</td>
+            <td>300 – 800 cycles</td>
+            <td>0.60 kWh (at 50% DoD)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── FAQ Section ────────────────────────────────── -->
+  <section aria-labelledby="faq-heading" class="content-section">
+    <h2 id="faq-heading">Frequently Asked Questions</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-item__question" id="faq-q1" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a1">
+          How many kWh is a 100Ah 12V battery?
+        </div>
+        <div class="faq-item__answer" id="faq-a1" role="region" aria-labelledby="faq-q1">
+          <p>A 100Ah 12V battery has a theoretical energy capacity of <strong>1.2 kWh</strong> (100 Ah &times; 12 V / 1,000 = 1,200 Wh). However, usable energy depends on chemistry: a 12V 100Ah LiFePO4 battery (90% DoD) yields ~<strong>1.08 kWh</strong> usable energy, whereas a 12V 100Ah lead-acid battery (50% DoD) yields only ~<strong>0.60 kWh</strong>.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-item__question" id="faq-q2" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a2">
+          How many kWh is a 48V 100Ah battery?
+        </div>
+        <div class="faq-item__answer" id="faq-a2" role="region" aria-labelledby="faq-q2">
+          <p>A 48V 100Ah battery stores <strong>4.8 kWh</strong> of theoretical energy (100 Ah &times; 48 V / 1,000). In a LiFePO4 server rack battery with 90% recommended Depth of Discharge, net usable energy is <strong>4.32 kWh</strong> (or ~5.12 kWh for a 51.2V nominal lithium rack).</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-item__question" id="faq-q3" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a3">
+          How much usable energy is in a lithium battery?
+        </div>
+        <div class="faq-item__answer" id="faq-a3" role="region" aria-labelledby="faq-q3">
+          <p>Lithium Iron Phosphate (LiFePO4) batteries provide <strong>80% to 90% usable energy</strong> relative to nameplate capacity. Unlike lead-acid batteries which experience voltage sag below 50% discharge, LiFePO4 maintains flat voltage delivery across 90% of its discharge curve.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-item__question" id="faq-q4" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-a4">
+          Why is Amp-hours (Ah) alone not enough to measure battery energy?
+        </div>
+        <div class="faq-item__answer" id="faq-a4" role="region" aria-labelledby="faq-q4">
+          <p>Amp-hours measures electric charge capacity, not total work capability. Energy requires accounting for voltage. A 100Ah 48V battery holds four times as much energy (4.8 kWh) as a 100Ah 12V battery (1.2 kWh). If converting small consumer batteries, check our <a href="/wh-to-mah/">Wh to mAh converter</a>.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Methodology / Show Your Work ───────────── -->
+  <section aria-labelledby="method-heading" class="content-section">
+    <h2 id="method-heading">Methodology &amp; Calculation Logic</h2>
+    <p>This tool computes capacity client-side using standard electrical engineering conversion principles:</p>
+    <ol class="use-cases-list" style="list-style:none;padding-left:0;">
+      <li style="padding-left:0;"><strong>1. Watt-Hour Calculation:</strong> $\text{Wh} = \text{Ah} \times V_{\text{nominal}}$</li>
+      <li style="padding-left:0;"><strong>2. Kilowatt-Hour Conversion:</strong> $\text{kWh}_{\text{theoretical}} = \frac{\text{Wh}}{1000}$</li>
+      <li style="padding-left:0;"><strong>3. Usable Capacity Application:</strong> $\text{kWh}_{\text{usable}} = \text{kWh}_{\text{theoretical}} \times \frac{\text{DoD\%}}{100}$</li>
+    </ol>
+  </section>
+
+  <!-- ── Related Calculators ──────────────────────── -->
+  <section class="related-conversions" aria-labelledby="related-heading">
+    <h2 id="related-heading">Related Battery &amp; Energy Calculators</h2>
+    <p class="related-conversions__intro">Other unit conversion instruments on ElectricalConverters:</p>
+    <ul class="rel-list">
+      <li class="rel-item">
+        <a class="rel-item__link" href="/wh-to-mah/">Wh to mAh Calculator</a>
+        <span class="rel-item__desc">Convert watt-hours to milliamp-hours for power banks and electronics.</span>
+      </li>
+      <li class="rel-item">
+        <a class="rel-item__link" href="/mah-to-wh/">mAh to Wh Calculator</a>
+        <span class="rel-item__desc">Convert milliamp-hours to watt-hours for battery packs.</span>
+      </li>
+      <li class="rel-item">
+        <a class="rel-item__link" href="/kw-to-amps/">kW to Amps Calculator</a>
+        <span class="rel-item__desc">Calculate current draw in amps from inverter kilowatt ratings.</span>
+      </li>
+      <li class="rel-item">
+        <a class="rel-item__link" href="/battery-runtime-calculator/">Battery Runtime Calculator</a>
+        <span class="rel-item__desc">Estimate how long a battery bank will run your inverter load — coming soon.</span>
+      </li>
+    </ul>
+  </section>
+
+</div><!-- /page-wrap -->
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+<div class="site-footer__inner">
+<div class="footer-brand">
+<a class="footer-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<p class="footer-tagline">Free, client-side conversion instruments for engineers, electricians, and students. No signup, no tracking.</p>
+<p class="footer-review">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a> · estimates only.</p>
+</div>
+<nav class="footer-col" aria-label="Power and current calculators">
+<div class="footer-col__label">Power &amp; Current</div>
+<a href="/watts-to-amps/">Watts to Amps</a>
+<a href="/amps-to-watts/">Amps to Watts</a>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/watts-to-volts/">Watts to Volts</a>
+<a href="/amps-to-volts/">Amps to Volts</a>
+<a href="/amps-to-kw/">Amps to kW</a>
+<a href="/volts-to-amps/">Volts to Amps</a>
+<a href="/volts-to-watts/">Volts to Watts</a>
+<a href="/led-resistor-calculator/">LED Resistor Calculator</a>
+</nav>
+<nav class="footer-col" aria-label="Apparent power and energy calculators">
+<div class="footer-col__label">Apparent &amp; Energy</div>
+<a href="/kva-to-kw/">kVA to kW</a>
+<a href="/kva-to-amps/">kVA to Amps</a>
+<a href="/va-to-watts/">VA to Watts</a>
+<a href="/watts-to-kva/">Watts to kVA</a>
+<a href="/kw-to-kva/">kW to kVA</a>
+<a href="/kva-to-watts/">kVA to Watts</a>
+<a href="/amps-to-kva/">Amps to kVA</a>
+<a href="/kwh-to-watts/">kWh to Watts</a>
+<a href="/watts-to-kwh/">Watts to kWh</a>
+<a href="/wh-to-kwh/">Wh to kWh</a>
+<a href="/joules-to-watts/">Joules to Watts</a>
+<a href="/watts-to-joules/">Watts to Joules</a>
+<a href="/btu-to-watts/">BTU to Watts</a>
+<a href="/watts-to-btu/">Watts to BTU</a>
+</nav>
+<nav class="footer-col" aria-label="Motors, battery and guides">
+<div class="footer-col__label">Motors &amp; Battery</div>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/hp-to-amps/">HP to Amps</a>
+<a href="/amps-to-hp/">Amps to HP</a>
+<a href="/hp-to-kw/">HP to kW</a>
+<a href="/kw-to-hp/">kW to HP</a>
+<a href="/ev-charging-time-calculator/">EV Charging Time</a>
+<a href="/mah-to-wh/">mAh to Wh</a>
+<a href="/wh-to-mah/">Wh to mAh</a>
+<a href="/ah-to-wh/">Ah to Wh</a>
+<a href="/wh-to-ah/">Wh to Ah</a>
+<a href="/mah-to-ah/">mAh to Ah</a>
+<a href="/ah-to-kwh-calculator/">Ah to kWh Calculator</a>
+</nav>
+<nav class="footer-col" aria-label="Wire and load sizing calculators">
+<div class="footer-col__label">Wire &amp; Load Sizing</div>
+<a href="/12v-wire-size-calculator/">12V Wire Size Calculator</a>
+<a href="/circuit-breaker-size-calculator/">Circuit Breaker Size Calculator</a>
+<a href="/trolling-motor-wire-size-calculator/">Trolling Motor Wire Size Calculator</a>
+</nav>
+<nav class="footer-col" aria-label="Site information">
+<div class="footer-col__label">Site</div>
+<a href="/about/">About &amp; method</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy/">Privacy</a>
+<a href="/learn/ohms-law/">Ohm's Law</a>
+<a href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</nav>
+</div>
+<div class="footer-meta">
+<p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com · calculations run entirely in your browser.</p>
+<p class="footer-accuracy"><strong>How these work:</strong> each tool applies the standard conversion formula shown on its page — DC, AC single-phase and three-phase where relevant. Results are rounded estimates for reference and education only; always verify against the National Electrical Code (NEC / NFPA 70) and consult a licensed electrician before sizing conductors, breakers, or equipment.</p>
+</div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════════════════════ -->
+<script src="/assets/js/site.js?v=phase12" defer></script>
+<script>
+(function () {
+  'use strict';
+
+  /* DOM References */
+  var ahInput = document.getElementById('input-ah');
+  var voltSelect = document.getElementById('input-voltage');
+  var customVoltWrap = document.getElementById('custom-volts-wrap');
+  var customVoltInput = document.getElementById('input-custom-volts');
+  var chemSelect = document.getElementById('input-chemistry');
+  var dodInput = document.getElementById('input-dod');
+  var dodDisplay = document.getElementById('dod-val-display');
+  var dodHint = document.getElementById('dod-hint-text');
+
+  var formulaLive = document.getElementById('formula-live');
+  var resUsable = document.getElementById('res-usable');
+  var resTheoretical = document.getElementById('res-theoretical');
+  var descUsable = document.getElementById('desc-usable');
+  var descTheoretical = document.getElementById('desc-theoretical');
+
+  /* Chemistry defaults */
+  var chemDefaults = {
+    'lifepo4': { dod: 90, hint: 'LiFePO4 batteries safely support up to 90% discharge without shortening lifespan.' },
+    'lead-acid': { dod: 50, hint: 'Lead-Acid deep cycle batteries should not be discharged below 50% to prevent cell damage.' },
+    'agm': { dod: 50, hint: 'AGM / Gel sealed batteries recommend max 50% DoD for optimal lifespan.' },
+    'nmc': { dod: 80, hint: 'Lithium NMC batteries typically use an 80% DoD limit.' }
+  };
+
+  /* Quick Ah Buttons */
+  document.querySelectorAll('.ah-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      ahInput.value = btn.getAttribute('data-ah');
+      calculate();
+    });
+  });
+
+  /* Voltage Select Handler */
+  voltSelect.addEventListener('change', function () {
+    if (voltSelect.value === 'custom') {
+      customVoltWrap.classList.add('visible');
+    } else {
+      customVoltWrap.classList.remove('visible');
+    }
+    calculate();
+  });
+
+  /* Chemistry Select Handler */
+  chemSelect.addEventListener('change', function () {
+    var config = chemDefaults[chemSelect.value];
+    if (config) {
+      dodInput.value = config.dod;
+      dodDisplay.textContent = config.dod + '%';
+      dodHint.textContent = config.hint;
+    }
+    calculate();
+  });
+
+  /* DoD Slider Handler */
+  dodInput.addEventListener('input', function () {
+    dodDisplay.textContent = dodInput.value + '%';
+    calculate();
+  });
+
+  /* Calculation Function */
+  function calculate() {
+    var ah = parseFloat(ahInput.value);
+    var v = voltSelect.value === 'custom' ? parseFloat(customVoltInput.value) : parseFloat(voltSelect.value);
+    var dodPercent = parseFloat(dodInput.value);
+
+    if (isNaN(ah) || isNaN(v) || isNaN(dodPercent) || ah <= 0 || v <= 0 || dodPercent <= 0) {
+      resTheoretical.textContent = '—';
+      resUsable.textContent = '—';
+      formulaLive.innerHTML = 'Enter valid values to calculate energy capacity.';
+      return;
+    }
+
+    var theoreticalKwh = (ah * v) / 1000;
+    var usableKwh = theoreticalKwh * (dodPercent / 100);
+    var totalWh = ah * v;
+
+    /* Format numbers */
+    var theoStr = theoreticalKwh < 10 ? theoreticalKwh.toFixed(2) : theoreticalKwh.toFixed(1);
+    var useStr = usableKwh < 10 ? usableKwh.toFixed(2) : usableKwh.toFixed(1);
+
+    resTheoretical.textContent = theoStr;
+    resUsable.textContent = useStr;
+
+    /* Live formula */
+    formulaLive.innerHTML =
+      'kWh = (<span class="var">' + ah + ' Ah</span> &times; <span class="var">' + v + ' V</span>) &divide; 1,000 = <span class="var">' + theoStr + ' kWh</span>';
+
+    descUsable.innerHTML =
+      'Based on <strong>' + dodPercent + '% DoD</strong>. Actual usable energy before reaching safe discharge limits.';
+    descTheoretical.innerHTML =
+      'Raw electrical energy at 100% total discharge. Equal to <strong>' + totalWh.toLocaleString() + ' Watt-hours (Wh)</strong>.';
+  }
+
+  /* Footer year */
+  var fy = document.getElementById('footer-year');
+  if (fy) fy.textContent = '\u00A9 ' + new Date().getFullYear();
+
+  /* Listeners */
+  [ahInput, customVoltInput].forEach(function (el) {
+    el.addEventListener('input', calculate);
+  });
+
+  /* Accordion FAQ */
+  document.querySelectorAll('.faq-item__question').forEach(function (btn) {
+    var answerId = btn.getAttribute('aria-controls');
+    var answer = document.getElementById(answerId);
+    if (!answer) return;
+    answer.style.display = 'none';
+    btn.addEventListener('click', toggle);
+    btn.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+    function toggle() {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !open ? 'true' : 'false');
+      answer.style.display = open ? 'none' : '';
+    }
+  });
+
+  /* Initial run */
+  calculate();
+
+})();
+</script>
+</body>
+</html>

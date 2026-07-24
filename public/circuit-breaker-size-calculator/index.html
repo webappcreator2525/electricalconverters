@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Primary Meta -->
+<title>Circuit Breaker Size Calculator (with 125% Continuous Rule)</title>
+<meta content="Free circuit breaker size calculator. Instantly apply the NEC 125% continuous load rule to find the exact breaker size and wire gauge you need." name="description"/>
+<link href="https://electricalconverters.com/circuit-breaker-size-calculator/" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="Circuit Breaker Size Calculator (with 125% Continuous Rule)" property="og:title"/>
+<meta content="Free circuit breaker size calculator. Instantly apply the NEC 125% continuous load rule to find the exact breaker size and wire gauge you need." property="og:description"/>
+<meta content="https://electricalconverters.com/circuit-breaker-size-calculator/" property="og:url"/>
+<!-- Site Design System -->
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=phase12" rel="stylesheet"/>
+<!-- FAQPage Structured Data -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What size breaker do I need for a 30 amp load?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on whether the load is continuous. If it runs for less than 3 hours, a 30 amp breaker is sufficient. If it runs for 3 hours or more, you must apply the 125% rule: 30A × 1.25 = 37.5A. You would then round up to the next standard size, which is a 40 amp breaker."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the 80% rule for breaker sizing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The 80% rule is the reverse math of the 125% continuous load rule. It states that a standard circuit breaker should only be loaded to 80% of its rated capacity for continuous loads. For example, a 20A breaker should only carry a 16A continuous load."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where can I find a standard breaker size chart?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standard breaker sizes are defined in NEC 240.6(A). The common residential sizes are 15A, 20A, 25A, 30A, 40A, 50A, 60A, and up to 200A for main service panels. You can use this calculator to instantly snap your design current to the correct standard size."
+        }
+      }
+    ]
+  }
+</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://electricalconverters.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Circuit Breaker Size Calculator",
+        "item": "https://electricalconverters.com/circuit-breaker-size-calculator/"
+      }
+    ]
+  }
+</script>
+<!-- p2:meta -->
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="#f4f6f8" name="theme-color"/>
+<meta content="ElectricalConverters editorial team" name="author"/>
+<meta content="ElectricalConverters" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Circuit Breaker Size Calculator (with 125% Continuous Rule)" name="twitter:title"/>
+<meta content="Free circuit breaker size calculator. Instantly apply the NEC 125% continuous load rule to find the exact breaker size and wire gauge you need." name="twitter:description"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- /p2:meta -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Circuit Breaker Size Calculator",
+  "url":"https://electricalconverters.com/circuit-breaker-size-calculator/",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Web Browser",
+  "browserRequirements":"Requires JavaScript",
+  "isAccessibleForFree":true,
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "publisher":{"@type":"Organization","name":"ElectricalConverters","url":"https://electricalconverters.com/"}
+}
+</script>
+</head>
+<body data-calc="breaker-size">
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════════════════ -->
+<header class="site-header">
+<div class="header-inner">
+<a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<nav aria-label="Main navigation" class="site-nav">
+<ul class="nav-list">
+<li class="nav-group">
+<button aria-controls="menu-power-current" aria-expanded="false" class="nav-trigger" id="trigger-power-current" type="button">Power ↔ Current <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-power-current">
+<a class="nav-panel__link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-panel__link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-panel__link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-panel__link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-panel__link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-panel__link" href="/volts-to-watts/">Volts to Watts</a>
+<a class="nav-panel__link" href="/led-resistor-calculator/">LED Resistor</a>
+<div class="nav-panel__sub">Guides</div>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/ohms-law/">Ohm's Law</a>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-apparent" aria-expanded="false" class="nav-trigger" id="trigger-apparent" type="button">Apparent Power (kVA &amp; VA) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-apparent">
+<a class="nav-panel__link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-panel__link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-panel__link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-panel__link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-panel__link" href="/kva-to-watts/">kVA to Watts</a>
+<a class="nav-panel__link" href="/amps-to-kva/">Amps to kVA</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-energy" aria-expanded="false" class="nav-trigger" id="trigger-energy" type="button">Energy &amp; Running Cost (kWh) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-energy">
+<a class="nav-panel__link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kwh/">Watts to kWh</a>
+<a class="nav-panel__link" href="/wh-to-kwh/">Wh to kWh</a>
+<a class="nav-panel__link" href="/joules-to-watts/">Joules to Watts</a>
+<a class="nav-panel__link" href="/watts-to-joules/">Watts to Joules</a>
+<a class="nav-panel__link" href="/btu-to-watts/">BTU to Watts</a>
+<a class="nav-panel__link" href="/watts-to-btu/">Watts to BTU</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-battery" aria-expanded="false" class="nav-trigger" id="trigger-battery" type="button">Battery Capacity <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-battery">
+<a class="nav-panel__link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-panel__link" href="/wh-to-mah/">Wh to mAh</a>
+<a class="nav-panel__link" href="/ah-to-wh/">Ah to Wh</a>
+<a class="nav-panel__link" href="/wh-to-ah/">Wh to Ah</a>
+<a class="nav-panel__link" href="/mah-to-ah/">mAh to Ah</a>
+<a class="nav-panel__link" href="/ah-to-kwh-calculator/">Ah to kWh</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-motor" aria-expanded="false" class="nav-trigger" id="trigger-motor" type="button">Motors &amp; Horsepower <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-motor">
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-panel__link" href="/amps-to-hp/">Amps to HP</a>
+<a class="nav-panel__link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-panel__link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-panel__link" href="/ev-charging-time-calculator/">EV Charging Time</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-safety" aria-expanded="false" class="nav-trigger" id="trigger-safety" type="button">Wiring &amp; Safety Sizing <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-safety">
+<a class="nav-panel__link" href="/circuit-breaker-size-calculator/">Circuit Breaker Size Calculator</a>
+<a class="nav-panel__link" href="/12v-wire-size-calculator/">12V Wire Size Calculator</a>
+</div>
+</li>
+</ul>
+</nav>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button">
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+</button>
+</div>
+</header>
+<div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
+<div class="mobile-nav-inner">
+<div class="mobile-nav-header">
+<span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+<button aria-label="Close navigation" class="nav-close" type="button">&times;</button>
+</div>
+<ul class="mobile-nav-list">
+<li class="m-group">
+<div class="m-group__label">Power ↔ Current</div>
+<a class="nav-link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-link" href="/volts-to-watts/">Volts to Watts</a>
+<a class="nav-link" href="/led-resistor-calculator/">LED Resistor</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Wiring &amp; Safety Sizing</div>
+<a class="nav-link" href="/circuit-breaker-size-calculator/">Circuit Breaker Size Calculator</a>
+<a class="nav-link" href="/12v-wire-size-calculator/">12V Wire Size Calculator</a>
+</li>
+</ul>
+</div>
+</div>
+<main id="main-content">
+<div class="page-wrap">
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true" class="breadcrumb__sep">›</span>
+<span class="breadcrumb__current">Circuit Breaker Size Calculator</span>
+</nav>
+<div class="calc-header">
+<h1 id="page-heading">Circuit Breaker Size Calculator</h1>
+<div class="page-byline">
+<span class="page-byline__item">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Last updated <strong>July 2026</strong></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Estimates only — <a href="/about/">how we check</a></span>
+</div>
+<p>Determine the correct circuit breaker size for your home or project. This tool automatically applies NEC continuous load rules to recommend a safe, standard breaker size for your exact load.</p>
+</div>
+<!-- ── Converter Tool ──────────────────────────── -->
+<section aria-label="Circuit breaker size converter tool">
+<div aria-label="Circuit breaker size calculator" class="converter-card" role="form">
+<!-- Mode tabs -->
+<div aria-label="Calculation Mode" class="phase-tabs" role="tablist">
+<button aria-controls="section-amps" aria-selected="true" class="phase-tab active" id="mode-amps" role="tab" type="button">Using Amps</button>
+<button aria-controls="section-watts" aria-selected="false" class="phase-tab" id="mode-watts" role="tab" type="button">Using Watts</button>
+</div>
+
+<!-- Amps mode panel -->
+<div aria-labelledby="mode-amps" class="mode-section active" id="section-amps" role="tabpanel">
+<div class="input-row">
+<div class="field-group ue7ec54">
+<label for="input-amps">Load Current (A)</label>
+<input aria-label="Load current in amps" autocomplete="off" class="input-field" id="input-amps" inputmode="decimal" min="0" step="any" type="number" value="16"/>
+</div>
+</div>
+</div>
+
+<!-- Watts mode panel -->
+<div aria-labelledby="mode-watts" class="mode-section" id="section-watts" role="tabpanel">
+<div class="input-row">
+<div class="field-group ue7ec54">
+<label for="input-watts">Load Power (W)</label>
+<input aria-label="Load power in watts" autocomplete="off" class="input-field" id="input-watts" inputmode="decimal" min="0" step="any" type="number" value="1920"/>
+</div>
+<div class="field-group ue7ec54">
+<label for="input-voltage">System Voltage</label>
+<select aria-label="System voltage" class="input-field input-field--select" id="input-voltage">
+<option value="120">120V</option>
+<option value="240">240V</option>
+</select>
+</div>
+</div>
+</div>
+
+<!-- Shared Input Outside Tabs -->
+<div class="input-row" style="margin-top: 0.5rem; align-items: flex-start; padding: 0 1.25rem 1.25rem 1.25rem;">
+<div class="field-group ue7ec54" style="flex-direction: row; gap: 1rem; align-items: flex-start; width: 100%;">
+<input type="checkbox" id="input-continuous" style="width: 1.25rem; height: 1.25rem; margin-top: 0.25rem; accent-color: var(--ec-phosphor);" checked>
+<div>
+<label for="input-continuous" style="margin-bottom: 0; font-weight: 600; color: var(--ec-ink);">Continuous Load (125% Rule)</label>
+<p style="font-size: 0.85rem; color: var(--ec-slate); margin-top: 0.3rem; line-height: 1.4;">Will this run for 3 hours or more? (e.g., EV chargers, large water heaters, commercial lighting)</p>
+</div>
+</div>
+</div>
+
+<!-- Result display -->
+<div class="result-wrap">
+<div aria-atomic="true" aria-live="polite" class="result-display" id="result-display">
+<div class="result-display__label">RECOMMENDED BREAKER SIZE</div>
+<div class="result-display__value-row">
+<span class="result-display__value" id="result-value">20</span>
+<span class="result-display__unit" id="result-unit">A</span>
+</div>
+
+<div style="margin-top: 1.25rem; padding: 1rem; border: 1px solid rgba(135,146,160,0.2); border-radius: 6px; border-left: 3px solid var(--ec-phosphor); text-align: left;">
+<span style="display: block; font-size: 0.8rem; color: var(--ec-slate); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.25rem;">Suggested Copper Wire Size</span>
+<div style="font-family: var(--font-mono); color: var(--ec-ink); font-size: 1.15rem; font-weight: 600;" id="result-wire">12 AWG</div>
+<div style="font-size: 0.8rem; color: var(--ec-slate); margin-top: 0.35rem; line-height: 1.4;">General reference based on standard breaker ampacity. <a href="/12v-wire-size-calculator/" style="color: var(--ec-phosphor); text-decoration: underline;">Use the wire calculator for exact length/drop sizing</a>.</div>
+</div>
+
+<div class="result-display__formula-note" id="formula-note" style="margin-top: 1rem;">
+Design Current: 16.0A × 1.25 (Continuous) = 20.0A
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ── Content Sections ──────────────────────────── -->
+<section aria-labelledby="how-heading" class="content-section">
+<h2 id="how-heading">How this calculator sizes your circuit breaker</h2>
+<p>This tool follows the safety standards set by <strong>NEC Article 210.20(A)</strong> for overcurrent protection. According to the code, circuit breakers must be sized at 100% of non-continuous loads, plus 125% of all continuous loads.</p>
+<p><strong>What is a continuous load?</strong> The NEC defines a continuous load as any load where the maximum current is expected to continue for three hours or more. Common examples include EV chargers, large water heaters, space heating, and commercial lighting.</p>
+<p>By applying this 125% multiplier, the calculator ensures that a continuous load doesn't cause the breaker to slowly overheat and trip prematurely. Once the "design current" is calculated, it rounds up to the next standard breaker size.</p>
+</section>
+
+<section aria-labelledby="safety-heading" class="content-section">
+<h2 id="safety-heading">The risks of undersizing (or oversizing) a breaker</h2>
+<p>A circuit breaker's primary job is to protect the wiring inside your walls from overheating, melting, or causing a fire. If a breaker is <strong>undersized</strong> for your load (or if the 125% continuous rule is ignored), the breaker will run hot and frequently trip. While annoying, this means the breaker is doing its job and cutting power before the wires can become dangerous.</p>
+<p>Conversely, if a breaker is <strong>oversized</strong> relative to the wire gauge used in the circuit, it creates a severe fire hazard. The wire could draw more current than it is safely rated to handle, melting its insulation and causing an electrical fire long before the oversized breaker ever trips. This is why breaker sizing and wire sizing must always be paired correctly.</p>
+</section>
+
+<section aria-labelledby="methodology-heading" class="content-section">
+<h2 id="methodology-heading">Methodology: Standard Breaker Sizes</h2>
+<p>The National Electrical Code (NEC 240.6) establishes standard ampere ratings for fuses and inverse time circuit breakers. Once this calculator determines your continuous or non-continuous design current, it automatically rounds up to the nearest standard size from this series:</p>
+<p><em>15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 125, 150, 175, 200, 225, 250, 300, 350, 400.</em></p>
+<p>For example, if your calculated design current is 22A, the tool will round up and recommend a 25A circuit breaker.</p>
+</section>
+
+<!-- ── FAQ ──────────────────────────────────────── -->
+<section aria-labelledby="faq-heading" class="content-section">
+<h2 id="faq-heading">Frequently Asked Questions</h2>
+<div class="faq-list">
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            What size breaker do I need for a 30 amp load?
+</div>
+<div class="faq-item__answer">
+<p>It depends on whether the load is continuous. If it runs for less than 3 hours (non-continuous), a 30 amp breaker is sufficient. If it runs for 3 hours or more, you must apply the 125% rule: 30A × 1.25 = 37.5A. You would then round up to the next standard size, which is a 40 amp breaker.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            What is the 80% rule for breaker sizing?
+</div>
+<div class="faq-item__answer">
+<p>The "80% rule" is just the reverse math of the 125% continuous load rule. It states that a standard circuit breaker should only be loaded to 80% of its rated capacity for continuous loads. For example, a 20A breaker should only carry a 16A continuous load (because 16 is 80% of 20, and 16 × 1.25 = 20).</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            Where can I find a standard breaker size chart?
+</div>
+<div class="faq-item__answer">
+<p>Standard breaker sizes are defined in NEC 240.6(A). The common residential sizes are 15A, 20A, 25A, 30A, 40A, 50A, 60A, and up to 200A for main service panels. You can use this calculator as an interactive chart to instantly snap your design current to the correct standard size.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- related:start -->
+<section class="related-conversions" aria-labelledby="related-conversions-heading">
+<h2 id="related-conversions-heading">Related electrical tools</h2>
+<p class="related-conversions__intro">Breaker sizing is part of a cluster of load planning steps. Check out these related calculators:</p>
+<ul class="rel-list">
+<li class="rel-item"><a class="rel-item__link" href="/kw-to-amps/">kW to Amps Calculator</a><span class="rel-item__desc">Convert large appliance kilowatts into current draw.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/12v-wire-size-calculator/">12V Wire Size Calculator</a><span class="rel-item__desc">Size your DC wiring accurately, including chassis ground variables.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/amps-to-watts/">Amps to Watts Calculator</a><span class="rel-item__desc">Determine total wattage capacity from an existing breaker's amp rating.</span></li>
+</ul>
+</section>
+<!-- related:end -->
+
+</div><!-- /page-wrap -->
+</main>
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+<div class="site-footer__inner">
+<div class="footer-brand">
+<a class="footer-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<p class="footer-tagline">Free, client-side conversion instruments for engineers, electricians, and students. No signup, no tracking.</p>
+<p class="footer-review">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a> · estimates only.</p>
+</div>
+<nav class="footer-col" aria-label="Power and current calculators">
+<div class="footer-col__label">Power &amp; Current</div>
+<a href="/watts-to-amps/">Watts to Amps</a>
+<a href="/amps-to-watts/">Amps to Watts</a>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/watts-to-volts/">Watts to Volts</a>
+<a href="/amps-to-volts/">Amps to Volts</a>
+<a href="/amps-to-kw/">Amps to kW</a>
+<a href="/volts-to-amps/">Volts to Amps</a>
+<a href="/volts-to-watts/">Volts to Watts</a>
+<a href="/led-resistor-calculator/">LED Resistor Calculator</a>
+</nav>
+<nav class="footer-col" aria-label="Apparent power and energy calculators">
+<div class="footer-col__label">Apparent &amp; Energy</div>
+<a href="/kva-to-kw/">kVA to kW</a>
+<a href="/kva-to-amps/">kVA to Amps</a>
+<a href="/va-to-watts/">VA to Watts</a>
+<a href="/watts-to-kva/">Watts to kVA</a>
+<a href="/kw-to-kva/">kW to kVA</a>
+<a href="/kva-to-watts/">kVA to Watts</a>
+<a href="/amps-to-kva/">Amps to kVA</a>
+<a href="/kwh-to-watts/">kWh to Watts</a>
+<a href="/watts-to-kwh/">Watts to kWh</a>
+</nav>
+<nav class="footer-col" aria-label="Motors, battery and guides">
+<div class="footer-col__label">Motors &amp; Battery</div>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/hp-to-amps/">HP to Amps</a>
+<a href="/amps-to-hp/">Amps to HP</a>
+<a href="/ev-charging-time-calculator/">EV Charging Time</a>
+<a href="/circuit-breaker-size-calculator/">Circuit Breaker Size Calculator</a>
+<a href="/12v-wire-size-calculator/">12V Wire Size Calculator</a>
+</nav>
+<nav class="footer-col" aria-label="Site information">
+<div class="footer-col__label">Site</div>
+<a href="/about/">About &amp; method</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy/">Privacy</a>
+<a href="/learn/ohms-law/">Ohm's Law</a>
+</nav>
+</div>
+<div class="footer-meta">
+<p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com · calculations run entirely in your browser.</p>
+<p class="footer-accuracy"><strong>How these work:</strong> each tool applies the standard conversion formula shown on its page. Results are rounded estimates for reference and education only; always verify against the National Electrical Code (NEC / NFPA 70) and consult a licensed electrician before sizing conductors, breakers, or equipment.</p>
+</div>
+</footer>
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════════════════════ -->
+<script src="/assets/js/converters.js?v=phase12" defer></script>
+<script src="/assets/js/calculators.js?v=phase12" defer></script>
+<script src="/assets/js/site.js?v=phase12" defer></script>
+
+<!-- Calculator Logic -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const modeAmpsBtn = document.getElementById('mode-amps');
+  const modeWattsBtn = document.getElementById('mode-watts');
+  const sectionAmps = document.getElementById('section-amps');
+  const sectionWatts = document.getElementById('section-watts');
+  
+  const inputAmps = document.getElementById('input-amps');
+  const inputWatts = document.getElementById('input-watts');
+  const inputVolts = document.getElementById('input-voltage');
+  const inputContinuous = document.getElementById('input-continuous');
+  
+  const resValue = document.getElementById('result-value');
+  const resUnit = document.getElementById('result-unit');
+  const resWire = document.getElementById('result-wire');
+  const resNote = document.getElementById('formula-note');
+  
+  let currentMode = 'amps';
+
+  if(modeAmpsBtn && modeWattsBtn) {
+    modeAmpsBtn.addEventListener('click', () => {
+      currentMode = 'amps';
+      modeAmpsBtn.classList.add('active');
+      modeAmpsBtn.setAttribute('aria-selected', 'true');
+      modeWattsBtn.classList.remove('active');
+      modeWattsBtn.setAttribute('aria-selected', 'false');
+      sectionAmps.classList.add('active');
+      sectionWatts.classList.remove('active');
+      calculate();
+    });
+
+    modeWattsBtn.addEventListener('click', () => {
+      currentMode = 'watts';
+      modeWattsBtn.classList.add('active');
+      modeWattsBtn.setAttribute('aria-selected', 'true');
+      modeAmpsBtn.classList.remove('active');
+      modeAmpsBtn.setAttribute('aria-selected', 'false');
+      sectionWatts.classList.add('active');
+      sectionAmps.classList.remove('active');
+      calculate();
+    });
+  }
+
+  const standardBreakers = [15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 110, 125, 150, 175, 200, 225, 250, 300, 350, 400];
+  
+  const wireLookup = {
+    15: "14 AWG",
+    20: "12 AWG",
+    25: "10 AWG",
+    30: "10 AWG",
+    35: "8 AWG",
+    40: "8 AWG",
+    45: "6 AWG",
+    50: "6 AWG",
+    60: "4 AWG",
+    70: "4 AWG",
+    80: "3 AWG",
+    90: "2 AWG",
+    100: "1 AWG",
+    110: "1 AWG",
+    125: "1/0 AWG",
+    150: "2/0 AWG",
+    175: "3/0 AWG",
+    200: "4/0 AWG",
+    225: "4/0 AWG",
+    250: "250 kcmil",
+    300: "350 kcmil",
+    350: "500 kcmil",
+    400: "500 kcmil"
+  };
+
+  function getBreaker(amps) {
+    for (let i = 0; i < standardBreakers.length; i++) {
+      if (standardBreakers[i] >= amps) return standardBreakers[i];
+    }
+    return ">400";
+  }
+
+  function calculate() {
+    if (!inputAmps || !inputWatts || !inputVolts || !inputContinuous || !resValue) return;
+
+    let baseAmps = 0;
+    
+    if (currentMode === 'amps') {
+      baseAmps = parseFloat(inputAmps.value);
+    } else {
+      const w = parseFloat(inputWatts.value);
+      const v = parseFloat(inputVolts.value);
+      if (!isNaN(w) && !isNaN(v) && v > 0) {
+        baseAmps = w / v;
+      }
+    }
+
+    if (isNaN(baseAmps) || baseAmps <= 0) {
+      resValue.textContent = "—";
+      resUnit.style.display = 'none';
+      resWire.textContent = "—";
+      resNote.textContent = "Enter a valid load to calculate.";
+      return;
+    }
+
+    const isContinuous = inputContinuous.checked;
+    const multiplier = isContinuous ? 1.25 : 1.0;
+    const designAmps = baseAmps * multiplier;
+
+    const breaker = getBreaker(designAmps);
+
+    resValue.textContent = breaker;
+    resUnit.style.display = breaker === ">400" ? 'none' : 'inline';
+    
+    const wireStr = (breaker !== ">400" && wireLookup[breaker]) ? wireLookup[breaker] : "Consult NEC tables";
+    resWire.textContent = wireStr;
+    
+    let formulaStr = "";
+    if (currentMode === 'watts') {
+      const w = parseFloat(inputWatts.value);
+      const v = parseFloat(inputVolts.value);
+      formulaStr = `Base Load: ${w}W ÷ ${v}V = ${baseAmps.toFixed(1)}A. `;
+    }
+    
+    if (isContinuous) {
+      formulaStr += `Design Current: ${baseAmps.toFixed(1)}A × 1.25 (Continuous) = ${designAmps.toFixed(1)}A`;
+    } else {
+      formulaStr += `Design Current: ${designAmps.toFixed(1)}A (Non-continuous)`;
+    }
+    resNote.textContent = formulaStr;
+  }
+  
+  [inputAmps, inputWatts, inputVolts, inputContinuous].forEach(el => {
+    if(el) {
+        el.addEventListener('input', calculate);
+        el.addEventListener('change', calculate);
+    }
+  });
+  
+  calculate(); // initial calculation
+});
+</script>
+</body>
+</html>

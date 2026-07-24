@@ -8,44 +8,6 @@ const publicDir = path.join(__dirname, '../public');
 const CLUSTERS = related.CLUSTERS;
 const PAGES = related.PAGES;
 
-// Dynamically register CHILDREN into PAGES so they can be cross-linked
-for (const [parentKey, childObj] of Object.entries(related.CHILDREN || {})) {
-    if (childObj && childObj.values) {
-        childObj.values.forEach(val => {
-            const childKey = `${val}-${parentKey}`;
-            let pairs = [];
-            if (parentKey === 'kw-to-amps' && [7.5, 11, 15, 22].includes(val)) {
-                pairs.push('ev-charging-time-calculator');
-            }
-            PAGES[childKey] = {
-                href: `/${parentKey}/${childKey}/`,
-                label: `${val} ${childObj.unitLabel}`,
-                anchor: `Calculate for ${val} ${childObj.unitLabel}`,
-                blurb: `Specific conversion for ${val} ${childObj.unitLabel}.`,
-                pairs: pairs.length ? pairs : undefined,
-                exists: true
-            };
-        });
-    }
-}
-// Dynamically register VOLTAGES
-for (const [parentKey, vArr] of Object.entries(related.VOLTAGES || {})) {
-    if (Array.isArray(vArr)) {
-        vArr.forEach(vObj => {
-            // Extract voltage key like '12v'
-            const parts = vObj.href.split('/');
-            const vKey = parts[parts.length - 2];
-            const fullKey = `${parentKey}-${vKey}`;
-            PAGES[fullKey] = {
-                href: vObj.href,
-                label: vObj.label,
-                anchor: vObj.anchor,
-                blurb: vObj.blurb,
-                exists: true
-            };
-        });
-    }
-}
 
 function getPagesInCluster(clusterId) {
     return Object.keys(PAGES).filter(k => PAGES[k].clusters && PAGES[k].clusters.includes(clusterId) && PAGES[k].exists);
@@ -185,16 +147,6 @@ function updateFile(filePath) {
             content = content.replace(/<!-- related:start -->[\s\S]*?<!-- related:end -->/, `<!-- related:start -->\n${relatedHtml}\n<!-- related:end -->`);
         }
 
-        // 6. Update Voltage Blocks
-        if (related.VOLTAGES && related.VOLTAGES[pageKey]) {
-            const vData = related.VOLTAGES[pageKey];
-            let vHtml = `<section class="related-conversions" aria-labelledby="voltage-conversions-heading">\n<h2 id="voltage-conversions-heading">Calculate by Voltage</h2>\n<p class="related-conversions__intro">Jump to a pre-filled calculator for common system voltages:</p>\n<ul class="rel-list">\n`;
-            vData.forEach(v => {
-                vHtml += `<li class="rel-item"><a class="rel-item__link" href="${v.href}">${v.anchor}</a><span class="rel-item__desc">${v.blurb || ''}</span></li>\n`;
-            });
-            vHtml += `</ul>\n</section>`;
-            content = content.replace(/<!-- voltages:start -->[\s\S]*?<!-- voltages:end -->/, `<!-- voltages:start -->\n${vHtml}\n<!-- voltages:end -->`);
-        }
     }
 
     fs.writeFileSync(filePath, content, 'utf8');

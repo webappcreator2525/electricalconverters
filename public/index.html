@@ -75,6 +75,7 @@
 <a class="nav-panel__link" href="/amps-to-kw/">Amps to kW</a>
 <a class="nav-panel__link" href="/volts-to-amps/">Volts to Amps</a>
 <a class="nav-panel__link" href="/volts-to-watts/">Volts to Watts</a>
+<a class="nav-panel__link" href="/led-resistor-calculator/">LED Resistor</a>
 <div class="nav-panel__sub">Guides</div>
 <a class="nav-panel__link nav-panel__link--sub" href="/learn/ohms-law/">Ohm's Law</a>
 <a class="nav-panel__link nav-panel__link--sub" href="/learn/watts-vs-amps/">Watts vs Amps</a>
@@ -112,6 +113,7 @@
 <a class="nav-panel__link" href="/ah-to-wh/">Ah to Wh</a>
 <a class="nav-panel__link" href="/wh-to-ah/">Wh to Ah</a>
 <a class="nav-panel__link" href="/mah-to-ah/">mAh to Ah</a>
+<a class="nav-panel__link" href="/ah-to-kwh-calculator/">Ah to kWh</a>
 </div>
 </li>
 <li class="nav-group">
@@ -128,7 +130,9 @@
 <li class="nav-group">
 <button aria-controls="menu-safety" aria-expanded="false" class="nav-trigger" id="trigger-safety" type="button">Wiring &amp; Safety Sizing <span aria-hidden="true" class="nav-caret"></span></button>
 <div class="nav-panel" id="menu-safety">
-<p class="nav-panel__note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+<a class="nav-panel__link" href="/circuit-breaker-size-calculator/">Circuit Breaker Size</a>
+<a class="nav-panel__link" href="/12v-wire-size-calculator/">12V Wire Size</a>
+<a class="nav-panel__link" href="/trolling-motor-wire-size-calculator/">Trolling Motor Wire Size</a>
 </div>
 </li>
 </ul>
@@ -157,6 +161,7 @@
 <a class="nav-link" href="/amps-to-kw/">Amps to kW</a>
 <a class="nav-link" href="/volts-to-amps/">Volts to Amps</a>
 <a class="nav-link" href="/volts-to-watts/">Volts to Watts</a>
+<a class="nav-link" href="/led-resistor-calculator/">LED Resistor</a>
 </li>
 <li class="m-group">
 <div class="m-group__label">Apparent Power (kVA &amp; VA)</div>
@@ -185,6 +190,7 @@
 <a class="nav-link" href="/ah-to-wh/">Ah to Wh</a>
 <a class="nav-link" href="/wh-to-ah/">Wh to Ah</a>
 <a class="nav-link" href="/mah-to-ah/">mAh to Ah</a>
+<a class="nav-link" href="/ah-to-kwh-calculator/">Ah to kWh</a>
 </li>
 <li class="m-group">
 <div class="m-group__label">Motors &amp; Horsepower</div>
@@ -197,7 +203,9 @@
 </li>
 <li class="m-group">
 <div class="m-group__label">Wiring &amp; Safety Sizing</div>
-<p class="m-note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+<a class="nav-link" href="/circuit-breaker-size-calculator/">Circuit Breaker Size</a>
+<a class="nav-link" href="/12v-wire-size-calculator/">12V Wire Size</a>
+<a class="nav-link" href="/trolling-motor-wire-size-calculator/">Trolling Motor Wire Size</a>
 </li>
 <li class="m-group">
 <div class="m-group__label">Guides</div>
@@ -369,37 +377,56 @@
 </a></li>
 </ul>
 </div>
+
 <div class="cluster-block">
-<h2 class="cluster-block__label">Wiring &amp; Safety Sizing</h2>
-<p class="cluster-block__desc">After finding amps, size wire and breakers and check voltage drop to code.</p>
-<div class="cluster-soon"><strong>Coming soon:</strong> wire gauge, breaker size, voltage drop and three-phase power. Start by <a href="/watts-to-amps/">finding amps with the watts to amps calculator</a>.</div>
+<h2 class="cluster-block__label">Battery &amp; LED Calculators</h2>
+<p class="cluster-block__desc">Calculate battery storage capacity and determine the correct resistor for LED circuits.</p>
+<ul class="tool-grid">
+<li><a class="tool-card" href="/ah-to-kwh-calculator/">
+<div class="tool-card__top">
+<div class="tool-card__title">Ah to kWh Calculator</div>
+</div>
+<p class="tool-card__desc">Convert battery capacity in amp-hours to total stored energy in kilowatt-hours.</p>
+<span class="tool-card__cta">Calculate &rarr;</span>
+</a></li>
+<li><a class="tool-card" href="/led-resistor-calculator/">
+<div class="tool-card__top">
+<div class="tool-card__title">LED Resistor Calculator</div>
+</div>
+<p class="tool-card__desc">Find the exact resistor value needed to safely run LEDs without burning them out.</p>
+<span class="tool-card__cta">Calculate &rarr;</span>
+</a></li>
+</ul>
+</div>
+<div class="cluster-block">
+<h2 class="cluster-block__label">DC Wire &amp; Load Sizing Calculators</h2>
+<p class="cluster-block__desc">Size your DC wiring, circuit breakers, and marine cables safely to code standards.</p>
+<ul class="tool-grid">
+<li><a class="tool-card" href="/12v-wire-size-calculator/">
+<div class="tool-card__top">
+<div class="tool-card__title">12V Wire Size Calculator</div>
+</div>
+<p class="tool-card__desc">Calculate the correct AWG wire size for 12V, 24V, and 48V DC applications.</p>
+<span class="tool-card__cta">Calculate &rarr;</span>
+</a></li>
+<li><a class="tool-card" href="/circuit-breaker-size-calculator/">
+<div class="tool-card__top">
+<div class="tool-card__title">Circuit Breaker Size Calculator</div>
+</div>
+<p class="tool-card__desc">Apply the NEC 125% continuous load rule to find the right standard breaker size.</p>
+<span class="tool-card__cta">Calculate &rarr;</span>
+</a></li>
+<li><a class="tool-card" href="/trolling-motor-wire-size-calculator/">
+<div class="tool-card__top">
+<div class="tool-card__title">Trolling Motor Wire Size</div>
+</div>
+<p class="tool-card__desc">Size marine trolling motor wires for distance and thrust without voltage drops.</p>
+<span class="tool-card__cta">Calculate &rarr;</span>
+</a></li>
+</ul>
 </div>
 </section>
-<section aria-labelledby="popular-heading">
-  <h2 class="section-heading" id="popular-heading">Popular Calculations</h2>
-  <div class="popular-grid">
-    <div class="popular-group">
-      <div class="popular-group__label">Watts to Amps</div>
-      <div class="popular-links">
-        <a href="/watts-to-amps/500-watts-to-amps/">500 W</a>
-        <a href="/watts-to-amps/1000-watts-to-amps/">1000 W</a>
-        <a href="/watts-to-amps/1500-watts-to-amps/">1500 W</a>
-        <a href="/watts-to-amps/2000-watts-to-amps/">2000 W</a>
-        <a href="/watts-to-amps/3000-watts-to-amps/">3000 W</a>
-        <a href="/watts-to-amps/5000-watts-to-amps/">5000 W</a>
-      </div>
-    </div>
-    <div class="popular-group">
-      <div class="popular-group__label">kW to Amps</div>
-      <div class="popular-links">
-        <a href="/kw-to-amps/1-kw-to-amps/">1 kW</a>
-        <a href="/kw-to-amps/2-kw-to-amps/">2 kW</a>
-        <a href="/kw-to-amps/5-kw-to-amps/">5 kW</a>
-        <a href="/kw-to-amps/10-kw-to-amps/">10 kW</a>
-      </div>
-    </div>
-  </div>
-</section>
+
 <section aria-labelledby="learn-heading">
 <h2 class="section-heading" id="learn-heading">Educational Articles</h2>
 <ul class="tool-grid">
@@ -434,6 +461,8 @@
 
 
 
+
+
 <nav class="footer-col" aria-label="Power and current calculators">
 <div class="footer-col__label">Power &amp; Current</div>
 <a href="/watts-to-amps/">Watts to Amps</a>
@@ -444,6 +473,7 @@
 <a href="/amps-to-kw/">Amps to kW</a>
 <a href="/volts-to-amps/">Volts to Amps</a>
 <a href="/volts-to-watts/">Volts to Watts</a>
+<a href="/led-resistor-calculator/">LED Resistor Calculator</a>
 </nav>
 <nav class="footer-col" aria-label="Apparent power and energy calculators">
 <div class="footer-col__label">Apparent &amp; Energy</div>
@@ -475,6 +505,13 @@
 <a href="/ah-to-wh/">Ah to Wh</a>
 <a href="/wh-to-ah/">Wh to Ah</a>
 <a href="/mah-to-ah/">mAh to Ah</a>
+<a href="/ah-to-kwh-calculator/">Ah to kWh Calculator</a>
+</nav>
+<nav class="footer-col" aria-label="Wire and load sizing calculators">
+<div class="footer-col__label">Wire &amp; Load Sizing</div>
+<a href="/12v-wire-size-calculator/">12V Wire Size Calculator</a>
+<a href="/circuit-breaker-size-calculator/">Circuit Breaker Size Calculator</a>
+<a href="/trolling-motor-wire-size-calculator/">Trolling Motor Wire Size Calculator</a>
 </nav>
 <nav class="footer-col" aria-label="Site information">
 <div class="footer-col__label">Site</div>

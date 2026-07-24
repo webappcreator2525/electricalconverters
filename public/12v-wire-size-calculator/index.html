@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Primary Meta -->
+<title>12V Wire Size Calculator (with Chassis Ground Option)</title>
+<meta content="Calculate wire size (AWG) for 12V, 24V, and 48V DC systems. Features a chassis ground return toggle for accurate effective length calculations." name="description"/>
+<link href="https://electricalconverters.com/12v-wire-size-calculator/" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="12V Wire Size Calculator (with Chassis Ground Option)" property="og:title"/>
+<meta content="Calculate wire size (AWG) for 12V, 24V, and 48V DC systems. Features a chassis ground return toggle for accurate effective length calculations." property="og:description"/>
+<meta content="https://electricalconverters.com/12v-wire-size-calculator/" property="og:url"/>
+<!-- Site Design System -->
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=phase12" rel="stylesheet"/>
+<!-- FAQPage Structured Data -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an acceptable voltage drop for 12V systems?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Generally, a 3% drop is recommended for critical components (like lighting, sensitive electronics, or battery chargers) to ensure proper operation. A 10% drop is acceptable for non-critical loads like fans, winches, or heaters where slight underperformance is fine."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this for 24V or 48V systems?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Simply select your system voltage from the dropdown. Higher voltages can transmit the same amount of power (Watts) using lower current (Amps), which typically allows for thinner wire over the same distance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a Chassis Ground Return?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In many automotive, RV, and van builds, the vehicle's metal chassis acts as the negative return path. This halves your effective wire length, allowing for smaller, cheaper wire."
+        }
+      }
+    ]
+  }
+</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://electricalconverters.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "12V Wire Size Calculator",
+        "item": "https://electricalconverters.com/12v-wire-size-calculator/"
+      }
+    ]
+  }
+</script>
+<!-- p2:meta -->
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="#f4f6f8" name="theme-color"/>
+<meta content="ElectricalConverters editorial team" name="author"/>
+<meta content="ElectricalConverters" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="12V Wire Size Calculator (with Chassis Ground Option)" name="twitter:title"/>
+<meta content="Calculate wire size (AWG) for 12V, 24V, and 48V DC systems. Features a chassis ground return toggle for accurate effective length calculations." name="twitter:description"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- /p2:meta -->
+</head>
+<body data-calc="12v-wire-size">
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════════════════ -->
+<header class="site-header">
+<div class="header-inner">
+<a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<nav aria-label="Main navigation" class="site-nav">
+<ul class="nav-list">
+<li class="nav-group">
+<button aria-controls="menu-power-current" aria-expanded="false" class="nav-trigger" id="trigger-power-current" type="button">Power ↔ Current <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-power-current">
+<a class="nav-panel__link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-panel__link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-panel__link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-panel__link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-panel__link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-panel__link" href="/volts-to-watts/">Volts to Watts</a>
+<a class="nav-panel__link" href="/led-resistor-calculator/">LED Resistor</a>
+<div class="nav-panel__sub">Guides</div>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/ohms-law/">Ohm's Law</a>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-apparent" aria-expanded="false" class="nav-trigger" id="trigger-apparent" type="button">Apparent Power (kVA &amp; VA) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-apparent">
+<a class="nav-panel__link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-panel__link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-panel__link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-panel__link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-panel__link" href="/kva-to-watts/">kVA to Watts</a>
+<a class="nav-panel__link" href="/amps-to-kva/">Amps to kVA</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-energy" aria-expanded="false" class="nav-trigger" id="trigger-energy" type="button">Energy &amp; Running Cost (kWh) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-energy">
+<a class="nav-panel__link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kwh/">Watts to kWh</a>
+<a class="nav-panel__link" href="/wh-to-kwh/">Wh to kWh</a>
+<a class="nav-panel__link" href="/joules-to-watts/">Joules to Watts</a>
+<a class="nav-panel__link" href="/watts-to-joules/">Watts to Joules</a>
+<a class="nav-panel__link" href="/btu-to-watts/">BTU to Watts</a>
+<a class="nav-panel__link" href="/watts-to-btu/">Watts to BTU</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-battery" aria-expanded="false" class="nav-trigger" id="trigger-battery" type="button">Battery Capacity <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-battery">
+<a class="nav-panel__link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-panel__link" href="/wh-to-mah/">Wh to mAh</a>
+<a class="nav-panel__link" href="/ah-to-wh/">Ah to Wh</a>
+<a class="nav-panel__link" href="/wh-to-ah/">Wh to Ah</a>
+<a class="nav-panel__link" href="/mah-to-ah/">mAh to Ah</a>
+<a class="nav-panel__link" href="/ah-to-kwh-calculator/">Ah to kWh</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-motor" aria-expanded="false" class="nav-trigger" id="trigger-motor" type="button">Motors &amp; Horsepower <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-motor">
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-panel__link" href="/amps-to-hp/">Amps to HP</a>
+<a class="nav-panel__link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-panel__link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-panel__link" href="/ev-charging-time-calculator/">EV Charging Time</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-safety" aria-expanded="false" class="nav-trigger" id="trigger-safety" type="button">Wiring &amp; Safety Sizing <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-safety">
+<a class="nav-panel__link" href="/12v-wire-size-calculator/">12V Wire Size Calculator</a>
+</div>
+</li>
+</ul>
+</nav>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button">
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+</button>
+</div>
+</header>
+<div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
+<div class="mobile-nav-inner">
+<div class="mobile-nav-header">
+<span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+<button aria-label="Close navigation" class="nav-close" type="button">&times;</button>
+</div>
+<ul class="mobile-nav-list">
+<li class="m-group">
+<div class="m-group__label">Power ↔ Current</div>
+<a class="nav-link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-link" href="/volts-to-watts/">Volts to Watts</a>
+<a class="nav-link" href="/led-resistor-calculator/">LED Resistor</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Battery Capacity</div>
+<a class="nav-link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-link" href="/wh-to-mah/">Wh to mAh</a>
+<a class="nav-link" href="/ah-to-wh/">Ah to Wh</a>
+<a class="nav-link" href="/wh-to-ah/">Wh to Ah</a>
+<a class="nav-link" href="/mah-to-ah/">mAh to Ah</a>
+<a class="nav-link" href="/ah-to-kwh-calculator/">Ah to kWh</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Wiring &amp; Safety Sizing</div>
+<a class="nav-link" href="/12v-wire-size-calculator/">12V Wire Size Calculator</a>
+</li>
+</ul>
+</div>
+</div>
+<main id="main-content">
+<div class="page-wrap">
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true" class="breadcrumb__sep">›</span>
+<span class="breadcrumb__current">12V Wire Size Calculator</span>
+</nav>
+<div class="calc-header">
+<h1 id="page-heading">12V Wire Size Calculator</h1>
+<div class="page-byline">
+<span class="page-byline__item">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Last updated <strong>July 2026</strong></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Estimates only — <a href="/about/">how we check</a></span>
+</div>
+<p>Determine the correct wire size (AWG) for your 12V, 24V, or 48V DC applications. Ideal for RV, van, and marine electrical builds.</p>
+</div>
+<!-- ── Converter Tool ──────────────────────────── -->
+<section aria-label="12v wire size converter tool">
+<div aria-label="12v wire size calculator" class="converter-card" role="form">
+<!-- Mode section -->
+<div class="mode-section active" role="tabpanel">
+<div class="input-row">
+<div class="field-group ue7ec54">
+<label for="input-voltage">System Voltage</label>
+<select aria-label="System voltage" class="input-field input-field--select" id="input-voltage">
+<option value="12">12V</option>
+<option value="24">24V</option>
+<option value="48">48V</option>
+</select>
+</div>
+<div class="field-group ue7ec54">
+<label for="input-amps">Current Draw (A)</label>
+<input aria-label="Current in amps" autocomplete="off" class="input-field" id="input-amps" inputmode="decimal" min="0" step="any" type="number" value="10"/>
+</div>
+</div>
+<div class="input-row">
+<div class="field-group ue7ec54">
+<label for="input-length">One-Way Length</label>
+<div style="display:flex; gap:0.5rem">
+<input aria-label="Length" autocomplete="off" class="input-field" id="input-length" inputmode="decimal" min="0" step="any" type="number" value="15" style="flex:1"/>
+<select aria-label="Length unit" class="input-field input-field--select" id="input-unit" style="width:5rem">
+<option value="ft">ft</option>
+<option value="m">m</option>
+</select>
+</div>
+</div>
+<div class="field-group ue7ec54">
+<label for="input-vdrop">Allowable Voltage Drop</label>
+<select aria-label="Voltage drop percentage" class="input-field input-field--select" id="input-vdrop">
+<option value="3">3% (Critical)</option>
+<option value="10">10% (Non-critical)</option>
+</select>
+</div>
+</div>
+<!-- Chassis Ground Toggle -->
+<div class="input-row" style="margin-top: 1rem; align-items: flex-start;">
+<div class="field-group ue7ec54" style="flex-direction: row; gap: 1rem; align-items: flex-start; width: 100%;">
+<input type="checkbox" id="input-chassis" style="width: 1.25rem; height: 1.25rem; margin-top: 0.25rem; accent-color: var(--ec-phosphor);">
+<div>
+<label for="input-chassis" style="margin-bottom: 0; font-weight: 600; color: var(--ec-ink);">Chassis Ground Return</label>
+<p style="font-size: 0.85rem; color: var(--ec-slate); margin-top: 0.3rem; line-height: 1.4;">Check this if you are using the vehicle chassis as the return path instead of a dedicated negative wire. This halves the effective wire length.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Result display -->
+<div class="result-wrap">
+<div aria-atomic="true" aria-live="polite" class="result-display" id="result-display">
+<div class="result-display__label">RECOMMENDED WIRE SIZE (COPPER)</div>
+<div class="result-display__value-row">
+<span class="result-display__value" id="result-value">14</span>
+<span class="result-display__unit" id="result-unit">AWG</span>
+</div>
+<div class="result-display__formula-note" id="formula-note">
+              CM = (10.75 × 10.0A × 30.0ft) / 0.36V = 896 CM
+            </div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ── Content Sections ──────────────────────────── -->
+<section aria-labelledby="how-heading" class="content-section">
+<h2 id="how-heading">How does the 12V wire size calculator work?</h2>
+<p>This tool uses the standard NEC voltage drop formula to determine the minimum wire size (in AWG) required for DC circuits. The formula is:</p>
+<div class="formula-block"><span class="var">CM</span> = (10.75 × <span class="var">Current</span> × <span class="var">Length<sub>eff</sub></span>) ÷ <span class="var">Voltage Drop</span></div>
+<p>Where:</p>
+<ul class="use-cases-list">
+  <li><strong>CM (Circular Mils):</strong> The cross-sectional area of the wire.</li>
+  <li><strong>10.75:</strong> The resistivity constant for copper wire.</li>
+  <li><strong>Current:</strong> Your device's draw in Amps.</li>
+  <li><strong>Length<sub>eff</sub> (Effective Length):</strong> The total distance the electricity must travel. In a standard 2-wire setup, this is twice the one-way distance (there and back). If using a chassis ground, it is just the one-way distance.</li>
+  <li><strong>Voltage Drop:</strong> The maximum acceptable drop in Volts (e.g., 0.36V for a 3% drop on a 12V system).</li>
+</ul>
+</section>
+
+<section aria-labelledby="chassis-heading" class="content-section">
+<h2 id="chassis-heading">What is the Chassis Ground Return?</h2>
+<p>In many automotive, RV, and van builds, the vehicle's metal chassis acts as the negative return path to the battery. Because the chassis is a massive piece of metal, its electrical resistance is practically zero.</p>
+<p><strong>Standard 2-Wire Setup:</strong> You run a positive wire to the device and a negative wire back to the battery. A 15ft distance means 30ft of total wire. The electricity encounters resistance in both directions.</p>
+<p><strong>Chassis Ground:</strong> You run a positive wire to the device, and a short negative wire directly to the metal chassis. The electricity returns through the chassis. A 15ft distance means only ~15ft of wire resistance. This halves your effective length and often allows you to use a thinner, cheaper wire.</p>
+</section>
+
+<!-- ── FAQ ──────────────────────────────────────── -->
+<section aria-labelledby="faq-heading" class="content-section">
+<h2 id="faq-heading">Frequently Asked Questions</h2>
+<div class="faq-list">
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            What is an acceptable voltage drop for 12V systems?
+</div>
+<div class="faq-item__answer">
+<p>Generally, a <strong>3% drop</strong> is recommended for critical components (like lighting, sensitive electronics, or battery chargers) to ensure proper operation. A <strong>10% drop</strong> is acceptable for non-critical loads like fans, winches, or heaters where slight underperformance is fine.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            Can I use this for 24V or 48V systems?
+</div>
+<div class="faq-item__answer">
+<p>Yes. Simply select your system voltage from the dropdown. Higher voltages can transmit the same amount of power (Watts) using lower current (Amps), which typically allows for thinner wire over the same distance.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- related:start -->
+<section class="related-conversions" aria-labelledby="related-conversions-heading">
+<h2 id="related-conversions-heading">Related calculators</h2>
+<p class="related-conversions__intro">Check out our other electrical planning tools:</p>
+<ul class="rel-list">
+<li class="rel-item"><a class="rel-item__link" href="/watts-to-amps/">Watts to Amps Calculator</a><span class="rel-item__desc">Find the current draw of any device based on its wattage rating.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/ah-to-kwh-calculator/">Ah to kWh Calculator</a><span class="rel-item__desc">Convert battery capacity to stored energy for solar and RV banks.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/watts-to-volts/">Watts to Volts</a><span class="rel-item__desc">Find voltage from watts and amps or resistance.</span></li>
+</ul>
+</section>
+<!-- related:end -->
+
+</div><!-- /page-wrap -->
+</main>
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+<div class="site-footer__inner">
+<div class="footer-brand">
+<a class="footer-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<p class="footer-tagline">Free, client-side conversion instruments for engineers, electricians, and students. No signup, no tracking.</p>
+<p class="footer-review">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a> · estimates only.</p>
+</div>
+<nav class="footer-col" aria-label="Power and current calculators">
+<div class="footer-col__label">Power &amp; Current</div>
+<a href="/watts-to-amps/">Watts to Amps</a>
+<a href="/amps-to-watts/">Amps to Watts</a>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/watts-to-volts/">Watts to Volts</a>
+<a href="/amps-to-volts/">Amps to Volts</a>
+<a href="/amps-to-kw/">Amps to kW</a>
+<a href="/volts-to-amps/">Volts to Amps</a>
+<a href="/volts-to-watts/">Volts to Watts</a>
+<a href="/led-resistor-calculator/">LED Resistor Calculator</a>
+</nav>
+<nav class="footer-col" aria-label="Apparent power and energy calculators">
+<div class="footer-col__label">Apparent &amp; Energy</div>
+<a href="/kva-to-kw/">kVA to kW</a>
+<a href="/kva-to-amps/">kVA to Amps</a>
+<a href="/va-to-watts/">VA to Watts</a>
+<a href="/watts-to-kva/">Watts to kVA</a>
+<a href="/kw-to-kva/">kW to kVA</a>
+<a href="/kva-to-watts/">kVA to Watts</a>
+<a href="/amps-to-kva/">Amps to kVA</a>
+<a href="/kwh-to-watts/">kWh to Watts</a>
+<a href="/watts-to-kwh/">Watts to kWh</a>
+</nav>
+<nav class="footer-col" aria-label="Motors, battery and guides">
+<div class="footer-col__label">Motors &amp; Battery</div>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/hp-to-amps/">HP to Amps</a>
+<a href="/amps-to-hp/">Amps to HP</a>
+<a href="/ev-charging-time-calculator/">EV Charging Time</a>
+<a href="/ah-to-kwh-calculator/">Ah to kWh</a>
+<a href="/12v-wire-size-calculator/">12V Wire Size Calculator</a>
+</nav>
+<nav class="footer-col" aria-label="Site information">
+<div class="footer-col__label">Site</div>
+<a href="/about/">About &amp; method</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy/">Privacy</a>
+<a href="/learn/ohms-law/">Ohm's Law</a>
+</nav>
+</div>
+<div class="footer-meta">
+<p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com · calculations run entirely in your browser.</p>
+<p class="footer-accuracy"><strong>How these work:</strong> each tool applies the standard conversion formula shown on its page. Results are rounded estimates for reference and education only; always verify against the National Electrical Code (NEC / NFPA 70) and consult a licensed electrician before sizing conductors, breakers, or equipment.</p>
+</div>
+</footer>
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════════════════════ -->
+<script src="/assets/js/converters.js?v=phase12" defer></script>
+<script src="/assets/js/calculators.js?v=phase12" defer></script>
+<script src="/assets/js/site.js?v=phase12" defer></script>
+
+<!-- Calculator Logic -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const vInput = document.getElementById('input-voltage');
+  const aInput = document.getElementById('input-amps');
+  const lInput = document.getElementById('input-length');
+  const uInput = document.getElementById('input-unit');
+  const vdInput = document.getElementById('input-vdrop');
+  const chassisInput = document.getElementById('input-chassis');
+  
+  const resValue = document.getElementById('result-value');
+  const resUnit = document.getElementById('result-unit');
+  const resNote = document.getElementById('formula-note');
+  
+  // AWG Table mapping minimum Circular Mils (CM) for standard sizes
+  const awgSizes = [
+    { gauge: "18", cm: 1620 },
+    { gauge: "16", cm: 2580 },
+    { gauge: "14", cm: 4110 },
+    { gauge: "12", cm: 6530 },
+    { gauge: "10", cm: 10380 },
+    { gauge: "8", cm: 16510 },
+    { gauge: "6", cm: 26240 },
+    { gauge: "4", cm: 41740 },
+    { gauge: "2", cm: 66360 },
+    { gauge: "1", cm: 83690 },
+    { gauge: "1/0", cm: 105600 },
+    { gauge: "2/0", cm: 133100 },
+    { gauge: "3/0", cm: 167800 },
+    { gauge: "4/0", cm: 211600 }
+  ];
+
+  function getAWG(cm) {
+    for (let i = 0; i < awgSizes.length; i++) {
+      if (awgSizes[i].cm >= cm) {
+        return awgSizes[i].gauge;
+      }
+    }
+    return ">4/0"; // Too big for standard table
+  }
+
+  function calculate() {
+    if (!vInput || !aInput || !lInput || !uInput || !vdInput || !chassisInput || !resValue) return;
+
+    const V = parseFloat(vInput.value);
+    const A = parseFloat(aInput.value);
+    let L = parseFloat(lInput.value);
+    const isMetric = uInput.value === 'm';
+    const vdropPct = parseFloat(vdInput.value);
+    const isChassis = chassisInput.checked;
+    
+    if (isNaN(V) || isNaN(A) || isNaN(L) || isNaN(vdropPct) || A <= 0 || L <= 0) {
+      resValue.textContent = "—";
+      resUnit.style.display = 'none';
+      resNote.textContent = "Enter valid numbers to calculate.";
+      return;
+    }
+    
+    // Convert to feet for CM formula
+    let L_ft = isMetric ? L * 3.28084 : L;
+    
+    // Effective length: double if normal return, single if chassis ground
+    let Leff = isChassis ? L_ft : L_ft * 2;
+    
+    // Voltage drop in volts
+    const VdropVolts = V * (vdropPct / 100);
+    
+    // Calculate Circular Mils: (10.75 * I * Leff) / VdropVolts
+    const cm = (10.75 * A * Leff) / VdropVolts;
+    
+    const awg = getAWG(cm);
+    
+    resValue.textContent = awg;
+    resUnit.style.display = awg.includes(">") ? 'none' : 'inline';
+    
+    resNote.textContent = `CM = (10.75 × ${A.toFixed(1)}A × ${Leff.toFixed(1)}ft) / ${VdropVolts.toFixed(2)}V = ${Math.ceil(cm)} CM`;
+  }
+  
+  [vInput, aInput, lInput, uInput, vdInput, chassisInput].forEach(el => {
+    if(el) {
+        el.addEventListener('input', calculate);
+        el.addEventListener('change', calculate);
+    }
+  });
+  
+  calculate(); // initial calculation
+});
+</script>
+</body>
+</html>

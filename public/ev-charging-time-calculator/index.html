@@ -1,43 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EV Charging Time Calculator | Electrical Converters</title>
-<meta name="description" content="Estimate the time required to charge an electric vehicle based on battery size, charger output, and current state of charge.">
-<link rel="canonical" href="https://electricalconverters.com/ev-charging-time-calculator/">
-<link rel="stylesheet" href="/assets/css/main.css?v=phase12">
-<meta property="og:title" content="EV Charging Time Calculator">
-<meta property="og:description" content="Estimate the time required to charge an electric vehicle based on battery size, charger output, and current state of charge.">
-<meta property="og:url" content="https://electricalconverters.com/ev-charging-time-calculator/">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://electricalconverters.com/assets/og/default.png">
-<meta name="twitter:card" content="summary_large_image">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EV Charging Time Calculator — Estimate Any EV Charge Time</title>
+<meta content="Free EV charging time calculator: enter battery size, current charge %, target %, and charger power (kW) to get an instant estimate. Covers Level 1, Level 2, and DC fast charging." name="description"/>
+<link href="https://electricalconverters.com/ev-charging-time-calculator/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="EV Charging Time Calculator — Estimate Any EV Charge Time" property="og:title"/>
+<meta content="Free EV charging time calculator: enter battery size, current charge %, target %, and charger power (kW) to get an instant estimate. Covers Level 1, Level 2, and DC fast charging." property="og:description"/>
+<meta content="https://electricalconverters.com/ev-charging-time-calculator/" property="og:url"/>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=phase12" rel="stylesheet"/>
+<!-- WebApplication schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "EV Charging Time Calculator",
   "url": "https://electricalconverters.com/ev-charging-time-calculator/",
-  "applicationCategory": "CalculatorApplication",
-  "operatingSystem": "All"
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web Browser",
+  "browserRequirements": "Requires JavaScript",
+  "isAccessibleForFree": true,
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "publisher": {"@type": "Organization", "name": "ElectricalConverters", "url": "https://electricalconverters.com/", "logo": {"@type": "ImageObject", "url": "https://electricalconverters.com/icon-512.png", "width": 512, "height": 512}}
 }
 </script>
+<!-- BreadcrumbList schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://electricalconverters.com/" },
-    { "@type": "ListItem", "position": 2, "name": "EV Charging Time Calculator", "item": "https://electricalconverters.com/ev-charging-time-calculator/" }
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://electricalconverters.com/"},
+    {"@type": "ListItem", "position": 2, "name": "EV Charging Time Calculator", "item": "https://electricalconverters.com/ev-charging-time-calculator/"}
   ]
 }
 </script>
+<!-- FAQPage schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does it take to charge an EV from 20% to 80%?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on battery size and charger power. A common 60 kWh EV charged from 20% to 80% (a 36 kWh charge) on an 11 kW Level 2 charger at 90% efficiency takes about 3.6 hours. On a 7.2 kW charger the same session takes roughly 5.6 hours. Use the calculator above for your specific values."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does EV charging slow down near 100%?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Above around 80% the battery management system (BMS) tapers the charging rate significantly to protect cell chemistry and extend battery life. This calculator gives a linear estimate that is most accurate between 10% and 80%. From 80% to 100% real-world time is typically 50–100% longer than a linear model predicts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Level 2 and DC fast charging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Level 2 chargers supply AC power (3.6–22 kW) that the car's onboard charger converts to DC. DC fast chargers (50–350 kW) bypass the onboard charger and push DC directly into the battery pack, so they can deliver far more power. However, DC fast charging degrades battery capacity slightly faster and the BMS limits peak power as state of charge rises."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is charging efficiency included in the formula?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "During AC charging the onboard charger converts alternating current to direct current, losing some energy as heat. Typical AC charging efficiency is 85–95%, so a value of 0.90 (90%) is a good default. For DC fast charging most of the conversion happens in the charger itself; onboard losses are lower but thermal management draws extra power."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this calculator for DC fast charging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, with a caveat: DC fast chargers are rated by their peak output, but actual delivered power varies significantly with battery temperature, state of charge, and the car's own limits. Your average power during a fast-charge session is often 60–80% of the charger's peak rating. Enter the charger's real average power for the most accurate estimate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find my EV's battery capacity in kWh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check your vehicle owner's manual, the manufacturer's spec page, or the window sticker (Monroney label). Manufacturers publish the usable (net) capacity, which is slightly lower than the gross (total) capacity. Use the usable figure for the most accurate charging time estimate. Common values: Nissan Leaf 40 kWh, Tesla Model 3 Long Range 82 kWh, Volkswagen ID.4 77 kWh."
+      }
+    }
+  ]
+}
+</script>
+<!-- p2:meta -->
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="#f4f6f8" name="theme-color"/>
+<meta content="ElectricalConverters editorial team" name="author"/>
+<meta content="ElectricalConverters" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" property="og:image:secure_url"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="ElectricalConverters — free electrical calculators" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="EV Charging Time Calculator — Estimate Any EV Charge Time" name="twitter:title"/>
+<meta content="Free EV charging time calculator: enter battery size, current charge %, target %, and charger power (kW) to get an instant estimate." name="twitter:description"/>
+<meta content="https://electricalconverters.com/assets/og/default.png" name="twitter:image"/>
+<meta content="ElectricalConverters — free electrical calculators" name="twitter:image:alt"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- /p2:meta -->
 </head>
 <body data-calc="ev-charging-time-calculator">
-<a href="#main-content" class="skip-link">Skip to main content</a>
 <header class="site-header">
-<!-- build script will inject header -->
+<div class="header-inner">
+<a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<nav aria-label="Main navigation" class="site-nav">
 <ul class="nav-list">
 <li class="nav-group">
 <button aria-controls="menu-power-current" aria-expanded="false" class="nav-trigger" id="trigger-power-current" type="button">Power ↔ Current <span aria-hidden="true" class="nav-caret"></span></button>
@@ -50,6 +135,7 @@
 <a class="nav-panel__link" href="/amps-to-kw/">Amps to kW</a>
 <a class="nav-panel__link" href="/volts-to-amps/">Volts to Amps</a>
 <a class="nav-panel__link" href="/volts-to-watts/">Volts to Watts</a>
+<a class="nav-panel__link" href="/led-resistor-calculator/">LED Resistor</a>
 <div class="nav-panel__sub">Guides</div>
 <a class="nav-panel__link nav-panel__link--sub" href="/learn/ohms-law/">Ohm's Law</a>
 <a class="nav-panel__link nav-panel__link--sub" href="/learn/watts-vs-amps/">Watts vs Amps</a>
@@ -87,6 +173,7 @@
 <a class="nav-panel__link" href="/ah-to-wh/">Ah to Wh</a>
 <a class="nav-panel__link" href="/wh-to-ah/">Wh to Ah</a>
 <a class="nav-panel__link" href="/mah-to-ah/">mAh to Ah</a>
+<a class="nav-panel__link" href="/ah-to-kwh-calculator/">Ah to kWh</a>
 </div>
 </li>
 <li class="nav-group">
@@ -103,13 +190,26 @@
 <li class="nav-group">
 <button aria-controls="menu-safety" aria-expanded="false" class="nav-trigger" id="trigger-safety" type="button">Wiring &amp; Safety Sizing <span aria-hidden="true" class="nav-caret"></span></button>
 <div class="nav-panel" id="menu-safety">
-<p class="nav-panel__note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+<a class="nav-panel__link" href="/circuit-breaker-size-calculator/">Circuit Breaker Size</a>
+<a class="nav-panel__link" href="/12v-wire-size-calculator/">12V Wire Size</a>
+<a class="nav-panel__link" href="/trolling-motor-wire-size-calculator/">Trolling Motor Wire Size</a>
 </div>
 </li>
 </ul>
+</nav>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button">
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+</button>
+</div>
 </header>
 <div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
-<!-- build script will inject mobile nav -->
+<div class="mobile-nav-inner">
+<div class="mobile-nav-header">
+<span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+<button aria-label="Close navigation" class="nav-close" type="button">&times;</button>
+</div>
 <ul class="mobile-nav-list">
 <li class="m-group">
 <div class="m-group__label">Power ↔ Current</div>
@@ -121,6 +221,7 @@
 <a class="nav-link" href="/amps-to-kw/">Amps to kW</a>
 <a class="nav-link" href="/volts-to-amps/">Volts to Amps</a>
 <a class="nav-link" href="/volts-to-watts/">Volts to Watts</a>
+<a class="nav-link" href="/led-resistor-calculator/">LED Resistor</a>
 </li>
 <li class="m-group">
 <div class="m-group__label">Apparent Power (kVA &amp; VA)</div>
@@ -149,6 +250,7 @@
 <a class="nav-link" href="/ah-to-wh/">Ah to Wh</a>
 <a class="nav-link" href="/wh-to-ah/">Wh to Ah</a>
 <a class="nav-link" href="/mah-to-ah/">mAh to Ah</a>
+<a class="nav-link" href="/ah-to-kwh-calculator/">Ah to kWh</a>
 </li>
 <li class="m-group">
 <div class="m-group__label">Motors &amp; Horsepower</div>
@@ -161,7 +263,9 @@
 </li>
 <li class="m-group">
 <div class="m-group__label">Wiring &amp; Safety Sizing</div>
-<p class="m-note">Wire gauge, breaker size and voltage drop are coming soon. Start by <a href="/watts-to-amps/">finding amps with watts to amps</a>.</p>
+<a class="nav-link" href="/circuit-breaker-size-calculator/">Circuit Breaker Size</a>
+<a class="nav-link" href="/12v-wire-size-calculator/">12V Wire Size</a>
+<a class="nav-link" href="/trolling-motor-wire-size-calculator/">Trolling Motor Wire Size</a>
 </li>
 <li class="m-group">
 <div class="m-group__label">Guides</div>
@@ -169,13 +273,18 @@
 <a class="nav-link" href="/learn/watts-vs-amps/">Watts vs Amps</a>
 </li>
 </ul>
-<button class="nav-close" type="button" aria-label="Close menu">×</button>
 </div>
-<main id="main-content" class="page-main">
-  <div class="content-wrapper">
-    <article class="calc-article">
-      <header class="calc-header">
-        <h1>EV Charging Time Calculator</h1>
+</div>
+<main id="main-content">
+<div class="page-wrap">
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true" class="breadcrumb__sep">›</span>
+<span class="breadcrumb__current">EV Charging Time Calculator</span>
+</nav>
+
+<section aria-labelledby="page-heading" class="calc-header">
+<h1 id="page-heading">EV Charging Time Calculator</h1>
 <div class="page-byline">
 <span class="page-byline__item">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a></span>
 <span aria-hidden="true" class="page-byline__dot"></span>
@@ -183,107 +292,230 @@
 <span aria-hidden="true" class="page-byline__dot"></span>
 <span class="page-byline__item">Estimates only — <a href="/about/">how we check</a></span>
 </div>
-        <p class="calc-intro">Estimate the time required to charge an electric vehicle based on battery size, charger output, and current state of charge.</p>
-      </header>
-      
-<div class="calc-widget">
-  <div class="input-group">
-    <label for="input-kwh">Battery Capacity (kWh)</label>
-    <input type="number" id="input-kwh" inputmode="decimal" placeholder="e.g. 60" min="1" step="any">
+<p>Enter your EV's battery size, current charge level, target charge level, and charger power — the estimated charging time updates instantly. Charging time varies because the same battery charges four times faster on an 11 kW wall box than on a standard 3-pin outlet, and the battery management system progressively slows the rate above 80% to protect cell longevity.</p>
+</section>
+
+<!-- ── Calculator ──────────────────────────────────── -->
+<section aria-label="EV charging time calculator tool">
+<div class="converter-card" aria-label="EV charging time calculator" role="form">
+
+  <!-- Row 1: Battery capacity + Charger power -->
+  <div class="input-row">
+    <div class="field-group ue7ec54">
+      <label for="input-kwh">Battery Capacity (kWh)</label>
+      <input aria-label="Battery capacity in kilowatt-hours" autocomplete="off" class="input-field" id="input-kwh" inputmode="decimal" min="1" step="any" type="number" value="60" placeholder="e.g. 60"/>
+      <p class="formula-note u001c27">Usable capacity — check your owner's manual or manufacturer spec page (e.g. 40, 60, 77, 82 kWh).</p>
+    </div>
+    <div class="field-group ue7ec54">
+      <label for="input-kw">Charger Power (kW)</label>
+      <input aria-label="Charger power in kilowatts" autocomplete="off" class="input-field" id="input-kw" inputmode="decimal" min="0.1" step="any" type="number" value="11" placeholder="e.g. 11"/>
+      <p class="formula-note u001c27">Check the charger's label or app — common values: 1.4 kW (Level 1), 7.2 kW, 11 kW, 22 kW (Level 2).</p>
+    </div>
   </div>
-  <div class="input-group">
-    <label for="input-current-pct">Current Charge (%)</label>
-    <input type="number" id="input-current-pct" inputmode="decimal" placeholder="e.g. 20" min="0" max="99" step="any">
+
+  <!-- Charger presets -->
+  <div class="preset-group" aria-label="Common charger speeds" style="margin-bottom:1.5rem">
+    <span class="preset-label" style="width:100%;display:block;margin-bottom:.5rem">Quick-select charger power:</span>
+    <button aria-label="Set charger to 1.4 kW (Level 1 / standard outlet)" type="button" class="preset-btn kw-btn" data-kw="1.4">1.4 kW<span class="preset-btn__label" style="display:block;font-size:.7rem;margin-top:.1rem">Level 1</span></button>
+    <button aria-label="Set charger to 7.2 kW (Level 2)" type="button" class="preset-btn kw-btn" data-kw="7.2">7.2 kW<span class="preset-btn__label" style="display:block;font-size:.7rem;margin-top:.1rem">Level 2</span></button>
+    <button aria-label="Set charger to 11 kW (Level 2)" type="button" class="preset-btn kw-btn selected" data-kw="11">11 kW<span class="preset-btn__label" style="display:block;font-size:.7rem;margin-top:.1rem">Level 2</span></button>
+    <button aria-label="Set charger to 22 kW (Level 2 fast)" type="button" class="preset-btn kw-btn" data-kw="22">22 kW<span class="preset-btn__label" style="display:block;font-size:.7rem;margin-top:.1rem">Level 2</span></button>
+    <button aria-label="Set charger to 50 kW (DC fast)" type="button" class="preset-btn kw-btn" data-kw="50">50 kW<span class="preset-btn__label" style="display:block;font-size:.7rem;margin-top:.1rem">DC Fast</span></button>
   </div>
-  <div class="input-group">
-    <label for="input-target-pct">Target Charge (%)</label>
-    <input type="number" id="input-target-pct" inputmode="decimal" placeholder="e.g. 80" value="80" min="1" max="100" step="any">
+
+  <!-- Row 2: Charge levels -->
+  <div class="input-row">
+    <div class="field-group ue7ec54">
+      <label for="input-current-pct">Current Charge (%)</label>
+      <input aria-label="Current battery charge percentage" autocomplete="off" class="input-field" id="input-current-pct" inputmode="decimal" min="0" max="99" step="any" type="number" value="20" placeholder="e.g. 20"/>
+      <p class="formula-note u001c27">The state of charge (SoC) shown on your dashboard or charging app right now.</p>
+    </div>
+    <div class="field-group ue7ec54">
+      <label for="input-target-pct">Target Charge (%)</label>
+      <input aria-label="Target battery charge percentage" autocomplete="off" class="input-field" id="input-target-pct" inputmode="decimal" min="1" max="100" step="any" type="number" value="80" placeholder="e.g. 80"/>
+      <p class="formula-note u001c27">80% is recommended for daily use. Only charge to 100% before a long trip.</p>
+    </div>
   </div>
-  <div class="input-group">
-    <label for="input-kw">Charger Power (kW)</label>
-    <input type="number" id="input-kw" inputmode="decimal" placeholder="e.g. 11" min="0.1" step="any">
-  </div>
-  <div class="preset-group" aria-label="Common charger speeds">
-    <button type="button" class="preset-btn kw-btn" data-kw="3.6">3.6 kW</button>
-    <button type="button" class="preset-btn kw-btn" data-kw="7.2">7.2 kW</button>
-    <button type="button" class="preset-btn kw-btn" data-kw="11">11 kW</button>
-    <button type="button" class="preset-btn kw-btn" data-kw="22">22 kW</button>
-  </div>
-  <div class="input-group">
+
+  <!-- Row 3: Efficiency -->
+  <div class="field-group u0ca412" style="max-width:320px">
     <label for="input-eff">Charging Efficiency (η)</label>
-    <input type="number" id="input-eff" inputmode="decimal" value="0.9" min="0.5" max="1" step="0.01">
+    <input aria-label="Charging efficiency between 0.5 and 1" autocomplete="off" class="input-field" id="input-eff" inputmode="decimal" min="0.5" max="1" step="0.01" type="number" value="0.90"/>
+    <p class="formula-note u001c27">Typical AC onboard charger: 0.90 (90%). DC fast chargers convert more efficiently — use 0.95.</p>
+  </div>
+
+  <!-- Validation message -->
+  <div id="ev-error" role="alert" aria-live="polite" style="display:none;margin-top:1rem;padding:.75rem 1rem;background:rgba(160,82,7,.08);border:1px solid rgba(160,82,7,.3);border-radius:6px;font-size:.875rem;color:var(--ec-amber)"></div>
+
+  <!-- Result -->
+  <div class="result-display" aria-atomic="true" aria-live="polite" id="result-display" style="margin-top:2rem">
+    <div class="result-display__label">Charging Time</div>
+    <div class="result-display__value-row">
+      <span class="result-display__value" id="result-value">3.64</span>
+      <span class="result-display__unit" id="result-unit" style="">hours</span>
+    </div>
+    <div class="result-display__formula-note live" id="formula-note">Time = (60 × 60%) ÷ (11 × 0.90) = 3.64 hours</div>
+  </div>
+
+  <!-- Breakdown -->
+  <div id="ev-breakdown" style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.25rem">
+    <div style="flex:1;min-width:160px;background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:8px;padding:.875rem 1rem">
+      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-muted);margin-bottom:.3rem">Energy Needed</div>
+      <div style="font-family:var(--font-mono);font-size:1.4rem;color:var(--color-text)" id="bd-energy">36.00 kWh</div>
+    </div>
+    <div style="flex:1;min-width:160px;background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:8px;padding:.875rem 1rem">
+      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-muted);margin-bottom:.3rem">Effective Power</div>
+      <div style="font-family:var(--font-mono);font-size:1.4rem;color:var(--color-text)" id="bd-power">9.90 kW</div>
+    </div>
+    <div style="flex:1;min-width:160px;background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:8px;padding:.875rem 1rem">
+      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-muted);margin-bottom:.3rem">Charge Delta</div>
+      <div style="font-family:var(--font-mono);font-size:1.4rem;color:var(--color-text)" id="bd-delta">60%</div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ── How it's calculated ────────────────────────── -->
+<section aria-labelledby="how-heading" class="content-section">
+<h2 id="how-heading">How EV charging time is calculated</h2>
+<p>Charging time depends on three things: how much energy the battery needs (kWh), how fast the charger can deliver it (kW), and how efficiently the car's onboard charger converts AC to DC (efficiency η). The formula is:</p>
+
+<div class="formula-block" style="margin-bottom:1.5rem;font-size:1.05rem">
+  Time (h) = <span class="var">Battery&nbsp;Capacity&nbsp;(kWh)</span> × <span class="var">Charge&nbsp;Delta&nbsp;(%)</span> ÷ (<span class="var">Charger&nbsp;Power&nbsp;(kW)</span> × <span class="var">Efficiency&nbsp;η</span>)
+</div>
+
+<p><strong>Worked example</strong> — Tesla Model 3 (75 kWh usable), charging from <strong>15%</strong> to <strong>80%</strong> on an <strong>11 kW</strong> Level 2 wall box at <strong>90% efficiency</strong>:</p>
+<ol style="margin-left:1.5rem;margin-bottom:1.25rem;line-height:1.9;color:var(--color-text-muted);font-size:.9rem">
+  <li>Charge delta: 80% − 15% = <strong>65%</strong> = 0.65</li>
+  <li>Energy needed: 75 kWh × 0.65 = <strong>48.75 kWh</strong></li>
+  <li>Effective power: 11 kW × 0.90 = <strong>9.9 kW</strong></li>
+  <li>Time: 48.75 ÷ 9.9 = <strong>4.92 hours</strong> (≈ 4 h 55 min)</li>
+</ol>
+
+<div class="breaker-box">
+  <div class="breaker-box__text">
+    <strong>Circuit note:</strong> An 11 kW Level 2 charger draws about <a href="/kw-to-amps/">11 kW ÷ 240 V ≈ 45.8 A</a> — you'll typically need a dedicated 50 A or 60 A circuit. To convert your charger's rated amps to kilowatts, use our <a href="/amps-to-kw/">amps to kW calculator</a>.
   </div>
 </div>
-<div class="result-display" aria-live="polite" aria-atomic="true" id="result-display">
-  <div class="result-value" id="result-value">—</div>
-  <div class="result-unit" id="result-unit">hours</div>
-  <div class="formula-note" id="formula-note">Formula: Time = (kWh × Diff%) ÷ (kW × eff)</div>
-</div>
-      <div class="calc-content">
-        
-<h2 id="formula">How to calculate EV charging time</h2>
-<p>The formula is <strong>Time (hours) = (Battery Capacity × Percentage Difference) / (Charger Power × Efficiency)</strong>.</p>
-<p>For example, taking a 60 kWh battery from 20% to 80% (a 60% increase) using an 11 kW charger at 90% efficiency takes approximately 3.64 hours.</p>
+</section>
 
-<h2 id="reference">Common EV Charging Times (60 kWh Battery, 20% to 80%, 0.9 Eff)</h2>
-<div class="table-container">
-  <table>
-    <thead><tr><th>Charger Power (kW)</th><th>Type</th><th>Estimated Time</th></tr></thead>
-    <tbody>
-      <tr><td>3.6 kW</td><td>Level 2 AC</td><td>11.1 hours</td></tr>
-      <tr><td>7.2 kW</td><td>Level 2 AC</td><td>5.5 hours</td></tr>
-      <tr><td>11.0 kW</td><td>Level 2 AC</td><td>3.6 hours</td></tr>
-      <tr><td>22.0 kW</td><td>Level 2 AC</td><td>1.8 hours</td></tr>
-      <tr><td>50.0 kW</td><td>DC Fast Charge</td><td>0.8 hours (48 mins)</td></tr>
-    </tbody>
-  </table>
+<!-- ── Charging level comparison table ───────────── -->
+<section aria-labelledby="levels-heading" class="content-section">
+<h2 id="levels-heading">Level 1 vs Level 2 vs DC Fast Charging</h2>
+<p>The three charging levels cover vastly different use cases. Level 1 is adequate for short daily commutes; Level 2 is the standard home and workplace solution; DC fast charging is for highway stops where speed matters. The table below shows typical power ranges and a rough full-charge estimate for a 60 kWh battery from 20% to 80%:</p>
+<div aria-label="EV charging level comparison" class="table-wrap" role="region" tabindex="0">
+<table class="ref-table">
+<thead><tr>
+  <th scope="col">Level</th>
+  <th scope="col">Power Range</th>
+  <th scope="col">60–80% range (20%→80%, 60 kWh)</th>
+  <th scope="col">Typical Use Case</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td><strong>Level 1</strong> (AC)</td>
+  <td class="col-mono">1.0–1.8 kW</td>
+  <td class="col-result">~22–40 h</td>
+  <td>Standard household outlet (NEMA 5-15). Overnight top-up for low daily mileage.</td>
+</tr>
+<tr class="highlight">
+  <td><strong>Level 2</strong> (AC)</td>
+  <td class="col-mono">3.6–22 kW</td>
+  <td class="col-result">~1.8–11 h</td>
+  <td>Dedicated home wall box or public parking EVSE. Most practical for daily charging.</td>
+</tr>
+<tr>
+  <td><strong>DC Fast Charge</strong></td>
+  <td class="col-mono">50–350 kW</td>
+  <td class="col-result">~15–72 min</td>
+  <td>Highway corridor fast chargers (CCS, CHAdeMO, Tesla Supercharger). Highway stops only.</td>
+</tr>
+</tbody>
+</table>
 </div>
 
-<h2 id="faq">Frequently Asked Questions</h2>
+<div class="breaker-box">
+  <div class="breaker-box__text">
+    <strong>Power factor note:</strong> Level 2 AC chargers are rated in kW but connected circuits carry current in amps at a given voltage. Use our <a href="/kw-to-amps/">kW to amps calculator</a> to size the breaker and cable, or our <a href="/amps-to-kw/">amps to kW calculator</a> to convert your EVSE's amp rating back to kilowatts for this tool.
+  </div>
+</div>
+</section>
+
+<!-- ── FAQ ─────────────────────────────────────────── -->
+<section aria-labelledby="faq-heading" class="content-section">
+<h2 id="faq-heading">Frequently Asked Questions</h2>
 <div class="faq-list">
+
   <div class="faq-item">
-    <h3>Why is charging efficiency included?</h3>
-    <p>During AC charging, the onboard charger converts alternating current to direct current, losing some energy as heat. A typical efficiency is around 90%.</p>
+    <h3 class="faq-item__question">How long does it take to charge an EV from 20% to 80%?</h3>
+    <div class="faq-item__answer">
+      <p>It depends on battery size and charger power. A common 60 kWh EV charged from 20% to 80% (a 36 kWh net charge) on an 11 kW Level 2 charger at 90% efficiency takes about <strong>3.6 hours</strong>. On a 7.2 kW charger the same session takes roughly <strong>5.6 hours</strong>. Use the calculator above for your specific values. The 20–80% range is recommended because the battery management system (BMS) charges at full speed throughout — above 80% the rate tapers.</p>
+    </div>
   </div>
+
   <div class="faq-item">
-    <h3>Why does charging slow down past 80%?</h3>
-    <p>To protect the battery cells and maintain longevity, the battery management system reduces the charging power significantly as it approaches 100%. This calculator provides a linear estimate that is most accurate for the 10% to 80% range.</p>
+    <h3 class="faq-item__question">Does EV charging slow down near 100%?</h3>
+    <div class="faq-item__answer">
+      <p>Yes. Above approximately 80% the BMS progressively reduces charge current to protect the lithium cells from stress, heat, and premature capacity loss. This is called the <strong>CC/CV</strong> (constant-current/constant-voltage) taper phase. From 80% to 100% the real-world charge time is typically 50–100% longer than a linear model predicts. This calculator provides a linear estimate most accurate for the 10–80% range.</p>
+    </div>
   </div>
+
   <div class="faq-item">
-    <h3>Can I use this for DC fast charging?</h3>
-    <p>Yes, but keep in mind that DC fast charging curves are highly non-linear. The average charging power over your session will often be lower than the peak kW rating of the charger.</p>
+    <h3 class="faq-item__question">What is the difference between Level 2 and DC fast charging?</h3>
+    <div class="faq-item__answer">
+      <p>Level 2 chargers supply <strong>AC power</strong> (typically 3.6–22 kW) that the car's onboard charger converts to DC before it enters the battery pack. Because the onboard charger is the bottleneck, even a 22 kW supply won't help a car whose onboard charger is rated for only 11 kW.</p>
+      <p><strong>DC fast chargers</strong> (50–350 kW) bypass the onboard charger entirely and push DC directly into the pack. They can deliver far more power, but they also degrade the battery slightly faster over hundreds of sessions, and the BMS still limits peak power as the SoC rises above 80%. Our <a href="/kw-to-amps/">kW to amps calculator</a> shows the enormous current differences involved.</p>
+    </div>
   </div>
+
+  <div class="faq-item">
+    <h3 class="faq-item__question">Why is charging efficiency included in the formula?</h3>
+    <div class="faq-item__answer">
+      <p>During AC charging, the onboard charger's power electronics convert alternating current to direct current, dissipating some energy as heat. A <strong>typical AC onboard-charger efficiency is 85–95%</strong>, so 0.90 (90%) is a reasonable default. For DC fast charging most conversion happens in the charger station hardware; onboard losses are lower but thermal management still draws power — using 0.95 is appropriate for DC sessions. Lower efficiency means more grid energy is consumed and the actual charge time is longer.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <h3 class="faq-item__question">Can I use this calculator for DC fast charging?</h3>
+    <div class="faq-item__answer">
+      <p>Yes, with a caveat: DC fast chargers are rated by their <em>peak</em> output, but actual delivered power varies with battery temperature, state of charge, and the car's own limits. Your <strong>average power during a fast-charge session</strong> is often 60–80% of the charger's peak rating — especially from a cold battery or above 60% SoC. For the most accurate estimate, enter the charger's realistic average power rather than its nameplate peak.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <h3 class="faq-item__question">How do I find my EV's battery capacity in kWh?</h3>
+    <div class="faq-item__answer">
+      <p>Check your owner's manual, the manufacturer's spec page, or the window sticker. Manufacturers publish the <strong>usable (net)</strong> capacity, which is slightly lower than the gross capacity — use the usable figure for this calculator. Common examples: Nissan Leaf (40 kWh), Chevrolet Bolt (65 kWh), Tesla Model 3 SR (57 kWh), Tesla Model 3 LR (82 kWh), VW ID.4 (77 kWh). The energy reading on your car's display in <a href="/kwh-to-watts/">kWh</a> tells you how much is stored, not the total capacity.</p>
+    </div>
+  </div>
+
 </div>
-      </div>
-      <footer class="calc-meta">
-        <p><strong>Reviewer:</strong> Team &middot; <strong>Last Updated:</strong> <time datetime="2026-07-18">2026-07-18</time></p>
-        <p class="disclaimer"><em>Disclaimer: For general information only. Always consult a licensed electrician or engineer for real-world electrical design and safety.</em></p>
-      </footer>
-    </article>
-    <!-- related:start -->
+</section>
+
+<!-- related:start -->
 <section class="related-conversions" aria-labelledby="related-conversions-heading">
 <h2 id="related-conversions-heading">Related conversions</h2>
 <p class="related-conversions__intro">This calculator is part of our <strong>Motors &amp; Horsepower</strong> tools. Jump to a related conversion:</p>
 <ul class="rel-list">
-<li class="rel-item"><a class="rel-item__link" href="/kw-to-amps/7.5-kw-to-amps/">Calculate for 7.5 kW</a><span class="rel-item__desc">Specific conversion for 7.5 kW.</span></li>
-<li class="rel-item"><a class="rel-item__link" href="/kw-to-amps/11-kw-to-amps/">Calculate for 11 kW</a><span class="rel-item__desc">Specific conversion for 11 kW.</span></li>
-<li class="rel-item"><a class="rel-item__link" href="/kw-to-amps/15-kw-to-amps/">Calculate for 15 kW</a><span class="rel-item__desc">Specific conversion for 15 kW.</span></li>
-<li class="rel-item"><a class="rel-item__link" href="/kw-to-amps/22-kw-to-amps/">Calculate for 22 kW</a><span class="rel-item__desc">Specific conversion for 22 kW.</span></li>
 <li class="rel-item"><a class="rel-item__link" href="/kw-to-amps/">Size larger loads with the kW to amps calculator</a><span class="rel-item__desc">Kilowatts to current for single- and three-phase.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/hp-to-amps/">Size a motor circuit with hp to amps</a><span class="rel-item__desc">Motor horsepower to full-load current.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/amps-to-hp/">Convert amps back to horsepower</a><span class="rel-item__desc">Full-load current to motor horsepower.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/hp-to-kw/">Convert horsepower to kilowatts</a><span class="rel-item__desc">Motor rating from HP to kW.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/kw-to-hp/">Convert kilowatts to horsepower</a><span class="rel-item__desc">Motor rating from kW to HP.</span></li>
 </ul>
 </section>
 <!-- related:end -->
-  </div>
+
+</div><!-- /page-wrap -->
 </main>
 <footer class="site-footer" role="contentinfo">
-  <div class="footer-wrapper">
-    <div class="footer-cols">
-      <!-- build script will inject footer -->
-      
-
-
-
-
+<div class="site-footer__inner">
+<div class="footer-brand">
+<a class="footer-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<p class="footer-tagline">Free, client-side conversion instruments for engineers, electricians, and students. No signup, no tracking.</p>
+<p class="footer-review">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a> · estimates only.</p>
+</div>
 
 
 <nav class="footer-col" aria-label="Power and current calculators">
@@ -296,6 +528,7 @@
 <a href="/amps-to-kw/">Amps to kW</a>
 <a href="/volts-to-amps/">Volts to Amps</a>
 <a href="/volts-to-watts/">Volts to Watts</a>
+<a href="/led-resistor-calculator/">LED Resistor Calculator</a>
 </nav>
 <nav class="footer-col" aria-label="Apparent power and energy calculators">
 <div class="footer-col__label">Apparent &amp; Energy</div>
@@ -327,6 +560,13 @@
 <a href="/ah-to-wh/">Ah to Wh</a>
 <a href="/wh-to-ah/">Wh to Ah</a>
 <a href="/mah-to-ah/">mAh to Ah</a>
+<a href="/ah-to-kwh-calculator/">Ah to kWh Calculator</a>
+</nav>
+<nav class="footer-col" aria-label="Wire and load sizing calculators">
+<div class="footer-col__label">Wire &amp; Load Sizing</div>
+<a href="/12v-wire-size-calculator/">12V Wire Size Calculator</a>
+<a href="/circuit-breaker-size-calculator/">Circuit Breaker Size Calculator</a>
+<a href="/trolling-motor-wire-size-calculator/">Trolling Motor Wire Size Calculator</a>
 </nav>
 <nav class="footer-col" aria-label="Site information">
 <div class="footer-col__label">Site</div>
@@ -338,12 +578,84 @@
 </nav>
 </div>
 <div class="footer-meta">
-      <p>&copy; <span id="footer-year">2026</span> electricalconverters.com</p>
-    </div>
-  </div>
+<p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com · calculations run entirely in your browser.</p>
+<p class="footer-accuracy"><strong>How these work:</strong> each tool applies the standard conversion formula shown on its page — DC, AC single-phase and three-phase where relevant. Results are rounded estimates for reference and education only; always verify against the National Electrical Code (NEC / NFPA 70) and consult a licensed electrician before sizing conductors, breakers, or equipment.</p>
+</div>
 </footer>
 <script src="/assets/js/converters.js?v=phase12" defer></script>
 <script src="/assets/js/calculators.js?v=phase12" defer></script>
 <script src="/assets/js/site.js?v=phase12" defer></script>
+<script>
+/* EV Charging Time — inline enhancement: validation, breakdown, pre-calculation */
+(function () {
+  'use strict';
+  function ready(fn) {
+    if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn);
+  }
+  ready(function () {
+    var kwh = document.getElementById('input-kwh');
+    var cur = document.getElementById('input-current-pct');
+    var tgt = document.getElementById('input-target-pct');
+    var kw  = document.getElementById('input-kw');
+    var eff = document.getElementById('input-eff');
+    var err = document.getElementById('ev-error');
+    var bdEnergy = document.getElementById('bd-energy');
+    var bdPower  = document.getElementById('bd-power');
+    var bdDelta  = document.getElementById('bd-delta');
+
+    function fmt(n, d) {
+      if (n === null || isNaN(n)) return '—';
+      return n.toFixed(d !== undefined ? d : 2);
+    }
+
+    function updateBreakdown() {
+      var kwhV = parseFloat(kwh && kwh.value);
+      var curV = parseFloat(cur && cur.value);
+      var tgtV = parseFloat(tgt && tgt.value);
+      var kwV  = parseFloat(kw && kw.value);
+      var effV = parseFloat(eff && eff.value);
+
+      /* Validate */
+      var errMsg = '';
+      if (tgtV <= curV) errMsg = 'Target charge must be greater than current charge.';
+      else if (kwhV <= 0) errMsg = 'Battery capacity must be greater than 0.';
+      else if (kwV <= 0) errMsg = 'Charger power must be greater than 0.';
+      else if (effV <= 0 || effV > 1) errMsg = 'Efficiency must be between 0.01 and 1.00.';
+
+      if (err) {
+        if (errMsg) { err.textContent = '⚠ ' + errMsg; err.style.display = 'block'; }
+        else { err.textContent = ''; err.style.display = 'none'; }
+      }
+
+      if (errMsg || isNaN(kwhV) || isNaN(curV) || isNaN(tgtV) || isNaN(kwV) || isNaN(effV)) {
+        if (bdEnergy) bdEnergy.textContent = '—';
+        if (bdPower)  bdPower.textContent  = '—';
+        if (bdDelta)  bdDelta.textContent  = '—';
+        return;
+      }
+
+      var delta   = (tgtV - curV) / 100;
+      var energy  = kwhV * delta;
+      var effPow  = kwV * effV;
+
+      if (bdEnergy) bdEnergy.textContent = fmt(energy, 2) + ' kWh';
+      if (bdPower)  bdPower.textContent  = fmt(effPow, 2) + ' kW';
+      if (bdDelta)  bdDelta.textContent  = fmt(tgtV - curV, 0) + '%';
+    }
+
+    [kwh, cur, tgt, kw, eff].forEach(function (el) {
+      if (el) el.addEventListener('input', updateBreakdown);
+    });
+
+    /* Also update breakdown on preset button click */
+    document.querySelectorAll('.kw-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () { updateBreakdown(); });
+    });
+
+    /* Initial calculation */
+    updateBreakdown();
+  });
+})();
+</script>
 </body>
 </html>

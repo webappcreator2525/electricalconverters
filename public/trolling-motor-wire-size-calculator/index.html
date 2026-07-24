@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Primary Meta -->
+<title>Trolling Motor Wire Size Calculator (12V, 24V, 36V, 48V)</title>
+<meta content="Free trolling motor wire size calculator. Instantly calculate the correct AWG wire gauge for your 12V, 24V, or 36V motor based on distance and thrust." name="description"/>
+<link href="https://electricalconverters.com/trolling-motor-wire-size-calculator/" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="Trolling Motor Wire Size Calculator (12V, 24V, 36V, 48V)" property="og:title"/>
+<meta content="Free trolling motor wire size calculator. Instantly calculate the correct AWG wire gauge for your 12V, 24V, or 36V motor based on distance and thrust." property="og:description"/>
+<meta content="https://electricalconverters.com/trolling-motor-wire-size-calculator/" property="og:url"/>
+<!-- Site Design System -->
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin="">
+<link href="/assets/css/main.css?v=phase12" rel="stylesheet"/>
+<!-- FAQPage Structured Data -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What gauge wire for a 24V trolling motor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For a typical 24V trolling motor drawing 60 amps, you generally need 8 AWG wire for short runs under 15 feet, and 6 AWG wire for runs between 15 and 25 feet. If your wiring is in an enclosed conduit, always upsize to the next gauge."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How far can I run trolling motor wire?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can run trolling motor wire as far as necessary, provided you increase the wire thickness (lower AWG number) to compensate for the distance. Long runs on 12V systems require massive cable, whereas 24V or 36V systems can make the same run with thinner wire."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does trolling motor wire gauge really matter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Undersized wire will cause a significant voltage drop, meaning your motor receives less voltage. This results in sluggish performance, reduced thrust, and dangerous heat buildup in the wires that can start a fire."
+        }
+      }
+    ]
+  }
+</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://electricalconverters.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Trolling Motor Wire Size",
+        "item": "https://electricalconverters.com/trolling-motor-wire-size-calculator/"
+      }
+    ]
+  }
+</script>
+<!-- p2:meta -->
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="#f4f6f8" name="theme-color"/>
+<meta content="ElectricalConverters editorial team" name="author"/>
+<meta content="ElectricalConverters" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Trolling Motor Wire Size Calculator (12V, 24V, 36V, 48V)" name="twitter:title"/>
+<meta content="Free trolling motor wire size calculator. Instantly calculate the correct AWG wire gauge for your 12V, 24V, or 36V motor based on distance and thrust." name="twitter:description"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<!-- /p2:meta -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Trolling Motor Wire Size Calculator",
+  "url":"https://electricalconverters.com/trolling-motor-wire-size-calculator/",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Web Browser",
+  "browserRequirements":"Requires JavaScript",
+  "isAccessibleForFree":true,
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "publisher":{"@type":"Organization","name":"ElectricalConverters","url":"https://electricalconverters.com/"}
+}
+</script>
+</head>
+<body data-calc="trolling-motor-wire">
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════════════════════ -->
+<header class="site-header">
+<div class="header-inner">
+<a class="site-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<nav aria-label="Main navigation" class="site-nav">
+<ul class="nav-list">
+<li class="nav-group">
+<button aria-controls="menu-power-current" aria-expanded="false" class="nav-trigger" id="trigger-power-current" type="button">Power ↔ Current <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-power-current">
+<a class="nav-panel__link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-panel__link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-panel__link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-panel__link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-panel__link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-panel__link" href="/volts-to-watts/">Volts to Watts</a>
+<a class="nav-panel__link" href="/led-resistor-calculator/">LED Resistor</a>
+<div class="nav-panel__sub">Guides</div>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/ohms-law/">Ohm's Law</a>
+<a class="nav-panel__link nav-panel__link--sub" href="/learn/watts-vs-amps/">Watts vs Amps</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-apparent" aria-expanded="false" class="nav-trigger" id="trigger-apparent" type="button">Apparent Power (kVA &amp; VA) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-apparent">
+<a class="nav-panel__link" href="/kva-to-kw/">kVA to kW</a>
+<a class="nav-panel__link" href="/kva-to-amps/">kVA to Amps</a>
+<a class="nav-panel__link" href="/va-to-watts/">VA to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kva/">Watts to kVA</a>
+<a class="nav-panel__link" href="/kw-to-kva/">kW to kVA</a>
+<a class="nav-panel__link" href="/kva-to-watts/">kVA to Watts</a>
+<a class="nav-panel__link" href="/amps-to-kva/">Amps to kVA</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-energy" aria-expanded="false" class="nav-trigger" id="trigger-energy" type="button">Energy &amp; Running Cost (kWh) <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-energy">
+<a class="nav-panel__link" href="/kwh-to-watts/">kWh to Watts</a>
+<a class="nav-panel__link" href="/watts-to-kwh/">Watts to kWh</a>
+<a class="nav-panel__link" href="/wh-to-kwh/">Wh to kWh</a>
+<a class="nav-panel__link" href="/joules-to-watts/">Joules to Watts</a>
+<a class="nav-panel__link" href="/watts-to-joules/">Watts to Joules</a>
+<a class="nav-panel__link" href="/btu-to-watts/">BTU to Watts</a>
+<a class="nav-panel__link" href="/watts-to-btu/">Watts to BTU</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-battery" aria-expanded="false" class="nav-trigger" id="trigger-battery" type="button">Battery Capacity <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-battery">
+<a class="nav-panel__link" href="/mah-to-wh/">mAh to Wh</a>
+<a class="nav-panel__link" href="/wh-to-mah/">Wh to mAh</a>
+<a class="nav-panel__link" href="/ah-to-wh/">Ah to Wh</a>
+<a class="nav-panel__link" href="/wh-to-ah/">Wh to Ah</a>
+<a class="nav-panel__link" href="/mah-to-ah/">mAh to Ah</a>
+<a class="nav-panel__link" href="/ah-to-kwh-calculator/">Ah to kWh</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-motor" aria-expanded="false" class="nav-trigger" id="trigger-motor" type="button">Motors &amp; Horsepower <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-motor">
+<a class="nav-panel__link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-panel__link" href="/hp-to-amps/">HP to Amps</a>
+<a class="nav-panel__link" href="/amps-to-hp/">Amps to HP</a>
+<a class="nav-panel__link" href="/hp-to-kw/">HP to kW</a>
+<a class="nav-panel__link" href="/kw-to-hp/">kW to HP</a>
+<a class="nav-panel__link" href="/ev-charging-time-calculator/">EV Charging Time</a>
+</div>
+</li>
+<li class="nav-group">
+<button aria-controls="menu-safety" aria-expanded="false" class="nav-trigger" id="trigger-safety" type="button">Wiring &amp; Safety Sizing <span aria-hidden="true" class="nav-caret"></span></button>
+<div class="nav-panel" id="menu-safety">
+<a class="nav-panel__link" href="/circuit-breaker-size-calculator/">Circuit Breaker Size</a>
+<a class="nav-panel__link" href="/12v-wire-size-calculator/">12V Wire Size</a>
+<a class="nav-panel__link" href="/trolling-motor-wire-size-calculator/">Trolling Motor Wire Size</a>
+</div>
+</li>
+</ul>
+</nav>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button">
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+<span class="nav-toggle-bar"></span>
+</button>
+</div>
+</header>
+<div aria-hidden="true" class="mobile-nav-overlay" id="mobile-nav">
+<div class="mobile-nav-inner">
+<div class="mobile-nav-header">
+<span class="site-logo"><span>Electrical</span><span class="logo-accent">Converters</span></span>
+<button aria-label="Close navigation" class="nav-close" type="button">&times;</button>
+</div>
+<ul class="mobile-nav-list">
+<li class="m-group">
+<div class="m-group__label">Power ↔ Current</div>
+<a class="nav-link" href="/watts-to-amps/">Watts to Amps</a>
+<a class="nav-link" href="/amps-to-watts/">Amps to Watts</a>
+<a class="nav-link" href="/kw-to-amps/">kW to Amps</a>
+<a class="nav-link" href="/watts-to-volts/">Watts to Volts</a>
+<a class="nav-link" href="/amps-to-volts/">Amps to Volts</a>
+<a class="nav-link" href="/amps-to-kw/">Amps to kW</a>
+<a class="nav-link" href="/volts-to-amps/">Volts to Amps</a>
+<a class="nav-link" href="/volts-to-watts/">Volts to Watts</a>
+<a class="nav-link" href="/led-resistor-calculator/">LED Resistor</a>
+</li>
+<li class="m-group">
+<div class="m-group__label">Wiring &amp; Safety Sizing</div>
+<a class="nav-link" href="/circuit-breaker-size-calculator/">Circuit Breaker Size</a>
+<a class="nav-link" href="/12v-wire-size-calculator/">12V Wire Size</a>
+<a class="nav-link" href="/trolling-motor-wire-size-calculator/">Trolling Motor Wire Size</a>
+</li>
+</ul>
+</div>
+</div>
+<main id="main-content">
+<div class="page-wrap">
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="/">Home</a>
+<span aria-hidden="true" class="breadcrumb__sep">›</span>
+<span class="breadcrumb__current">Trolling Motor Wire Size</span>
+</nav>
+<div class="calc-header">
+<h1 id="page-heading">Trolling Motor Wire Size Calculator</h1>
+<div class="page-byline">
+<span class="page-byline__item">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Last updated <strong>July 2026</strong></span>
+<span aria-hidden="true" class="page-byline__dot"></span>
+<span class="page-byline__item">Estimates only — <a href="/about/">how we check</a></span>
+</div>
+<p>Find the exact wire gauge for your trolling motor setup. This tool automatically accounts for continuous-load safety factors and enclosed conduit thermal derating.</p>
+</div>
+<!-- ── Converter Tool ──────────────────────────── -->
+<section aria-label="Trolling motor wire size converter tool">
+<div aria-label="Trolling motor wire size calculator" class="converter-card" role="form">
+<!-- Input section -->
+<div class="mode-section active" role="tabpanel">
+<div class="input-row">
+<div class="field-group ue7ec54">
+<label for="input-voltage">Motor Voltage</label>
+<select aria-label="Motor voltage" class="input-field input-field--select" id="input-voltage">
+<option value="12">12V</option>
+<option value="24">24V</option>
+<option value="36">36V</option>
+<option value="48">48V</option>
+</select>
+</div>
+<div class="field-group ue7ec54">
+<label for="input-amps">Max Amp Draw (A)</label>
+<input aria-label="Max amp draw" autocomplete="off" class="input-field" id="input-amps" inputmode="decimal" min="0" step="any" type="number" value="50"/>
+<p style="font-size: 0.75rem; color: var(--ec-slate); margin-top: 0.35rem; line-height: 1.3;">Approx: 55 lb thrust ≈ 50A, 80 lb thrust ≈ 60A.</p>
+</div>
+</div>
+
+<div class="input-row">
+<div class="field-group ue7ec54">
+<label for="input-length">One-Way Wire Length</label>
+<div style="display:flex; gap:0.5rem">
+<input aria-label="Length" autocomplete="off" class="input-field" id="input-length" inputmode="decimal" min="0" step="any" type="number" value="15" style="flex:1"/>
+<select aria-label="Length unit" class="input-field input-field--select" id="input-unit" style="width:5rem">
+<option value="ft">ft</option>
+<option value="m">m</option>
+</select>
+</div>
+<p style="font-size: 0.75rem; color: var(--ec-slate); margin-top: 0.35rem; line-height: 1.3;">Distance from battery to motor. (Tool automatically doubles this for round trip).</p>
+</div>
+<div class="field-group ue7ec54">
+<label for="input-vdrop">Allowable Voltage Drop</label>
+<select aria-label="Voltage drop percentage" class="input-field input-field--select" id="input-vdrop">
+<option value="3">3% (Recommended)</option>
+<option value="10">10% (Absolute Max)</option>
+</select>
+</div>
+</div>
+
+<!-- Enclosed Conduit Toggle -->
+<div class="input-row" style="margin-top: 0.5rem; align-items: flex-start;">
+<div class="field-group ue7ec54" style="flex-direction: row; gap: 1rem; align-items: flex-start; width: 100%;">
+<input type="checkbox" id="input-conduit" style="width: 1.25rem; height: 1.25rem; margin-top: 0.25rem; accent-color: var(--ec-phosphor);">
+<div>
+<label for="input-conduit" style="margin-bottom: 0; font-weight: 600; color: var(--ec-ink);">Enclosed Conduit Installation</label>
+<p style="font-size: 0.85rem; color: var(--ec-slate); margin-top: 0.3rem; line-height: 1.4;">Check this if wires run inside a tube or packed conduit where heat cannot escape easily. Applies a 20% thermal derating (requires next larger wire size).</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Result display -->
+<div class="result-wrap">
+<div aria-atomic="true" aria-live="polite" class="result-display" id="result-display">
+<div class="result-display__label">RECOMMENDED WIRE SIZE (AWG)</div>
+<div class="result-display__value-row">
+<span class="result-display__value" id="result-value">4</span>
+<span class="result-display__unit" id="result-unit">AWG</span>
+</div>
+
+<div class="result-display__formula-note" id="formula-note" style="margin-top: 1rem;">
+              Design Current: 50A × 1.25 = 62.5A. Actual Voltage Drop: 2.1% (0.25V).
+            </div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ── Content Sections ──────────────────────────── -->
+<section aria-labelledby="why-heading" class="content-section">
+<h2 id="why-heading">Why trolling motors need accurate wire sizing</h2>
+<p>Trolling motors draw heavy, continuous current (frequently 50 amps or more) to push your boat through water and wind. Because the batteries are usually installed at the stern and the motor at the bow, the electrical run can easily exceed 20 feet. This long distance paired with high continuous current makes trolling motor circuits incredibly vulnerable to voltage drop. If the wires are too thin, voltage drops before reaching the motor, causing a loss of thrust and dangerous overheating in the wiring.</p>
+</section>
+
+<section aria-labelledby="derating-heading" class="content-section">
+<h2 id="derating-heading">Free-Air vs. Enclosed Conduit Derating</h2>
+<p>Electrical wire naturally heats up as current flows through it. When wires are run in "free air" (open spaces where air can circulate), this heat dissipates safely. However, if you pull your trolling motor wires through an enclosed PVC pipe, flexible conduit, or a tightly packed wiring chase, that heat gets trapped.</p>
+<p>To prevent the insulation from melting in these enclosed spaces, marine electrical standards require a <strong>thermal derating</strong>—typically reducing the wire's effective ampacity by 20%. In practice, this means if you are running wire through a conduit, you must usually step up to the next thicker wire size.</p>
+</section>
+
+<section aria-labelledby="table-heading" class="content-section">
+<h2 id="table-heading">Trolling Motor Wire Size Reference Chart</h2>
+<p>Below is a quick reference table for common trolling motor setups. These recommendations assume a 3% maximum voltage drop and include a 1.25x safety margin. Always use the interactive calculator above for your specific run length.</p>
+<div aria-label="Trolling motor wire size reference table" class="examples-table-wrap" role="region" tabindex="0">
+<table class="examples-table">
+<thead>
+<tr>
+<th scope="col">System Voltage</th>
+<th scope="col">Approx. Thrust / Amps</th>
+<th scope="col">Short Run (10 ft)</th>
+<th scope="col">Medium Run (20 ft)</th>
+<th scope="col">Long Run (30 ft)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="col-result">12V</td>
+<td>55 lb / 50A</td>
+<td>6 AWG</td>
+<td>4 AWG</td>
+<td>2 AWG</td>
+</tr>
+<tr>
+<td class="col-result">24V</td>
+<td>80 lb / 60A</td>
+<td>8 AWG</td>
+<td>6 AWG</td>
+<td>4 AWG</td>
+</tr>
+<tr>
+<td class="col-result">36V</td>
+<td>112 lb / 50A</td>
+<td>10 AWG</td>
+<td>8 AWG</td>
+<td>6 AWG</td>
+</tr>
+<tr>
+<td class="col-result">48V</td>
+<td>130 lb / 40A</td>
+<td>10 AWG</td>
+<td>10 AWG</td>
+<td>8 AWG</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="font-size: 0.85rem; color: var(--ec-slate); margin-top: 0.75rem;">* Note: Distances are one-way (battery to motor). Recommendations assume standard 75°C marine copper wire in free air.</p>
+</section>
+
+<!-- ── FAQ ──────────────────────────────────────── -->
+<section aria-labelledby="faq-heading" class="content-section">
+<h2 id="faq-heading">Frequently Asked Questions</h2>
+<div class="faq-list">
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            What gauge wire for a 24V trolling motor?
+</div>
+<div class="faq-item__answer">
+<p>For a typical 24V trolling motor drawing 60 amps, you generally need <strong>8 AWG</strong> wire for short runs under 15 feet, and <strong>6 AWG</strong> wire for runs between 15 and 25 feet. If your wiring is in an enclosed conduit, always upsize to the next gauge.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            How far can I run trolling motor wire?
+</div>
+<div class="faq-item__answer">
+<p>You can run trolling motor wire as far as necessary, provided you increase the wire thickness (lower AWG number) to compensate for the distance. If you need to run wire 30 feet to the bow, a 12V system might require massive 2 AWG cable, whereas a 36V system could make the same run with much cheaper 6 AWG wire.</p>
+</div>
+</div>
+<div class="faq-item">
+<div class="faq-item__question" role="button" tabindex="0">
+            Does trolling motor wire gauge really matter?
+</div>
+<div class="faq-item__answer">
+<p>Yes, critically. Undersized wire will cause a significant voltage drop, meaning your expensive 24V motor might only receive 20V by the time the power reaches the bow. This results in sluggish performance, reduced thrust, and dangerous heat buildup in the wires that can start a fire.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ── Methodology ──────────────────────────────── -->
+<section aria-labelledby="methodology-heading" class="content-section">
+<h2 id="methodology-heading">Methodology: The Math Behind the Calculator</h2>
+<p>This calculator determines the safe wire size using two parallel checks:</p>
+<ol style="margin-left: 1.5rem; color: var(--ec-slate); line-height: 1.6; margin-bottom: 1rem;">
+<li><strong>Voltage Drop (Circular Mils):</strong> Uses the standard DC formula <code>CM = (2 × 10.75 × L × I) ÷ V_drop</code> to ensure the voltage drop does not exceed your target (usually 3%). Because trolling motors lack a chassis ground, the total circuit length is doubled (2 × L) for the round trip.</li>
+<li><strong>Thermal Ampacity:</strong> Trolling motors are considered continuous loads, so the input amperage is multiplied by a <strong>1.25 safety factor</strong>. We then check the resulting "Design Current" against standard 75°C copper ampacity tables.</li>
+</ol>
+<p>Finally, if "Enclosed Conduit" is selected, the tool automatically steps up to the next larger AWG size to account for the trapped heat and 20% thermal derating rule.</p>
+</section>
+
+<!-- related:start -->
+<section class="related-conversions" aria-labelledby="related-conversions-heading">
+<h2 id="related-conversions-heading">Related calculators</h2>
+<p class="related-conversions__intro">Complete your electrical planning with these related tools:</p>
+<ul class="rel-list">
+<li class="rel-item"><a class="rel-item__link" href="/12v-wire-size-calculator/">12V Wire Size Calculator</a><span class="rel-item__desc">General-purpose DC wire sizing with chassis ground return options.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/kw-to-amps/">kW to Amps Calculator</a><span class="rel-item__desc">Convert power in kilowatts directly to current draw.</span></li>
+<li class="rel-item"><a class="rel-item__link" href="/marine-wire-size-calculator/">Marine Wire Size Calculator</a><span class="rel-item__desc">Comprehensive ABYC-compliant wire sizing for all boat systems.</span></li>
+</ul>
+</section>
+<!-- related:end -->
+
+</div><!-- /page-wrap -->
+</main>
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+<div class="site-footer__inner">
+<div class="footer-brand">
+<a class="footer-logo" href="/"><span>Electrical</span><span class="logo-accent">Converters</span></a>
+<p class="footer-tagline">Free, client-side conversion instruments for engineers, electricians, and students. No signup, no tracking.</p>
+<p class="footer-review">Reviewed by the <a href="/about/">ElectricalConverters editorial team</a> · estimates only.</p>
+</div>
+<nav class="footer-col" aria-label="Power and current calculators">
+<div class="footer-col__label">Power &amp; Current</div>
+<a href="/watts-to-amps/">Watts to Amps</a>
+<a href="/amps-to-watts/">Amps to Watts</a>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/watts-to-volts/">Watts to Volts</a>
+<a href="/amps-to-volts/">Amps to Volts</a>
+<a href="/amps-to-kw/">Amps to kW</a>
+<a href="/volts-to-amps/">Volts to Amps</a>
+<a href="/volts-to-watts/">Volts to Watts</a>
+<a href="/led-resistor-calculator/">LED Resistor Calculator</a>
+</nav>
+<nav class="footer-col" aria-label="Apparent power and energy calculators">
+<div class="footer-col__label">Apparent &amp; Energy</div>
+<a href="/kva-to-kw/">kVA to kW</a>
+<a href="/kva-to-amps/">kVA to Amps</a>
+<a href="/va-to-watts/">VA to Watts</a>
+<a href="/watts-to-kva/">Watts to kVA</a>
+<a href="/kw-to-kva/">kW to kVA</a>
+<a href="/kva-to-watts/">kVA to Watts</a>
+<a href="/amps-to-kva/">Amps to kVA</a>
+<a href="/kwh-to-watts/">kWh to Watts</a>
+<a href="/watts-to-kwh/">Watts to kWh</a>
+</nav>
+<nav class="footer-col" aria-label="Motors, battery and guides">
+<div class="footer-col__label">Motors &amp; Battery</div>
+<a href="/kw-to-amps/">kW to Amps</a>
+<a href="/hp-to-amps/">HP to Amps</a>
+<a href="/amps-to-hp/">Amps to HP</a>
+<a href="/ev-charging-time-calculator/">EV Charging Time</a>
+<a href="/circuit-breaker-size-calculator/">Circuit Breaker Size</a>
+<a href="/trolling-motor-wire-size-calculator/">Trolling Motor Wire Size</a>
+</nav>
+<nav class="footer-col" aria-label="Site information">
+<div class="footer-col__label">Site</div>
+<a href="/about/">About &amp; method</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy/">Privacy</a>
+<a href="/learn/ohms-law/">Ohm's Law</a>
+</nav>
+</div>
+<div class="footer-meta">
+<p class="footer-copy"><span id="footer-year"></span> ElectricalConverters.com · calculations run entirely in your browser.</p>
+<p class="footer-accuracy"><strong>How these work:</strong> each tool applies the standard conversion formula shown on its page. Results are rounded estimates for reference and education only; always verify against the National Electrical Code (NEC / NFPA 70) and consult a licensed electrician before sizing conductors, breakers, or equipment.</p>
+</div>
+</footer>
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════════════════════ -->
+<script src="/assets/js/converters.js?v=phase12" defer></script>
+<script src="/assets/js/calculators.js?v=phase12" defer></script>
+<script src="/assets/js/site.js?v=phase12" defer></script>
+
+<!-- Calculator Logic -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const vInput = document.getElementById('input-voltage');
+  const aInput = document.getElementById('input-amps');
+  const lInput = document.getElementById('input-length');
+  const uInput = document.getElementById('input-unit');
+  const vdInput = document.getElementById('input-vdrop');
+  const conduitInput = document.getElementById('input-conduit');
+  
+  const resValue = document.getElementById('result-value');
+  const resUnit = document.getElementById('result-unit');
+  const resNote = document.getElementById('formula-note');
+  
+  // AWG array incorporating both Circular Mils (for voltage drop) and generic 75C ampacity
+  const awgSizes = [
+    { gauge: "14", cm: 4110, maxAmps: 20 },
+    { gauge: "12", cm: 6530, maxAmps: 25 },
+    { gauge: "10", cm: 10380, maxAmps: 35 },
+    { gauge: "8", cm: 16510, maxAmps: 50 },
+    { gauge: "6", cm: 26240, maxAmps: 65 },
+    { gauge: "4", cm: 41740, maxAmps: 85 },
+    { gauge: "2", cm: 66360, maxAmps: 115 },
+    { gauge: "1", cm: 83690, maxAmps: 130 },
+    { gauge: "1/0", cm: 105600, maxAmps: 150 },
+    { gauge: "2/0", cm: 133100, maxAmps: 175 },
+    { gauge: "3/0", cm: 167800, maxAmps: 200 },
+    { gauge: "4/0", cm: 211600, maxAmps: 230 }
+  ];
+
+  function getAWG(cm, requiredAmps, isConduit) {
+    let bestIndex = -1;
+    // Find the smallest wire that satisfies BOTH cm (voltage drop) and requiredAmps (ampacity)
+    for (let i = 0; i < awgSizes.length; i++) {
+      if (awgSizes[i].cm >= cm && awgSizes[i].maxAmps >= requiredAmps) {
+        bestIndex = i;
+        break;
+      }
+    }
+    
+    if (bestIndex === -1) return null; // Too big
+    
+    if (isConduit) {
+      bestIndex++; // Next larger size
+      if (bestIndex >= awgSizes.length) return null; // Too big after conduit shift
+    }
+    
+    return awgSizes[bestIndex];
+  }
+
+  function calculate() {
+    if (!vInput || !aInput || !lInput || !uInput || !vdInput || !conduitInput || !resValue) return;
+
+    const V = parseFloat(vInput.value);
+    const A = parseFloat(aInput.value);
+    let L = parseFloat(lInput.value);
+    const isMetric = uInput.value === 'm';
+    const vdropPct = parseFloat(vdInput.value);
+    const isConduit = conduitInput.checked;
+    
+    if (isNaN(V) || isNaN(A) || isNaN(L) || isNaN(vdropPct) || A <= 0 || L <= 0) {
+      resValue.textContent = "—";
+      resUnit.style.display = 'none';
+      resNote.textContent = "Enter valid numbers to calculate.";
+      return;
+    }
+    
+    let L_ft = isMetric ? L * 3.28084 : L;
+    
+    // Safety Factor (125% for continuous load)
+    const I_adj = A * 1.25;
+    
+    // Target Vdrop in volts
+    const VdropVolts = V * (vdropPct / 100);
+    
+    // CM formula: (2 * 10.75 * Length_ft * I_adj) / VdropVolts
+    // We multiply L_ft by 2 because trolling motors don't use chassis ground.
+    const cm = (2 * 10.75 * L_ft * I_adj) / VdropVolts;
+    
+    const awg = getAWG(cm, I_adj, isConduit);
+    
+    if (awg) {
+      resValue.textContent = awg.gauge;
+      resUnit.style.display = 'inline';
+      
+      // Calculate actual voltage drop with the selected wire's CM
+      const actualVdropVolts = (2 * 10.75 * L_ft * I_adj) / awg.cm;
+      const actualVdropPct = (actualVdropVolts / V) * 100;
+      
+      let note = `Design Current: ${A}A × 1.25 = ${I_adj.toFixed(1)}A. `;
+      if (isConduit) note += `Conduit derating applied. `;
+      note += `Actual Voltage Drop: ${actualVdropPct.toFixed(1)}% (${actualVdropVolts.toFixed(2)}V).`;
+      
+      resNote.textContent = note;
+    } else {
+      resValue.textContent = "Too Large";
+      resUnit.style.display = 'none';
+      resNote.textContent = "Wire size exceeds 4/0 AWG. Consider increasing voltage or reducing length.";
+    }
+  }
+  
+  [vInput, aInput, lInput, uInput, vdInput, conduitInput].forEach(el => {
+    if(el) {
+        el.addEventListener('input', calculate);
+        el.addEventListener('change', calculate);
+    }
+  });
+  
+  calculate(); // initial calculation
+});
+</script>
+</body>
+</html>
